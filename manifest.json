@@ -1,0 +1,84 @@
+{
+  "name": "CloudyCode.dev - Ahmed Belal | DevOps & Cloud Engineer",
+  "short_name": "CloudyCode",
+  "description": "DevOps & Cloud Engineer Portfolio - Building the Future of Infrastructure",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#1D1127",
+  "theme_color": "#7127ba",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "View featured projects",
+      "url": "/#projects",
+      "icons": [
+        {
+          "src": "/images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Skills",
+      "short_name": "Skills",
+      "description": "View tech stack",
+      "url": "/#skills",
+      "icons": [
+        {
+          "src": "/images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Certifications",
+      "short_name": "Certs",
+      "description": "View certifications",
+      "url": "/#certifications",
+      "icons": [
+        {
+          "src": "/images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch",
+      "url": "mailto:eng.abelal@gmail.com",
+      "icons": [
+        {
+          "src": "/images/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "categories": ["devops", "cloud", "portfolio", "engineering"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

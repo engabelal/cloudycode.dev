@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - CloudyCode</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #1D1127 0%, #2D1B3D 100%);
+      color: #FFFFFF;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-center;
+      padding: 1rem;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    p {
+      color: #B4A5C3;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #7127ba 0%, #FF4785 100%);
+      border: none;
+      border-radius: 9999px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 32px rgba(113, 39, 186, 0.3);
+    }
+
+    .tips {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      text-align: left;
+    }
+
+    .tips h3 {
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      font-size: 1.125rem;
+    }
+
+    .tips ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tips li {
+      color: #B4A5C3;
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .tips li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #7127ba;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      ☁️
+    </div>
+
+    <h1>You're Offline</h1>
+
+    <p>
+      Looks like you've lost your internet connection. Don't worry, you can retry when you're back online.
+    </p>
+
+    <button onclick="location.reload()">
+      Retry Connection
+    </button>
+
+    <div class="tips">
+      <h3>Connection Tips:</h3>
+      <ul>
+        <li>Check your Wi-Fi or mobile data connection</li>
+        <li>Make sure airplane mode is turned off</li>
+        <li>Try moving to an area with better signal</li>
+        <li>Restart your router if using Wi-Fi</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Auto-retry when connection is restored
+    window.addEventListener('online', () => {
+      location.reload();
+    });
+
+    // Check connection status
+    if (navigator.onLine) {
+      // User is actually online, try reloading
+      location.reload();
+    }
+  </script>
+</body>
+</html>
