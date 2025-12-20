@@ -349,15 +349,6 @@ h3 {
   justify-content: center;
 }
 
-.avatar-glow {
-  position: absolute;
-  width: 150%;
-  height: 150%;
-  background: radial-gradient(circle, rgba(147, 51, 234, 0.45) 0%, transparent 70%);
-  z-index: -1;
-  border-radius: 50%;
-  pointer-events: none;
-}
 
 .basic-information .me .avatar .avatar-image {
   width: 100%;
@@ -365,7 +356,7 @@ h3 {
   border-radius: 50%;
   opacity: 0;
   object-fit: contain;
-  animation: avatarFadeIn 1s ease-out both, avatarFloat 6s ease-in-out infinite 1s;
+  animation: avatarFadeIn 1s ease-out both;
 }
 
 @keyframes avatarFadeIn {
@@ -373,10 +364,6 @@ h3 {
   100% { opacity: 1; transform: scale(1); }
 }
 
-@keyframes avatarFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
 
 .basic-information .quote {
   margin-left: 0;
@@ -392,15 +379,17 @@ h3 {
 }
 
 .basic-information .quote .who {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  font-size: 1.15rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   font-family: 'Dammit Sans', 'Rubik', sans-serif;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
   display: block;
+  line-height: 1.6;
 }
+
 
 .basic-information .quote .judges-a-book {
   font-size: 3.5rem;
@@ -431,6 +420,14 @@ h3 {
 
 .purple-text-light {
   color: #a362ff;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(163, 98, 255, 0.3);
+}
+
+.pink-text {
+  color: #FD44B0;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(253, 68, 176, 0.3);
 }
 
 /* Original Media Queries */
@@ -853,7 +850,8 @@ h3 {
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
-  background-color: var(--bg-dark-primary);
+  background-color: #201633;
+  transform: scaleY(-1);
 }
 
 .bg-layer {
@@ -867,9 +865,9 @@ h3 {
 .gradient-layer {
   background: linear-gradient(
     to bottom,
-    rgb(31, 22, 51) 0%,
+    rgb(32, 22, 51) 0%,
     rgb(48, 20, 95) 52.4%,
-    rgb(48, 20, 95) 100%
+    rgb(32, 22, 51) 100%
   );
   z-index: 1;
 }
@@ -886,7 +884,7 @@ h3 {
 .glow-layer {
   background: radial-gradient(
     50% 50% at 50% 50%,
-    rgba(173, 108, 170, 0.15) 0%,
+    rgba(173, 108, 170, 0.08) 0%,
     transparent 65%
   );
   z-index: 3;
