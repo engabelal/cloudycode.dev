@@ -51,29 +51,19 @@ export function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
 
-  let lastScroll = 0;
-
-  const handleScroll = throttle(() => {
+  const handleScroll = () => {
     const currentScroll = window.pageYOffset;
 
-    // Add shadow when scrolled
-    if (currentScroll > 50) {
-      navbar.classList.add('shadow-xl');
+    if (currentScroll > 10) {
+      navbar.classList.add('scrolled');
     } else {
-      navbar.classList.remove('shadow-xl');
+      navbar.classList.remove('scrolled');
     }
+  };
 
-    // Hide/show navbar on scroll (optional)
-    // if (currentScroll > lastScroll && currentScroll > 100) {
-    //   navbar.style.transform = 'translateY(-100%)';
-    // } else {
-    //   navbar.style.transform = 'translateY(0)';
-    // }
-
-    lastScroll = currentScroll;
-  }, 100);
-
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  // Call once initially to set state
+  handleScroll();
 }
 
 // Scroll Progress Bar

@@ -53,7 +53,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-primary);
-  background-color: transparent;
+  background-color: #201633;
   color: var(--text-primary);
   line-height: 1.6;
   position: relative;
@@ -210,6 +210,29 @@ h3 {
   padding: 9rem 0;
   clip-path: polygon(0% 3rem, 100% 0%, 100% calc(100% - 3rem), 0% 100%);
   margin-bottom: -3rem;
+}
+
+/* ========================================
+   Header & Navigation
+   ======================================== */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  z-index: 1000;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#navbar.scrolled {
+  background-color: #201633;
+  /* Add matching texture to avoid visual break */
+  background-image: url("https://sentry.io/_astro/middle-bg-texture.Bj4JNsdD.webp");
+  background-size: 200px 200px;
 }
 
 /* ========================================
@@ -378,16 +401,27 @@ h3 {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-.basic-information .quote .who {
-  font-size: 1.15rem;
+.basic-information .quote .greeting {
+  font-size: 1.3rem;
   text-transform: none;
   letter-spacing: 0.02em;
-  font-weight: 600;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.7);
-  font-family: 'Dammit Sans', 'Rubik', sans-serif;
-  margin-bottom: 1.25rem;
+  font-family: 'Preahvihear', sans-serif;
+  margin-bottom: 0.5rem;
   display: block;
-  line-height: 1.6;
+}
+
+.basic-information .quote .who {
+  font-size: 1.5rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Preahvihear', sans-serif;
+  margin-bottom: 1.5rem;
+  display: block;
+  line-height: 1.2;
 }
 
 
@@ -419,15 +453,15 @@ h3 {
 }
 
 .purple-text-light {
-  color: #a362ff;
+  color: #ffffff;
   font-weight: 700;
-  text-shadow: 0 0 15px rgba(163, 98, 255, 0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .pink-text {
-  color: #FD44B0;
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 700;
-  text-shadow: 0 0 15px rgba(253, 68, 176, 0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Original Media Queries */
@@ -842,11 +876,11 @@ h3 {
 
 /* Global Background Layers - Scrolling with content */
 .background-layers {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Covers full document height */
+  height: 100vh;
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
