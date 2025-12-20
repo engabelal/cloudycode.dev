@@ -1,14 +1,63 @@
 /* ========================================
-   SENTRY.IO COLOR & DESIGN TOKENS
-   Exact values sampled from reference page
+   CLOUDYCODE COLOR & DESIGN TOKENS
+   Sync'd with exact Sentry.io technical specs
    ======================================== */
 
 :root {
-  /* ===== PURPLE BACKGROUNDS ===== */
-  --purple-900: #201633;              /* Main dark purple background */
-  --purple-800: #2B1F3F;              /* Slightly lighter purple */
-  --purple-700: #362d59;              /* Medium purple */
-  --purple-600: #452650;              /* Deep purple for accents */
+  /* Global Resets & Browser Prefixes */
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Breakpoints */
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1152px;
+
+  /* Layout Variables */
+  --xs: 0%;
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1152px;
+
+  /* Primary Theme Colors */
+  --bg-primary: #1F1633;
+  --bg-secondary: #181225;
+  --text-primary: #ffffff;
+  --text-secondary: #ececf1;
+  --border-color: #362d59;
+
+  /* Utility Variables (Tailwind Compatible) */
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / .5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+
+  /* Legacy & Internal Logic */
+  --gradientHeight: 30%;
+  --purple-900: #1F1633;
+  --purple-800: #2B1F3F;
+  --purple-700: #362d59;
+  --purple-600: #452650;
 
   /* ===== GRADIENTS ===== */
   /* Hero & main dark sections - radial gradient */

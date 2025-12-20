@@ -46,18 +46,18 @@ const siteConfig = {
     },
   },
 
-  // PWA - Updated for Sentry-inspired design
+  // PWA Configuration
   pwa: {
     name: 'Cloudycode',
     shortName: 'Cloudycode',
     themeColor: '#7127ba',        // CloudyCode brand purple
-    backgroundColor: '#1D1127',    // Sentry-inspired dark purple
+    backgroundColor: '#1D1127',    // Brand dark purple
   },
 
   // Version
   // IMPORTANT: When updating this version, also update CACHE_VERSION in sw.js
   // This is the single source of truth for the site version displayed in the footer
-  // Version 7.0.0 - Complete redesign with Sentry.io-inspired layout
+  // Version 7.0.0 - Complete redesign
   version: '7.0.0',
 };
 

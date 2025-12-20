@@ -12,15 +12,17 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#201633">
 
-  <!-- Fonts: Plus Jakarta Sans (Titles) & Inter (Body) -->
+  <!-- Fonts: Rubik (Modern Brand Font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Custom CSS -->
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/custom.css">
 
   <!-- Critical Inline CSS to prevent background flicker -->
@@ -33,85 +35,101 @@
 </head>
 <body>
   <!-- Global Background Layers -->
-  <div class="bg-layers-wrapper">
-    <div class="bg-layer-1"></div>
-    <div class="bg-layer-2"></div>
-    <div class="bg-layer-3"></div>
+  <div class="background-layers">
+    <div class="bg-layer gradient-layer"></div>
+    <div class="bg-layer texture-layer"></div>
+    <div class="bg-layer glow-layer"></div>
+    <div class="bg-layer particles-layer"></div>
   </div>
 
   <!-- Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Discord Banner -->
-  <div style="background: linear-gradient(135deg, #e1567c 0%, #c83852 100%); padding: 0.75rem 0; text-align: center; position: relative; z-index: 101;">
-    <a href="#contact" style="color: white; text-decoration: none; font-size: 0.875rem; font-weight: 500;">
-      Looking for a Senior DevOps Engineer to scale your infrastructure? Let's chat! →
-    </a>
-  </div>
+  <!-- Main Header - Navigation at the very top -->
+  <header style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100;">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-container" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%;">
+          <!-- Logo Section (Left) -->
+          <div style="display: flex; justify-content: flex-start;">
+            <a href="#home" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-right: 0.625rem;">
+                <circle cx="14" cy="14" r="14" fill="#E1567C"/>
+                <path d="M14 8L10 18H12L14 13L16 18H18L14 8Z" fill="white"/>
+              </svg>
+              <span style="font-size: 1.15rem; font-weight: 800; color: white; letter-spacing: 0.05em; text-transform: uppercase; font-family: 'Dammit Sans', sans-serif;">Cloudycode</span>
+            </a>
+          </div>
 
-  <!-- Navigation -->
-  <nav class="navbar glass-panel">
-    <div class="container">
-      <div class="nav-container">
-        <div style="display: flex; align-items: center; gap: 2.5rem;">
-          <a href="#home" class="logo" style="display: flex; align-items: center;">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-right: 0.5rem;">
-              <circle cx="14" cy="14" r="14" fill="#7127ba"/>
-              <path d="M14 8L10 18H12L14 13L16 18H18L14 8Z" fill="white"/>
-            </svg>
-            <span style="font-size: 1.25rem; font-weight: 600; color: white;">Cloudycode</span>
-          </a>
+          <!-- Menu Section (Center) -->
+          <div style="display: flex; justify-content: center;">
+            <ul class="nav-menu" id="nav-menu" style="display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0;">
+              <li><a href="#home" class="nav-link" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">About</a></li>
+              <li><a href="#skills" class="nav-link" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">Experience</a></li>
+              <li><a href="#projects" class="nav-link" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">Projects</a></li>
+              <li><a href="#certifications" class="nav-link" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">Certs</a></li>
+            </ul>
+          </div>
 
-          <ul class="nav-menu" id="nav-menu">
-            <li>
-              <a href="#platform" class="nav-link" style="display: flex; align-items: center; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;">
-                Platform <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 0.4rem;"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#solutions" class="nav-link" style="display: flex; align-items: center; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;">
-                Solutions <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 0.4rem;"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#kitchen-sink" class="nav-link" style="display: flex; align-items: center; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;">
-                Kitchen Sink <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 0.4rem;"></i>
-              </a>
-            </li>
-            <li><a href="#docs" class="nav-link" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;">Docs</a></li>
-            <li><a href="#pricing" class="nav-link" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;">Pricing</a></li>
-          </ul>
+          <!-- CTA Section (Right) -->
+          <div style="display: flex; justify-content: flex-end; align-items: center; gap: 1.25rem;">
+            <a href="#github" class="nav-link" style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.08em; font-weight: 700; color: white; text-decoration: none;">Sign In</a>
+            <a href="#contact" class="btn" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.6rem 1.15rem; border-radius: 0.375rem; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.2s;">Get Demo</a>
+            <a href="#contact" class="btn" style="background: white; color: #1F1633; padding: 0.6rem 1.15rem; border-radius: 0.375rem; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.2s;">Get Started</a>
+          </div>
+
+          <button class="mobile-menu-button" id="mobile-menu-btn" aria-label="Toggle menu" style="display: none; position: absolute; right: 2rem;">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
-
-        <div style="display: flex; align-items: center; gap: 1rem;">
-          <a href="#linkedin" class="nav-link" style="padding: 0; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;">LinkedIn</a>
-          <a href="#github" class="btn btn-secondary" style="padding: 0.625rem 1.25rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">GitHub</a>
-          <a href="#contact" class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Let's Talk</a>
-        </div>
-
-        <button class="mobile-menu-button" id="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <main id="main-content">
 
     <section class="hero-section" style="background: transparent;">
+      <div class="hero-overlay"></div>
 
-      <div class="container" style="position: relative; z-index: 10;">
+      <div class="container-hero" style="position: relative; z-index: 10;">
         <div class="hero-content">
-          <h1 class="hero-title" style="font-size: 5.5rem; margin-bottom: 2rem; line-height: 1.2;">
-            Manual Ops <span class="animated-breaks">breaks,</span> automation scales.
+          <!-- Centered Announcement Pill (Discord Replacement) -->
+          <div style="margin-bottom: 2.5rem;">
+            <a href="#contact" style="display: inline-flex; align-items: center; background: rgba(106, 95, 193, 0.4); color: white; padding: 0.625rem 1.5rem; border-radius: 9999px; text-decoration: none; font-size: 0.875rem; font-weight: 500; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;" class="hover-lift">
+              Want to connect with the folks building CloudyCode? Join us on Discord. &nbsp; <i class="fas fa-arrow-right" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+
+
+          <h1 class="hero-title">
+            Systems <span class="animated-breaks">fail,</span> recover faster
           </h1>
-          <p class="hero-subtitle" style="font-size: 1.25rem; max-width: 650px; margin: 0 auto 2.5rem;">
-            Ahmed Belal — DevOps & Cloud Engineer turning infrastructure complexity into <span style="color: #fa7faa; font-weight: 600;">scalable, automated reality.</span>
-          </p>
+
+          <!-- Original Basic Information Section -->
+          <div class="basic-information">
+            <div class="me">
+              <div class="avatar">
+                <div class="avatar-glow"></div>
+                <img class="avatar-image" src="./images/avatar.webp" alt="Ahmed Belal - DevOps Engineer" loading="eager" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="quote">
+              <p class="who">Hello! I'm <span class="purple-text-light">Ahmed Belal</span> , A DevOps &amp; Cloud Engineer who</p>
+              <p class="judges-a-book">
+                Codes infrastructure <br>
+                like <span class="purple-text-light">poetry</span>...
+              </p>
+              <p class="affirmative typing-text">
+                <span class="typed-text"></span><span class="cursor">|</span>
+              </p>
+            </div>
+          </div>
+
           <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary" style="padding: 0.875rem 1.75rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; font-size: 0.875rem;">View Projects</a>
-            <a href="#github" class="btn btn-secondary" style="padding: 0.875rem 1.75rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; font-size: 0.875rem;">
-              Explore repositories
+            <a href="#projects" class="btn" style="background: #ffffff; color: #1F1633; padding: 0.875rem 2rem; text-transform: uppercase; font-weight: 700; border-radius: 0.375rem; border: none; font-size: 0.875rem;">Get Started</a>
+            <a href="#github" class="btn" style="background: transparent; color: #ffffff; padding: 0.875rem 2rem; text-transform: uppercase; font-weight: 700; border-radius: 0.375rem; border: 2px solid #e1567c; font-size: 0.875rem; margin-left: 1rem;">
+              See repositories
             </a>
           </div>
         </div>
@@ -202,8 +220,8 @@
 
     </section>
 
-    <!-- Customer Logos Band -->
-    <section style="background-color: transparent; padding-top: 4rem; padding-bottom: 4rem;">
+    <!-- Customer Logos Band - Transparent to show space -->
+    <section id="about" style="background-color: transparent; padding-top: 4rem; padding-bottom: 2rem; position: relative; z-index: 1;">
       <div style="width: 100%; max-width: 1152px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem;">
         <p style="text-align: center; color: white; font-size: 0.75rem; margin-bottom: 3rem; text-transform: uppercase; letter-spacing: 1px; line-height: 1.5; font-weight: 600;">
           MASTERY OVER MODERN DEVOPS & CLOUD ARCHITECTURE
@@ -225,11 +243,12 @@
       </div>
     </section>
 
-    <!-- 2. Product Showcase - Floating Cards -->
-    <section class="section-textured section-ribbon" style="padding: 0; position: relative; overflow: visible; background: transparent;">
+    <!-- 2. Product Showcase - Developer First Section -->
+    <section id="skills" class="section-textured section-ribbon" style="padding: 0; position: relative; overflow: visible; background: transparent;">
+      <div class="section-overlay bg-dev-first"></div>
 
       <div style="width: 100%; max-width: 1152px; margin: 0 auto; padding: 8rem 2rem 14rem 2rem; position: relative; z-index: 1;">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 4rem; color: white; font-weight: 700;">When your app breaks, fix it faster with Automation</h2>
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 4rem; color: white; font-weight: 700;">When your systems fail, recover faster with Automation</h2>
 
         <div style="position: relative; min-height: 600px; max-width: 1200px; margin: 0 auto;">
 
@@ -354,8 +373,9 @@
         </div>
     </section>
 
-    <!-- 3. Feature Section: CI/CD -->
+    <!-- 3. Feature Section: Everything's Connected (CI/CD) -->
     <section class="section-ribbon" style="margin-top: -1.5rem; padding-top: 4rem; background: transparent;">
+      <div class="section-overlay bg-everything-connected"></div>
         <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
           <!-- Left: Content -->
@@ -453,8 +473,9 @@
       </div>
     </section>
 
-    <!-- 4. Tracing Section -->
+    <!-- 4. Debugging needs context (Tracing) -->
     <section style="padding: 6rem 0; background: transparent;">
+      <div class="section-overlay bg-debugging-context"></div>
       <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
           <!-- Left: Screenshot Mockup -->
@@ -629,8 +650,9 @@
       </div>
     </section>
 
-    <!-- 8. Getting Started Section -->
-    <section class="section-ribbon bg-white" style="padding: 6rem 0; position: relative; overflow: hidden;">
+    <!-- 7. Getting Started Section -->
+    <section class="section-ribbon" style="padding: 6rem 0; position: relative; overflow: hidden; background: transparent;">
+      <div class="section-overlay bg-dev-first"></div>
 
       <!-- Animation Styles -->
       <style>
@@ -742,25 +764,18 @@
         <!-- Platform Selector - Dark Purple Style -->
         <div style="margin-bottom: 2rem;">
           <select aria-label="Languages" style="width: 100%; padding: 1rem 1.5rem; background: var(--color-deep-purple); color: white; border: none; border-radius: 0.5rem; font-size: 1rem; cursor: pointer; font-weight: 500; appearance: none; background-image: url('data:image/svg+xml,%3Csvg fill=\'white\' height=\'24\' viewBox=\'0 0 24 24\' width=\'24\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 20px;">
-            <option value="sentry.android">Android</option>
-            <option value="sentry.dotnet">.NET</option>
-            <option value="sentry.go">Go</option>
-            <option value="sentry.cocoa.swift">Swift</option>
-            <option value="sentry.javascript.browser">JavaScript</option>
-            <option value="sentry.python">Python</option>
-            <option value="sentry.javascript.react">React</option>
-            <option value="sentry.ruby">Ruby</option>
-            <option value="sentry.javascript.nextjs" selected>Next.js</option>
-            <option value="sentry.php">PHP</option>
-            <option value="sentry.php.laravel">Laravel</option>
-            <option value="sentry.dotnet.aspnetcore">ASP.NET Core</option>
-            <option value="sentry.java.spring-boot">Spring Boot</option>
-            <option value="sentry.javascript.vue">Vue</option>
-            <option value="sentry.javascript.angular">Angular</option>
-            <option value="sentry.javascript.solid">Solid</option>
-            <option value="sentry.javascript.svelte">Svelte</option>
-            <option value="sentry.javascript.astro">Astro</option>
-            <option value="all">See All Platforms</option>
+            <option value="aws" selected>AWS</option>
+            <option value="azure">Azure</option>
+            <option value="gcp">GCP</option>
+            <option value="kubernetes">Kubernetes</option>
+            <option value="terraform">Terraform</option>
+            <option value="ansible">Ansible</option>
+            <option value="docker">Docker</option>
+            <option value="github">GitHub Actions</option>
+            <option value="python">Python</option>
+            <option value="bash">Bash</option>
+            <option value="linux">Linux</option>
+            <option value="all">See All Technologies</option>
           </select>
         </div>
 
@@ -801,8 +816,8 @@
       </div>
     </section>
 
-    <!-- 5. Achievements Section -->
-    <section class="section-ribbon bg-white" style="padding: 6rem 0;">
+    <!-- 5. Achievements Section (Loved by developers) -->
+    <section id="certifications" class="section-ribbon bg-testimonials-footer" style="padding: 6rem 0;">
         <div class="container">
         <div class="text-center mb-4">
           <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Loved by developers at these companies</h2>
@@ -870,7 +885,8 @@
     </section>
 
     <!-- 7. Enterprise Content Section -->
-    <section class="section-ribbon bg-white" style="padding: 6rem 0;">
+    <section class="section-ribbon" style="padding: 6rem 0; background: transparent;">
+      <div class="section-overlay bg-dev-first"></div>
         <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
           <!-- Left: Content -->
@@ -886,7 +902,7 @@
 
             <div style="display: flex; gap: 1rem;">
               <a href="#contact" class="btn hover-lift" style="background: var(--color-deep-purple); color: white; padding: 0.875rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem;">CONTACT SALES</a>
-              <a href="#enterprise" class="btn hover-lift" style="background: transparent; color: var(--color-dark-purple); border: 2px solid var(--color-dark-purple); padding: 0.875rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem;">LEARN MORE ABOUT SENTRY FOR ENTERPRISE</a>
+              <a href="#enterprise" class="btn hover-lift" style="background: transparent; color: var(--color-dark-purple); border: 2px solid var(--color-dark-purple); padding: 0.875rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem;">LEARN MORE ABOUT CLOUDYCODE SOLUTIONS</a>
             </div>
           </div>
 
@@ -987,6 +1003,7 @@
 
     <!-- 10. Final CTA Section -->
     <section style="padding: 8rem 0; background: transparent;">
+      <div class="section-overlay bg-debugging-context"></div>
       <div class="container text-center">
         <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">Fix it, don't observe it.</h2>
         <p class="intro-text" style="max-width: 700px; margin: 0 auto 3rem; opacity: 0.9; font-size: 1.25rem;">
@@ -1003,7 +1020,7 @@
   </main>
 
   <!-- Footer Decoration Strip -->
-  <div style="background: var(--white); position: relative;">
+  <div style="background: transparent; position: relative;">
     <div style="background: var(--purple-900); height: 3px;"></div>
     <svg viewBox="0 0 1200 30" style="width: 100%; height: 30px; display: block;">
       <path d="M0,15 Q150,5 300,15 T600,15 T900,15 T1200,15"
@@ -1013,8 +1030,8 @@
     </svg>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer" style="background: var(--white); color: var(--text-dark); padding: 4rem 0 2rem;">
+  <!-- Footer (Get started) -->
+  <footer class="footer bg-testimonials-footer" style="color: var(--text-dark); padding: 4rem 0 2rem; position: relative;">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-column">
@@ -1082,6 +1099,9 @@
     </div>
   </footer>
 
+  <!-- App Scripts -->
+  <script type="module" src="js/main.js"></script>
+
   <!-- Mobile Menu Script -->
   <script>
     const btn = document.getElementById('mobile-menu-btn');
@@ -1098,7 +1118,7 @@
     // Floating card hover effects
     document.querySelectorAll('.floating-card').forEach(card => {
       const originalRotation = card.getAttribute('data-rotation') || '0deg';
-      const isCenter = card.style.transform.includes('translate(-50%, -50%)');
+      const isCenter = (card.style.transform && card.style.transform.includes('translate(-50%, -50%)'));
 
       card.addEventListener('mouseenter', () => {
         if (isCenter) {

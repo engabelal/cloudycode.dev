@@ -5,13 +5,13 @@ import { prefersReducedMotion, createObserver } from './utils.js';
 
 // Typing Animation
 export function initTypingEffect() {
-  const element = document.getElementById('typing-text');
+  const element = document.querySelector('.typed-text');
   if (!element) return;
 
   const phrases = [
-    'codes infrastructure like poetry...',
-    'builds systems that scale effortlessly...',
-    'automates with elegance and precision...'
+    'Automated, resilient, and brilliantly efficient',
+    'Built for scale, designed for reliability',
+    'Structured, stable, and effortlessly alive'
   ];
 
   let phraseIndex = 0;

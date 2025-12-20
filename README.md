@@ -1,23 +1,23 @@
 # CloudyCode v7.0.0 - Portfolio Website
 
-> A modern, Sentry.io-inspired portfolio website for a DevOps & Cloud Engineer
+> A modern, Modern portfolio website for a DevOps & Cloud Engineer
 
 ![CloudyCode](./images/cloudycode-light.webp)
 
 ## 🎨 Design
 
-This is a complete redesign of the CloudyCode portfolio website, inspired by Sentry.io's modern, professional design language. The site features:
+This is a complete redesign of the CloudyCode portfolio website, inspired by Brand.io's modern, professional design language. The site features:
 
-- **Dark purple aesthetic** (#1F1633 - Sentry exact) with gradient accents
-- **Angled section separators** using CSS clip-path (Sentry's signature design)
+- **Dark purple aesthetic** (#1F1633 - Brand exact) with gradient accents
+- **Angled section separators** using CSS clip-path (Brand's signature design)
 - **Bento-box grid layouts** with asymmetric, angled cards
-- **Exact Sentry gradients** (120deg buttons, radial hero background)
+- **Exact Brand gradients** (120deg buttons, radial hero background)
 - **Responsive design** (mobile-first with vanilla CSS)
 
 ## 🚀 Features
 
 ### Design & UX
-- ✅ Sentry.io-inspired visual design
+- ✅ Modern visual design
 - ✅ Bento-grid project showcase with angled cards
 - ✅ Glassmorphism and backdrop blur effects
 - ✅ Gradient text and backgrounds
@@ -45,7 +45,7 @@ This is a complete redesign of the CloudyCode portfolio website, inspired by Sen
 ### Technical
 - ✅ PWA-enabled (installable, offline support)
 - ✅ Service worker with cache strategy
-- ✅ Vanilla CSS with exact Sentry colors and gradients
+- ✅ Vanilla CSS with exact Brand colors and gradients
 - ✅ CSS clip-path for angled section separators
 - ✅ Vanilla JavaScript (no framework needed)
 - ✅ Accessibility-first (WCAG 2.1 AA)
@@ -80,11 +80,11 @@ new_website/
 
 ### Frontend
 - **HTML5** - Semantic markup
-- **Vanilla CSS** - Custom CSS with Sentry.io exact colors and gradients
+- **Vanilla CSS** - Custom CSS with Brand.io exact colors and gradients
 - **CSS clip-path** - Angled section separators
 - **Vanilla JavaScript** - ES6 modules (no framework)
 - **Font Awesome** - Icons
-- **Google Fonts** - Rubik (Sentry's exact font)
+- **Google Fonts** - Rubik (Brand's exact font)
 
 ### PWA
 - **Service Worker** - Offline support
@@ -111,12 +111,12 @@ Then visit: `http://localhost:8000`
 ### No Build Step Required!
 This is a static site that works directly in the browser. No npm install, no build process needed.
 
-## 🎨 Design System (Sentry.io Exact)
+## 🎨 Design System (Brand.io Exact)
 
-### Colors (Sentry Exact Palette)
+### Colors (Brand Exact Palette)
 ```css
 /* Primary */
---color-dark-purple: #1F1633      /* Sentry's main background */
+--color-dark-purple: #1F1633      /* Brand's main background */
 --color-medium-purple: #2B1F3F    /* Secondary backgrounds */
 --color-accent-purple: #6a5fc1    /* Interactive elements */
 --color-deep-purple: #452650      /* Gradient stops */
@@ -130,8 +130,8 @@ This is a static site that works directly in the browser. No npm install, no bui
 --gradient-hero: radial-gradient(41.11% 49.93% at 50% 49.93%, #8d5494 0%, #563275 52.26%, #1f1633 100%)
 ```
 
-### Typography (Sentry Exact)
-- **Font Family**: Rubik (Sentry's font)
+### Typography (Brand Exact)
+- **Font Family**: Rubik (Brand's font)
 - **Line Height**: 1.6 (body), 1.25 (headings)
 - **Weights**: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
 
@@ -244,7 +244,7 @@ Or drag-and-drop the `new_website` folder to Netlify's web interface.
 ## 🔄 Version History
 
 ### v7.0.0 (Current)
-- Complete redesign inspired by Sentry.io
+- Complete redesign inspired by Brand.io
 - Bento-grid project layouts
 - Glassmorphism effects
 - Tailwind CSS integration

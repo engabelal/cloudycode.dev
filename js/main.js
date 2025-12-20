@@ -1,5 +1,5 @@
 // Main Entry Point
-// CloudyCode v7.0.0 - Sentry.io-Inspired Redesign
+// CloudyCode v7.0.0
 
 import { forceScrollReset, log } from './utils.js';
 import { initAnimations } from './animations.js';
