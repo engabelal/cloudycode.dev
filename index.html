@@ -162,49 +162,28 @@
                 </div>
                 <div class="terminal-title">ahmed@cloudycode: ~ (production)</div>
               </div>
-              <div class="terminal-content">
+              <div class="terminal-content" id="hero-terminal-container">
                 <div class="terminal-line">
                   <span class="prompt">$</span>
-                  <span class="command" id="hero-terminal-command">kubectl get pods -n production</span>
+                  <span class="command" id="hero-terminal-command"></span>
                   <span class="typing-cursor" id="hero-terminal-cursor"></span>
                 </div>
-                <div class="terminal-output-grid" id="hero-terminal-output">
-                  <div class="output-row header">
-                    <span>NAME</span>
-                    <span>READY</span>
-                    <span>STATUS</span>
-                    <span>RESTARTS</span>
-                    <span>AGE</span>
+                <div id="hero-terminal-output-container"></div>
+
+                <!-- Floating Code Stack Trace Card (managed separately) -->
+                <div class="drift-detection-card" id="hero-drift-card">
+                  <div class="drift-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>DRIFT DETECTED</span>
                   </div>
-                  <div class="output-row">
-                    <span>product-api-6d86d58d-v7n2m</span>
-                    <span>1/1</span>
-                    <span class="status-running">Running</span>
-                    <span>0</span>
-                    <span>42m</span>
-                  </div>
-                  <div class="output-row">
-                    <span>auth-service-7f94c8b2-p9k5x</span>
-                    <span>1/1</span>
-                    <span class="status-running">Running</span>
-                    <span>0</span>
-                    <span>12h</span>
-                  </div>
-                  <div class="output-row">
-                    <span>payment-worker-bc84f92a-z4m8q</span>
-                    <span>1/1</span>
-                    <span class="status-running">Running</span>
-                    <span>0</span>
-                    <span>3d</span>
-                  </div>
-                  <div class="output-row">
-                    <span>cloudy-dashboard-5f6d7c8e</span>
-                    <span>1/1</span>
-                    <span class="status-running">Running</span>
-                    <span>0</span>
-                    <span>5m</span>
+                  <div class="drift-body">
+                    <div class="code-line"><span class="op">▶</span> terraform plan</div>
+                    <div class="code-line error"><span class="sign">✗</span> Security Group "ssh-access" changed</div>
+                    <div class="code-line success"><span class="sign">✔</span> Reverting to state: <strong>v2.4.1</strong></div>
+                    <div class="code-comment">// Remediation in progress...</div>
                   </div>
                 </div>
+              </div>
 
                 <!-- Floating Code Stack Trace Card -->
                 <div class="drift-detection-card">

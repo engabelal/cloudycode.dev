@@ -266,40 +266,158 @@ export function initFloatAnimation() {
 
 // Hero Terminal Simulation
 export function initHeroTerminal() {
-  const command = document.getElementById('hero-terminal-command');
-  const output = document.getElementById('hero-terminal-output');
+  const commandEl = document.getElementById('hero-terminal-command');
+  const outputContainer = document.getElementById('hero-terminal-output-container');
   const cursor = document.getElementById('hero-terminal-cursor');
+  const driftCard = document.getElementById('hero-drift-card');
 
-  if (!command || !output || !cursor) return;
+  if (!commandEl || !outputContainer || !cursor) return;
 
-  const fullCommand = 'kubectl get pods -n production';
-  command.textContent = '';
-  let i = 0;
-
-  function typeCommand() {
-    if (i < fullCommand.length) {
-      command.textContent += fullCommand.charAt(i);
-      i++;
-      setTimeout(typeCommand, 70);
-    } else {
-      cursor.style.display = 'none';
-      setTimeout(() => {
-        output.style.opacity = '1';
-      }, 500);
+  const terminalSequence = [
+    {
+      cmd: 'whoami',
+      output: 'Ahmed Belal\nSenior Systems & Cloud Infrastructure Engineer | DevOps & Automation'
+    },
+    {
+      cmd: 'cat /etc/profile',
+      output: '12+ years automating enterprise-scale environments\nHigh-availability solutions with 99.9% uptime\nMulti-cloud architect across KSA and Egypt'
+    },
+    {
+      cmd: 'ls -la /skills/',
+      output: 'drwxr-xr-x  aws/          drwxr-xr-x  kubernetes/\ndrwxr-xr-x  azure/        drwxr-xr-x  terraform/\ndrwxr-xr-x  docker/       drwxr-xr-x  ansible/\ndrwxr-xr-x  linux/        drwxr-xr-x  ci-cd/'
+    },
+    {
+      cmd: 'docker compose ps',
+      output: 'SERVICE              STATUS       UPTIME\naws-infrastructure   healthy      365 days\nkubernetes-cluster   healthy      180 days\nci-cd-pipeline      healthy      90 days'
+    },
+    {
+      cmd: 'kubectl get pods -n production',
+      output: 'NAME                    READY   STATUS    RESTARTS\napi-deployment-7d9f8    2/2     Running   0\ndb-statefulset-0        1/1     Running   0\nmonitoring-stack-5c8    1/1     Running   0'
+    },
+    {
+      cmd: 'git log --oneline -4',
+      output: 'a3f5d2b Multi-cloud disaster recovery implemented\nc7e9b1a Kubernetes resource optimization\n2d4f8e3 Terraform AWS VPC automation\n9b1c6a5 GitLab CI/CD pipeline enhancement'
+    },
+    {
+      cmd: 'curl https://cloudycode.dev/status',
+      output: '✓ Infrastructure: Operational (99.97% uptime)\n✓ All services healthy | Zero incidents\n✓ Multi-region deployment active'
     }
+  ];
+
+  let currentIdx = 0;
+
+  function renderOutput(step) {
+    outputContainer.innerHTML = '';
+    outputContainer.style.opacity = '0';
+
+    // Create pre element for authentic terminal feel
+    const pre = document.createElement('pre');
+    pre.style.color = '#cad3f5';
+    pre.style.whiteSpace = 'pre-wrap';
+    pre.style.fontSize = '0.95rem';
+    pre.style.lineHeight = '1.8';
+    pre.style.margin = '0';
+
+    // Apply special styling based on command
+    if (step.cmd === 'git log --oneline -4') {
+      // Highlight commit hashes in orange
+      const lines = step.output.split('\n');
+      pre.innerHTML = lines.map(line => {
+        const spaceIdx = line.indexOf(' ');
+        const hash = line.substring(0, spaceIdx);
+        const text = line.substring(spaceIdx);
+        return `<span style="color: #f59e0b; font-weight: 700;">${hash}</span><span style="color: rgba(202, 211, 245, 0.9);">${text}</span>`;
+      }).join('\n');
+    } else if (step.cmd.includes('curl')) {
+      pre.style.color = '#00ff88';
+      pre.style.fontWeight = '500';
+      pre.textContent = step.output;
+    } else if (step.cmd.includes('docker') || step.cmd.includes('kubectl')) {
+      // Highlight health/running status
+      let html = step.output;
+      html = html.replace(/healthy/g, '<span class="status-running">healthy</span>');
+      html = html.replace(/Running/g, '<span class="status-running">Running</span>');
+      pre.innerHTML = html;
+    } else if (step.cmd.includes('ls')) {
+      // Colorize directories (skills)
+      let html = step.output;
+      html = html.replace(/(\w+\/)/g, '<span style="color: #a362ff; font-weight: 600;">$1</span>');
+      pre.innerHTML = html;
+    } else {
+      pre.textContent = step.output;
+    }
+
+    outputContainer.appendChild(pre);
+
+    // Fade in animation
+    setTimeout(() => {
+      outputContainer.style.opacity = '1';
+      outputContainer.style.transition = 'opacity 0.4s ease';
+    }, 50);
+
+    // Show/Hide Drift Card (Logic same as old site but improved)
+    const isCritical = step.cmd.includes('terraform') || step.cmd.includes('kubectl');
+    driftCard.style.opacity = isCritical ? '1' : '0.2';
+    driftCard.style.transform = isCritical ? 'rotate(1deg) translateY(0)' : 'rotate(1deg) translateY(20px)';
+    driftCard.style.filter = isCritical ? 'none' : 'blur(2px)';
   }
 
-  // Use Intersection Observer to start animation when visible
+  function typeCommand(step) {
+    let i = 0;
+    commandEl.textContent = '';
+    cursor.style.display = 'none'; // Use inline cursor during typing
+
+    function typeNextChar() {
+      if (i < step.cmd.length) {
+        const char = step.cmd.charAt(i);
+        const currentText = step.cmd.substring(0, i + 1);
+
+        // Inline cursor during typing
+        commandEl.innerHTML = currentText + '<span class="typing-cursor"></span>';
+
+        i++;
+
+        // Match old site's natural typing speed
+        let delay = 50 + Math.random() * 30; // 50-80ms base
+        if (char === ' ') delay += 20;
+        if (char === '/' || char === '-' || char === '.') delay += 15;
+
+        setTimeout(typeNextChar, delay);
+      } else {
+        // Typing complete - keep text, show output after pause
+        commandEl.textContent = step.cmd;
+        setTimeout(() => {
+          renderOutput(step);
+          // Old site output duration: 3000ms
+          setTimeout(nextStep, 3500);
+        }, 500);
+      }
+    }
+
+    typeNextChar();
+  }
+
+  function nextStep() {
+    // Clear for next command
+    outputContainer.style.opacity = '0';
+    setTimeout(() => {
+      currentIdx = (currentIdx + 1) % terminalSequence.length;
+      typeCommand(terminalSequence[currentIdx]);
+    }, 500);
+  }
+
+  // Intersection Observer to start
   const observer = createObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(typeCommand, 1000);
+        // Initial delay matches old site feel
+        setTimeout(() => typeCommand(terminalSequence[0]), 1500);
         observer.unobserve(entry.target);
       }
     });
   });
 
-  observer.observe(command.parentElement);
+  observer.observe(commandEl.parentElement);
 }
 
 // Initialize All Animations
