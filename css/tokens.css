@@ -5,7 +5,7 @@
 
 :root {
   /* ===== PURPLE BACKGROUNDS ===== */
-  --purple-900: #1F1633;              /* Main dark purple background */
+  --purple-900: #201633;              /* Main dark purple background */
   --purple-800: #2B1F3F;              /* Slightly lighter purple */
   --purple-700: #362d59;              /* Medium purple */
   --purple-600: #452650;              /* Deep purple for accents */
@@ -16,7 +16,7 @@
     41.11% 49.93% at 50% 49.93%,
     #8d5494 0%,
     #563275 52.26%,
-    #1f1633 100%
+    #201633 100%
   );
 
   /* Button primary gradient - linear 4-stop */
@@ -62,18 +62,18 @@
   --text-white-70: rgba(255, 255, 255, 0.7);
   --text-white-50: rgba(255, 255, 255, 0.5);
 
-  --text-dark: #1F1633;
-  --text-dark-80: rgba(31, 22, 51, 0.8);
-  --text-dark-60: rgba(31, 22, 51, 0.6);
+  --text-dark: #201633;
+  --text-dark-80: rgba(32, 22, 51, 0.8);
+  --text-dark-60: rgba(32, 22, 51, 0.6);
 
   /* ===== BORDERS & OVERLAYS ===== */
   --border-white-10: rgba(255, 255, 255, 0.1);
   --border-white-20: rgba(255, 255, 255, 0.2);
-  --border-dark-10: rgba(31, 22, 51, 0.1);
+  --border-dark-10: rgba(32, 22, 51, 0.1);
 
   --overlay-white-5: rgba(255, 255, 255, 0.05);
   --overlay-white-10: rgba(255, 255, 255, 0.1);
-  --overlay-dark-5: rgba(31, 22, 51, 0.05);
+  --overlay-dark-5: rgba(32, 22, 51, 0.05);
 
   /* ===== SHADOWS ===== */
   --shadow-sm: 0 2px 0 rgba(54, 45, 89, 0.1);

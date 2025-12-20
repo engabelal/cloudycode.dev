@@ -5,8 +5,9 @@
 
 :root {
   /* ===== PRIMARY BACKGROUNDS ===== */
-  --bg-dark-primary: #1F1633;        /* Main dark purple - hero, feature sections */
+  --bg-dark-primary: #201633;        /* Main dark purple - hero, feature sections */
   --bg-dark-secondary: #2B1F3F;      /* Slightly lighter dark purple */
+  --bg-nebula: #30145F;              /* Brighter nebula purple */
   --bg-medium-purple: #362d59;       /* Medium purple accents */
   --bg-deep-purple: #452650;         /* Deep purple for buttons/accents */
 
@@ -14,13 +15,33 @@
   --bg-light-secondary: #f9f8ff;     /* Very light lavender */
   --bg-light-dots: #f9f8ff;          /* Background with dot pattern */
 
+  /* Hero Section Nebula */
+  --img-nebula: url("https://sentry.io/_astro/welcome-bg.Ddg34pCD.webp");
+
   /* ===== GRADIENTS ===== */
   /* Hero Section Gradient - Radial */
   --gradient-hero: radial-gradient(
-    41.11% 49.93% at 50% 49.93%,
-    #8d5494 0%,
-    #563275 52.26%,
-    #1f1633 100%
+    50% 50% at 50% 50%,
+    rgba(141, 84, 148, 0.45) 0%,
+    rgba(86, 50, 117, 0.3) 52.26%,
+    #201633 100%
+  );
+
+  /* Middle Section Grain Texture */
+  --texture-grain: url("https://sentry.io/_astro/middle-bg-texture.Bj4JNsdD.webp");
+
+  /* Middle Transition Gradient */
+  --gradient-middle: linear-gradient(
+    #201633 0%,
+    #30145F 52.4%,
+    #30145F 100%
+  );
+
+  /* Pink Glow Layer (Radial) */
+  --glow-pink: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(173, 108, 170, 0.15) 0%,
+    rgba(32, 22, 51, 0) 70%
   );
 
   /* Primary Button Gradient - Linear */
@@ -46,7 +67,7 @@
     41.11% 49.93% at 50% 49.93%,
     #8d5494 0%,
     #563275 52.26%,
-    #1f1633 100%
+    #201633 100%
   );
 
   /* ===== ACCENT COLORS ===== */
@@ -67,13 +88,13 @@
   --text-on-dark-secondary: rgba(255, 255, 255, 0.9);  /* Slightly transparent */
   --text-on-dark-muted: rgba(255, 255, 255, 0.7);      /* Muted text */
 
-  --text-on-light: #1F1633;          /* Dark purple text on light backgrounds */
-  --text-on-light-secondary: rgba(31, 22, 51, 0.8);    /* Secondary dark text */
-  --text-on-light-muted: rgba(31, 22, 51, 0.6);        /* Muted dark text */
+  --text-on-light: #201633;          /* Dark purple text on light backgrounds */
+  --text-on-light-secondary: rgba(32, 22, 51, 0.8);    /* Secondary dark text */
+  --text-on-light-muted: rgba(32, 22, 51, 0.6);        /* Muted dark text */
 
   /* ===== UI ELEMENTS ===== */
   --border-light: rgba(255, 255, 255, 0.1);            /* Borders on dark */
-  --border-dark: rgba(31, 22, 51, 0.1);                /* Borders on light */
+  --border-dark: rgba(32, 22, 51, 0.1);                /* Borders on light */
 
   --card-bg-on-dark: rgba(255, 255, 255, 0.05);        /* Card backgrounds on dark */
   --card-bg-on-light: #ffffff;                          /* Card backgrounds on light */
@@ -103,7 +124,8 @@
   --radius-lg: 1rem;                 /* 16px */
 
   /* ===== TYPOGRAPHY ===== */
-  --font-primary: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 
   --font-weight-normal: 400;
