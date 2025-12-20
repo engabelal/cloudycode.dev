@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:sentry.io)"
+      "WebFetch(domain:sentry.io)",
+      "Bash(open:*)"
     ]
   }
 }
