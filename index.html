@@ -143,13 +143,6 @@
 
         <!-- Dashboard Screenshot Mockup -->
         <div style="position: relative; max-width: 900px; margin: 4rem auto 0; z-index: 1;">
-          <!-- Yellow Warning Icons (floating) -->
-          <div style="position: absolute; top: -40px; left: 10%; width: 60px; height: 60px; background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); z-index: 10; animation: float 3s ease-in-out infinite;">
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #78350F; font-size: 1.5rem; font-weight: 900;">!</div>
-          </div>
-          <div style="position: absolute; top: 0px; left: 2%; width: 50px; height: 50px; background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); z-index: 10; animation: float 3s ease-in-out infinite 0.5s;">
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #78350F; font-size: 1.25rem; font-weight: 900;">!</div>
-          </div>
 
           <!-- Terminal Simulation Mockup -->
           <div class="hero-terminal">
@@ -160,7 +153,11 @@
                   <span class="dot yellow"></span>
                   <span class="dot green"></span>
                 </div>
-                <div class="terminal-title">ahmed@cloudycode: ~ (production)</div>
+                <div class="terminal-title">ahmed@cloudycode: ~</div>
+                <div class="terminal-context" id="terminal-context-indicator">
+                  <span class="status-dot"></span>
+                  PROD-CLUSTER
+                </div>
               </div>
               <div class="terminal-content" id="hero-terminal-container">
                 <div class="terminal-line">
@@ -168,36 +165,22 @@
                   <span class="command" id="hero-terminal-command"></span>
                   <span class="typing-cursor" id="hero-terminal-cursor"></span>
                 </div>
-                <div id="hero-terminal-output-container"></div>
-
-                <!-- Floating Code Stack Trace Card (managed separately) -->
-                <div class="drift-detection-card" id="hero-drift-card">
-                  <div class="drift-header">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>DRIFT DETECTED</span>
-                  </div>
-                  <div class="drift-body">
-                    <div class="code-line"><span class="op">▶</span> terraform plan</div>
-                    <div class="code-line error"><span class="sign">✗</span> Security Group "ssh-access" changed</div>
-                    <div class="code-line success"><span class="sign">✔</span> Reverting to state: <strong>v2.4.1</strong></div>
-                    <div class="code-comment">// Remediation in progress...</div>
-                  </div>
-                </div>
+                <!-- Output Area with sufficient height -->
+                <div id="hero-terminal-output-container" style="min-height: 280px;"></div>
               </div>
+            </div>
 
-                <!-- Floating Code Stack Trace Card -->
-                <div class="drift-detection-card">
-                  <div class="drift-header">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>DRIFT DETECTED</span>
-                  </div>
-                  <div class="drift-body">
-                    <div class="code-line"><span class="op">▶</span> terraform plan</div>
-                    <div class="code-line error"><span class="sign">✗</span> Security Group "ssh-access" changed</div>
-                    <div class="code-line success"><span class="sign">✔</span> Reverting to state: <strong>v2.4.1</strong></div>
-                    <div class="code-comment">// Remediation in progress...</div>
-                  </div>
-                </div>
+            <!-- Floating Card (Moved outside window for better layering) -->
+            <div class="drift-detection-card" id="hero-drift-card">
+              <div class="drift-header">
+                <i class="fas fa-shield-alt"></i>
+                <span>ANOMALY DETECTED</span>
+              </div>
+              <div class="drift-body">
+                <div class="code-line"><span class="op">▶</span> infrastructure-check</div>
+                <div class="code-line error"><span class="sign">✗</span> Root access from unknown IP</div>
+                <div class="code-line success"><span class="sign">✔</span> MFA enforced | Session terminated</div>
+                <div class="code-comment">// System secured. Monitoring...</div>
               </div>
             </div>
           </div>

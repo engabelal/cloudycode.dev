@@ -270,126 +270,218 @@ export function initHeroTerminal() {
   const outputContainer = document.getElementById('hero-terminal-output-container');
   const cursor = document.getElementById('hero-terminal-cursor');
   const driftCard = document.getElementById('hero-drift-card');
+  const contextIndicator = document.getElementById('terminal-context-indicator');
 
   if (!commandEl || !outputContainer || !cursor) return;
 
   const terminalSequence = [
     {
       cmd: 'whoami',
-      output: 'Ahmed Belal\nSenior Systems & Cloud Infrastructure Engineer | DevOps & Automation'
+      output: 'Ahmed Belal\nSenior Systems & Cloud Infrastructure Engineer | DevOps & Automation',
+      context: 'LOCAL'
     },
     {
       cmd: 'cat /etc/profile',
-      output: '12+ years automating enterprise-scale environments\nHigh-availability solutions with 99.9% uptime\nMulti-cloud architect across KSA and Egypt'
+      output: '12+ years automating enterprise-scale environments\nHigh-availability solutions with 99.9% uptime\nMulti-cloud architect across KSA and Egypt',
+      context: 'LOCAL'
     },
     {
       cmd: 'ls -la /skills/',
-      output: 'drwxr-xr-x  aws/          drwxr-xr-x  kubernetes/\ndrwxr-xr-x  azure/        drwxr-xr-x  terraform/\ndrwxr-xr-x  docker/       drwxr-xr-x  ansible/\ndrwxr-xr-x  linux/        drwxr-xr-x  ci-cd/'
+      output: 'drwxr-xr-x  admin  staff   aws/\ndrwxr-xr-x  admin  staff   kubernetes/\ndrwxr-xr-x  admin  staff   azure/\ndrwxr-xr-x  admin  staff   terraform/\ndrwxr-xr-x  admin  staff   docker/\ndrwxr-xr-x  admin  staff   ansible/\ndrwxr-xr-x  admin  staff   linux/\ndrwxr-xr-x  admin  staff   ci-cd/',
+      context: 'LOCAL'
     },
     {
       cmd: 'docker compose ps',
-      output: 'SERVICE              STATUS       UPTIME\naws-infrastructure   healthy      365 days\nkubernetes-cluster   healthy      180 days\nci-cd-pipeline      healthy      90 days'
+      output: 'SERVICE              STATUS          UPTIME\naws-infrastructure   healthy         365 days\nkubernetes-cluster   healthy         180 days\nci-cd-pipeline       healthy         90 days',
+      context: 'DOCKER-ENGINE'
     },
     {
       cmd: 'kubectl get pods -n production',
-      output: 'NAME                    READY   STATUS    RESTARTS\napi-deployment-7d9f8    2/2     Running   0\ndb-statefulset-0        1/1     Running   0\nmonitoring-stack-5c8    1/1     Running   0'
+      output: 'NAME                    READY   STATUS    RESTARTS\napi-deployment-7d9f8    2/2     Running   0\ndb-statefulset-0        1/1     Running   0\nmonitoring-stack-5c8    1/1     Running   0',
+      context: 'K8S-CLUSTER-PROD'
     },
     {
       cmd: 'git log --oneline -4',
-      output: 'a3f5d2b Multi-cloud disaster recovery implemented\nc7e9b1a Kubernetes resource optimization\n2d4f8e3 Terraform AWS VPC automation\n9b1c6a5 GitLab CI/CD pipeline enhancement'
+      output: 'a3f5d2b Multi-cloud disaster recovery implemented\nc7e9b1a Kubernetes resource optimization\n2d4f8e3 Terraform AWS VPC automation\n9b1c6a5 GitLab CI/CD pipeline enhancement',
+      context: 'GIT-REPO'
     },
     {
       cmd: 'curl https://cloudycode.dev/status',
-      output: '✓ Infrastructure: Operational (99.97% uptime)\n✓ All services healthy | Zero incidents\n✓ Multi-region deployment active'
+      output: '✓ Infrastructure: Operational (99.97% uptime)\n✓ All services healthy | Zero incidents\n✓ Multi-region deployment active',
+      context: 'EXTERNAL-API'
     }
   ];
 
   let currentIdx = 0;
 
+  function highlightCommand(cmd) {
+    if (!cmd) return '';
+    const parts = cmd.split(' ');
+    let html = '';
+
+    parts.forEach((part, index) => {
+      let spanClass = 'cmd-arg';
+      if (index === 0 && part !== '') spanClass = 'cmd-bin';
+      else if (part.startsWith('-')) spanClass = 'cmd-flag';
+      else if (part.includes('/') || part.startsWith('http')) spanClass = 'cmd-path';
+
+      if (part !== '') {
+        html += `<span class="${spanClass}">${part}</span>`;
+      }
+
+      if (index < parts.length - 1) {
+        html += ' ';
+      }
+    });
+
+    return html;
+  }
+
   function renderOutput(step) {
     outputContainer.innerHTML = '';
     outputContainer.style.opacity = '0';
 
-    // Create pre element for authentic terminal feel
-    const pre = document.createElement('pre');
-    pre.style.color = '#cad3f5';
-    pre.style.whiteSpace = 'pre-wrap';
-    pre.style.fontSize = '0.95rem';
-    pre.style.lineHeight = '1.8';
-    pre.style.margin = '0';
+    // Check if command is tabular
+    const isDocker = step.cmd.includes('docker');
+    const isK8s = step.cmd.includes('kubectl');
+    const isLs = step.cmd.includes('ls -la');
 
-    // Apply special styling based on command
-    if (step.cmd === 'git log --oneline -4') {
-      // Highlight commit hashes in orange
+    if (isDocker || isK8s) {
+      const grid = document.createElement('div');
+      grid.style.display = 'grid';
+      grid.style.width = '100%';
+
+      // Define rigid column widths to ensure perfect alignment
+      grid.style.gridTemplateColumns = isDocker ? '200px 120px 1fr' : '200px 80px 100px 1fr';
+      grid.style.gap = '8px 15px';
+
       const lines = step.output.split('\n');
-      pre.innerHTML = lines.map(line => {
-        const spaceIdx = line.indexOf(' ');
-        const hash = line.substring(0, spaceIdx);
-        const text = line.substring(spaceIdx);
-        return `<span style="color: #f59e0b; font-weight: 700;">${hash}</span><span style="color: rgba(202, 211, 245, 0.9);">${text}</span>`;
-      }).join('\n');
-    } else if (step.cmd.includes('curl')) {
-      pre.style.color = '#00ff88';
-      pre.style.fontWeight = '500';
-      pre.textContent = step.output;
-    } else if (step.cmd.includes('docker') || step.cmd.includes('kubectl')) {
-      // Highlight health/running status
-      let html = step.output;
-      html = html.replace(/healthy/g, '<span class="status-running">healthy</span>');
-      html = html.replace(/Running/g, '<span class="status-running">Running</span>');
-      pre.innerHTML = html;
-    } else if (step.cmd.includes('ls')) {
-      // Colorize directories (skills)
-      let html = step.output;
-      html = html.replace(/(\w+\/)/g, '<span style="color: #a362ff; font-weight: 600;">$1</span>');
-      pre.innerHTML = html;
+      lines.forEach((line, idx) => {
+        const cells = line.trim().split(/\s{2,}/);
+
+        // If line splitting failed to get enough cells, try fallback split for headers
+        const finalCells = (cells.length < 2) ? line.trim().split(/\s+/) : cells;
+
+        finalCells.forEach((cellText, cellIdx) => {
+          const cell = document.createElement('span');
+          cell.style.whiteSpace = 'nowrap';
+
+          if (idx === 0) {
+            // Header styling
+            cell.style.color = 'rgba(255, 255, 255, 0.2)';
+            cell.style.fontSize = '0.7rem';
+            cell.style.textTransform = 'uppercase';
+            cell.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
+            cell.style.paddingBottom = '4px';
+          }
+
+          if (cellText === 'healthy' || cellText === 'Running') {
+            cell.innerHTML = `<span class="badge ${cellText === 'healthy' ? 'badge-healthy' : 'badge-running'}">${cellText}</span>`;
+          } else {
+            cell.textContent = cellText;
+            if (idx > 0) {
+              cell.style.color = (cellIdx === 0) ? '#fff' : 'rgba(202, 211, 245, 0.7)';
+            }
+          }
+          grid.appendChild(cell);
+        });
+      });
+      outputContainer.appendChild(grid);
+    } else if (isLs) {
+      const grid = document.createElement('div');
+      grid.className = 'terminal-output-grid';
+      // skills in 2 columns
+      grid.style.display = 'grid';
+      grid.style.gridTemplateColumns = '1fr 1fr';
+      grid.style.gap = '8px 25px';
+
+      const lines = step.output.split('\n');
+      lines.forEach(line => {
+        const entry = document.createElement('div');
+        entry.style.display = 'flex';
+        entry.style.gap = '15px';
+
+        // Match: perms owner group name
+        const match = line.match(/^([drwx\-]+)\s+(\w+)\s+(\w+)\s+(.+)$/);
+        if (match) {
+          const [_, perms, owner, group, name] = match;
+          entry.innerHTML = `<span style="color: #4b5563; font-size: 0.8rem;">${perms}</span><span style="color: #a362ff; font-weight: 600;">${name}</span>`;
+          grid.appendChild(entry);
+        }
+      });
+      outputContainer.appendChild(grid);
     } else {
-      pre.textContent = step.output;
+      const pre = document.createElement('pre');
+      pre.style.color = 'rgba(202, 211, 245, 0.9)';
+      pre.style.whiteSpace = 'pre-wrap';
+      pre.style.fontSize = '0.9rem';
+      pre.style.lineHeight = '1.7';
+      pre.style.margin = '0';
+
+      if (step.cmd.includes('git log')) {
+        pre.innerHTML = step.output.split('\n').map(line => {
+          const spaceIdx = line.indexOf(' ');
+          if (spaceIdx === -1) return line;
+          const hash = line.substring(0, spaceIdx);
+          const text = line.substring(spaceIdx);
+          return `<span style="color: #f59e0b; font-weight: 700;">${hash}</span><span style="color: rgba(202, 211, 245, 0.8);">${text}</span>`;
+        }).join('\n');
+      } else if (step.cmd.includes('curl')) {
+        pre.style.color = '#00ff88';
+        pre.style.fontWeight = '500';
+        pre.textContent = step.output;
+      } else {
+        pre.textContent = step.output;
+      }
+      outputContainer.appendChild(pre);
     }
 
-    outputContainer.appendChild(pre);
-
-    // Fade in animation
     setTimeout(() => {
       outputContainer.style.opacity = '1';
       outputContainer.style.transition = 'opacity 0.4s ease';
+      if (contextIndicator) {
+        contextIndicator.innerHTML = `<span class="status-dot"></span>${step.context}`;
+      }
     }, 50);
 
-    // Show/Hide Drift Card (Logic same as old site but improved)
-    const isCritical = step.cmd.includes('terraform') || step.cmd.includes('kubectl');
-    driftCard.style.opacity = isCritical ? '1' : '0.2';
-    driftCard.style.transform = isCritical ? 'rotate(1deg) translateY(0)' : 'rotate(1deg) translateY(20px)';
-    driftCard.style.filter = isCritical ? 'none' : 'blur(2px)';
+    // Persistent Drift Card Behavior
+    const isCritical = step.cmd.includes('terraform') || step.cmd.includes('kubectl') || step.cmd.includes('docker') || step.cmd.includes('curl');
+
+    // Always clearly visible, but its 'energy' changes
+    driftCard.style.opacity = isCritical ? '1' : '0.85';
+    driftCard.style.transform = isCritical
+      ? 'rotate(1.5deg) translateY(0) scale(1)'
+      : 'rotate(0.5deg) translateY(15px) scale(0.98)';
+    driftCard.style.filter = 'none'; // Keep it sharp
+    driftCard.style.boxShadow = isCritical
+      ? '0 30px 60px rgba(163, 98, 255, 0.15)'
+      : '0 15px 30px rgba(0, 0, 0, 0.5)';
+    driftCard.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    driftCard.style.pointerEvents = 'all';
   }
 
   function typeCommand(step) {
     let i = 0;
-    commandEl.textContent = '';
-    cursor.style.display = 'none'; // Use inline cursor during typing
+    commandEl.innerHTML = '';
+    // Permanently hide the static cursor managed elsewhere to prevent duplication
+    if (cursor) cursor.style.display = 'none';
 
     function typeNextChar() {
       if (i < step.cmd.length) {
-        const char = step.cmd.charAt(i);
         const currentText = step.cmd.substring(0, i + 1);
-
-        // Inline cursor during typing
-        commandEl.innerHTML = currentText + '<span class="typing-cursor"></span>';
+        commandEl.innerHTML = highlightCommand(currentText) + '<span class="typing-cursor"></span>';
 
         i++;
-
-        // Match old site's natural typing speed
-        let delay = 50 + Math.random() * 30; // 50-80ms base
-        if (char === ' ') delay += 20;
-        if (char === '/' || char === '-' || char === '.') delay += 15;
+        let delay = 50 + Math.random() * 40;
+        if (step.cmd[i-1] === ' ') delay += 40;
 
         setTimeout(typeNextChar, delay);
       } else {
-        // Typing complete - keep text, show output after pause
-        commandEl.textContent = step.cmd;
+        // Keep the cursor blinking after typing is finished
+        commandEl.innerHTML = highlightCommand(step.cmd) + '<span class="typing-cursor"></span>';
         setTimeout(() => {
           renderOutput(step);
-          // Old site output duration: 3000ms
-          setTimeout(nextStep, 3500);
+          setTimeout(nextStep, 4000);
         }, 500);
       }
     }
@@ -398,12 +490,11 @@ export function initHeroTerminal() {
   }
 
   function nextStep() {
-    // Clear for next command
     outputContainer.style.opacity = '0';
     setTimeout(() => {
       currentIdx = (currentIdx + 1) % terminalSequence.length;
       typeCommand(terminalSequence[currentIdx]);
-    }, 500);
+    }, 600);
   }
 
   // Intersection Observer to start
