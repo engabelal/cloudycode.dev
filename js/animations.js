@@ -291,6 +291,11 @@ export function initHeroTerminal() {
       context: 'LOCAL'
     },
     {
+      cmd: 'terraform plan',
+      output: 'Plan: 3 to add, 1 to change, 0 to destroy.\n\n  + aws_instance.web_server\n  + aws_db_instance.database\n  ~ aws_s3_bucket.assets\n  + aws_security_group.allow_tls',
+      context: 'TERRAFORM-CLOUD'
+    },
+    {
       cmd: 'docker compose ps',
       output: 'SERVICE              STATUS          UPTIME\naws-infrastructure   healthy         365 days\nkubernetes-cluster   healthy         180 days\nci-cd-pipeline       healthy         90 days',
       context: 'DOCKER-ENGINE'
@@ -410,6 +415,109 @@ export function initHeroTerminal() {
         }
       });
       outputContainer.appendChild(grid);
+    } else if (step.cmd === 'whoami') {
+      const container = document.createElement('div');
+      container.style.display = 'flex';
+      container.style.flexDirection = 'column';
+      container.style.gap = '12px';
+      container.style.paddingLeft = '5px';
+
+      const lines = step.output.split('\n');
+      const labels = ['USER', 'ROLE'];
+
+      lines.forEach((line, i) => {
+        const row = document.createElement('div');
+        row.style.display = 'flex';
+        row.style.gap = '15px';
+        row.style.alignItems = 'baseline';
+
+        const label = document.createElement('span');
+        label.textContent = labels[i] || 'INFO';
+        label.style.fontSize = '0.65rem';
+        label.style.fontWeight = '800';
+        label.style.color = 'rgba(163, 98, 255, 0.5)';
+        label.style.border = '1px solid rgba(163, 98, 255, 0.2)';
+        label.style.padding = '2px 6px';
+        label.style.borderRadius = '3px';
+        label.style.minWidth = '45px';
+        label.style.textAlign = 'center';
+
+        const text = document.createElement('span');
+        text.textContent = line;
+        text.style.color = i === 0 ? '#fff' : 'rgba(202, 211, 245, 0.8)';
+        text.style.fontWeight = i === 0 ? '700' : '400';
+        text.style.fontSize = i === 0 ? '1rem' : '0.9rem';
+
+        row.appendChild(label);
+        row.appendChild(text);
+        container.appendChild(row);
+      });
+      outputContainer.appendChild(container);
+    } else if (step.cmd.includes('terraform')) {
+      const container = document.createElement('div');
+      container.style.display = 'flex';
+      container.style.flexDirection = 'column';
+      container.style.gap = '8px';
+      container.style.paddingLeft = '5px';
+
+      const lines = step.output.split('\n');
+      lines.forEach((line, i) => {
+        const row = document.createElement('div');
+        row.style.fontSize = '0.9rem';
+        row.style.fontFamily = 'inherit';
+
+        if (line.includes('Plan:')) {
+          row.style.color = '#fff';
+          row.style.fontWeight = '700';
+          row.style.marginBottom = '10px';
+          row.textContent = line;
+        } else if (line.trim().startsWith('+')) {
+          row.innerHTML = `<span style="color: #6ee7b7; font-weight: 900; margin-right: 10px;">+</span><span style="color: rgba(202, 211, 245, 0.9);">${line.replace('+', '').trim()}</span>`;
+        } else if (line.trim().startsWith('~')) {
+          row.innerHTML = `<span style="color: #f59e0b; font-weight: 900; margin-right: 10px;">~</span><span style="color: rgba(202, 211, 245, 0.9);">${line.replace('~', '').trim()}</span>`;
+        } else if (line.trim().startsWith('-')) {
+          row.innerHTML = `<span style="color: #ef4444; font-weight: 900; margin-right: 10px;">-</span><span style="color: rgba(202, 211, 245, 0.9);">${line.replace('-', '').trim()}</span>`;
+        } else {
+          row.textContent = line;
+          row.style.color = 'rgba(255, 255, 255, 0.3)';
+        }
+        container.appendChild(row);
+      });
+      outputContainer.appendChild(container);
+    } else if (step.cmd.includes('/etc/profile')) {
+      const container = document.createElement('div');
+      container.style.display = 'flex';
+      container.style.flexDirection = 'column';
+      container.style.gap = '10px';
+      container.style.paddingLeft = '5px';
+
+      const lines = step.output.split('\n');
+      lines.forEach(line => {
+        const row = document.createElement('div');
+        row.style.display = 'flex';
+        row.style.gap = '12px';
+        row.style.alignItems = 'flex-start';
+
+        const bullet = document.createElement('span');
+        bullet.innerHTML = '▹';
+        bullet.style.color = '#a362ff';
+
+        const text = document.createElement('span');
+        text.style.color = 'rgba(202, 211, 245, 0.9)';
+        text.style.fontSize = '0.9rem';
+        text.style.lineHeight = '1.5';
+
+        // Highlight numbers and keywords
+        let processedText = line.replace(/(\d+\+?\s?years|\d+\.\d+%)/g, '<span style="color: #6ee7b7; font-weight: 700;">$1</span>');
+        processedText = processedText.replace(/(KSA and Egypt|Multi-cloud|High-availability)/g, '<span style="color: #fff; font-weight: 600;">$1</span>');
+
+        text.innerHTML = processedText;
+
+        row.appendChild(bullet);
+        row.appendChild(text);
+        container.appendChild(row);
+      });
+      outputContainer.appendChild(container);
     } else {
       const pre = document.createElement('pre');
       pre.style.color = 'rgba(202, 211, 245, 0.9)';

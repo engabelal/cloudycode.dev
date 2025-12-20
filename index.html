@@ -165,22 +165,47 @@
                   <span class="command" id="hero-terminal-command"></span>
                   <span class="typing-cursor" id="hero-terminal-cursor"></span>
                 </div>
-                <!-- Output Area with sufficient height -->
-                <div id="hero-terminal-output-container" style="min-height: 280px;"></div>
+                <div id="hero-terminal-output-container" style="min-height: 180px;"></div>
+              </div>
+
+              <!-- Terminal Status Bar / Footer -->
+              <div class="terminal-footer">
+                <div class="footer-left">
+                  <span class="status-indicator">
+                    <span class="pulse-dot"></span>
+                    SESSION ACTIVE
+                  </span>
+                  <span class="footer-sep">|</span>
+                  <span class="footer-info"><i class="fas fa-globe"></i> us-east-1</span>
+                </div>
+                <div class="footer-right">
+                  <div class="stat-group">
+                    <span class="stat-label">CPU</span>
+                    <span class="stat-value" id="term-cpu">12%</span>
+                  </div>
+                  <div class="stat-group">
+                    <span class="stat-label">RAM</span>
+                    <span class="stat-value" id="term-ram">34%</span>
+                  </div>
+                  <div class="stat-group">
+                    <span class="stat-label">LATENCY</span>
+                    <span class="stat-value">22ms</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Floating Card (Moved outside window for better layering) -->
             <div class="drift-detection-card" id="hero-drift-card">
               <div class="drift-header">
-                <i class="fas fa-shield-alt"></i>
-                <span>ANOMALY DETECTED</span>
+                <i class="fas fa-rocket"></i>
+                <span>PIPELINE ALERT</span>
               </div>
               <div class="drift-body">
-                <div class="code-line"><span class="op">▶</span> infrastructure-check</div>
-                <div class="code-line error"><span class="sign">✗</span> Root access from unknown IP</div>
-                <div class="code-line success"><span class="sign">✔</span> MFA enforced | Session terminated</div>
-                <div class="code-comment">// System secured. Monitoring...</div>
+                <div class="code-line"><span class="op">▶</span> git push origin main</div>
+                <div class="code-line error"><span class="sign">✗</span> Security scan failed: CVE-2023-441</div>
+                <div class="code-line success"><span class="sign">✔</span> Automated rollback to stable build</div>
+                <div class="code-comment">// Zero-downtime deployment active.</div>
               </div>
             </div>
           </div>
