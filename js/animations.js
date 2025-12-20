@@ -264,6 +264,44 @@ export function initFloatAnimation() {
   });
 }
 
+// Hero Terminal Simulation
+export function initHeroTerminal() {
+  const command = document.getElementById('hero-terminal-command');
+  const output = document.getElementById('hero-terminal-output');
+  const cursor = document.getElementById('hero-terminal-cursor');
+
+  if (!command || !output || !cursor) return;
+
+  const fullCommand = 'kubectl get pods -n production';
+  command.textContent = '';
+  let i = 0;
+
+  function typeCommand() {
+    if (i < fullCommand.length) {
+      command.textContent += fullCommand.charAt(i);
+      i++;
+      setTimeout(typeCommand, 70);
+    } else {
+      cursor.style.display = 'none';
+      setTimeout(() => {
+        output.style.opacity = '1';
+      }, 500);
+    }
+  }
+
+  // Use Intersection Observer to start animation when visible
+  const observer = createObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(typeCommand, 1000);
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  observer.observe(command.parentElement);
+}
+
 // Initialize All Animations
 export function initAnimations() {
   initTypingEffect();
@@ -274,4 +312,5 @@ export function initAnimations() {
   initScrollAnimations();
   initStaggerAnimations();
   initFloatAnimation();
+  initHeroTerminal();
 }

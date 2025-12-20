@@ -50,29 +50,46 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container">
-        <div class="nav-container" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%;">
+        <div class="nav-container">
           <!-- Logo Section (Left) -->
-          <div style="display: flex; justify-content: flex-start;">
-            <a href="#home" class="logo" style="display: flex; align-items: center; text-decoration: none;">
-              <img src="images/cloudycode-light.webp" alt="Cloudycode" style="height: 48px; width: auto; filter: brightness(1.1);">
+          <div class="header-left">
+            <a href="#home" class="logo">
+              <img src="images/cloudycode-light.webp" alt="Cloudycode" class="logo-img">
             </a>
           </div>
 
           <!-- Menu Section (Center) -->
-          <div style="display: flex; justify-content: center;">
-            <ul class="nav-menu" id="nav-menu" style="display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0;">
-              <li><a href="#home" class="nav-link" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">Home</a></li>
-              <li><a href="#about" class="nav-link" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">About</a></li>
-              <li><a href="#skills" class="nav-link" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">Skills</a></li>
-              <li><a href="#projects" class="nav-link" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">Projects</a></li>
-              <li><a href="#certifications" class="nav-link" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em; font-weight: 700; color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;">Certifications</a></li>
+          <div class="header-center">
+            <ul class="nav-menu" id="nav-menu">
+              <li><a href="#home" class="nav-link">Home</a></li>
+              <li><a href="#about" class="nav-link">About</a></li>
+              <li><a href="#skills" class="nav-link">Skills</a></li>
+              <li><a href="#projects" class="nav-link">Projects</a></li>
+              <li><a href="#certifications" class="nav-link">Certifications</a></li>
             </ul>
           </div>
 
-          <!-- CTA Section (Right) -->
-          <div style="display: flex; justify-content: flex-end; align-items: center; gap: 1.25rem;">
-            <a href="mailto:ahmedbelal@cloudycode.dev" class="btn" style="background: rgba(255,255,255,0.1); border: none; color: white; padding: 0.75rem 1.4rem; border-radius: 0.375rem; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.2s;">Get Demo</a>
-            <a href="mailto:ahmedbelal@cloudycode.dev" class="btn" style="background: white; color: #1F1633; padding: 0.75rem 1.4rem; border-radius: 0.375rem; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.2s;">Get Started</a>
+          <!-- Actions Section (Right) -->
+          <div class="header-right">
+            <div class="header__social" role="list" aria-label="Social media links">
+              <a href="https://blog.cloudycode.dev" target="_blank" rel="noopener" class="social-icon" aria-label="Visit my blog" role="listitem">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </a>
+              <a href="https://github.com/engabelal" target="_blank" rel="noopener" class="social-icon" aria-label="View my GitHub profile" role="listitem">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener" class="social-icon" aria-label="Connect on LinkedIn" role="listitem">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+              </a>
+            </div>
+            <a href="mailto:ahmedbelal@cloudycode.dev" class="btn btn-primary-header">Get Started</a>
           </div>
 
           <button class="mobile-menu-button" id="mobile-menu-btn" aria-label="Toggle menu" style="display: none; position: absolute; right: 2rem;">
@@ -122,90 +139,90 @@
             </div>
           </div>
 
-          <div class="hero-buttons">
-            <a href="mailto:ahmedbelal@cloudycode.dev" class="btn" style="background: #ffffff; color: #1F1633; padding: 0.875rem 2rem; text-transform: uppercase; font-weight: 700; border-radius: 0.375rem; border: none; font-size: 0.875rem;">Get Started</a>
-            <a href="#github" class="btn" style="background: transparent; color: #ffffff; padding: 0.875rem 2rem; text-transform: uppercase; font-weight: 700; border-radius: 0.375rem; border: 2px solid #e1567c; font-size: 0.875rem; margin-left: 1rem;">
-              See repositories
-            </a>
-          </div>
         </div>
 
         <!-- Dashboard Screenshot Mockup -->
         <div style="position: relative; max-width: 900px; margin: 4rem auto 0; z-index: 1;">
           <!-- Yellow Warning Icons (floating) -->
-          <div style="position: absolute; top: -20px; right: 15%; width: 60px; height: 60px; background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); z-index: 10; animation: float 3s ease-in-out infinite;">
+          <div style="position: absolute; top: -40px; left: 10%; width: 60px; height: 60px; background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); z-index: 10; animation: float 3s ease-in-out infinite;">
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #78350F; font-size: 1.5rem; font-weight: 900;">!</div>
           </div>
-          <div style="position: absolute; top: -10px; right: 5%; width: 50px; height: 50px; background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); z-index: 10; animation: float 3s ease-in-out infinite 0.5s;">
+          <div style="position: absolute; top: 0px; left: 2%; width: 50px; height: 50px; background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); z-index: 10; animation: float 3s ease-in-out infinite 0.5s;">
             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #78350F; font-size: 1.25rem; font-weight: 900;">!</div>
           </div>
 
-          <!-- Dashboard Mockup -->
-          <div style="background: white; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
-            <!-- Dashboard Header -->
-            <div style="background: #f9fafb; padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between;">
-              <div style="display: flex; gap: 0.5rem;">
-                <div style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%;"></div>
-                <div style="width: 12px; height: 12px; background: #f59e0b; border-radius: 50%;"></div>
-                <div style="width: 12px; height: 12px; background: #10b981; border-radius: 50%;"></div>
+          <!-- Terminal Simulation Mockup -->
+          <div class="hero-terminal">
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">ahmed@cloudycode: ~ (production)</div>
               </div>
-              <div style="font-size: 0.875rem; font-weight: 600; color: #6b7280;">cloudycode/infrastructure</div>
-            </div>
+              <div class="terminal-content">
+                <div class="terminal-line">
+                  <span class="prompt">$</span>
+                  <span class="command" id="hero-terminal-command">kubectl get pods -n production</span>
+                  <span class="typing-cursor" id="hero-terminal-cursor"></span>
+                </div>
+                <div class="terminal-output-grid" id="hero-terminal-output">
+                  <div class="output-row header">
+                    <span>NAME</span>
+                    <span>READY</span>
+                    <span>STATUS</span>
+                    <span>RESTARTS</span>
+                    <span>AGE</span>
+                  </div>
+                  <div class="output-row">
+                    <span>product-api-6d86d58d-v7n2m</span>
+                    <span>1/1</span>
+                    <span class="status-running">Running</span>
+                    <span>0</span>
+                    <span>42m</span>
+                  </div>
+                  <div class="output-row">
+                    <span>auth-service-7f94c8b2-p9k5x</span>
+                    <span>1/1</span>
+                    <span class="status-running">Running</span>
+                    <span>0</span>
+                    <span>12h</span>
+                  </div>
+                  <div class="output-row">
+                    <span>payment-worker-bc84f92a-z4m8q</span>
+                    <span>1/1</span>
+                    <span class="status-running">Running</span>
+                    <span>0</span>
+                    <span>3d</span>
+                  </div>
+                  <div class="output-row">
+                    <span>cloudy-dashboard-5f6d7c8e</span>
+                    <span>1/1</span>
+                    <span class="status-running">Running</span>
+                    <span>0</span>
+                    <span>5m</span>
+                  </div>
+                </div>
 
-            <!-- Dashboard Content -->
-            <div style="padding: 2rem;">
-              <!-- Issue Header -->
-              <div style="margin-bottom: 1.5rem;">
-                <div style="display: inline-block; padding: 0.25rem 0.75rem; background: #FEE2E2; color: #991B1B; border-radius: 0.25rem; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">CRITICAL</div>
-                <h3 style="color: #1F1633; font-size: 1.25rem; margin-bottom: 0.5rem;">TerraformDrift: State mismatch detected</h3>
-                <p style="color: #6b7280; font-size: 0.875rem;">Detected 2 minutes ago • production-us-east-1</p>
-              </div>
-
-              <!-- Graph -->
-              <div style="height: 120px; background: linear-gradient(180deg, rgba(239,68,68,0.1) 0%, transparent 100%); border-radius: 0.5rem; margin-bottom: 1.5rem; display: flex; align-items: flex-end; padding: 0.5rem; gap: 0.25rem;">
-                <div style="flex: 1; background: #ef4444; height: 60%; border-radius: 2px;"></div>
-                <div style="flex: 1; background: #ef4444; height: 75%; border-radius: 2px;"></div>
-                <div style="flex: 1; background: #ef4444; height: 45%; border-radius: 2px;"></div>
-                <div style="flex: 1; background: #ef4444; height: 85%; border-radius: 2px;"></div>
-                <div style="flex: 1; background: #ef4444; height: 70%; border-radius: 2px;"></div>
-                <div style="flex: 1; background: #ef4444; height: 90%; border-radius: 2px;"></div>
-                <div style="flex: 1; background: #ef4444; height: 100%; border-radius: 2px;"></div>
-                <div style="flex: 1; background: #ef4444; height: 80%; border-radius: 2px;"></div>
-              </div>
-
-              <!-- Code Stack Trace -->
-              <div style="background: #1e1e1e; border-radius: 0.5rem; padding: 1rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; line-height: 1.6;">
-                <div style="color: #6b7280; margin-bottom: 0.5rem;">▶ terraform plan -detailed-exitcode</div>
-                <div style="color: #ef4444; margin-bottom: 0.5rem; padding-left: 1rem;">✗ Error: Security Group rule modified manually</div>
-                <div style="color: #6b7280; padding-left: 1rem;">  ~ resource "aws_security_group" "web_nodes"</div>
-                <div style="color: #6b7280; padding-left: 1rem;">    - ingress { from_port = 22, cidr = "0.0.0.0/0" }</div>
-              </div>
-            </div>
-
-            <!-- Left Card (Dashboard) -->
-          <div class="floating-card glass-panel--light" style="position: absolute; top: 40%; left: 0; transform: translateY(-50%) rotate(-6deg); z-index: 5; width: 300px; border-radius: 0.75rem; overflow: hidden;" data-rotation="-6deg">
-            <!-- Header -->
-            <div style="padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.05);">
-              <div style="display: flex; gap: 0.5rem;">
-                <div style="width: 10px; height: 10px; background: #ef4444; border-radius: 50%;"></div>
-                <div style="width: 10px; height: 10px; background: #f59e0b; border-radius: 50%;"></div>
-                <div style="width: 10px; height: 10px; background: #10b981; border-radius: 50%;"></div>
-              </div>
-              <div style="font-size: 0.75rem; font-weight: 600; color: #6b7280;">cloudycode/dashboard</div>
-            </div>
-            <!-- Content -->
-            <div style="padding: 1.5rem;">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                <div style="font-size: 0.875rem; font-weight: 600; color: #201633;">Active Incidents</div>
-                <div style="font-size: 1.25rem; font-weight: 700; color: #ef4444;">3</div>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <div style="height: 8px; background: #fecaca; border-radius: 4px; width: 90%;"></div>
-                <div style="height: 8px; background: #fca5a5; border-radius: 4px; width: 70%;"></div>
-                <div style="height: 8px; background: #f87171; border-radius: 4px; width: 50%;"></div>
+                <!-- Floating Code Stack Trace Card -->
+                <div class="drift-detection-card">
+                  <div class="drift-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>DRIFT DETECTED</span>
+                  </div>
+                  <div class="drift-body">
+                    <div class="code-line"><span class="op">▶</span> terraform plan</div>
+                    <div class="code-line error"><span class="sign">✗</span> Security Group "ssh-access" changed</div>
+                    <div class="code-line success"><span class="sign">✔</span> Reverting to state: <strong>v2.4.1</strong></div>
+                    <div class="code-comment">// Remediation in progress...</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
 
             <!-- Dashboard Sidebar (Right) -->
             <div style="position: absolute; right: -150px; top: 50%; transform: translateY(-50%); background: white; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); width: 140px; display: none; /* Hidden on mobile */">
