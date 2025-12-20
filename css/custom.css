@@ -284,10 +284,12 @@ h3 {
   text-align: center;
   font-family: 'Dammit Sans', 'Rubik', sans-serif;
   color: #ffffff;
-  font-size: 5.5rem;
-  line-height: 1.1;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 4.8rem;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-top: -2rem;
+  margin-bottom: 4rem;
 
   /* Manual Overrides for "One Line" requirement on large screens */
   display: block;
@@ -390,23 +392,23 @@ h3 {
 }
 
 .basic-information .quote .who {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  width: fit-content;
-  font-size: 1.4rem;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
   font-family: 'Dammit Sans', 'Rubik', sans-serif;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.01em;
+  margin-bottom: 0.75rem;
+  display: block;
 }
 
 .basic-information .quote .judges-a-book {
-  font-size: 3.8rem;
-  line-height: 1.1;
+  font-size: 3.5rem;
+  line-height: 1;
   margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: #ffffff;
   font-family: 'Dammit Sans', 'Rubik', sans-serif;
 }
