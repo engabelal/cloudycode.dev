@@ -392,7 +392,7 @@ h3 {
 .basic-information .quote .who {
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   width: fit-content;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.85);
   font-family: 'Dammit Sans', 'Rubik', sans-serif;
@@ -401,7 +401,7 @@ h3 {
 }
 
 .basic-information .quote .judges-a-book {
-  font-size: 5rem;
+  font-size: 3.8rem;
   line-height: 1.1;
   margin-top: 0;
   margin-bottom: 1.5rem;
@@ -412,7 +412,7 @@ h3 {
 }
 
 .basic-information .quote .affirmative {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: rgba(255, 255, 255, 0.9);
   font-family: 'IBM Plex Mono', monospace;
   margin: 0;
