@@ -541,7 +541,38 @@ export function initAnimations() {
   initCounters();
   initTerminalAnimation();
   initScrollAnimations();
-  initStaggerAnimations();
-  initFloatAnimation();
+  // Init Cloud Magnet Abduction Logic
+  function initAbductionRiver() {
+    const cloud = document.getElementById('central-cloud');
+    const items = document.querySelectorAll('.river-item');
+    if (!cloud || items.length === 0) return;
+
+    function updateAbduction() {
+      const cloudRect = cloud.getBoundingClientRect();
+      const cloudCenter = cloudRect.left + (cloudRect.width / 2);
+      const threshold = 180; // Distance to start lifting
+
+      items.forEach(item => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenter = itemRect.left + (itemRect.width / 2);
+        const distance = Math.abs(cloudCenter - itemCenter);
+
+        if (distance < threshold) {
+          // Calculate lift based on proximity (gentle curve)
+          const power = 1 - (distance / threshold);
+          const lift = Math.pow(power, 2.2) * 90; // 90px max lift
+          item.style.setProperty('--lift-amount', lift.toFixed(2));
+        } else {
+          item.style.removeProperty('--lift-amount');
+        }
+      });
+
+      requestAnimationFrame(updateAbduction);
+    }
+
+    updateAbduction();
+  }
+
+  initAbductionRiver();
   initHeroTerminal();
 }
