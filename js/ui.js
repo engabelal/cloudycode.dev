@@ -20,7 +20,6 @@ export function initMobileMenu() {
   if (!menuButton || !mobileMenu) return;
 
   const openMenu = () => {
-    mobileMenu.classList.add("mobile-open");
     menuOverlay?.classList.add("active");
     menuButton.setAttribute("aria-expanded", "true");
     menuButton.classList.add("active");
@@ -33,7 +32,6 @@ export function initMobileMenu() {
   };
 
   const closeMenu = () => {
-    mobileMenu.classList.remove("mobile-open");
     menuOverlay?.classList.remove("active");
     menuButton.setAttribute("aria-expanded", "false");
     menuButton.classList.remove("active");
@@ -46,7 +44,7 @@ export function initMobileMenu() {
   };
 
   menuButton.addEventListener("click", () => {
-    const isOpen = mobileMenu.classList.contains("mobile-open");
+    const isOpen = menuOverlay?.classList.contains("active");
     if (isOpen) {
       closeMenu();
     } else {
