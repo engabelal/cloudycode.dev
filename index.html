@@ -78,6 +78,9 @@
 <body>
   <canvas id="starfield-canvas"></canvas>
 
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
   <!-- Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -94,7 +97,7 @@
             </a>
           </div>
 
-          <!-- Menu Section (Center) -->
+          <!-- Menu Section (Center) - Also used for mobile -->
           <div class="header-center">
             <ul class="nav-menu" id="nav-menu">
               <li><a href="#home" class="nav-link">Home</a></li>
@@ -102,6 +105,7 @@
               <li><a href="#skills" class="nav-link">Skills</a></li>
               <li><a href="#projects" class="nav-link">Projects</a></li>
               <li><a href="#certifications" class="nav-link">Certifications</a></li>
+              <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
           </div>
 
@@ -147,10 +151,11 @@
 
       <div class="container-hero" style="position: relative; z-index: 10;">
         <div class="hero-content">
-          <!-- Centered Announcement Pill (Discord Replacement) -->
-          <div style="margin-bottom: 6rem;">
-            <a href="mailto:ahmedbelal@cloudycode.dev" style="display: inline-flex; align-items: center; background: rgba(106, 95, 193, 0.4); color: white; padding: 0.625rem 1.5rem; border-radius: 9999px; text-decoration: none; font-size: 0.875rem; font-weight: 500; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;" class="hover-lift">
-              Exploring cloud infrastructure, automation, or DevOps solutions? &nbsp; <i class="fas fa-arrow-right" style="font-size: 0.75rem;"></i>
+          <!-- Centered Announcement Pill -->
+          <div class="announcement-pill-wrapper">
+            <a href="mailto:ahmedbelal@cloudycode.dev" class="announcement-pill hover-lift">
+              <span class="announcement-text">Exploring cloud infrastructure, automation, or DevOps solutions?</span>
+              <i class="fas fa-arrow-right"></i>
             </a>
           </div>
 
