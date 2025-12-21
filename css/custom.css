@@ -1144,7 +1144,7 @@ h3 {
   align-items: center;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .sentry-hex-wall--left {
@@ -1165,14 +1165,14 @@ h3 {
   flex-direction: column;
   gap: 1.1rem;
   padding: 2rem 1rem;
-  animation: sentryHexDrift 36s ease-in-out infinite;
 }
 
 .sentry-hex-row {
   display: flex;
   align-items: center;
   gap: 1.1rem;
-  animation: sentryHexFloat 14s ease-in-out infinite;
+  animation: sentryHexScroll 22s linear infinite;
+  will-change: transform;
 }
 
 .sentry-hex-row.is-offset {
@@ -1182,10 +1182,10 @@ h3 {
 .sentry-hex {
   width: 68px;
   height: 62px;
-  background: linear-gradient(140deg, #ffffff 0%, #f2eef8 100%);
-  border: 1px solid #ded6ee;
+  background: transparent;
+  border: 1px solid rgba(214, 205, 230, 0.55);
   border-radius: 10px;
-  box-shadow: 0 12px 22px rgba(45, 34, 73, 0.12);
+  box-shadow: 0 8px 16px rgba(45, 34, 73, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1197,49 +1197,30 @@ h3 {
   height: 65%;
   object-fit: contain;
   opacity: 1;
-  filter: drop-shadow(0 2px 4px rgba(45, 34, 73, 0.18));
+  filter: none;
 }
 
-@keyframes sentryHexDrift {
+@keyframes sentryHexScroll {
   0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-22px);
+    transform: translateX(60px);
   }
   100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes sentryHexFloat {
-  0% {
-    transform: translateY(0) translateX(0);
-  }
-  50% {
-    transform: translateY(-10px) translateX(6px);
-  }
-  100% {
-    transform: translateY(0) translateX(0);
+    transform: translateX(-160px);
   }
 }
 
 .sentry-hex-row:nth-child(2n) {
-  animation-duration: 16s;
-  animation-delay: -4s;
+  animation-duration: 26s;
+  animation-delay: -8s;
 }
 
 .sentry-hex-row:nth-child(3n) {
-  animation-duration: 18s;
-  animation-delay: -6s;
+  animation-duration: 30s;
+  animation-delay: -12s;
 }
 
 .sentry-hex-wall--right .sentry-hex-row {
-  animation-direction: reverse;
-}
-
-.sentry-hex-wall--right .sentry-hex-stack {
-  animation-direction: reverse;
+  animation-delay: -4s;
 }
 
 .sentry-getting-inner {
@@ -1414,7 +1395,7 @@ h3 {
 @media (max-width: 1100px) {
   .sentry-hex-wall {
     width: 52%;
-    opacity: 0.45;
+    opacity: 0.7;
   }
 
   .sentry-hex {
