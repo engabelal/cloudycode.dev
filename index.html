@@ -105,7 +105,7 @@
               <li><a href="#skills" class="nav-link">Skills</a></li>
               <li><a href="#projects" class="nav-link">Projects</a></li>
               <li><a href="#certifications" class="nav-link">Certifications</a></li>
-              <li><a href="#contact" class="nav-link">Contact</a></li>
+              <li><a href="#final-cta" class="nav-link">Contact</a></li>
             </ul>
           </div>
 
@@ -148,7 +148,7 @@
       <a href="#skills" class="nav-link">Skills</a>
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#certifications" class="nav-link">Certifications</a>
-      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#final-cta" class="nav-link">Contact</a>
     </nav>
   </div>
 
@@ -163,7 +163,7 @@
         <div class="hero-content">
           <!-- Centered Announcement Pill -->
           <div class="announcement-pill-wrapper">
-            <a href="mailto:ahmedbelal@cloudycode.dev" class="announcement-pill hover-lift">
+            <a href="#final-cta" class="announcement-pill hover-lift">
               <span class="announcement-text">Exploring cloud infrastructure, automation, or DevOps solutions?</span>
               <i class="fas fa-arrow-right"></i>
             </a>
@@ -682,88 +682,142 @@
         <div class="cert-split-layout" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center;">
           <!-- Left: Success Image -->
           <div class="cert-image-wrapper" data-aos="fade-right">
-            <img src="success.jpg" alt="Certification Success" style="width: 100%; border-radius: 1.5rem;">
+            <img src="images/success.jpg" alt="Certification Success" style="width: 100%; border-radius: 1.5rem;">
           </div>
 
           <!-- Right: The Archive Library -->
           <div class="cert-library-side">
-            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
-              <span style="font-size: 0.8rem; font-weight: 800; color: #4b5563; text-transform: uppercase; letter-spacing: 3px; white-space: nowrap;">Credentials Library</span>
-              <div style="height: 1px; flex: 1; background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);"></div>
+            <!-- Library Header with Icon -->
+            <!-- Simplified Library Header -->
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #f3f4f6;">
+              <div style="width: 32px; height: 32px; background: #faf5ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #7c3aed;">
+                <i class="fas fa-layer-group" style="font-size: 0.9rem;"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: #1f2937; margin: 0;">Credentials</h3>
+              </div>
+              <div style="margin-left: auto; font-size: 0.7rem; font-weight: 600; color: #6b7280; background: #f9fafb; padding: 2px 8px; border-radius: 12px; border: 1px solid #e5e7eb;">
+                12 Verified
+              </div>
             </div>
-            <div id="certifications-archive" class="cert-archive-grid light-theme-grid">
-              <!-- Populated by ui.js -->
+
+            <!-- Certifications Grid -->
+            <div class="cert-archive-grid light-theme-grid">
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="0" style="--brand-color: #FF9900">
+                <div class="archive-icon"><i class="fab fa-aws"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">AWS DevOps</div>
+                  <div class="archive-meta">PROFESSIONAL // OCT 2025</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="50" style="--brand-color: #00A4EF">
+                <div class="archive-icon"><i class="fab fa-microsoft"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">Azure Architect</div>
+                  <div class="archive-meta">EXPERT // JAN 2024</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="100" style="--brand-color: #00A4EF">
+                <div class="archive-icon"><i class="fab fa-microsoft"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">Azure Admin</div>
+                  <div class="archive-meta">ASSOCIATE // JAN 2024</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="150" style="--brand-color: #F80000">
+                <div class="archive-icon"><i class="fas fa-cloud"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">Oracle Cloud</div>
+                  <div class="archive-meta">PROFESSIONAL // JUL 2023</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="200" style="--brand-color: #607078">
+                <div class="archive-icon"><i class="fas fa-server"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">VMware VCP-NV</div>
+                  <div class="archive-meta">PROFESSIONAL // FEB 2023</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="250" style="--brand-color: #3d4d5d">
+                <div class="archive-icon"><i class="fas fa-cube"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">Nutanix NCM</div>
+                  <div class="archive-meta">MASTER // NOV 2022</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="300" style="--brand-color: #EE0000">
+                <div class="archive-icon"><i class="fab fa-redhat"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">Ansible</div>
+                  <div class="archive-meta">SPECIALIST // FEB 2022</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="350" style="--brand-color: #017CAD">
+                <div class="archive-icon"><i class="fas fa-network-wired"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">CCNP DC</div>
+                  <div class="archive-meta">PROFESSIONAL // JAN 2021</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="400" style="--brand-color: #017CAD">
+                <div class="archive-icon"><i class="fas fa-network-wired"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">Cisco DC Design</div>
+                  <div class="archive-meta">SPECIALIST // JAN 2021</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="450" style="--brand-color: #607078">
+                <div class="archive-icon"><i class="fas fa-server"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">VMware VCP-DCV</div>
+                  <div class="archive-meta">PROFESSIONAL // OCT 2020</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="500" style="--brand-color: #00BFB3">
+                <div class="archive-icon"><i class="fas fa-certificate"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">ITIL</div>
+                  <div class="archive-meta">FOUNDATION // OCT 2020</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
+
+              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="550" style="--brand-color: #EE0000">
+                <div class="archive-icon"><i class="fab fa-redhat"></i></div>
+                <div class="archive-info">
+                  <div class="archive-title">RHCE</div>
+                  <div class="archive-meta">ENGINEER // SEP 2016</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- 6. Code Coverage Section -->
-    <section style="padding: 6rem 0; background: transparent;">
-      <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-          <!-- Left: Pink Umbrella + Screenshot -->
-          <div style="position: relative;">
-            <!-- Pink Umbrella SVG (simplified) -->
-            <div style="position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 300px; height: 200px; z-index: 10;">
-              <!-- Umbrella canopy -->
-              <svg viewBox="0 0 200 100" style="width: 100%; height: auto;">
-                <path d="M20,80 Q20,20 100,20 Q180,20 180,80" fill="#ec4899" stroke="none"/>
-                <path d="M20,80 Q20,30 100,30 Q180,30 180,80" fill="#f472b6" stroke="none"/>
-                <rect x="98" y="80" width="4" height="60" fill="#ec4899"/>
-              </svg>
-            </div>
-
-            <!-- Screenshot -->
-            <div style="background: white; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); margin-top: 50px;">
-              <div style="padding: 2rem;">
-                <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">▼ Global Infrastructure / resilience-score:7.0.0</div>
-                <div style="background: #f9fafb; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
-                  <p class="quote" style="font-size: 1.125rem; font-weight: 500; color: #1f2937; margin-bottom: 2rem; position: relative; z-index: 1;">
-              "Migrated 50+ microservices to Kubernetes with zero downtime. The GitOps pipeline allowed the team to deploy independently on Day 1."
-            </p>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <div style="width: 48px; height: 48px; background: #e5e7eb; border-radius: 50%;"></div>
-                <div>
-                  <div style="font-weight: 700; color: #1f2937;">Migration Success</div>
-                  <div style="color: #6b7280; font-size: 0.875rem;">K8s Architecture</div>
-                </div>
-              </div>
-            </div>
-          </div>
-                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                  <div style="flex: 1; height: 8px; background: #10b981; border-radius: 4px;"></div>
-                  <div style="width: 20px; height: 8px; background: #e5e7eb; border-radius: 4px;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Content -->
-          <div>
-            <p style="font-size: 0.875rem; font-weight: 700; color: var(--color-green); margin-bottom: 1rem; letter-spacing: 0.5px;">RESILIENCY METRICS</p>
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Get ahead of production issues</h2>
-            <div style="background: rgba(255,255,255,0.05); border: 2px solid var(--color-green); border-radius: 0.75rem; padding: 2rem; margin-bottom: 1.5rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Optimized Efficiency</h3>
-              <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 1rem;">Delivering 85% faster deployment cycles and 60% cost reduction through intelligent resource orchestration and serverless scaling policies.</p>
-              <a href="#projects" style="color: var(--color-green); font-weight: 600; text-decoration: none;">VIEW RESULTS</a>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 2rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Shorten review cycles</h3>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 2rem; margin-top: 1.5rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Group your testing concerns</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
 
     <!-- 5. Achievements Section (Loved by developers) -->
-    <section id="certifications" class="section-ribbon bg-testimonials-footer" style="padding: 6rem 0;">
+    <section class="section-ribbon bg-testimonials-footer" style="padding: 6rem 0;">
         <div class="container">
         <div class="text-center mb-4">
           <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Loved by developers at these companies</h2>
@@ -827,197 +881,114 @@
           </div>
         </div>
         </div>
-      </div>
     </section>
-
-    <!-- 7. Enterprise Content Section -->
-    <section class="section-ribbon" style="padding: 6rem 0; background: transparent;">
-      <div class="section-overlay bg-dev-first"></div>
-        <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-          <!-- Left: Content -->
-          <div>
-            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--color-dark-purple);">DevSecOps: Security by Design</h2>
-            <p style="opacity: 0.7; margin-bottom: 3rem; color: var(--color-dark-purple);">
-              Security by Design is fundamental to my work. I adhere to CIS Benchmarks and IAM Least Privilege principles to ensure your infrastructure is secure from day one.
-            </p>
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem;">
-                <div style="font-size: 0.75rem; margin-top: 0.25rem; color: var(--color-dark-purple);">Certified</div>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 1rem;">
-              <a href="mailto:ahmedbelal@cloudycode.dev" class="btn hover-lift" style="background: var(--color-deep-purple); color: white; padding: 0.875rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem;">CONTACT SALES</a>
-              <a href="#enterprise" class="btn hover-lift" style="background: transparent; color: var(--color-dark-purple); border: 2px solid var(--color-dark-purple); padding: 0.875rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.875rem;">LEARN MORE ABOUT CLOUDYCODE SOLUTIONS</a>
-            </div>
-          </div>
-
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. More Content Section -->
-    <section class="section-ribbon" style="padding: 6rem 0; background: transparent;">
-        <div class="container text-center">
-        <h2 style="font-size: 2.5rem; margin-bottom: 4rem;">Of course we have more content</h2>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-          <!-- Card 1 -->
-          <div class="hover-lift" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; overflow: hidden; text-align: left;">
-            <div style="height: 200px; background: linear-gradient(135deg, #6a5fc1 0%, #e1567c 100%); position: relative; overflow: hidden;">
-              <!-- Illustration placeholder -->
-              <div style="position: absolute; bottom: 10px; right: 10px; font-size: 4rem;">📊</div>
-            </div>
-            <div style="padding: 2rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Lunch & Learn: Tracing with Smugmug</h3>
-              <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">
-                Errors are half the story. Left untreated, performance problems can become errors...
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="hover-lift" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; overflow: hidden; text-align: left;">
-            <div style="height: 200px; background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%); position: relative; overflow: hidden;">
-              <div style="position: absolute; bottom: 10px; right: 10px; font-size: 4rem;">⚡</div>
-            </div>
-            <div style="padding: 2rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Performance Monitoring</h3>
-              <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">
-                Built for scale. My observability stacks take the guesswork out of figuring out what's slowing down your requests.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="hover-lift" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; overflow: hidden; text-align: left;">
-            <div style="height: 200px; background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); position: relative; overflow: hidden;">
-              <div style="position: absolute; bottom: 10px; right: 10px; font-size: 4rem;">📱</div>
-            </div>
-            <div style="padding: 2rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Mobile CI/CD Pipelines</h3>
-              <p style="opacity: 0.7; margin-bottom: 2rem; font-size: 0.875rem;">
-            CloudyCode is a personal portfolio showcasing advanced DevOps practices, ensuring 99.99% uptime and scalable architecture for modern applications.
-          </p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="hover-lift" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; overflow: hidden; text-align: left;">
-            <div style="height: 200px; background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%); position: relative; overflow: hidden;">
-              <div style="position: absolute; bottom: 10px; right: 10px; font-size: 4rem;">🎮</div>
-            </div>
-            <div style="padding: 2rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Gaming Infrastructure</h3>
-              <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">
-                Your infrastructure is critical. With reliable automation, get control over your deployments without leaving your console.
-              </p>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section>
-      </div>
-    </div>
 
     <div class="bg-section" data-fade-top="false" data-fade-bottom="false" style="--gradientHeight: 30%;">
       <div class="background-layer bg-glow"></div>
       <div class="bg-content">
 
-    <!-- 9. Newsletter CTA Section -->
-    <section class="section-ribbon" style="padding: 6rem 0; background: transparent;">
-      <div class="container text-center" style="max-width: 700px; position: relative;">
-        <h2 style="font-size: 2.75rem; margin-bottom: 1.5rem;">Ready to optimize your infrastructure?</h2>
-        <p class="intro-text" style="margin: 0 auto 2.5rem; opacity: 0.95;">
-          And yes, it really is monthly. We'll never spam you.
-        </p>
+    <!-- 10. Final CTA Section - Minimal & Professional -->
+    <section id="final-cta" style="padding: 8rem 0; background: transparent; position: relative;">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
 
+                <!-- Status Badge -->
+                <div style="display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.4rem 0.8rem; border-radius: 2rem; margin-bottom: 2rem;">
+                    <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: pulse-glow 2s infinite;"></span>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">Available for new projects</span>
+                </div>
 
-        <form style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-lg); padding: 2rem; position: relative; z-index: 1;">
-          <div style="margin-bottom: 1.5rem;">
-            <input type="email" id="email" name="email" placeholder="Enter your email" style="width: 100%; padding: 1rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 0.5rem; background: rgba(255,255,255,0.95); font-size: 1rem;">
-          </div>
-          <div style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 1.5rem; text-align: left;">
-            <input type="checkbox" id="consent" style="margin-top: 0.25rem;">
-            <label for="consent" style="font-size: 0.875rem; opacity: 0.9;">
-              I'm interested in a DevOps consultation or Audit.
-            </label>
-          </div>
-          <button type="submit" class="btn btn-primary hover-lift" style="width: 100%; padding: 1rem; font-size: 1rem;">Subscribe</button>
-          <p style="font-size: 0.75rem; opacity: 0.7; margin-top: 1rem;">
-            This site is protected by reCAPTCHA. <a href="#" style="color: white; text-decoration: underline;">Privacy Policy</a>
-          </p>
-        </form>
-      </div>
-    </section>
+                <h2 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: white; margin-bottom: 1.5rem; letter-spacing: -0.03em;">
+                    Let's architect your <span style="color: #a362ff;">next milestone</span>.
+                </h2>
 
-    <!-- 10. Final CTA Section -->
-    <section style="padding: 8rem 0; background: transparent;">
-      <div class="section-overlay bg-debugging-context"></div>
-      <div class="container text-center">
-        <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">Fix it, don't observe it.</h2>
-        <p class="intro-text" style="max-width: 700px; margin: 0 auto 3rem; opacity: 0.9; font-size: 1.25rem;">
-          Get started with the only application monitoring platform that empowers developers to fix application problems without compromising on velocity
-        </p>
+                <p style="font-size: 1.15rem; color: rgba(255,255,255,0.6); margin-bottom: 3.5rem; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    I translate complex infrastructure requirements into resilient, automated, and scalable cloud solutions.
+                </p>
 
-        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-          <a href="mailto:ahmed@cloudycode.io" class="btn btn-primary hover-lift" style="padding: 1rem 2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Contact Me</a>
-          <a href="#sandbox" class="btn btn-secondary hover-lift" style="padding: 1rem 2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Explore Our Sandbox</a>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    <a href="mailto:ahmedbelal@cloudycode.dev" class="btn btn-hyper-primary" style="padding: 1.1rem 2.5rem; border-radius: 1rem; font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 0.8rem; font-size: 1rem; letter-spacing: 0.5px;">
+                        <span>Initiate Partnership</span>
+                        <i class="fas fa-rocket"></i>
+                    </a>
+                    <a href="https://github.com/engabelal" target="_blank" rel="noopener" class="btn btn-glass-secondary" style="padding: 1.1rem 2.5rem; border-radius: 1rem; font-weight: 700; text-decoration: none; font-size: 1rem; letter-spacing: 0.5px;">
+                        Explore Portfolios
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-      </div>
+    </div>
     </div>
 
   </main>
 
-  <!-- Footer -->
-  <footer id="page-footer">
-    <div class="container footer-wrapper">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <img src="images/cloudycode-light.webp" alt="Cloudycode Logo" class="footer-logo">
-          <p class="footer-desc">DevOps & Cloud Engineer specializing in building automated, scalable infrastructure solutions.</p>
-          <div class="footer-social">
-            <a href="https://github.com/engabelal" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://blog.cloudycode.dev" target="_blank" rel="noopener" class="footer-social-link" aria-label="Blog">
-              <i class="fas fa-blog"></i>
-            </a>
+  <!-- Footer Section - Ultra Premium -->
+  <footer class="footer-premium">
+    <div class="container">
+        <!-- Brand & Description -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <img src="images/cloudycode-light.webp" alt="Cloudycode Logo" style="height: 1.6rem; margin-bottom: 1rem; filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(163, 98, 255, 0.2)); opacity: 0.8;">
+          <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem; max-width: 500px; margin: 0 auto 1.5rem; line-height: 1.5;">
+            Architecting secure, automated, and high-performance cloud ecosystems.
+          </p>
+
+          <!-- Compact Nav Clusters -->
+          <div style="display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <div style="display: flex; gap: 1.5rem;">
+              <a href="#home" class="footer-link-premium">Home</a>
+              <a href="#about" class="footer-link-premium">About Me</a>
+              <a href="#skills" class="footer-link-premium">Expertise</a>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+              <a href="#projects" class="footer-link-premium">Work</a>
+              <a href="#certifications" class="footer-link-premium">Accreditation</a>
+              <a href="#final-cta" class="footer-link-premium">Hire Me</a>
+            </div>
           </div>
-        </div>
-        <div class="footer-nav">
-          <div class="footer-col">
-            <h4>Navigation</h4>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-          </div>
-          <div class="footer-col">
-            <h4>Portfolio</h4>
-            <a href="#projects">Projects</a>
-            <a href="#certifications">Certifications</a>
-          </div>
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <a href="mailto:ahmedbelal@cloudycode.dev">ahmedbelal@cloudycode.dev</a>
-            <a href="https://github.com/engabelal" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener">LinkedIn</a>
+
+          <!-- Social Cluster -->
+          <div style="display: flex; justify-content: center; gap: 1rem;">
+            <a href="https://github.com/engabelal" target="_blank" rel="noopener" class="social-pill" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener" class="social-pill" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://blog.cloudycode.dev" target="_blank" rel="noopener" class="social-pill" aria-label="Blog"><i class="fas fa-rss"></i></a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div>
-          <p>&copy; 2025 Cloudycode. All rights reserved.</p>
-          <p class="footer-made">Made with ❤️ by Ahmed Belal</p>
+
+      <!-- Footer Bottom Bar - Centered Engineering Ledger -->
+      <div class="footer-bottom-premium" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+
+        <!-- Live Status & Manifest Cluster -->
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+          <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px; font-weight: 500;">
+            &copy; 2025 <span style="color: white; font-weight: 800; letter-spacing: 1px;">CLOUDYCODE</span>
+          </div>
+
+          <div style="height: 12px; width: 1px; background: rgba(255,255,255,0.15);"></div>
+
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <i class="fas fa-shield-alt" style="font-size: 0.7rem; color: #a362ff; opacity: 0.6;"></i>
+            <span style="font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Protected by Cloudflare</span>
+          </div>
+
+          <div style="height: 12px; width: 1px; background: rgba(255,255,255,0.15);"></div>
+
+          <!-- Unified DevOps Version Badge -->
+          <div style="display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.4rem 0.9rem; border-radius: 2rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px;">
+            <i class="fas fa-cloud" style="color: #a362ff;"></i>
+            <span>VERSION : <span style="color: white; font-weight: 800;">2.0.1</span></span>
+            <div style="display: flex; align-items: center; gap: 0.35rem; color: #10b981; font-weight: 700;">
+              <span style="width: 4px; height: 4px; background: #10b981; border-radius: 50%;"></span>
+              STABLE
+            </div>
+          </div>
         </div>
-        <p class="footer-version" id="site-version">v7.0.0</p>
+
+        <!-- Designer Credit Signature -->
+        <div style="font-size: 0.6rem; color: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 4px; font-weight: 500;">
+          Crafted with Precision by <span style="color: rgba(255,255,255,0.4);">Ahmed Belal</span>
+        </div>
       </div>
     </div>
   </footer>
