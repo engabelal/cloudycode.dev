@@ -342,23 +342,34 @@
 }
 
 .mini-stat-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(
-    135deg,
-    rgba(163, 98, 255, 0.2),
-    rgba(253, 68, 176, 0.2)
-  );
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  background: var(--stat-bg, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--stat-border, rgba(255, 255, 255, 0.1));
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.2);
 }
 
 .mini-stat-icon i {
-  font-size: 1.5rem;
-  color: #a362ff;
+  font-size: 1.25rem;
+  color: var(--stat-color, #a362ff);
+  filter: drop-shadow(0 0 8px var(--stat-color, transparent));
+}
+
+.mini-stat:hover .mini-stat-icon {
+  transform: scale(1.1) rotate(-5deg);
+  background: var(--stat-color);
+  border-color: var(--stat-color);
+}
+
+.mini-stat:hover .mini-stat-icon i {
+  color: white !important;
+  filter: none;
 }
 
 .mini-stat-content {
