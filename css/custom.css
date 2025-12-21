@@ -2840,62 +2840,103 @@ h3 {
   transform: translateY(0);
 }
 
+/* Hyper-Premium Tech Stack Styles */
+.tech-stack-section {
+  padding: 8rem 0;
+  position: relative;
+  background: transparent;
+}
+
+.tech-stack-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
 .tech-stack-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 2rem 3rem;
-  max-width: 900px;
+  gap: 1.25rem;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .tech-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 1.25rem;
+  border-radius: 100px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
 }
 
-.tech-item img {
-  width: 28px;
-  height: 28px;
+.tech-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(163, 98, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tech-item span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.tech-item img, .tech-item i {
+  width: 22px;
+  height: 22px;
   object-fit: contain;
-  filter: grayscale(30%) brightness(1.2);
-  opacity: 0.85;
-  transition: all 0.3s ease;
-}
-
-.tech-item i {
-  width: 28px;
-  height: 28px;
-  font-size: 28px;
+  filter: grayscale(1) brightness(1.5) opacity(0.6);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: grayscale(30%) brightness(1.2);
-  opacity: 0.85;
-  transition: all 0.3s ease;
+  font-size: 1.25rem;
 }
 
 .tech-item:hover {
-  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(163, 98, 255, 0.4);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(163, 98, 255, 0.15);
 }
 
-.tech-item:hover img {
-  filter: grayscale(0%) brightness(1);
+.tech-item:hover::after {
   opacity: 1;
-  transform: scale(1.1);
 }
 
-.tech-item:hover i {
-  filter: grayscale(0%) brightness(1);
-  opacity: 1;
-  transform: scale(1.1);
+.tech-item:hover span {
+  color: #fff;
+  transform: translateX(2px);
 }
+
+.tech-item:hover img, .tech-item:hover i {
+  filter: grayscale(0) brightness(1) opacity(1);
+  transform: rotate(5deg) scale(1.1);
+}
+
 
 @media (max-width: 768px) {
   .tech-stack-grid {
