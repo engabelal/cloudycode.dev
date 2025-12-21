@@ -2393,7 +2393,7 @@ h3 {
 @media (max-width: 768px) {
   /* Navbar */
   #navbar {
-    padding: 0.75rem 0;
+    padding: 0.5rem 0;
   }
 
   .nav-container {
@@ -2402,6 +2402,7 @@ h3 {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+    min-height: 60px;
   }
 
   .header-center {
@@ -2445,8 +2446,64 @@ h3 {
   }
 
   /* Hide desktop nav list in mobile mode */
-  .nav-menu.mobile-open {
+  .nav-menu:not(.mobile-open) {
     display: none !important;
+  }
+
+  /* Mobile Menu when open */
+  .nav-menu.mobile-open {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(31, 22, 51, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 5rem 1.5rem 2rem;
+    gap: 0.75rem;
+    z-index: 1101;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .nav-menu.mobile-open li {
+    list-style: none;
+    margin: 0;
+  }
+
+  .nav-menu.mobile-open .nav-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    background: transparent;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu.mobile-open .nav-link::after {
+    display: none !important;
+  }
+
+  .nav-menu.mobile-open .nav-link:hover,
+  .nav-menu.mobile-open .nav-link:active {
+    background: rgba(163, 98, 255, 0.25);
+    color: white !important;
+    transform: translateX(-5px);
   }
 
   /* Keep header-center hidden on mobile */
@@ -2502,13 +2559,12 @@ h3 {
     overflow: hidden;
     opacity: 0;
     transform: translateY(18px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease,
-      background 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease,
+      border-color 0.3s ease;
   }
 
   .mobile-menu-overlay.active .nav-link {
-    animation: mobileMenuStagger 0.45s cubic-bezier(0.4, 0, 0.2, 1)
-      forwards;
+    animation: mobileMenuStagger 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .mobile-menu-overlay.active .nav-link:nth-child(1) {
@@ -2596,7 +2652,7 @@ h3 {
 
   /* Hero */
   .hero-section {
-    padding: 5rem 0 2rem;
+    padding: 4.5rem 0 2rem;
     min-height: auto;
   }
 
