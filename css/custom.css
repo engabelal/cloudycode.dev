@@ -2337,6 +2337,47 @@ h3 {
   z-index: 1;
 }
 
+#accreditation {
+  background: #1f1633 !important; /* Perfect match with site base */
+  position: relative;
+  overflow: hidden;
+  color: #ffffff !important;
+  /* Smooth border to define the section without a harsh break */
+  border-top: 1px solid rgba(163, 98, 255, 0.08);
+}
+
+/* Harmonized Technical Grid */
+#accreditation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(163, 98, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(163, 98, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 90%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#accreditation .section-title {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(163, 98, 255, 0.2);
+}
+
+.cert-library-side h3 {
+  color: #ffffff !important;
+}
+
+.cert-library-side {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.light-theme-grid {
+  filter: invert(0); /* Ensure readability */
+}
+
 @keyframes certFloat {
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(-10px, 15px) scale(1.05); }
@@ -4766,97 +4807,76 @@ body {
 /* ========================================
    Light Theme Override for Cert Grid (Mini-Cards)
    ======================================== */
-.light-theme-grid {
+/* Dark Theme Grid for Accreditation - Premium Glass Experience */
+.dark-theme-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
-  gap: 0.6rem; /* Tighter gap */
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
 }
 
-.light-theme-grid .cert-archive-item {
-  background: #ffffff !important;
-  border: 1px solid #e5e7eb !important;
-  border-radius: 0.5rem !important; /* Smaller radius */
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
-  backdrop-filter: none !important;
-  padding: 0.5rem 0.6rem !important; /* Minimal padding */
+.dark-theme-grid .cert-archive-item {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 0.75rem !important;
+  padding: 0.6rem 0.8rem !important;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  transition: all 0.2s ease;
-  min-height: 30px;
+  gap: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 45px;
+  box-shadow: none !important;
+  cursor: default !important; /* Non-clickable cursor */
 }
 
-.light-theme-grid .cert-archive-item:hover {
-  background: #ffffff !important;
-  /* border-color: transparent !important; Remove full border color to avoid "box" feel */
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08) !important;
-  border-left: 3px solid var(--brand-color, #3b82f6) !important; /* Nice cleaner left accent */
+.dark-theme-grid .cert-archive-item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(163, 98, 255, 0.3) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Disable the global ::before gradient line if it exists */
-.light-theme-grid .cert-archive-item::before {
-  content: none !important;
+/* Remove the aggressive top line and any other extra glows */
+.dark-theme-grid .cert-archive-item::before,
+.dark-theme-grid .cert-archive-item::after {
   display: none !important;
 }
 
-.light-theme-grid * {
-  color: #1f2937 !important;
-  transition: color 0.2s ease;
-}
-
-.light-theme-grid .cert-archive-item:hover .archive-title {
-  color: var(--brand-color, #1f2937) !important;
-}
-
-.light-theme-grid .archive-title {
-  color: #111827 !important;
-  font-weight: 600 !important;
-  font-size: 0.7rem; /* Tiny fonts */
+.dark-theme-grid .archive-title {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem;
   line-height: 1.2;
 }
 
-.light-theme-grid .archive-meta {
-  display: block !important;
-  font-size: 0.5rem !important;
-  color: #6b7280 !important;
+.dark-theme-grid .archive-meta {
+  display: block;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 2px;
-  font-family: 'Inter', sans-serif !important;
-  opacity: 0.8;
 }
 
-.light-theme-grid .cert-archive-item:hover .archive-meta {
-  color: var(--brand-color, #6b7280) !important;
-  opacity: 1;
-}
-
-.light-theme-grid .archive-icon {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  background: #f3f4f6 !important;
-  border-radius: 6px; /* Squircle icon bg */
+.dark-theme-grid .archive-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
-  transition: all 0.2s ease;
+  color: var(--brand-color, #fff) !important;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
-.light-theme-grid .cert-archive-item:hover .archive-icon {
-  background: var(--brand-color, #3b82f6) !important;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.light-theme-grid .archive-icon i {
-  color: var(--brand-color, #4b5563) !important;
-  transition: color 0.2s ease;
-}
-
-.light-theme-grid .cert-archive-item:hover .archive-icon i {
-  color: #ffffff !important;
+.dark-theme-grid .cert-archive-item:hover .archive-icon {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: scale(1.05);
+  color: #fff !important;
 }
 
 @keyframes footer-glow {

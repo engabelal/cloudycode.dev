@@ -8,5 +8,5 @@ Location: Saudi Arabia
 Standards: HTML5, CSS3, JavaScript ES6+
 Components: PWA, Service Worker, Structured Data
 Software: VS Code, Git, GitHub Actions
-Version: 7.0.0
+Version: 2.0.2
 Last update: 2025/12/21

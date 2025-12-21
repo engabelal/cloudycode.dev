@@ -697,12 +697,15 @@
 
 
     <!-- Accreditation Section: Verified certifications and licenses -->
-    <section id="accreditation" style="padding: 6rem 0;">
-      <div class="container">
+    <section id="accreditation" style="padding: 8rem 0; background: #1f1633;">
+      <!-- Deep Aurora Harmony (Matches site's Glow style) -->
+      <div style="position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(163, 98, 255, 0.12) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(253, 68, 176, 0.08) 0%, transparent 50%); pointer-events: none; z-index: 0;"></div>
+
+      <div class="container" style="position: relative; z-index: 1;">
         <!-- Section Header -->
         <div class="section-header" style="text-align: center; margin-bottom: 5rem;">
-          <span class="section-badge" style="background: rgba(163, 98, 255, 0.1); color: #7c3aed; border: 1px solid rgba(163, 98, 255, 0.2);">Credentials</span>
-          <h2 class="section-title section-title-dark">Certifications & Licenses</h2>
+          <span class="section-badge" style="background: rgba(163, 98, 255, 0.1); color: #c084fc; border: 1px solid rgba(163, 98, 255, 0.2);">Credentials</span>
+          <h2 class="section-title" style="color: #ffffff; letter-spacing: -0.02em;">Certifications & Licenses</h2>
         </div>
 
         <div class="cert-split-layout" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center;">
@@ -734,24 +737,24 @@
             </div>
           </div>
 
-          <!-- Right: The Archive Library -->
-          <div class="cert-library-side">
-            <!-- Library Header with Icon -->
-            <!-- Simplified Library Header -->
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #f3f4f6;">
-              <div style="width: 32px; height: 32px; background: #faf5ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #7c3aed;">
-                <i class="fas fa-layer-group" style="font-size: 0.9rem;"></i>
+            <!-- Right: The Archive Library -->
+            <div class="cert-library-side">
+              <!-- Library Header with Icon -->
+              <!-- Simplified Library Header -->
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="width: 32px; height: 32px; background: rgba(163, 98, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #c084fc;">
+                  <i class="fas fa-layer-group" style="font-size: 0.9rem;"></i>
+                </div>
+                <div>
+                  <h3 style="font-size: 0.95rem; font-weight: 700; color: #ffffff; margin: 0;">Verified Credentials</h3>
+                </div>
+                <div style="margin-left: auto; font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03); padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                  12 Total
+                </div>
               </div>
-              <div>
-                <h3 style="font-size: 0.95rem; font-weight: 700; color: #1f2937; margin: 0;">Credentials</h3>
-              </div>
-              <div style="margin-left: auto; font-size: 0.7rem; font-weight: 600; color: #6b7280; background: #f9fafb; padding: 2px 8px; border-radius: 12px; border: 1px solid #e5e7eb;">
-                12 Verified
-              </div>
-            </div>
 
-            <!-- Certifications Grid -->
-            <div class="cert-archive-grid light-theme-grid">
+              <!-- Certifications Grid -->
+              <div class="cert-archive-grid dark-theme-grid">
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="0" style="--brand-color: #FF9900">
                 <div class="archive-icon"><i class="fab fa-aws"></i></div>
                 <div class="archive-info">
@@ -1026,7 +1029,7 @@
           <!-- Unified DevOps Version Badge -->
           <div style="display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.4rem 0.9rem; border-radius: 2rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px;">
             <i class="fas fa-cloud" style="color: #a362ff;"></i>
-            <span>VERSION : <span style="color: white; font-weight: 800;">2.0.1</span></span>
+            <span>VERSION : <span style="color: white; font-weight: 800;">2.0.2</span></span>
             <div style="display: flex; align-items: center; gap: 0.35rem; color: #10b981; font-weight: 700;">
               <span style="width: 4px; height: 4px; background: #10b981; border-radius: 50%;"></span>
               STABLE
