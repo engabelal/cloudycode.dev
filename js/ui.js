@@ -23,6 +23,8 @@ export function initMobileMenu() {
     mobileMenu.classList.add("mobile-open");
     menuOverlay?.classList.add("active");
     menuButton.setAttribute("aria-expanded", "true");
+    menuButton.classList.add("active");
+    document.body.classList.add("mobile-menu-active");
     document.body.style.overflow = "hidden";
     if (menuIcon) {
       menuIcon.classList.remove("fa-bars");
@@ -34,6 +36,8 @@ export function initMobileMenu() {
     mobileMenu.classList.remove("mobile-open");
     menuOverlay?.classList.remove("active");
     menuButton.setAttribute("aria-expanded", "false");
+    menuButton.classList.remove("active");
+    document.body.classList.remove("mobile-menu-active");
     document.body.style.overflow = "";
     if (menuIcon) {
       menuIcon.classList.remove("fa-times");
@@ -51,10 +55,14 @@ export function initMobileMenu() {
   });
 
   // Close menu when clicking overlay
-  menuOverlay?.addEventListener("click", closeMenu);
+  menuOverlay?.addEventListener("click", (event) => {
+    if (event.target === menuOverlay) {
+      closeMenu();
+    }
+  });
 
   // Close menu when clicking on a link
-  const menuLinks = mobileMenu.querySelectorAll(".nav-link");
+  const menuLinks = document.querySelectorAll(".nav-link");
   menuLinks.forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
