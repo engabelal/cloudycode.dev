@@ -13,22 +13,16 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "/images/icon-192.png",
+      "src": "images/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/images/icon-512.png",
+      "src": "images/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    },
-    {
-      "src": "/images/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
     }
   ],
   "shortcuts": [
@@ -36,29 +30,19 @@
       "name": "Projects",
       "short_name": "Projects",
       "description": "View DevOps & Cloud projects",
-      "url": "/#projects",
-      "icons": [{ "src": "/images/favicon.svg", "sizes": "96x96" }]
+      "url": "/#projects"
     },
     {
       "name": "Skills",
       "short_name": "Skills",
       "description": "View technical skills",
-      "url": "/#skills",
-      "icons": [{ "src": "/images/favicon.svg", "sizes": "96x96" }]
+      "url": "/#skills"
     },
     {
       "name": "Certifications",
       "short_name": "Certs",
       "description": "View certifications",
-      "url": "/#certifications",
-      "icons": [{ "src": "/images/favicon.svg", "sizes": "96x96" }]
-    },
-    {
-      "name": "Contact",
-      "short_name": "Contact",
-      "description": "Get in touch",
-      "url": "mailto:ahmedbelal@cloudycode.dev",
-      "icons": [{ "src": "/images/favicon.svg", "sizes": "96x96" }]
+      "url": "/#certifications"
     }
   ]
 }

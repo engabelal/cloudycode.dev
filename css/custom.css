@@ -2274,3 +2274,519 @@ h3 {
     height: 20px;
   }
 }
+
+/* ========================================
+   MOBILE RESPONSIVE - COMPREHENSIVE
+   ======================================== */
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  /* Navbar Layout */
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: none;
+  }
+
+  .header-center {
+    display: none;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(163, 98, 255, 0.1);
+    border: 1px solid rgba(163, 98, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-button:hover {
+    background: rgba(163, 98, 255, 0.2);
+  }
+
+  /* Mobile Menu Open State */
+  .nav-menu.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background: rgba(31, 22, 51, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 5rem 1.5rem 2rem;
+    gap: 0.5rem;
+    z-index: 1001;
+    transform: translateX(0);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-menu.mobile-open .nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .nav-menu.mobile-open .nav-link:hover {
+    background: rgba(163, 98, 255, 0.15);
+  }
+
+  /* Logo */
+  .logo-img {
+    height: 36px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 6rem 0 4rem;
+    min-height: auto;
+  }
+
+  .container-hero {
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Basic Information */
+  .basic-information {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .basic-information .me .avatar {
+    width: 180px;
+    height: 180px;
+  }
+
+  .basic-information .quote {
+    text-align: center;
+  }
+
+  .basic-information .quote .judges-a-book {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .basic-information .quote .who {
+    font-size: 1.2rem;
+  }
+
+  .basic-information .quote .greeting {
+    font-size: 1.1rem;
+  }
+
+  /* Hero Terminal */
+  .hero-terminal {
+    margin: 2rem auto 0;
+  }
+
+  .terminal-window {
+    border-radius: 12px;
+  }
+
+  .terminal-header {
+    padding: 10px 16px;
+  }
+
+  .terminal-content {
+    padding: 16px !important;
+    height: auto !important;
+    min-height: 200px;
+  }
+
+  .terminal-title {
+    display: none;
+  }
+
+  .terminal-context {
+    font-size: 0.6rem;
+    padding: 2px 8px;
+  }
+
+  .drift-detection-card {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: 1rem;
+    transform: none;
+    animation: none;
+  }
+
+  .terminal-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 10px 12px;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Floating Cards Section */
+  .floating-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Feature Grid */
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Getting Started Section */
+  .getting-started {
+    padding: 4rem 0;
+  }
+
+  .getting-inner {
+    padding: 0 1rem;
+  }
+
+  .getting-title {
+    font-size: 1.75rem;
+  }
+
+  .getting-lead {
+    font-size: 0.95rem;
+  }
+
+  .code-block-block {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .code-block-block pre {
+    font-size: 0.8rem;
+  }
+
+  .cta-row {
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Section Headings */
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Announcement Pill */
+  [style*="margin-bottom: 6rem"] {
+    margin-bottom: 3rem !important;
+  }
+
+  [style*="margin-bottom: 6rem"] a {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+
+  .basic-information .quote .judges-a-book {
+    font-size: 2rem;
+  }
+
+  .basic-information .me .avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .tech-stack-grid {
+    gap: 1rem 1.5rem;
+  }
+
+  .tech-item {
+    font-size: 0.7rem;
+  }
+
+  .tech-item img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .terminal-dots .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .p10k-prompt {
+    font-size: 0.75rem;
+  }
+
+  .getting-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-menu {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .basic-information {
+    gap: 2rem;
+  }
+
+  .basic-information .me .avatar {
+    width: 220px;
+    height: 220px;
+  }
+
+  .floating-card {
+    width: 240px !important;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    padding: 4rem 0 2rem;
+    min-height: auto;
+  }
+
+  .basic-information {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .basic-information .me .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .basic-information .quote .judges-a-book {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Mobile Menu Close Button Style */
+@media (max-width: 768px) {
+  .mobile-menu-button i.fa-times {
+    font-size: 1.5rem;
+  }
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+  a,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Safe area for notched devices */
+@supports (padding: max(0px)) {
+  .nav-container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .nav-menu.mobile-open {
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Prevent horizontal scroll */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Fix for iOS momentum scrolling */
+.nav-menu.mobile-open {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Additional Mobile Fixes */
+@media (max-width: 768px) {
+  /* Fix grid sections on mobile */
+  section [style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  /* Fix absolute positioned elements */
+  [style*="position: absolute"][style*="right: -"] {
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    margin: 1rem auto !important;
+  }
+
+  /* Fix floating cards container */
+  [style*="min-height: 600px"] {
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Fix code blocks overflow */
+  pre,
+  code {
+    max-width: 100%;
+    overflow-x: auto;
+    word-wrap: break-word;
+  }
+
+  /* Fix testimonials grid */
+  [style*="grid-template-columns: repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ensure buttons are full width on mobile */
+  .btn,
+  [class*="cta-"] {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Fix section padding */
+  section {
+    padding: 3rem 0 !important;
+  }
+
+  /* Fix container padding */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Hide desktop-only elements */
+  [style*="display: none; /* Hidden on mobile */"] {
+    display: none !important;
+  }
+
+  /* Fix umbrella SVG on mobile */
+  [style*="position: absolute"][style*="top: -100px"] {
+    display: none !important;
+  }
+}
+
+/* Very Small Screens (< 360px) */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.75rem !important;
+  }
+
+  .basic-information .quote .judges-a-book {
+    font-size: 1.75rem;
+  }
+
+  .getting-title {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .terminal-content {
+    padding: 12px !important;
+    font-size: 0.75rem;
+  }
+}
