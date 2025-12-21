@@ -57,6 +57,9 @@
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/custom.css">
 
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
   <!-- Critical Inline CSS -->
   <style>
     body {
@@ -694,7 +697,7 @@
 
 
     <!-- Accreditation Section: Verified certifications and licenses -->
-    <section id="accreditation" style="padding: 6rem 0; background: #ffffff; color: #1f2937;">
+    <section id="accreditation" style="padding: 6rem 0;">
       <div class="container">
         <!-- Section Header -->
         <div class="section-header" style="text-align: center; margin-bottom: 5rem;">
@@ -703,9 +706,32 @@
         </div>
 
         <div class="cert-split-layout" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center;">
-          <!-- Left: Success Image -->
-          <div class="cert-image-wrapper" data-aos="fade-right">
-            <img src="images/success.jpg" alt="Certification Success" style="width: 100%; border-radius: 1.5rem;" loading="lazy">
+          <!-- Left: Animated Success Visual -->
+          <div class="cert-image-wrapper" data-aos="fade-right" style="position: relative; height: 450px; display: flex; align-items: center; justify-content: center;">
+            <!-- Refined Aurora Blob (The improved glow) -->
+            <div class="aurora-blob-wrapper" style="position: absolute; width: 100%; height: 100%; animation: certFloat 8s infinite alternate ease-in-out;">
+              <svg viewBox="-1500 -1500 3000 3000" style="width: 130%; height: 130%; filter: blur(60px); opacity: 0.3;">
+                <defs>
+                  <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--accent-purple-light); stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:var(--accent-pink-light); stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#blobGradient)" d="M1262.1719970703125,445.3659973144531 C1003.8699951171875,1062.458984375 315.81298828125,1408.156982421875 -280.8710021972656,1314.906982421875 C-377.9639892578125,1299.7320556640625 -644.14599609375,1254.531982421875 -879.8140258789062,1041.2919921875 C-1333.489013671875,630.7890014648438 -1430.510986328125,-182.06100463867188 -1064.5450439453125,-754.89501953125 C-798.1849975585938,-1171.8179931640625 -320.7090148925781,-1408.156982421875 132.98599243164062,-1396.3360595703125 C230.71299743652344,-1393.788940429675 605.239990234375,-1378.094970703125 934.3839721679688,-1102.720947265625 C982.72998046875,-1062.2740478515625 1089.3590087890625,-966.1599731445312 1185.45703125,-813.6820068359375 C1411.114013671875,-455.635986328125 1430.510986328125,43.20000076293945 1262.1719970703125,445.3659973144531z"></path>
+              </svg>
+            </div>
+
+            <!-- Lottie Animation with subtle internal shadow -->
+            <div style="position: relative; z-index: 1;">
+              <lottie-player
+                src="https://assets10.lottiefiles.com/packages/lf20_96bovdur.json"
+                background="transparent"
+                speed="1"
+                style="width: 380px; height: 380px;"
+                loop
+                autoplay>
+              </lottie-player>
+            </div>
           </div>
 
           <!-- Right: The Archive Library -->
