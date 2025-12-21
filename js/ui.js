@@ -67,7 +67,7 @@ export function initMobileMenu() {
 
   // Close menu on escape key
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && mobileMenu.classList.contains("mobile-open")) {
+    if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
       closeMenu();
     }
   });
@@ -76,7 +76,7 @@ export function initMobileMenu() {
   window.addEventListener("resize", () => {
     if (
       window.innerWidth > 768 &&
-      mobileMenu.classList.contains("mobile-open")
+      menuOverlay?.classList.contains("active")
     ) {
       closeMenu();
     }

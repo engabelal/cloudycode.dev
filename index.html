@@ -54,7 +54,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS Files -->
-  <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/custom.css">
 
@@ -100,12 +99,12 @@
           <!-- Menu Section (Center) - Also used for mobile -->
           <div class="header-center">
             <ul class="nav-menu" id="nav-menu">
-              <li><a href="#home" class="nav-link">Home</a></li>
-              <li><a href="#about" class="nav-link">About</a></li>
-              <li><a href="#skills" class="nav-link">Skills</a></li>
-              <li><a href="#projects" class="nav-link">Projects</a></li>
-              <li><a href="#certifications" class="nav-link">Certifications</a></li>
-              <li><a href="#final-cta" class="nav-link">Contact</a></li>
+              <li><a href="#hero" class="nav-link">Home</a></li>
+              <li><a href="#expertise" class="nav-link">About</a></li>
+              <li><a href="#arsenal" class="nav-link">Skills</a></li>
+              <li><a href="#blueprints" class="nav-link">Projects</a></li>
+              <li><a href="#accreditation" class="nav-link">Certifications</a></li>
+              <li><a href="#connection" class="nav-link">Contact</a></li>
             </ul>
           </div>
 
@@ -143,12 +142,12 @@
   <!-- Mobile Menu Overlay -->
   <div class="mobile-menu-overlay" id="mobile-menu-overlay">
     <nav class="mobile-menu-panel" aria-label="Mobile navigation">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#certifications" class="nav-link">Certifications</a>
-      <a href="#final-cta" class="nav-link">Contact</a>
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="#expertise" class="nav-link">About</a>
+      <a href="#arsenal" class="nav-link">Skills</a>
+      <a href="#blueprints" class="nav-link">Projects</a>
+      <a href="#accreditation" class="nav-link">Certifications</a>
+      <a href="#connection" class="nav-link">Contact</a>
     </nav>
   </div>
 
@@ -157,13 +156,13 @@
       <div class="background-layer bg-welcome"></div>
       <div class="bg-content">
 
-    <section id="home" class="hero-section" style="background: transparent;">
-
+    <!-- Hero Section: Premium welcome and value proposition -->
+    <section id="hero" class="hero-section" style="background: transparent;">
       <div class="container-hero" style="position: relative; z-index: 10;">
         <div class="hero-content">
           <!-- Centered Announcement Pill -->
           <div class="announcement-pill-wrapper">
-            <a href="#final-cta" class="announcement-pill hover-lift">
+            <a href="#connection" class="announcement-pill hover-lift">
               <span class="announcement-text">Exploring cloud infrastructure, automation, or DevOps solutions?</span>
               <i class="fas fa-arrow-right"></i>
             </a>
@@ -256,7 +255,8 @@
     </section>
 
     <!-- About & Stats Section - Premium Design -->
-    <section id="about" class="about-stats-section">
+    <!-- Expertise Section: Experience and impact statistics -->
+    <section id="expertise" class="about-stats-section">
       <!-- Decorative Backdrop Elements -->
       <div class="about-bg-decorator about-bg-decorator--1"></div>
       <div class="about-bg-decorator about-bg-decorator--2"></div>
@@ -352,7 +352,8 @@
     </section>
 
     <!-- Skills Section with Floating Cards -->
-    <section id="skills" style="padding: 0; position: relative; overflow: visible; background: transparent;">
+    <!-- Arsenal Section: Technical skills and floating interaction cards -->
+    <section id="arsenal" style="padding: 0; position: relative; overflow: visible; background: transparent;">
 
       <div style="width: 100%; max-width: 1152px; margin: 0 auto; padding: 8rem 2rem 14rem 2rem; position: relative; z-index: 1;">
         <div class="section-header">
@@ -476,7 +477,7 @@
             <div style="background: white; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 25px 80px rgba(0,0,0,0.4); border: 3px solid rgba(255, 255, 255, 0.5);">
               <div style="background: linear-gradient(135deg, #2496ed 0%, #326ce5 100%); border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1rem; min-height: 120px; display: flex; align-items: center; justify-content: center; gap: 1.5rem; position: relative;">
                 <i class="fab fa-docker" style="font-size: 3.5rem; color: white;"></i>
-                <img src="images/icon-k8s.svg" style="width: 3.5rem; height: 3.5rem; filter: brightness(0) invert(1);" alt="Kubernetes">
+                <img src="images/icon-k8s.svg" style="width: 3.5rem; height: 3.5rem; filter: brightness(0) invert(1);" alt="Kubernetes" loading="lazy">
               </div>
               <p style="text-align: center; font-weight: 600; color: var(--color-dark-purple); font-size: 0.95rem;">Container Orchestration</p>
             </div>
@@ -492,10 +493,10 @@
             <i class="fas fa-arrow-down"></i>
           </a>
         </div>
-        </div>
+      </div>
     </section>
 
-    <!-- Tech Stack - Detailed Tools & Technologies -->
+    <!-- Tech Stack: Detailed grid of production-grade tools -->
     <section id="tech-stack" class="tech-stack-section">
       <div class="container">
         <div class="section-header">
@@ -505,31 +506,31 @@
         </div>
 
         <div class="tech-stack-grid">
-          <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-aws.svg" alt="AWS"><span>AWS</span></a>
-          <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-azure.svg" alt="Azure"><span>Azure</span></a>
-          <a href="https://cloud.google.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gcp.svg" alt="GCP"><span>GCP</span></a>
-          <a href="https://kubernetes.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-k8s.svg" alt="Kubernetes"><span>Kubernetes</span></a>
-          <a href="https://www.terraform.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-terraform.svg" alt="Terraform"><span>Terraform</span></a>
-          <a href="https://www.docker.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-docker.svg" alt="Docker"><span>Docker</span></a>
-          <a href="https://www.ansible.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ansible.svg" alt="Ansible"><span>Ansible</span></a>
-          <a href="https://git-scm.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-git.svg" alt="Git" style="transform: scale(1.6); filter: brightness(0) invert(1) opacity(0.85);"><span>Git</span></a>
-          <a href="https://github.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-github.svg" alt="GitHub"><span>GitHub</span></a>
-          <a href="https://about.gitlab.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gitlab.svg" alt="GitLab"><span>GitLab</span></a>
-          <a href="https://www.jenkins.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-jenkins.svg" alt="Jenkins"><span>Jenkins</span></a>
-          <a href="https://argo-cd.readthedocs.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-argocd.svg" alt="ArgoCD"><span>ArgoCD</span></a>
-          <a href="https://helm.sh/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-helm.svg" alt="Helm" style="filter: brightness(0) invert(1) opacity(0.6);"><span>Helm</span></a>
-          <a href="https://prometheus.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-prometheus.svg" alt="Prometheus"><span>Prometheus</span></a>
-          <a href="https://grafana.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-grafana.svg" alt="Grafana"><span>Grafana</span></a>
-          <a href="https://www.python.org/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-python.svg" alt="Python"><span>Python</span></a>
-          <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-bash.svg" alt="Bash"><span>Bash</span></a>
-          <a href="https://www.nginx.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nginx.svg" alt="Nginx"><span>Nginx</span></a>
-          <a href="https://ubuntu.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ubuntu.svg" alt="Ubuntu"><span>Ubuntu</span></a>
-          <a href="https://www.redhat.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redhat.svg" alt="Red Hat" style="transform: scale(2); filter: brightness(0) invert(1) opacity(0.85);"><span>Red Hat</span></a>
-          <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redis.svg" alt="Redis"><span>Redis</span></a>
-          <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-mongodb.svg" alt="MongoDB"><span>MongoDB</span></a>
-          <a href="https://www.vmware.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-vmware.svg" alt="VMware"><span>VMware</span></a>
-          <a href="https://www.nutanix.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nutanix.svg" alt="Nutanix"><span>Nutanix</span></a>
-          <a href="https://www.cisco.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-cisco.svg" alt="Cisco"><span>Cisco</span></a>
+          <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-aws.svg" alt="AWS" loading="lazy"><span>AWS</span></a>
+          <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-azure.svg" alt="Azure" loading="lazy"><span>Azure</span></a>
+          <a href="https://cloud.google.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gcp.svg" alt="GCP" loading="lazy"><span>GCP</span></a>
+          <a href="https://kubernetes.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-k8s.svg" alt="Kubernetes" loading="lazy"><span>Kubernetes</span></a>
+          <a href="https://www.terraform.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-terraform.svg" alt="Terraform" loading="lazy"><span>Terraform</span></a>
+          <a href="https://www.docker.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-docker.svg" alt="Docker" loading="lazy"><span>Docker</span></a>
+          <a href="https://www.ansible.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ansible.svg" alt="Ansible" loading="lazy"><span>Ansible</span></a>
+          <a href="https://git-scm.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-git.svg" alt="Git" style="transform: scale(1.6); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy"><span>Git</span></a>
+          <a href="https://github.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-github.svg" alt="GitHub" loading="lazy"><span>GitHub</span></a>
+          <a href="https://about.gitlab.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gitlab.svg" alt="GitLab" loading="lazy"><span>GitLab</span></a>
+          <a href="https://www.jenkins.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-jenkins.svg" alt="Jenkins" loading="lazy"><span>Jenkins</span></a>
+          <a href="https://argo-cd.readthedocs.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-argocd.svg" alt="ArgoCD" loading="lazy"><span>ArgoCD</span></a>
+          <a href="https://helm.sh/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-helm.svg" alt="Helm" style="filter: brightness(0) invert(1) opacity(0.6);" loading="lazy"><span>Helm</span></a>
+          <a href="https://prometheus.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-prometheus.svg" alt="Prometheus" loading="lazy"><span>Prometheus</span></a>
+          <a href="https://grafana.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-grafana.svg" alt="Grafana" loading="lazy"><span>Grafana</span></a>
+          <a href="https://www.python.org/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-python.svg" alt="Python" loading="lazy"><span>Python</span></a>
+          <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-bash.svg" alt="Bash" loading="lazy"><span>Bash</span></a>
+          <a href="https://www.nginx.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nginx.svg" alt="Nginx" loading="lazy"><span>Nginx</span></a>
+          <a href="https://ubuntu.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ubuntu.svg" alt="Ubuntu" loading="lazy"><span>Ubuntu</span></a>
+          <a href="https://www.redhat.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redhat.svg" alt="Red Hat" style="transform: scale(2); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy"><span>Red Hat</span></a>
+          <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redis.svg" alt="Redis" loading="lazy"><span>Redis</span></a>
+          <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-mongodb.svg" alt="MongoDB" loading="lazy"><span>MongoDB</span></a>
+          <a href="https://www.vmware.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-vmware.svg" alt="VMware" loading="lazy"><span>VMware</span></a>
+          <a href="https://www.nutanix.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nutanix.svg" alt="Nutanix" loading="lazy"><span>Nutanix</span></a>
+          <a href="https://www.cisco.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-cisco.svg" alt="Cisco" loading="lazy"><span>Cisco</span></a>
           <a href="https://en.wikipedia.org/wiki/High_availability" target="_blank" rel="noopener" class="tech-item"><i class="fas fa-shield-alt"></i><span>HA/DR</span></a>
           <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener" class="tech-item"><i class="fab fa-windows"></i><span>Windows</span></a>
         </div>
@@ -560,46 +561,46 @@
       <div class="background-layer bg-welcome"></div>
       <div class="bg-content">
 
-    <!-- 3. Feature Section: Everything's Connected (CI/CD) -->
-    <section id="projects" class="section-ribbon" style="padding: 6rem 0 4rem 0; background: transparent;">
+    <!-- Blueprints Section: Featured production-ready DevOps projects -->
+    <section id="blueprints" class="section-ribbon" style="padding: 6rem 0 4rem 0; background: transparent;">
       <div class="section-overlay bg-everything-connected"></div>
         <div class="container">
-        <!-- Section Badge -->
+        <!-- Section Header -->
         <div class="section-header">
           <span class="section-badge">Projects</span>
           <h2 class="section-title">Featured Production-Ready Projects</h2>
           <p class="section-description">Open-source references that showcase IaC patterns, automation workflows, and delivery blueprints ready for production teams.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        <div class="blueprints-grid">
           <!-- Left: Content -->
           <div>
-            <p style="font-size: 0.875rem; font-weight: 700; color: var(--color-accent-purple); margin-bottom: 1rem; letter-spacing: 0.5px;">DevOps and Cloud Projects</p>
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2;">Engineering Blueprints</h2>
-            <p style="opacity: 0.7; font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">
-              Architectures focused on <span style="color: var(--color-accent-purple); font-weight: 600;">production-grade automation</span> and cloud-native excellence.
+            <p style="font-size: 0.875rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 1rem; letter-spacing: 0.5px; text-transform: uppercase;">DevOps and Cloud Projects</p>
+            <h2 class="blueprints-main-title" style="margin-bottom: 0.75rem;">Engineering Blueprints</h2>
+            <p class="blueprints-main-description">
+              Architectures focused on <span style="color: var(--accent-purple); font-weight: 600;">production-grade automation</span> and cloud-native excellence.
             </p>
 
             <!-- Project Cards -->
             <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
               <!-- Project 1: ECS Fargate -->
-              <div class="project-mini-card glass" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.5rem; cursor: pointer;">
-                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: #fff;">ECS Fargate Blue/Green</h3>
-                <p style="opacity: 0.8; line-height: 1.5; font-size: 0.9rem; margin-bottom: 0;">Automated container deployment with zero-downtime updates via CodeDeploy and GitHub Actions.</p>
+              <div class="project-mini-card glass">
+                <h3>ECS Fargate Blue/Green</h3>
+                <p>Automated container deployment with zero-downtime updates via CodeDeploy and GitHub Actions.</p>
                 <a href="https://github.com/engabelal/ecs-fargate-terraform-deployment" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
               </div>
 
               <!-- Project 2: Node.js Pipeline -->
-              <div class="project-mini-card glass" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.5rem; cursor: pointer;">
-                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: #fff;">Node.js CI/CD Pipeline</h3>
-                <p style="opacity: 0.8; line-height: 1.5; font-size: 0.9rem; margin-bottom: 0;">Optimized pipeline delivering sub-15-second deployments via Terraform and GitHub Actions.</p>
+              <div class="project-mini-card glass">
+                <h3>Node.js CI/CD Pipeline</h3>
+                <p>Optimized pipeline delivering sub-15-second deployments via Terraform and GitHub Actions.</p>
                 <a href="https://github.com/engabelal/simple-nodejs-ec2-cicd" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
               </div>
 
               <!-- Project 3: Serverless Platform -->
-              <div class="project-mini-card glass" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.5rem; cursor: pointer;">
-                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: #fff;">AWS Serverless Event Platform</h3>
-                <p style="opacity: 0.8; line-height: 1.5; font-size: 0.9rem; margin-bottom: 0;">EventBridge & Lambda stack codified as IaC with automated environment provisioning.</p>
+              <div class="project-mini-card glass">
+                <h3>AWS Serverless Event Platform</h3>
+                <p>EventBridge & Lambda stack codified as IaC with automated environment provisioning.</p>
                 <a href="https://github.com/engabelal/iac-aws-serverless-event" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
               </div>
             </div>
@@ -663,7 +664,7 @@
             </div>
 
             <div class="tech-float-icon" style="bottom: 40px; right: -25px; transform: rotate(12deg);">
-               <img src="images/icon-terraform.svg" alt="TF" style="width: 28px; height: 28px;">
+               <img src="images/icon-terraform.svg" alt="TF" style="width: 28px; height: 28px;" loading="lazy">
             </div>
           </div>
 
@@ -692,7 +693,8 @@
     </section>
 
 
-    <section id="certifications" style="padding: 6rem 0; background: #ffffff; color: #1f2937;">
+    <!-- Accreditation Section: Verified certifications and licenses -->
+    <section id="accreditation" style="padding: 6rem 0; background: #ffffff; color: #1f2937;">
       <div class="container">
         <!-- Section Header -->
         <div class="section-header" style="text-align: center; margin-bottom: 5rem;">
@@ -703,7 +705,7 @@
         <div class="cert-split-layout" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center;">
           <!-- Left: Success Image -->
           <div class="cert-image-wrapper" data-aos="fade-right">
-            <img src="images/success.jpg" alt="Certification Success" style="width: 100%; border-radius: 1.5rem;">
+            <img src="images/success.jpg" alt="Certification Success" style="width: 100%; border-radius: 1.5rem;" loading="lazy">
           </div>
 
           <!-- Right: The Archive Library -->
@@ -837,8 +839,8 @@
       </div>
     </section>
 
-    <!-- 5. Achievements Section (Loved by developers) -->
-    <section class="section-ribbon bg-testimonials-footer" style="padding: 6rem 0;">
+    <!-- Achievements: Social proof and professional testimonials -->
+    <section id="achievements" class="section-ribbon bg-testimonials-footer" style="padding: 6rem 0;">
         <div class="container">
         <div class="text-center mb-4">
           <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Loved by developers at these companies</h2>
@@ -908,8 +910,8 @@
       <div class="background-layer bg-glow"></div>
       <div class="bg-content">
 
-    <!-- 10. Final CTA Section - Minimal & Professional -->
-    <section id="final-cta" style="padding: 8rem 0; background: transparent; position: relative;">
+    <!-- Connection Section: Final CTA and availability status -->
+    <section id="connection" style="padding: 8rem 0; background: transparent; position: relative;">
         <div class="container">
             <div style="max-width: 700px; margin: 0 auto; text-align: center;">
 
@@ -949,7 +951,7 @@
     <div class="container">
         <!-- Brand & Description -->
         <div style="text-align: center; margin-bottom: 2rem;">
-          <img src="images/cloudycode-light.webp" alt="Cloudycode Logo" style="height: 1.6rem; margin-bottom: 1rem; filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(163, 98, 255, 0.2)); opacity: 0.8;">
+          <img src="images/cloudycode-light.webp" alt="Cloudycode Logo" style="height: 1.6rem; margin-bottom: 1rem; filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(163, 98, 255, 0.2)); opacity: 0.8;" loading="lazy">
           <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem; max-width: 500px; margin: 0 auto 1.5rem; line-height: 1.5;">
             Architecting secure, automated, and high-performance cloud ecosystems.
           </p>
@@ -957,14 +959,14 @@
           <!-- Compact Nav Clusters -->
           <div style="display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
             <div style="display: flex; gap: 1.5rem;">
-              <a href="#home" class="footer-link-premium">Home</a>
-              <a href="#about" class="footer-link-premium">About Me</a>
-              <a href="#skills" class="footer-link-premium">Expertise</a>
+              <a href="#hero" class="footer-link-premium">Home</a>
+              <a href="#expertise" class="footer-link-premium">About Me</a>
+              <a href="#arsenal" class="footer-link-premium">Expertise</a>
             </div>
             <div style="display: flex; gap: 1.5rem;">
-              <a href="#projects" class="footer-link-premium">Work</a>
-              <a href="#certifications" class="footer-link-premium">Accreditation</a>
-              <a href="#final-cta" class="footer-link-premium">Hire Me</a>
+              <a href="#blueprints" class="footer-link-premium">Work</a>
+              <a href="#accreditation" class="footer-link-premium">Accreditation</a>
+              <a href="#connection" class="footer-link-premium">Hire Me</a>
             </div>
           </div>
 

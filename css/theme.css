@@ -88,35 +88,30 @@
   --text-on-light-muted: rgba(32, 22, 51, 0.6); /* Muted dark text */
 
   /* ===== UI ELEMENTS ===== */
-  --border-light: rgba(255, 255, 255, 0.1); /* Borders on dark */
-  --border-dark: rgba(32, 22, 51, 0.1); /* Borders on light */
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-dark: rgba(32, 22, 51, 0.1);
 
-  --card-bg-on-dark: rgba(255, 255, 255, 0.05); /* Card backgrounds on dark */
-  --card-bg-on-light: #ffffff; /* Card backgrounds on light */
+  --card-bg-on-dark: rgba(255, 255, 255, 0.05);
+  --card-bg-on-light: #ffffff;
 
-  --shadow-sm: 0 2px 0 rgba(54, 45, 89, 0.1); /* Small shadows */
-  --shadow-md: 0 2px 0 rgba(54, 45, 89, 0.15); /* Medium shadows */
-  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3); /* Large shadows */
-  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Extra large shadows */
-
-  /* ===== FEATURED SECTION COLORS ===== */
-  --feature-error-border: #6a5fc1; /* Error monitoring purple */
-  --feature-tracing-border: #4edad0; /* Tracing cyan */
-  --feature-replay-border: #f4834f; /* Session replay orange */
+  /* ===== SHADOWS ===== */
+  --shadow-sm: 0 2px 0 rgba(54, 45, 89, 0.1);
+  --shadow-md: 0 2px 0 rgba(54, 45, 89, 0.15);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 
   /* ===== SPACING & SIZING ===== */
-  --container-max-width: 1152px; /* Max container width */
-  --section-padding-y: 6rem; /* Vertical section padding */
-  --section-padding-y-mobile: 3rem; /* Mobile vertical padding */
+  --container-max-width: 1152px;
+  --section-padding-y: 6rem;
+  --section-padding-y-mobile: 3rem;
 
   /* ===== BORDER RADIUS ===== */
-  --radius-sm: 0.5rem; /* 8px */
-  --radius-md: 0.75rem; /* 12px */
-  --radius-lg: 1rem; /* 16px */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
 
   /* ===== TYPOGRAPHY ===== */
-  --font-display: "Rubik", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-primary: "Rubik", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-primary: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", "Courier New", monospace;
 
   --font-weight-normal: 400;
