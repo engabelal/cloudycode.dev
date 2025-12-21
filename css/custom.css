@@ -1124,6 +1124,206 @@ h3 {
   display: none;
 }
 
+/* ========================================
+   Sentry-Inspired Getting Started Section
+   ======================================== */
+.sentry-getting-started {
+  background: #f6f6f8;
+  color: #1f1633;
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.sentry-getting-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sentry-getting-panel {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  border: 1px solid #ececf1;
+  padding: 3rem;
+  box-shadow: 0 30px 60px rgba(31, 22, 51, 0.12);
+}
+
+.sentry-getting-header {
+  margin-bottom: 2.5rem;
+}
+
+.sentry-getting-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #1f1633;
+}
+
+.sentry-getting-lead {
+  font-size: 1.125rem;
+  color: #5b5765;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sentry-getting-row {
+  margin-bottom: 2rem;
+}
+
+.sentry-getting-select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background-color: #1f1633;
+  color: #ffffff;
+  border: 1px solid #1f1633;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+}
+
+.sentry-getting-kicker {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #362d59;
+}
+
+.sentry-code-block {
+  background: #150f23;
+  border-radius: 0.75rem;
+  padding: 1.25rem 3.5rem 1.25rem 1.25rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.sentry-code {
+  margin: 0;
+  color: #e1e1e6;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  overflow-x: auto;
+}
+
+.sentry-copy-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #1f1633;
+  border: 1px solid #362d59;
+  color: #ececf1;
+  border-radius: 999px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sentry-copy-button:hover {
+  background: #2b1f3f;
+  color: #ffffff;
+}
+
+.sentry-copy-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sentry-getting-footer {
+  margin-top: 2rem;
+}
+
+.sentry-getting-note {
+  color: #5b5765;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.sentry-getting-note a {
+  color: #6a5fc1;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.sentry-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sentry-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sentry-cta-primary {
+  background: linear-gradient(120deg, #fa7faa 0%, #ff9691 25%, #ffb287 50%, #ffffff 55%);
+  color: #1f1633;
+}
+
+.sentry-cta-secondary {
+  background: transparent;
+  color: #1f1633;
+  border: 2px solid #1f1633;
+}
+
+.sentry-cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(31, 22, 51, 0.15);
+}
+
+.sentry-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  color: #1f1633;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .sentry-getting-panel {
+    padding: 2rem 1.5rem;
+  }
+
+  .sentry-getting-title {
+    font-size: 2rem;
+  }
+
+  .sentry-getting-lead {
+    font-size: 1rem;
+  }
+
+  .sentry-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sentry-cta-button {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 /* BACKGROUND LAYERS - COMPLETELY DISABLED
    Background is now applied directly to body element
    to prevent any visible lines or seams */
@@ -1783,4 +1983,78 @@ h3 {
     0 0 10px rgba(99, 102, 241, 0.4);
   letter-spacing: 1.5px;
   filter: brightness(1.2);
+}
+
+/* ========================================
+   Tech Stack Section
+   ======================================== */
+.tech-stack-section {
+  position: relative;
+  z-index: 10;
+  padding: 4rem 0;
+  background: transparent;
+}
+
+.tech-stack-title {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2.5rem;
+}
+
+.tech-stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tech-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.5);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.tech-item:hover img {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .tech-stack-grid {
+    gap: 1.5rem 2rem;
+  }
+
+  .tech-item {
+    font-size: 0.75rem;
+  }
+
+  .tech-item img {
+    width: 20px;
+    height: 20px;
+  }
 }
