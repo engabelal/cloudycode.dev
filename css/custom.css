@@ -2843,23 +2843,23 @@ h3 {
 }
 
 .tech-item img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
-  filter: grayscale(100%) brightness(1.5);
-  opacity: 0.7;
+  filter: grayscale(30%) brightness(1.2);
+  opacity: 0.85;
   transition: all 0.3s ease;
 }
 
 .tech-item i {
-  width: 24px;
-  height: 24px;
-  font-size: 24px;
+  width: 28px;
+  height: 28px;
+  font-size: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: grayscale(100%) brightness(1.5);
-  opacity: 0.7;
+  filter: grayscale(30%) brightness(1.2);
+  opacity: 0.85;
   transition: all 0.3s ease;
 }
 
@@ -2889,8 +2889,8 @@ h3 {
   }
 
   .tech-item img {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -3279,8 +3279,8 @@ h3 {
   }
 
   .tech-item img {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
 
   /* Floating Cards - Stack vertically on mobile */
@@ -3504,8 +3504,8 @@ h3 {
   }
 
   .tech-item img {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
   }
 
   .terminal-dots .dot {
@@ -3843,8 +3843,8 @@ body {
   }
 
   .tech-item img {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
   }
 
   .container {
