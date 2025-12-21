@@ -335,10 +335,9 @@
 }
 
 .mini-stat:hover {
-  background: rgba(163, 98, 255, 0.08);
-  border-color: rgba(163, 98, 255, 0.3);
-  transform: translateX(10px);
-  box-shadow: -10px 0 30px rgba(163, 98, 255, 0.1);
+  background: rgba(163, 98, 255, 0.05);
+  border-color: rgba(163, 98, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .mini-stat-icon {
@@ -4134,10 +4133,10 @@ body {
 }
 
 .repo-link-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
-  background: #ffffff;
-  color: #a362ff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
 }
 
 .tech-float-icon {
