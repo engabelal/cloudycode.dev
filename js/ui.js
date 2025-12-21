@@ -5,22 +5,22 @@ import { smoothScrollTo, getScrollPercentage, scrollToTop, debounce, throttle, t
 
 // Mobile Menu
 export function initMobileMenu() {
-  const menuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const menuButton = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('nav-menu');
 
   if (!menuButton || !mobileMenu) return;
 
   menuButton.addEventListener('click', () => {
-    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', !isExpanded);
-    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('mobile-open');
+    const isOpen = mobileMenu.classList.contains('mobile-open');
+    menuButton.setAttribute('aria-expanded', isOpen);
   });
 
   // Close menu when clicking on a link
-  const menuLinks = mobileMenu.querySelectorAll('a');
+  const menuLinks = mobileMenu.querySelectorAll('.nav-link');
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('mobile-open');
       menuButton.setAttribute('aria-expanded', 'false');
     });
   });
@@ -285,6 +285,34 @@ export function displaySiteVersion() {
   }
 }
 
+// Floating Card Interactions
+export function initFloatingCards() {
+  const cards = document.querySelectorAll('.floating-card');
+
+  cards.forEach(card => {
+    const originalRotation = card.getAttribute('data-rotation') || '0deg';
+    const isCenter = (card.style.transform && card.style.transform.includes('translate(-50%, -50%)'));
+
+    card.addEventListener('mouseenter', () => {
+      if (isCenter) {
+        card.style.transform = 'translate(-50%, -50%) rotate(0deg) scale(1.05)';
+      } else {
+        card.style.transform = 'rotate(0deg) scale(1.05)';
+      }
+      card.style.zIndex = '20';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (isCenter) {
+        card.style.transform = `translate(-50%, -50%) rotate(${originalRotation})`;
+      } else {
+        card.style.transform = `rotate(${originalRotation})`;
+      }
+      card.style.zIndex = '';
+    });
+  });
+}
+
 // Initialize All UI Components
 export function initUI() {
   initMobileMenu();
@@ -294,6 +322,7 @@ export function initUI() {
   initBackToTop();
   initCertifications();
   initActiveNavLink();
+  initFloatingCards();
   displaySiteVersion();
 
   // Hide loading screen after everything is ready

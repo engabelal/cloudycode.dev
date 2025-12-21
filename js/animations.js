@@ -1,7 +1,82 @@
-// Animations Module
-// CloudyCode v7.0.0
-
 import { prefersReducedMotion, createObserver } from './utils.js';
+
+/**
+ * Starfield Animation - Sentry-matching background stars
+ */
+class Starfield {
+  constructor(canvasId) {
+    this.canvas = document.getElementById(canvasId);
+    if (!this.canvas) return;
+    this.ctx = this.canvas.getContext('2d');
+    this.stars = [];
+    this.numStars = prefersReducedMotion() ? 50 : 250;
+    this.init();
+    window.addEventListener('resize', () => this.init());
+  }
+
+  init() {
+    // Handle High DPI displays
+    const dpr = window.devicePixelRatio || 1;
+    this.canvas.width = window.innerWidth * dpr;
+    this.canvas.height = window.innerHeight * dpr;
+    this.canvas.style.width = `${window.innerWidth}px`;
+    this.canvas.style.height = `${window.innerHeight}px`;
+    this.ctx.scale(dpr, dpr);
+
+    this.stars = [];
+    for (let i = 0; i < this.numStars; i++) {
+        // Create depth layers with varying speeds and sizes
+        const depth = Math.random();
+        this.stars.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            size: depth * 1.5 + 0.2, // Depth-based sizing
+            baseOpacity: Math.random() * 0.5 + 0.1,
+            opacity: 0,
+            speed: (depth * 0.15) + 0.05, // Closer stars move slightly faster
+            twinkleSpeed: Math.random() * 0.05 + 0.01,
+            twinkleOffset: Math.random() * Math.PI * 2
+        });
+    }
+  }
+
+  animate() {
+    this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    const time = Date.now() * 0.001;
+
+    this.stars.forEach(star => {
+      // Calculate twinkling opacity
+      const twinkle = Math.sin(time * star.twinkleSpeed * 10 + star.twinkleOffset) * 0.15;
+
+      // Brighter at the top center (radial influence matching Sentry)
+      const centerX = window.innerWidth / 2;
+      const centerY = 0;
+      const dist = Math.sqrt(Math.pow(star.x - centerX, 2) + Math.pow(star.y - centerY, 2));
+      const maxDist = window.innerWidth * 0.8;
+      const radialFactor = Math.max(0.1, (1 - dist / maxDist));
+
+      star.opacity = (star.baseOpacity + twinkle) * radialFactor;
+
+      this.ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0, star.opacity)})`;
+      this.ctx.beginPath();
+      this.ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+      this.ctx.fill();
+
+      // Slow upward drift
+      star.y -= star.speed;
+      if (star.y < 0) {
+        star.y = window.innerHeight;
+        star.x = Math.random() * window.innerWidth;
+      }
+    });
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
+export function initStarfield() {
+  const sf = new Starfield('starfield-canvas');
+  if (sf.canvas) sf.animate();
+}
 
 // Typing Animation
 export function initTypingEffect() {
@@ -535,6 +610,7 @@ export function initHeroTerminal() {
 
 // Initialize All Animations
 export function initAnimations() {
+  initStarfield();
   initTypingEffect();
   initParticles();
   initAOS();

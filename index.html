@@ -10,7 +10,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#201633">
+  <meta name="theme-color" content="#1F1633">
 
   <!-- Fonts: Rubik (Modern Brand Font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,16 +32,26 @@
       background-color: #201633 !important;
       margin: 0;
     }
+    #starfield-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -2;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <!-- Global Background Layers -->
-  <div class="background-layers">
-    <div class="bg-layer gradient-layer"></div>
-    <div class="bg-layer texture-layer"></div>
-    <div class="bg-layer glow-layer"></div>
-    <div class="bg-layer particles-layer"></div>
-  </div>
+  <!-- Background Layers (Sentry.io exact structure) -->
+  <div class="background-layer bg-layer-base"></div>
+  <div class="background-layer bg-layer-stars"></div>
+  <div class="background-layer bg-layer-nebula"></div>
+  <div class="background-layer bg-layer-gradient"></div>
+  <div class="background-layer bg-layer-glow"></div>
+
+  <canvas id="starfield-canvas"></canvas>
 
   <!-- Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -104,7 +114,6 @@
   <main id="main-content">
 
     <section class="hero-section" style="background: transparent;">
-      <div class="hero-overlay"></div>
 
       <div class="container-hero" style="position: relative; z-index: 10;">
         <div class="hero-content">
@@ -216,79 +225,90 @@
     </section>
 
     <section id="abduction-river-section" style="padding: 200px 0; background: transparent; position: relative; overflow: hidden;">
-      <div class="cloud-magnet-wrapper">
-        <!-- Subtle Cloud Aura -->
-        <div class="cloud-aura" id="cloud-aura"></div>
+      <!-- Cloud Animation Removed -->
 
-        <!-- Minimalist Cloud Icon -->
-        <svg width="200" height="120" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" class="cloud-icon" id="central-cloud">
-          <defs>
-            <filter id="cloud-glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-            <linearGradient id="cloud-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#34d399;stop-opacity:0.9" />
-              <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.7" />
-            </linearGradient>
-          </defs>
-
-          <!-- Cloud Shape -->
-          <path d="M 50 70 Q 50 50, 70 50 Q 75 35, 95 35 Q 115 35, 120 50 Q 140 50, 140 70 Q 140 85, 125 85 L 65 85 Q 50 85, 50 70 Z"
-                fill="url(#cloud-gradient)"
-                stroke="rgba(52, 211, 153, 0.6)"
-                stroke-width="2"
-                filter="url(#cloud-glow)">
-            <animate attributeName="opacity" values="0.85;1;0.85" dur="4s" repeatCount="indefinite"/>
-          </path>
-
-          <!-- Sparkles -->
-          <circle cx="70" cy="55" r="2" fill="#34d399">
-            <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="120" cy="65" r="1.5" fill="#6366f1">
-            <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1s"/>
-          </circle>
-          <circle cx="95" cy="48" r="1.5" fill="#34d399">
-            <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="2s"/>
-          </circle>
-        </svg>
-      </div>
-
-      <div class="river-container">
-        <div class="river-content scroll-left" id="tool-river">
-          <!-- Two sets of logos for infinite scroll -->
-          <div class="river-set">
-            <span class="river-item" data-name="AWS"><i class="fab fa-aws"></i> AWS</span>
-            <span class="river-item" data-name="Kubernetes"><i class="fas fa-cubes"></i> K8s</span>
-            <span class="river-item" data-name="Terraform"><i class="fas fa-mountain"></i> Terraform</span>
-            <span class="river-item" data-name="Docker"><i class="fab fa-docker"></i> Docker</span>
-            <span class="river-item" data-name="Python"><i class="fab fa-python"></i> Python</span>
-            <span class="river-item" data-name="GitHub"><i class="fab fa-github"></i> CI/CD</span>
-            <span class="river-item" data-name="Azure"><i class="fab fa-microsoft"></i> Azure</span>
-            <span class="river-item" data-name="Linux"><i class="fab fa-linux"></i> Linux</span>
+      <div style="width: 100%; max-width: 1152px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; margin-top: 4rem;">
+        <p style="text-align: center; color: rgba(255,255,255,0.6); font-size: 0.75rem; margin-bottom: 3rem; text-transform: uppercase; letter-spacing: 2px; line-height: 1.5; font-weight: 600;">
+          Mastery Over Modern DevOps &amp; Cloud Architecture
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 3rem 2rem; align-items: center; justify-items: center; max-width: 1000px; margin: 0 auto;">
+          <!-- AWS -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-aws.svg" alt="AWS" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">AWS</span>
           </div>
-          <div class="river-set">
-            <span class="river-item" data-name="AWS"><i class="fab fa-aws"></i> AWS</span>
-            <span class="river-item" data-name="Kubernetes"><i class="fas fa-cubes"></i> K8s</span>
-            <span class="river-item" data-name="Terraform"><i class="fas fa-mountain"></i> Terraform</span>
-            <span class="river-item" data-name="Docker"><i class="fab fa-docker"></i> Docker</span>
-            <span class="river-item" data-name="Python"><i class="fab fa-python"></i> Python</span>
-            <span class="river-item" data-name="GitHub"><i class="fab fa-github"></i> CI/CD</span>
-            <span class="river-item" data-name="Azure"><i class="fab fa-microsoft"></i> Azure</span>
-            <span class="river-item" data-name="Linux"><i class="fab fa-linux"></i> Linux</span>
+
+          <!-- Azure -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-azure.svg" alt="Azure" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Azure</span>
+          </div>
+
+          <!-- GCP -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-gcp.svg" alt="GCP" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">GCP</span>
+          </div>
+
+          <!-- Kubernetes -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-k8s.svg" alt="Kubernetes" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Kubernetes</span>
+          </div>
+
+          <!-- Terraform -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-terraform.svg" alt="Terraform" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Terraform</span>
+          </div>
+
+          <!-- Docker -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-docker.svg" alt="Docker" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Docker</span>
+          </div>
+
+          <!-- Ansible -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-ansible.svg" alt="Ansible" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Ansible</span>
+          </div>
+
+          <!-- GitHub -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-github.svg" alt="GitHub" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">GitHub</span>
+          </div>
+
+          <!-- Python -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-python.svg" alt="Python" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Python</span>
+          </div>
+
+          <!-- Bash -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-bash.svg" alt="Bash" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Bash</span>
+          </div>
+
+          <!-- Nginx -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-nginx.svg" alt="Nginx" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Nginx</span>
+          </div>
+
+          <!-- Linux -->
+          <div style="display: flex; align-items: center; gap: 0.75rem; opacity: 0.8; transition: all 0.3s ease; cursor: pointer; padding: 0.5rem 1rem; border-radius: 0.5rem;" onmouseover="this.style.opacity='1'; this.style.transform='scale(1.05)'; this.style.background='rgba(255,255,255,0.05)';" onmouseout="this.style.opacity='0.8'; this.style.transform='scale(1)'; this.style.background='transparent';">
+            <img src="images/icon-linux.svg" alt="Linux" style="height: 32px; width: auto;">
+            <span style="color: white; font-weight: 600; font-size: 1rem;">Linux</span>
           </div>
         </div>
       </div>
-
-      <p style="text-align: center; color: rgba(255,255,255,0.4); font-size: 0.75rem; margin-top: 4rem; text-transform: uppercase; letter-spacing: 2px;">
-        Harnessing the power of high-performance tech stacks
-      </p>
     </section>
 
-    <!-- 2. Product Showcase - Developer First Section -->
-    <section id="skills" class="section-textured section-ribbon" style="padding: 0; position: relative; overflow: visible; background: transparent;">
-      <div class="section-overlay bg-dev-first"></div>
+    <!-- 2. Product Showcase Section -->
+    <section id="skills" style="padding: 0; position: relative; overflow: visible; background: transparent;">
 
       <div style="width: 100%; max-width: 1152px; margin: 0 auto; padding: 8rem 2rem 14rem 2rem; position: relative; z-index: 1;">
         <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 4rem; color: white; font-weight: 700;">When your systems fail, recover faster with Automation</h2>
@@ -1144,43 +1164,5 @@
 
   <!-- App Scripts -->
   <script type="module" src="js/main.js"></script>
-
-  <!-- Mobile Menu Script -->
-  <script>
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('nav-menu');
-
-    if (btn && menu) {
-      btn.addEventListener('click', () => menu.classList.toggle('mobile-open'));
-
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => menu.classList.remove('mobile-open'));
-      });
-    }
-
-    // Floating card hover effects
-    document.querySelectorAll('.floating-card').forEach(card => {
-      const originalRotation = card.getAttribute('data-rotation') || '0deg';
-      const isCenter = (card.style.transform && card.style.transform.includes('translate(-50%, -50%)'));
-
-      card.addEventListener('mouseenter', () => {
-        if (isCenter) {
-          card.style.transform = 'translate(-50%, -50%) rotate(0deg) scale(1.05)';
-        } else {
-          card.style.transform = 'rotate(0deg) scale(1.05)';
-        }
-        card.style.zIndex = '20';
-      });
-
-      card.addEventListener('mouseleave', () => {
-        if (isCenter) {
-          card.style.transform = `translate(-50%, -50%) rotate(${originalRotation})`;
-        } else {
-          card.style.transform = `rotate(${originalRotation})`;
-        }
-        card.style.zIndex = '';
-      });
-    });
-  </script>
 </body>
 </html>

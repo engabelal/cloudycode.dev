@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:sentry.io)",
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Bash(python3:*)"
     ]
   }
 }

@@ -26,7 +26,7 @@
   --xl: 1152px;
 
   /* Primary Theme Colors */
-  --bg-primary: #1F1633;
+  --bg-primary: #1f1633;
   --bg-secondary: #181225;
   --text-primary: #ffffff;
   --text-secondary: #ececf1;
@@ -47,15 +47,15 @@
   --tw-scroll-snap-strictness: proximity;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / .5);
+  --tw-ring-color: rgb(59 130 246 / 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
 
   /* Legacy & Internal Logic */
   --gradientHeight: 30%;
-  --purple-900: #1F1633;
-  --purple-800: #2B1F3F;
+  --purple-900: #1f1633;
+  --purple-800: #2b1f3f;
   --purple-700: #362d59;
   --purple-600: #452650;
 
@@ -65,7 +65,7 @@
     41.11% 49.93% at 50% 49.93%,
     #8d5494 0%,
     #563275 52.26%,
-    #201633 100%
+    #1f1633 100%
   );
 
   /* Button primary gradient - linear 4-stop */
@@ -88,22 +88,22 @@
 
   /* ===== LIGHT BACKGROUNDS ===== */
   --white: #ffffff;
-  --gray-50: #f9f8ff;                 /* Very light lavender tint */
+  --gray-50: #f9f8ff; /* Very light lavender tint */
 
   /* ===== ACCENT COLORS ===== */
-  --purple-accent: #6a5fc1;           /* Primary purple for links, borders */
-  --purple-light: #a362ff;            /* Light purple for hovers */
+  --purple-accent: #6a5fc1; /* Primary purple for links, borders */
+  --purple-light: #a362ff; /* Light purple for hovers */
 
-  --pink-500: #e1567c;                /* Primary pink */
-  --pink-400: #fa7faa;                /* Light pink */
+  --pink-500: #e1567c; /* Primary pink */
+  --pink-400: #fa7faa; /* Light pink */
 
-  --orange-500: #f4834f;              /* Primary orange */
-  --orange-400: #ffb287;              /* Light orange/coral */
+  --orange-500: #f4834f; /* Primary orange */
+  --orange-400: #ffb287; /* Light orange/coral */
 
-  --cyan-500: #4EDAD0;                /* Cyan for tracing feature */
-  --green-500: #4EDA90;               /* Green for success states */
+  --cyan-500: #4edad0; /* Cyan for tracing feature */
+  --green-500: #4eda90; /* Green for success states */
 
-  --yellow-400: #fcd34d;              /* Yellow for decorative elements */
+  --yellow-400: #fcd34d; /* Yellow for decorative elements */
 
   /* ===== TEXT COLORS ===== */
   --text-white: #ffffff;
@@ -111,7 +111,7 @@
   --text-white-70: rgba(255, 255, 255, 0.7);
   --text-white-50: rgba(255, 255, 255, 0.5);
 
-  --text-dark: #201633;
+  --text-dark: #1f1633;
   --text-dark-80: rgba(32, 22, 51, 0.8);
   --text-dark-60: rgba(32, 22, 51, 0.6);
 
@@ -137,16 +137,17 @@
   --section-padding-y-mobile: 3rem;
 
   /* ===== DIAGONAL ANGLES ===== */
-  --angle-height: 3rem;               /* Standard angle height for separators */
+  --angle-height: 3rem; /* Standard angle height for separators */
 
   /* ===== BORDER RADIUS ===== */
-  --radius-sm: 0.5rem;                /* 8px - buttons, inputs */
-  --radius-md: 0.75rem;               /* 12px - cards */
-  --radius-lg: 1rem;                  /* 16px - larger cards */
+  --radius-sm: 0.5rem; /* 8px - buttons, inputs */
+  --radius-md: 0.75rem; /* 12px - cards */
+  --radius-lg: 1rem; /* 16px - larger cards */
 
   /* ===== TYPOGRAPHY ===== */
-  --font-sans: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-sans: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
 
   --weight-normal: 400;
   --weight-medium: 500;
@@ -164,100 +165,21 @@
   --text-small: 0.875rem;
 }
 
-/* ========================================
-   DIAGONAL SEPARATOR UTILITIES
-   Reusable across sections
-   ======================================== */
-
-/**
- * Usage:
- * <section class="diagonal-section diagonal-top-left">
- *   <div class="diagonal-bg"></div>
- *   <div class="diagonal-content">...</div>
- * </section>
- */
-
-.diagonal-section {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Background layer that gets clipped */
-.diagonal-bg {
-  position: absolute;
-  top: calc(-1 * var(--angle-height));
-  left: 0;
-  right: 0;
-  bottom: calc(-1 * var(--angle-height));
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Content layer above the clipped background */
-.diagonal-content {
-  position: relative;
-  z-index: 1;
-}
-
-/* ===== DIAGONAL VARIANTS ===== */
-
-/* Top angle - left side raised (right side slopes down) */
-.diagonal-top-left > .diagonal-bg {
-  clip-path: polygon(
-    0% var(--angle-height),
-    100% 0%,
-    100% 100%,
-    0% 100%
-  );
-}
-
-/* Top angle - right side raised (left side slopes down) */
-.diagonal-top-right > .diagonal-bg {
-  clip-path: polygon(
-    0% 0%,
-    100% var(--angle-height),
-    100% 100%,
-    0% 100%
-  );
-}
-
-/* Bottom angle - right side raised (left side slopes down) */
-.diagonal-bottom-right > .diagonal-bg {
-  clip-path: polygon(
-    0% 0%,
-    100% 0%,
-    100% calc(100% - var(--angle-height)),
-    0% 100%
-  );
-}
-
-/* Bottom angle - left side raised (right side slopes down) */
-.diagonal-bottom-left > .diagonal-bg {
-  clip-path: polygon(
-    0% 0%,
-    100% 0%,
-    100% 100%,
-    0% calc(100% - var(--angle-height))
-  );
-}
-
-/* Both top and bottom angles */
-.diagonal-both-left > .diagonal-bg {
-  clip-path: polygon(
-    0% var(--angle-height),
-    100% 0%,
-    100% calc(100% - var(--angle-height)),
-    0% 100%
-  );
-}
-
+/* DIAGONAL SEPARATORS - NEUTRALIZED for Sentry.io Flat Design */
+.diagonal-section,
+.diagonal-bg,
+.diagonal-top-left > .diagonal-bg,
+.diagonal-top-right > .diagonal-bg,
+.diagonal-bottom-right > .diagonal-bg,
+.diagonal-bottom-left > .diagonal-bg,
+.diagonal-both-left > .diagonal-bg,
 .diagonal-both-right > .diagonal-bg {
-  clip-path: polygon(
-    0% 0%,
-    100% var(--angle-height),
-    100% 100%,
-    0% calc(100% - var(--angle-height))
-  );
+  display: none !important;
+  clip-path: none !important;
+}
+
+.diagonal-overlap {
+  margin-top: 0 !important;
 }
 
 /* ===== SECTION OVERLAP ===== */
@@ -270,10 +192,18 @@
    BACKGROUND UTILITIES
    ======================================== */
 
-.bg-dark { background-color: var(--purple-900); }
-.bg-dark-gradient { background: var(--gradient-dark-radial); }
-.bg-white { background-color: var(--white); }
-.bg-gray { background-color: var(--gray-50); }
+.bg-dark {
+  background-color: var(--purple-900);
+}
+.bg-dark-gradient {
+  background: var(--gradient-dark-radial);
+}
+.bg-white {
+  background-color: var(--white);
+}
+.bg-gray {
+  background-color: var(--gray-50);
+}
 
 /* ========================================
    CONTAINER
@@ -309,13 +239,25 @@
    TYPOGRAPHY UTILITIES
    ======================================== */
 
-.text-white { color: var(--text-white); }
-.text-white-90 { color: var(--text-white-90); }
-.text-white-70 { color: var(--text-white-70); }
-.text-dark { color: var(--text-dark); }
-.text-dark-80 { color: var(--text-dark-80); }
+.text-white {
+  color: var(--text-white);
+}
+.text-white-90 {
+  color: var(--text-white-90);
+}
+.text-white-70 {
+  color: var(--text-white-70);
+}
+.text-dark {
+  color: var(--text-dark);
+}
+.text-dark-80 {
+  color: var(--text-dark-80);
+}
 
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
 
 /* Prevent italic text globally */
 * {
@@ -398,9 +340,15 @@
   border-width: 2px;
 }
 
-.card-purple { border-color: var(--purple-accent); }
-.card-cyan { border-color: var(--cyan-500); }
-.card-orange { border-color: var(--orange-500); }
+.card-purple {
+  border-color: var(--purple-accent);
+}
+.card-cyan {
+  border-color: var(--cyan-500);
+}
+.card-orange {
+  border-color: var(--orange-500);
+}
 
 .card:hover {
   transform: translateY(-4px);
