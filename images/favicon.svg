@@ -1,17 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#d946ef"/>
     </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#e0e7ff"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="100" height="100" fill="url(#grad)" rx="20"/>
-  
-  <!-- Letter C -->
-  <text x="50" y="62" font-family="Arial, sans-serif" font-size="55" font-weight="bold" fill="#ffffff" text-anchor="middle">C</text>
-  
-  <!-- Underscore -->
-  <rect x="30" y="70" width="40" height="5" fill="#ffffff" rx="2"/>
+  <rect width="100" height="100" fill="url(#bgGrad)" rx="22"/>
+
+  <!-- Cloud shape -->
+  <g filter="url(#glow)">
+    <path d="M75 52c0-8.3-6.7-15-15-15-1.5 0-3 .2-4.4.6C53.3 30.8 46.2 26 38 26c-11 0-20 9-20 20 0 .7 0 1.4.1 2.1C12.5 50.5 8 56.5 8 63.5 8 72.6 15.4 80 24.5 80h46c8.3 0 15-6.7 15-15 0-6.2-3.8-11.5-9.2-13.8.5-1.6.7-3.4.7-5.2z" fill="url(#cloudGrad)" opacity="0.95"/>
+  </g>
+
+  <!-- Code brackets < /> -->
+  <g fill="#201633" font-family="monospace" font-weight="bold">
+    <text x="28" y="62" font-size="22">&lt;</text>
+    <text x="48" y="62" font-size="22">/</text>
+    <text x="62" y="62" font-size="22">&gt;</text>
+  </g>
 </svg>

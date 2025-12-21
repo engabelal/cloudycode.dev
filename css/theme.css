@@ -4,7 +4,7 @@
 
 :root {
   /* ===== PRIMARY BACKGROUNDS ===== */
-  --bg-dark-primary: #201633; /* Main dark purple - hero, feature sections (Sentry.io exact) */
+  --bg-dark-primary: #1f1633; /* Main dark purple - hero, feature sections (Sentry.io exact) */
   --bg-dark-secondary: #2b1f3f; /* Slightly lighter dark purple */
   --bg-nebula: #30145f; /* Brighter nebula purple */
   --bg-medium-purple: #362d59; /* Medium purple accents */
@@ -23,20 +23,20 @@
     50% 50% at 50% 50%,
     rgba(141, 84, 148, 0.45) 0%,
     rgba(86, 50, 117, 0.3) 52.26%,
-    #201633 100%
+    #1f1633 100%
   );
 
   /* Middle Section Grain Texture */
   --texture-grain: url("../images/sentry-texture.webp");
 
   /* Middle Transition Gradient */
-  --gradient-middle: linear-gradient(#201633 0%, #30145f 52.4%, #30145f 100%);
+  --gradient-middle: linear-gradient(#1f1633 0%, #30145f 52.4%, #30145f 100%);
 
   /* Pink Glow Layer (Radial) */
   --glow-pink: radial-gradient(
     50% 50% at 50% 50%,
     rgba(173, 108, 170, 0.15) 0%,
-    rgba(32, 22, 51, 0) 70%
+    rgba(31, 22, 51, 0) 70%
   );
 
   /* Primary Button Gradient - Linear */

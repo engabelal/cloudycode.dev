@@ -51,7 +51,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-primary);
-  background-color: #201633;
+  background-color: #1f1633;
   color: var(--text-primary);
   line-height: 1.6;
   position: relative;
@@ -67,92 +67,77 @@ body {
 /* ========================================
    Background Layers - Sentry.io Exact Match
    ======================================== */
-.background-layer {
+.sentry-bg-group {
+  position: relative;
+  isolation: isolate;
+}
+
+.sentry-bg-group[data-fade-top="true"]::before,
+.sentry-bg-group[data-fade-bottom="true"]::after {
+  content: "";
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  width: 100%;
+  height: var(--gradientHeight, 30%);
   pointer-events: none;
+  z-index: 1;
 }
 
-/* Layer 0: Base solid color - Sentry exact #201633 */
-.bg-layer-base {
-  background-color: #201633;
-  z-index: -10;
-  position: fixed;
-  height: 100%;
-  width: 100%;
+.sentry-bg-group[data-fade-top="true"]::before {
   top: 0;
-  left: 0;
+  background: linear-gradient(to bottom, #181225 0%, transparent 100%);
 }
 
-/* Layer 1: Main Nebula Image with edge color correction */
-.bg-layer-stars {
-  background-image: linear-gradient(
-      90deg,
-      #201633 0%,
-      transparent 15%,
-      transparent 85%,
-      #201633 100%
-    ),
-    url("../images/sentry-welcome-bg.webp");
-  background-position: 0 0, 60% 0%;
-  background-size: 100% 100%, 1040px auto;
-  background-repeat: no-repeat, no-repeat;
-  z-index: -9;
-  height: 1615px;
+.sentry-bg-group[data-fade-bottom="true"]::after {
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, #181225 100%);
 }
 
-/* Layer 2: Transition & Texture (The purple band) */
-.bg-layer-nebula {
+.background-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.sentry-bg-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Layer A: Welcome background image */
+.sentry-bg-welcome {
+  background: url("../images/sentry-welcome-bg.webp") top left 60% no-repeat;
+  background-size: 65rem;
+  opacity: 1;
+}
+
+/* Layer B: Gradient + texture composite */
+.sentry-bg-texture {
   background-image: linear-gradient(
-      180deg,
-      #201633 0%,
-      #30145f 40%,
-      #30145f 60%,
-      #201633 100%
+      #1f1633 0%,
+      #30145f 52.4%,
+      #30145f 75%,
+      #30145f 100%
     ),
     url("../images/sentry-texture.webp");
   background-size: 100% 100%, 200px 200px;
   background-position: 0 0, 0 0;
   background-repeat: no-repeat, repeat;
-  z-index: -8;
-  height: 100vh;
-  top: 0;
-  opacity: 0.9;
+  background-blend-mode: darken;
 }
 
-/* Layer 3: Second Nebula Overlay (Depth) with edge color correction */
-.bg-layer-gradient {
-  background-image: linear-gradient(
-      90deg,
-      #201633 0%,
-      transparent 15%,
-      transparent 85%,
-      #201633 100%
-    ),
-    url("../images/sentry-welcome-bg.webp");
-  background-position: 0 0, 60% 0%;
-  background-size: 100% 100%, 1040px auto;
-  background-repeat: no-repeat, no-repeat;
-  z-index: -7;
-  height: 1920px;
-  opacity: 0.8;
-}
-
-/* Layer 4: Radial Glow (Top Vignette) - Sentry style */
-.bg-layer-glow {
+/* Layer C: Pink glow */
+.sentry-bg-glow {
   background: radial-gradient(
-    ellipse 100% 70% at 50% 0%,
-    rgba(120, 70, 150, 0.35) 0%,
-    rgba(90, 50, 120, 0.2) 25%,
-    rgba(60, 35, 90, 0.1) 45%,
-    transparent 70%
+    ellipse 50% 50% at 50% 50%,
+    rgba(173, 108, 170, 0.15) 0%,
+    #1f1633 65%
   );
-  z-index: -6;
-  height: 100vh;
-  top: 0;
 }
 
 #starfield-canvas {
@@ -1798,66 +1783,4 @@ h3 {
     0 0 10px rgba(99, 102, 241, 0.4);
   letter-spacing: 1.5px;
   filter: brightness(1.2);
-}
-
-/* ========================================
-   Background Layers - Responsive Adjustments
-   ======================================== */
-
-/* Tablet and smaller screens */
-@media (max-width: 992px) {
-  .bg-layer-stars {
-    background-position: center top;
-    background-size: cover;
-  }
-
-  .bg-layer-nebula {
-    background: radial-gradient(
-      ellipse 150% 100% at 50% 0%,
-      rgba(141, 84, 148, 0.35) 0%,
-      rgba(86, 50, 117, 0.25) 30%,
-      transparent 70%
-    );
-  }
-
-  .bg-layer-glow {
-    background: radial-gradient(
-      ellipse 100% 40% at 50% 5%,
-      rgba(225, 86, 124, 0.12) 0%,
-      rgba(173, 108, 170, 0.08) 40%,
-      transparent 70%
-    );
-  }
-}
-
-/* Mobile screens */
-@media (max-width: 768px) {
-  .bg-layer-stars {
-    background-position: center top;
-    background-size: cover;
-  }
-
-  .bg-layer-nebula {
-    background: radial-gradient(
-      ellipse 180% 80% at 50% 0%,
-      rgba(141, 84, 148, 0.3) 0%,
-      rgba(86, 50, 117, 0.2) 35%,
-      transparent 65%
-    );
-  }
-
-  .bg-layer-glow {
-    background: radial-gradient(
-      ellipse 120% 35% at 50% 3%,
-      rgba(225, 86, 124, 0.1) 0%,
-      rgba(173, 108, 170, 0.06) 45%,
-      transparent 70%
-    );
-  }
-}
-
-/* Ensure no horizontal overflow from background layers */
-.background-layer {
-  max-width: 100vw;
-  overflow: hidden;
 }

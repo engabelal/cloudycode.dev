@@ -29,7 +29,7 @@
   <!-- Critical Inline CSS to prevent background flicker -->
   <style>
     body {
-      background-color: #201633 !important;
+      background-color: #1f1633 !important;
       margin: 0;
     }
     #starfield-canvas {
@@ -44,13 +44,6 @@
   </style>
 </head>
 <body>
-  <!-- Background Layers (Sentry.io exact structure) -->
-  <div class="background-layer bg-layer-base"></div>
-  <div class="background-layer bg-layer-stars"></div>
-  <div class="background-layer bg-layer-nebula"></div>
-  <div class="background-layer bg-layer-gradient"></div>
-  <div class="background-layer bg-layer-glow"></div>
-
   <canvas id="starfield-canvas"></canvas>
 
   <!-- Skip Link -->
@@ -112,6 +105,9 @@
   </header>
 
   <main id="main-content">
+    <div class="sentry-bg-group" data-fade-top="false" data-fade-bottom="true" style="--gradientHeight: 30%;">
+      <div class="background-layer sentry-bg-welcome"></div>
+      <div class="sentry-bg-content">
 
     <section class="hero-section" style="background: transparent;">
 
@@ -306,6 +302,12 @@
         </div>
       </div>
     </section>
+      </div>
+    </div>
+
+    <div class="sentry-bg-group" data-fade-top="true" data-fade-bottom="true" style="--gradientHeight: 30%;">
+      <div class="background-layer sentry-bg-texture"></div>
+      <div class="sentry-bg-content">
 
     <!-- 2. Product Showcase Section -->
     <section id="skills" style="padding: 0; position: relative; overflow: visible; background: transparent;">
@@ -435,6 +437,12 @@
         </div>
         </div>
     </section>
+      </div>
+    </div>
+
+    <div class="sentry-bg-group" data-fade-top="true" data-fade-bottom="true" style="--gradientHeight: 25%;">
+      <div class="background-layer sentry-bg-welcome"></div>
+      <div class="sentry-bg-content">
 
     <!-- 3. Feature Section: Everything's Connected (CI/CD) -->
     <section class="section-ribbon" style="margin-top: -1.5rem; padding-top: 4rem; background: transparent;">
@@ -1036,6 +1044,12 @@
         </div>
       </div>
     </section>
+      </div>
+    </div>
+
+    <div class="sentry-bg-group" data-fade-top="false" data-fade-bottom="false" style="--gradientHeight: 30%;">
+      <div class="background-layer sentry-bg-glow"></div>
+      <div class="sentry-bg-content">
 
     <!-- 9. Newsletter CTA Section -->
     <section class="section-ribbon" style="padding: 6rem 0; background: transparent;">
@@ -1079,6 +1093,8 @@
         </div>
       </div>
     </section>
+      </div>
+    </div>
 
   </main>
 
