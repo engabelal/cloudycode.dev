@@ -486,6 +486,14 @@
   line-height: 1.2;
 }
 
+/* Dark title for light backgrounds */
+.section-title-dark {
+  background: linear-gradient(135deg, #331e5a 0%, #7127ba 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .section-description {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
@@ -4089,14 +4097,13 @@ body {
 
 .project-showcase-wrapper:hover .project-card-3d {
   transform: perspective(1000px) rotateY(0) rotateX(0) translateY(-10px);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6),
-              0 0 0 1px rgba(163, 98, 255, 0.3);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(163, 98, 255, 0.3);
 }
 
 .project-code-area {
   background: #1e1e1e;
   padding: 1.5rem;
-  font-family: 'IBM Plex Mono', 'Fira Code', monospace;
+  font-family: "IBM Plex Mono", "Fira Code", monospace;
   position: relative;
 }
 
@@ -4112,7 +4119,7 @@ body {
   align-items: center;
   gap: 0.6rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .repo-link-btn:hover {
@@ -4244,16 +4251,400 @@ body {
 }
 
 /* Specific Card Accents */
-.project-mini-card:nth-child(1)::before { background: #a362ff; }
-.project-mini-card:nth-child(2)::before { background: #34d399; }
-.project-mini-card:nth-child(3)::before { background: #fb923c; }
+.project-mini-card:nth-child(1)::before {
+  background: #a362ff;
+}
+.project-mini-card:nth-child(2)::before {
+  background: #34d399;
+}
+.project-mini-card:nth-child(3)::before {
+  background: #fb923c;
+}
 
 .project-mini-card:nth-child(2).active,
-.project-mini-card:nth-child(2):hover { border-color: rgba(52, 211, 153, 0.3) !important; }
-.project-mini-card:nth-child(2) .repo-link { color: #34d399 !important; }
+.project-mini-card:nth-child(2):hover {
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+.project-mini-card:nth-child(2) .repo-link {
+  color: #34d399 !important;
+}
 
 .project-mini-card:nth-child(3).active,
-.project-mini-card:nth-child(3):hover { border-color: rgba(251, 146, 60, 0.3) !important; }
-.project-mini-card:nth-child(3) .repo-link { color: #fb923c !important; }
+.project-mini-card:nth-child(3):hover {
+  border-color: rgba(251, 146, 60, 0.3) !important;
+}
+.project-mini-card:nth-child(3) .repo-link {
+  color: #fb923c !important;
+}
 
+/* ========================================
+/* ========================================
+   Digital Architect Dossier (Secret Agent)
+   ======================================== */
+.dossier-case {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 0 1.5rem 1.5rem 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  overflow: visible;
+}
 
+.dossier-tab {
+  position: absolute;
+  top: -30px;
+  left: -1px;
+  height: 30px;
+  padding: 0 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: none;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  align-items: center;
+  font-family: "Fira Code", monospace;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+}
+
+.dossier-profile {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+@keyframes scan-anim {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.dossier-stamp {
+  display: inline-block;
+  transform: rotate(-12deg);
+  border: 4px solid #ff3b30;
+  color: #ff3b30;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 4px;
+  background: rgba(255, 59, 48, 0.05);
+  box-shadow: 0 0 15px rgba(255, 59, 48, 0.1);
+  animation: stamp-slam 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes stamp-slam {
+  0% {
+    transform: rotate(-12deg) scale(3);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-12deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Archive Component Overrides for Library Vibe */
+.cert-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.cert-archive-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.01) !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  transition: all 0.3s ease;
+}
+
+/* ========================================
+   Cyber Graduation Cap (Simple & Creative)
+   ======================================== */
+.grad-visual-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+}
+
+.grad-stage {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+/* LEVITATING CAP */
+.cyber-cap {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(15deg) rotateY(-15deg);
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: cap-levitate 4s ease-in-out infinite;
+}
+
+@keyframes cap-levitate {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotateX(15deg) rotateY(-15deg)
+      translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotateX(10deg) rotateY(-10deg)
+      translateY(-20px);
+  }
+}
+
+.cap-board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: rgba(30, 30, 40, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: rotateX(90deg) translateZ(0); /* Flat top */
+  box-shadow: 0 0 20px rgba(163, 98, 255, 0.2),
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button on top */
+.cap-center-stud {
+  width: 20px;
+  height: 20px;
+  background: #a362ff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #a362ff;
+}
+
+.cap-skull {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 30, 40, 1) 0%,
+    rgba(20, 20, 30, 1) 100%
+  );
+  border-radius: 0 0 60px 60px; /* Semi-circle */
+  transform: translateX(-50%) rotateX(0deg); /* Below the board */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: none;
+}
+
+/* TASSEL */
+.cap-tassel {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 120px;
+  transform-style: preserve-3d;
+  transform: translateX(-50%) rotateZ(30deg); /* Hanging off side */
+  transform-origin: top center;
+  animation: tassel-sway 4s ease-in-out infinite;
+}
+
+.tassel-string {
+  width: 4px;
+  height: 100%;
+  background: #ffbd2e;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(255, 189, 46, 0.5);
+}
+
+.tassel-fringe {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 30px;
+  background: #ffbd2e;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 10px rgba(255, 189, 46, 0.8);
+}
+
+@keyframes tassel-sway {
+  0%,
+  100% {
+    transform: translateX(-50%) rotateZ(25deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateX(-50%) rotateZ(35deg) rotateY(10deg);
+  }
+}
+
+/* FLOATING DIPLOMA */
+.cyber-diploma {
+  position: absolute;
+  bottom: 0px;
+  right: -20px;
+  width: 160px;
+  height: 40px;
+  transform: rotate(-10deg) translateZ(50px);
+  animation: diploma-float 5s ease-in-out infinite reverse;
+}
+
+@keyframes diploma-float {
+  0%,
+  100% {
+    transform: rotate(-10deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-8deg) translateY(-10px);
+  }
+}
+
+.diploma-tube {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diploma-ribbon {
+  width: 20px;
+  height: 100%;
+  background: #ff3b30;
+  box-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+}
+
+.diploma-glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(15px);
+  z-index: -1;
+  animation: diploma-pulse 3s infinite;
+}
+
+@keyframes diploma-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* BADGE */
+.grad-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.grad-badge i {
+  color: #27c93f;
+  font-size: 1.2rem;
+}
+.grad-badge span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1200px) {
+  .cert-core-layout {
+    grid-template-columns: 1fr !important;
+    gap: 4rem !important;
+  }
+}
+
+/* ========================================
+   Light Theme Override for Cert Grid
+   ======================================== */
+.light-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.light-theme-grid .cert-archive-item {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+  backdrop-filter: none !important;
+  padding: 1rem !important;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.light-theme-grid .cert-archive-item:hover {
+  background: #f9fafb !important;
+  border-color: var(--brand-color, #3b82f6) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-theme-grid * {
+  color: #1f2937 !important; /* Force all text to be dark slate */
+}
+
+.light-theme-grid .archive-meta {
+  color: #6b7280 !important; /* Grey-500 */
+}
+
+.light-theme-grid .archive-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: #f3f4f6 !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-color, #4b5563) !important;
+  font-size: 1.1rem;
+}
+
+.light-theme-grid .archive-icon i {
+  color: var(--brand-color, #4b5563) !important;
+}

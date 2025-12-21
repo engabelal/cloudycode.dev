@@ -173,108 +173,128 @@ export function initCertifications() {
   const certifications = [
     {
       title: "AWS Certified DevOps Engineer - Professional",
+      shortName: "AWS DevOps",
       level: "Professional",
       year: "Oct 2025",
-      description:
-        "Advanced AWS DevOps practices, CI/CD pipelines, and automation",
+      icon: "fab fa-aws",
+      color: "#FF9900",
+      description: "Advanced certification demonstrating expertise in provisioning, operating, and managing distributed systems on AWS."
     },
     {
       title: "Microsoft Azure Solutions Architect Expert",
+      shortName: "Azure Architect",
       level: "Expert",
       year: "Jan 2024",
-      description: "Azure infrastructure design, security, and cloud solutions",
+      icon: "fab fa-microsoft",
+      color: "#00A4EF",
+      description: "Expert-level certification for designing cloud and hybrid solutions on Microsoft Azure platform."
     },
     {
       title: "Microsoft Azure Administrator Associate",
+      shortName: "Azure Admin",
       level: "Associate",
       year: "Jan 2024",
-      description: "Azure resource management, networking, and security",
+      icon: "fab fa-microsoft",
+      color: "#00A4EF",
+      description: "Associate-level certification for implementing, managing, and monitoring Azure environments."
     },
     {
-      title: "Oracle Cloud Infrastructure Architect",
+      title: "Oracle Cloud Infrastructure 2023 Certified Architect",
+      shortName: "Oracle Cloud",
       level: "Professional",
       year: "Jul 2023",
-      description: "OCI infrastructure design and cloud architecture",
+      icon: "fas fa-cloud",
+      color: "#F80000",
+      description: "Professional certification for designing and implementing OCI solutions and architectures."
     },
     {
-      title: "VMware VCP-NV 2023",
+      title: "VMware Certified Professional - Network Virtualization (VCP-NV 2023)",
+      shortName: "VMware VCP-NV",
       level: "Professional",
       year: "Feb 2023",
-      description: "VMware NSX virtualization and network security",
+      icon: "fas fa-server",
+      color: "#607078",
+      description: "Professional certification for VMware NSX network virtualization and security."
     },
     {
-      title: "Nutanix NCM-MCI5",
+      title: "Nutanix Certified Master 5 - Multicloud Infrastructure (NCM-MCI5)",
+      shortName: "Nutanix NCM",
       level: "Master",
       year: "Nov 2022",
-      description: "Nutanix Multicloud Infrastructure administration",
+      icon: "fas fa-cube",
+      color: "#3d4d5d",
+      description: "Master-level certification for Nutanix hyperconverged infrastructure solutions."
     },
     {
-      title: "Red Hat Certified Specialist - Ansible Automation",
+      title: "Red Hat Certified Specialist in Ansible Automation",
+      shortName: "Ansible",
       level: "Specialist",
       year: "Feb 2022",
-      description: "Ansible automation and configuration management",
+      icon: "fab fa-redhat",
+      color: "#EE0000",
+      description: "Specialist certification for automation using Ansible and configuration management."
     },
     {
       title: "CCNP Data Center",
+      shortName: "CCNP DC",
       level: "Professional",
       year: "Jan 2021",
-      description: "Cisco data center networking and infrastructure",
+      icon: "fas fa-network-wired",
+      color: "#017CAD",
+      description: "Professional-level certification for data center networking and infrastructure."
     },
     {
-      title: "Cisco Specialist - Data Center Design",
+      title: "Cisco Certified Specialist - Data Center Design",
+      shortName: "Cisco DC Design",
       level: "Specialist",
       year: "Jan 2021",
-      description: "Data center design and architecture",
+      icon: "fas fa-network-wired",
+      color: "#017CAD",
+      description: "Specialist certification for designing scalable data center architectures."
     },
     {
-      title: "VMware VCP-DCV 2020",
+      title: "VMware Certified Professional - Data Center Virtualization (VCP-DCV 2020)",
+      shortName: "VMware VCP-DCV",
       level: "Professional",
       year: "Oct 2020",
-      description: "VMware vSphere data center virtualization",
+      icon: "fas fa-server",
+      color: "#607078",
+      description: "Professional certification for vSphere data center virtualization."
     },
     {
-      title: "ITIL Foundation",
+      title: "ITIL Foundation Certificate in IT Service Management",
+      shortName: "ITIL",
       level: "Foundation",
       year: "Oct 2020",
-      description: "IT service management best practices",
+      icon: "fas fa-certificate",
+      color: "#00BFB3",
+      description: "Foundation certification for IT service management best practices."
     },
     {
-      title: "Red Hat Certified Engineer",
+      title: "Red Hat Certified Engineer (RHCE)",
+      shortName: "RHCE",
       level: "Engineer",
       year: "Sep 2016",
-      description: "Red Hat Enterprise Linux system administration",
+      icon: "fab fa-redhat",
+      color: "#EE0000",
+      description: "Professional certification for advanced Red Hat Enterprise Linux system administration."
     },
   ];
 
-  const container = document.getElementById("certifications-container");
-  if (!container) return;
+  const archiveContainer = document.getElementById("certifications-archive");
+  if (!archiveContainer) return;
 
-  container.innerHTML = certifications
-    .map(
-      (cert, index) => `
-    <div class="certification-card flex-shrink-0 w-80 glass rounded-3xl p-6 card-hover snap-center"
-         data-aos="fade-up"
-         data-aos-delay="${index * 50}">
-      <div class="flex items-center justify-between mb-4">
-        <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-          <i class="fas fa-certificate text-2xl text-white"></i>
+  archiveContainer.innerHTML = certifications
+    .map((cert, index) => `
+      <div class="cert-archive-item glass" data-aos="fade-up" data-aos-delay="${index * 50}" style="--brand-color: ${cert.color}">
+        <div class="archive-icon"><i class="${cert.icon}"></i></div>
+        <div class="archive-info">
+          <div class="archive-title">${cert.shortName}</div>
+          <div class="archive-meta" style="font-family: monospace; font-size: 0.65rem; margin-top: 4px;">CONFIRMED_${cert.year} // ${cert.level.toUpperCase()}</div>
         </div>
-        <span class="px-3 py-1 bg-gradient-secondary rounded-full text-white text-xs font-semibold">
-          ${cert.level}
-        </span>
+        <div class="archive-glow"></div>
       </div>
-      <h3 class="text-lg font-bold text-white mb-2">${cert.title}</h3>
-      <p class="text-textSecondary text-sm mb-3">${cert.description}</p>
-      <p class="text-brand text-sm font-semibold">
-        <i class="fas fa-calendar-alt mr-2"></i>${cert.year}
-      </p>
-    </div>
-  `
-    )
-    .join("");
-
-  // Optional: Add scroll buttons
-  addScrollButtons(container);
+    `).join("");
 }
 
 // Add scroll buttons for certifications

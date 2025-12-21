@@ -317,7 +317,7 @@
 
           <!-- Mini Stats Grid -->
           <div class="mini-stats-grid">
-            <div class="mini-stat">
+            <a href="#certifications" class="mini-stat" style="text-decoration: none; color: inherit; cursor: pointer;">
               <div class="mini-stat-icon">
                 <i class="fas fa-certificate"></i>
               </div>
@@ -325,7 +325,7 @@
                 <div class="mini-stat-number">12+</div>
                 <div class="mini-stat-label">Professional Certifications</div>
               </div>
-            </div>
+            </a>
 
             <div class="mini-stat">
               <div class="mini-stat-icon">
@@ -425,9 +425,9 @@
                 </div>
               </div>
 
-              <div style="width: 100%; margin-top: 1.5rem; background: var(--color-dark-purple); color: white; padding: 0.875rem; border-radius: 0.5rem; font-weight: 600; text-align: center;">
+              <a href="#certifications" style="display: block; width: 100%; margin-top: 1.5rem; background: var(--color-dark-purple); color: white; padding: 0.875rem; border-radius: 0.5rem; font-weight: 600; text-align: center; text-decoration: none; transition: transform 0.2s ease;">
                 AWS & Azure Certified
-              </div>
+              </a>
             </div>
           </div>
 
@@ -532,6 +532,8 @@
     </section>
       </div>
     </div>
+
+
 
     <div class="bg-section" data-fade-top="true" data-fade-bottom="true" style="--gradientHeight: 25%;">
       <div class="background-layer bg-welcome"></div>
@@ -643,35 +645,14 @@
                <img src="images/icon-terraform.svg" alt="TF" style="width: 28px; height: 28px;">
             </div>
           </div>
-                <!-- Error Badge -->
-                <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #FEE2E2; color: #991B1B; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">
-                  <span>⚠️</span>
-                  <span>Unresolved</span>
-                </div>
+
 
                 <!-- Issue Title -->
-                <h4 style="color: #1F1633; font-size: 1.125rem; margin-bottom: 1rem;">TypeError: Cannot read property 'user' of undefined</h4>
 
-                <!-- Stats -->
-                <div style="display: flex; gap: 2rem; margin-bottom: 1.5rem;">
-                  <div>
-                    <div style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.25rem;">Events</div>
-                    <div style="font-size: 1.5rem; font-weight: 700; color: #ef4444;">145</div>
-                  </div>
-                  <div>
-                    <div style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.25rem;">Users</div>
-                    <div style="font-size: 1.5rem; font-weight: 700; color: #1F1633;">28</div>
-                  </div>
-                </div>
 
-                <!-- Mini Graph -->
-                <div style="display: flex; align-items: flex-end; gap: 0.25rem; height: 60px;">
-                  <div style="flex: 1; background: #fecaca; height: 40%; border-radius: 2px 2px 0 0;"></div>
-                  <div style="flex: 1; background: #fca5a5; height: 60%; border-radius: 2px 2px 0 0;"></div>
-                  <div style="flex: 1; background: #f87171; height: 80%; border-radius: 2px 2px 0 0;"></div>
-                  <div style="flex: 1; background: #ef4444; height: 100%; border-radius: 2px 2px 0 0;"></div>
-                  <div style="flex: 1; background: #dc2626; height: 90%; border-radius: 2px 2px 0 0;"></div>
-                </div>
+
+
+
               </div>
             </div>
 
@@ -689,115 +670,29 @@
       </div>
     </section>
 
-    <!-- 4. Debugging needs context (Tracing) -->
-    <section style="padding: 6rem 0; background: transparent;">
-      <div class="section-overlay bg-debugging-context"></div>
-      <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-          <!-- Left: Screenshot Mockup -->
-          <div style="position: relative;">
-            <div style="background: white; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
-              <!-- Trace View Mockup -->
-              <div style="padding: 2rem; background: linear-gradient(135deg, #f0fdf4 0%, white 100%);">
-                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; margin-bottom: 1rem;">
-                  <div style="color: #6b7280; margin-bottom: 0.5rem;">Stack: Multi-AZ Infrastructure</div>
-                </div>
-                <!-- Trace Timeline -->
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <div style="width: 200px; background: #10b981; height: 24px; border-radius: 4px; position: relative; overflow: hidden;">
-                      <div style="padding: 0 0.5rem; font-size: 0.75rem; color: white; line-height: 24px;">Terraform: provisioning...</div>
-                    </div>
-                    <span style="font-size: 0.75rem; color: #6b7280;">READY</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 0.5rem; padding-left: 1rem;">
-                    <div style="width: 180px; background: #3b82f6; height: 24px; border-radius: 4px;">
-                      <div style="padding: 0 0.5rem; font-size: 0.75rem; color: white; line-height: 24px;">VPC Peering</div>
-                    </div>
-                    <span style="font-size: 0.75rem; color: #6b7280;">STABLE</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 0.5rem; padding-left: 2rem;">
-                    <div style="width: 240px; background: #f59e0b; height: 24px; border-radius: 4px;">
-                      <div style="padding: 0 0.5rem; font-size: 0.75rem; color: white; line-height: 24px;">NLB: health check</div>
-                    </div>
-                    <span style="font-size: 0.75rem; color: #6b7280;">PASS</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 0.5rem; padding-left: 3rem;">
-                    <div style="width: 160px; background: #ef4444; height: 24px; border-radius: 4px;">
-                      <div style="padding: 0 0.5rem; font-size: 0.75rem; color: white; line-height: 24px;">Manual Drift</div>
-                    </div>
-                    <span style="font-size: 0.75rem; color: #ef4444; font-weight: 600;">ALERT</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Right: Content -->
-          <div>
-            <p style="font-size: 0.875rem; font-weight: 700; color: var(--color-cyan); margin-bottom: 1rem; letter-spacing: 0.5px;">INFRASTRUCTURE AS CODE</p>
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Modular, Scalable, Reliable.</h2>
-            <div style="background: rgba(255,255,255,0.05); border: 2px solid var(--color-cyan); border-radius: 0.75rem; padding: 2rem; margin-bottom: 1.5rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Terraform Blueprinting</h3>
-              <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 1rem;">Multi-tier architecture with RDS MySQL, VPC isolation, and production-grade networking Codified for repeatability. Pinpoint drift and ensure consistency across environments.</p>
-              <a href="#projects" style="color: var(--color-cyan); font-weight: 600; text-decoration: none;">LEARN MORE</a>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 2rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Solve slow, fast</h3>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 2rem; margin-top: 1.5rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Investigate known problems</h3>
-            </div>
-          </div>
+    <section id="certifications" style="padding: 6rem 0; background: #ffffff; color: #1f2937;">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header" style="text-align: center; margin-bottom: 5rem;">
+          <span class="section-badge" style="background: rgba(163, 98, 255, 0.1); color: #7c3aed; border: 1px solid rgba(163, 98, 255, 0.2);">Credentials</span>
+          <h2 class="section-title section-title-dark">Certifications & Licenses</h2>
         </div>
-      </div>
-    </section>
 
-    <!-- 5. Session Replay Section -->
-    <section style="padding: 6rem 0; background: transparent;">
-      <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-          <!-- Left: Content -->
-          <div>
-            <p style="font-size: 0.875rem; font-weight: 700; color: var(--color-orange); margin-bottom: 1rem; letter-spacing: 0.5px;">CLOUD AUTOMATION</p>
-            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Systems that scale themselves</h2>
-            <div style="background: rgba(255,255,255,0.05); border: 2px solid var(--color-orange); border-radius: 0.75rem; padding: 2rem; margin-bottom: 1.5rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Ansible & Bash Toolkits</h3>
-              <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 1rem;">Idempotent playbooks and production-ready toolkits for AWS auditing, cost optimization, and day-two operations. Automating the redundant, so you can focus on the innovative.</p>
-              <a href="#projects" style="color: var(--color-orange); font-weight: 600; text-decoration: none;">VIEW SCRIPTS</a>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 2rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Protect your users' privacy</h3>
-            </div>
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 2rem; margin-top: 1.5rem;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">See user frustration signals in the UX</h3>
-            </div>
+        <div class="cert-split-layout" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center;">
+          <!-- Left: Success Image -->
+          <div class="cert-image-wrapper" data-aos="fade-right">
+            <img src="success.jpg" alt="Certification Success" style="width: 100%; border-radius: 1.5rem;">
           </div>
 
-          <!-- Right: Screenshot Mockup -->
-          <div style="position: relative;">
-            <div style="background: #1e1e1e; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); border: 3px solid #dc2626;">
-              <!-- Replay UI -->
-              <div style="padding: 1.5rem;">
-                <!-- Replay Controls -->
-                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                  <div style="width: 40px; height: 40px; background: var(--color-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">▶</div>
-                  <div style="flex: 1; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; position: relative;">
-                    <div style="width: 60%; height: 100%; background: var(--color-orange); border-radius: 2px;"></div>
-                  </div>
-                  <span style="font-size: 0.875rem; color: white; font-family: 'IBM Plex Mono', monospace;">0:45 / 1:20</span>
-                </div>
-
-                <!-- Browser Viewport -->
-                <div style="background: white; border-radius: 0.5rem; padding: 1rem; min-height: 200px;">
-                  <div style="background: #f3f4f6; padding: 1rem; border-radius: 0.25rem; margin-bottom: 0.75rem;">
-                    <div style="color: #6b7280; font-size: 0.875rem;">Button Click Event</div>
-                  </div>
-                  <div style="background: #fef2f2; padding: 1rem; border-radius: 0.25rem; border-left: 4px solid #ef4444;">
-                    <div style="color: #991B1B; font-size: 0.875rem; font-weight: 600;">ALERT: Infrastructure Drift Detected</div>
-                  </div>
-                </div>
-              </div>
+          <!-- Right: The Archive Library -->
+          <div class="cert-library-side">
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+              <span style="font-size: 0.8rem; font-weight: 800; color: #4b5563; text-transform: uppercase; letter-spacing: 3px; white-space: nowrap;">Credentials Library</span>
+              <div style="height: 1px; flex: 1; background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);"></div>
+            </div>
+            <div id="certifications-archive" class="cert-archive-grid light-theme-grid">
+              <!-- Populated by ui.js -->
             </div>
           </div>
         </div>
@@ -866,161 +761,6 @@
       </div>
     </section>
 
-    <!-- 7. Getting Started Section -->
-    <section class="section-ribbon getting-started">
-      <div class="hex-wall hex-wall--left" aria-hidden="true">
-        <div class="hex-stack">
-          <div class="hex-row">
-            <div class="hex"><img src="images/icon-gcp.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-k8s.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-terraform.svg" alt=""></div>
-          </div>
-          <div class="hex-row is-offset">
-            <div class="hex"><img src="images/icon-gcp.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-ansible.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-nginx.svg" alt=""></div>
-          </div>
-          <div class="hex-row">
-            <div class="hex"><img src="images/icon-terraform.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-docker.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-k8s.svg" alt=""></div>
-          </div>
-          <div class="hex-row is-offset">
-            <div class="hex"><img src="images/icon-python.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-docker.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-github.svg" alt=""></div>
-          </div>
-          <div class="hex-row">
-            <div class="hex"><img src="images/icon-bash.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-linux.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-nginx.svg" alt=""></div>
-          </div>
-          <div class="hex-row is-offset">
-            <div class="hex"><img src="images/icon-terraform.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-docker.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-github.svg" alt=""></div>
-          </div>
-          <div class="hex-row">
-            <div class="hex"><img src="images/icon-k8s.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-python.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-gcp.svg" alt=""></div>
-          </div>
-          <div class="hex-row is-offset">
-            <div class="hex"><img src="images/icon-k8s.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-ansible.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-github.svg" alt=""></div>
-          </div>
-        </div>
-      </div>
-      <div class="hex-wall hex-wall--right" aria-hidden="true">
-        <div class="hex-stack">
-          <div class="hex-row">
-            <div class="hex"><img src="images/icon-gcp.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-k8s.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-docker.svg" alt=""></div>
-          </div>
-          <div class="hex-row is-offset">
-            <div class="hex"><img src="images/icon-linux.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-nginx.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-python.svg" alt=""></div>
-          </div>
-          <div class="hex-row">
-            <div class="hex"><img src="images/icon-terraform.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-k8s.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-docker.svg" alt=""></div>
-          </div>
-          <div class="hex-row is-offset">
-            <div class="hex"><img src="images/icon-github.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-ansible.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-bash.svg" alt=""></div>
-          </div>
-          <div class="hex-row">
-            <div class="hex"><img src="images/icon-linux.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-docker.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-github.svg" alt=""></div>
-          </div>
-          <div class="hex-row is-offset">
-            <div class="hex"><img src="images/icon-python.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-terraform.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-gcp.svg" alt=""></div>
-          </div>
-          <div class="hex-row">
-            <div class="hex"><img src="images/icon-terraform.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-nginx.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-github.svg" alt=""></div>
-          </div>
-          <div class="hex-row is-offset">
-            <div class="hex"><img src="images/icon-k8s.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-ansible.svg" alt=""></div>
-            <div class="hex"><img src="images/icon-docker.svg" alt=""></div>
-          </div>
-        </div>
-      </div>
-      <div class="container getting-inner">
-        <div class="getting-header">
-          <h2 class="getting-title">Getting started with CloudyCode is simple</h2>
-          <p class="getting-lead">
-            We support every technology (except the ones we do not).<br>
-            Get started with just a few lines of code.
-          </p>
-        </div>
-
-        <div class="getting-row">
-          <select id="language-select" name="language" aria-label="Languages" class="getting-select" autocomplete="off">
-            <option value="android">Android</option>
-            <option value="dotnet">.NET</option>
-            <option value="go">Go</option>
-            <option value="swift">Swift</option>
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
-            <option value="react">React</option>
-            <option value="ruby">Ruby</option>
-            <option value="nextjs" selected>Next.js</option>
-            <option value="php">PHP</option>
-            <option value="laravel">Laravel</option>
-            <option value="aspnetcore">ASP.NET Core</option>
-            <option value="spring-boot">Spring Boot</option>
-            <option value="vue">Vue</option>
-            <option value="angular">Angular</option>
-            <option value="solid">Solid</option>
-            <option value="svelte">Svelte</option>
-            <option value="astro">Astro</option>
-            <option value="all">See All Platforms</option>
-          </select>
-        </div>
-
-        <p class="getting-kicker">See - it's really just one command.</p>
-
-        <div class="code-block-block">
-          <button class="copy-button" type="button" aria-label="Click to Copy">
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-              <path d="M14.24,12.49H5.58a1.75,1.75,0,0,1-1.75-1.75v-9A1.75,1.75,0,0,1,5.58,0h8.66A1.75,1.75,0,0,1,16,1.74v9A1.75,1.75,0,0,1,14.24,12.49Zm-8.66-11a.25.25,0,0,0-.25.25v9a.25.25,0,0,0,.25.25h8.66a.25.25,0,0,0,.25-.25v-9a.25.25,0,0,0-.25-.25Z"></path>
-              <path d="M10.38,16H1.72A1.75,1.75,0,0,1,0,14.26v-9A1.75,1.75,0,0,1,1.72,3.51H4.58a.75.75,0,0,1,0,1.5H1.72a.25.25,0,0,0-.25.25v9a.25.25,0,0,0,.25.25h8.66a.25.25,0,0,0,.25-.25V11.74a.75.75,0,0,1,1.5,0v2.52A1.75,1.75,0,0,1,10.38,16Z"></path>
-            </svg>
-          </button>
-          <pre class="code-block"><code>npm install cloudycode-cli</code></pre>
-        </div>
-
-        <p class="getting-note">
-          That's it. Check out our <a href="https://github.com/engabelal">documentation</a> to ensure you have the latest instructions.
-        </p>
-
-        <div class="cta-row">
-          <a href="mailto:ahmedbelal@cloudycode.dev" class="cta-button cta-primary">
-            <span>Create a CloudyCode account</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 4l8 8-8 8"></path>
-            </svg>
-          </a>
-          <a href="#projects" class="cta-button cta-secondary">
-            <span>See all platforms</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 4l8 8-8 8"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- 5. Achievements Section (Loved by developers) -->
     <section id="certifications" class="section-ribbon bg-testimonials-footer" style="padding: 6rem 0;">
