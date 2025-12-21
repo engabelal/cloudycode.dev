@@ -2341,6 +2341,50 @@ h3 {
   }
 }
 
+#accreditation {
+  background: #fbfaff !important; /* Premium Off-white */
+  position: relative;
+  overflow: hidden;
+  color: #1f2937 !important;
+}
+
+#accreditation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(163, 98, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(163, 98, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 90%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#accreditation::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(163, 98, 255, 0.07), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#accreditation .container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes certFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-10px, 15px) scale(1.05); }
+  100% { transform: translate(10px, -5px) scale(1); }
+}
+
 .glass-panel--light {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
