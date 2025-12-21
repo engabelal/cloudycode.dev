@@ -32,10 +32,58 @@
    About & Stats Section - Premium Design
    ======================================== */
 .about-stats-section {
-  padding: 6rem 0;
+  padding: 10rem 0;
   background: transparent;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  z-index: 1;
+}
+
+.about-stats-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(163, 98, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(163, 98, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Premium Background Decorators */
+.about-bg-decorator {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.about-bg-decorator--1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #a362ff, transparent);
+  top: -10%;
+  right: -10%;
+  animation: aboutFloat 20s infinite alternate;
+}
+
+.about-bg-decorator--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #fd44b0, transparent);
+  bottom: 0;
+  left: -10%;
+  animation: aboutFloat 15s infinite alternate-reverse;
+}
+
+@keyframes aboutFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(50px, 100px) scale(1.2); }
 }
 
 .about-stats-section .section-header {
@@ -43,10 +91,17 @@
 }
 
 .about-stats-section .section-title {
-  font-size: 2rem;
-  max-width: 800px;
+  font-size: 3.0rem; /* Adjusted per user request */
+  font-weight: 800;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
 }
 
 /* Hero Stats - Large Cards */
@@ -62,34 +117,63 @@
 
 .stat-card {
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(163, 98, 255, 0.08),
-    rgba(253, 68, 176, 0.05)
-  );
-  border: 1px solid rgba(163, 98, 255, 0.2);
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 3rem 2rem;
   text-align: center;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Technical Insight Grid (Revealed on Hover) */
+.stat-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(163, 98, 255, 0.2) 1px, transparent 1px);
+  background-size: 12px 12px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(163, 98, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+              0 0 30px rgba(163, 98, 255, 0.1);
+}
+
+.stat-card:hover::after {
+  opacity: 1;
+}
+
+/* Corner Brackets / Accent */
 .stat-card::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #a362ff, #fd44b0);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s ease;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(163, 98, 255, 0.5), transparent 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.3;
+  transition: all 0.5s ease;
+  z-index: 1;
 }
 
 .stat-card:hover::before {
-  transform: scaleX(1);
+  opacity: 1;
+  background: linear-gradient(135deg, #a362ff 0%, transparent 50%, #fd44b0 100%);
 }
 
 .stat-glow {
@@ -110,33 +194,51 @@
 
 .stat-number-wrapper {
   display: flex;
-  align-items: baseline;
+  align-items: center; /* Changed from baseline to center for better sizing consistency */
   justify-content: center;
-  gap: 0.25rem;
+  gap: 0.15rem;
   margin-bottom: 0.75rem;
 }
 
 .stat-number {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #fff, #a362ff);
+  background: linear-gradient(135deg, #fff 0%, #a362ff 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   line-height: 1;
+  display: inline-block;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 2;
+  position: relative;
+}
+
+.stat-card:hover .stat-number {
+  filter: drop-shadow(0 0 15px rgba(163, 98, 255, 0.4));
+  transform: scale(1.02);
 }
 
 .stat-plus {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #fd44b0;
+  transform: translateY(-0.5rem);
+  transition: all 0.4s ease;
+}
+
+.stat-card:hover .stat-plus {
+  transform: translateY(-0.7rem) scale(1.1);
+  text-shadow: 0 0 10px rgba(253, 68, 176, 0.5);
 }
 
 .stat-label {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.95;
 }
 
 /* About Content Wrapper */
@@ -149,8 +251,20 @@
   margin: 0 auto;
 }
 
-.about-text {
-  padding-right: 2rem;
+.about-text-panel {
+  padding-right: 3rem;
+  position: relative;
+}
+
+.about-accent-line {
+  position: absolute;
+  left: -2rem;
+  top: 10px;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #a362ff, transparent);
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(163, 98, 255, 0.5);
 }
 
 .about-title {
@@ -184,18 +298,20 @@
 .mini-stat {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  background: rgba(163, 98, 255, 0.05);
-  border: 1px solid rgba(163, 98, 255, 0.15);
-  border-radius: 15px;
-  padding: 1.25rem 1.5rem;
-  transition: all 0.3s ease;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .mini-stat:hover {
-  background: rgba(163, 98, 255, 0.1);
+  background: rgba(163, 98, 255, 0.08);
   border-color: rgba(163, 98, 255, 0.3);
-  transform: translateX(5px);
+  transform: translateX(10px);
+  box-shadow: -10px 0 30px rgba(163, 98, 255, 0.1);
 }
 
 .mini-stat-icon {
@@ -331,10 +447,16 @@
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 3.0rem;
+  font-weight: 800;
   margin-bottom: 1rem;
   color: white;
-  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
 }
 
 .section-description {
