@@ -32,6 +32,7 @@ This is a **static site** that runs directly in the browser. There is NO npm ins
 ### Testing
 
 No formal test suite exists. Test manually by:
+
 - Opening in browser and checking console for errors
 - Verifying service worker registration in DevTools → Application
 - Testing PWA installation on mobile/desktop
@@ -67,6 +68,7 @@ The service worker (sw.js) implements a hybrid caching strategy:
 - **Critical assets**: Pre-cached on installation
 
 When updating site version:
+
 1. Update `version` in `config/site.config.js`
 2. Update `CACHE_VERSION` in `sw.js` to match
 3. Both must stay in sync
@@ -80,7 +82,7 @@ Three-layer CSS system:
 - **css/custom.css** - Page-specific styles and animations
 - **css/cloud-magnet.css** - Special cloud magnet effect (if used)
 
-Colors are based on Sentry/Brand.io exact palette with dark purple (#1F1633) as primary.
+Colors are based on CloudyCode brand palette with dark purple (#1F1633) as primary.
 
 ### Animation System
 
@@ -99,6 +101,7 @@ Animations are conditionally reduced or disabled based on user preference.
 Single source of truth: **config/site.config.js**
 
 Contains:
+
 - Site metadata (name, URL, description)
 - Author info (name, email, title)
 - Social links
@@ -116,6 +119,7 @@ This site intentionally avoids React/Vue/etc. It demonstrates that modern UX can
 ### PWA Functionality
 
 The site is installable via:
+
 - **manifest.json** - App manifest for installation
 - **sw.js** - Service worker for offline support
 - **offline.html** - Fallback page when offline
@@ -135,6 +139,7 @@ The site is installable via:
 GitHub Pages compatible - just push and enable Pages in repository settings. No build configuration needed.
 
 Alternative deployment options:
+
 - Netlify (drag-and-drop or CLI)
 - Cloudflare Pages
 - Vercel

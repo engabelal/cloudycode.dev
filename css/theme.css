@@ -4,7 +4,7 @@
 
 :root {
   /* ===== PRIMARY BACKGROUNDS ===== */
-  --bg-dark-primary: #1f1633; /* Main dark purple - hero, feature sections (Sentry.io exact) */
+  --bg-dark-primary: #1f1633; /* Main dark purple - hero, feature sections */
   --bg-dark-secondary: #2b1f3f; /* Slightly lighter dark purple */
   --bg-nebula: #30145f; /* Brighter nebula purple */
   --bg-medium-purple: #362d59; /* Medium purple accents */
@@ -15,7 +15,7 @@
   --bg-light-dots: #f9f8ff; /* Background with dot pattern */
 
   /* Hero Section Nebula */
-  --img-nebula: url("../images/sentry-welcome-bg.webp");
+  --img-nebula: url("../images/welcome-bg.webp");
 
   /* ===== GRADIENTS ===== */
   /* Hero Section Gradient - Radial */
@@ -27,7 +27,7 @@
   );
 
   /* Middle Section Grain Texture */
-  --texture-grain: url("../images/sentry-texture.webp");
+  --texture-grain: url("../images/texture.webp");
 
   /* Middle Transition Gradient */
   --gradient-middle: linear-gradient(#1f1633 0%, #30145f 52.4%, #30145f 100%);
@@ -127,7 +127,7 @@
   --font-weight-black: 900;
 }
 
-/* DIAGONAL SEPARATORS - NEUTRALIZED for Sentry.io Flat Design */
+/* DIAGONAL SEPARATORS - NEUTRALIZED for Flat Design */
 .section-angled,
 .angle-overlay,
 .angle-overlay--both,

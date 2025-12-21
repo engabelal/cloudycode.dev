@@ -16,6 +16,14 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
+# AI assistant folders
+.claude/
+.kiro/
+.cursor/
+.copilot/
+.aider/
+.continue/
+
 # Node.js
 node_modules/
 npm-debug.log*
@@ -29,6 +37,7 @@ dist/
 build/
 .cache/
 .parcel-cache/
+_site/
 
 # Environment files
 .env
@@ -53,9 +62,6 @@ temp/
 *.zip
 *.tar.gz
 *.rar
-
-# PDF and large media (optional)
-*.pdf
 
 # Downloaded SVG files (cleanup)
 *_Logo*.svg
