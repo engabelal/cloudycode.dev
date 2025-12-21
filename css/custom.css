@@ -2288,11 +2288,57 @@ h3 {
 }
 
 .bg-dev-first,
-.bg-everything-connected,
 .bg-debugging-context,
 .bg-testimonials-footer,
 .bg-testimonials-footer::after {
   display: none;
+}
+
+/* Premium Background for Blueprints Section */
+.bg-everything-connected {
+  display: block !important; /* Override global display: none */
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(163, 98, 255, 0.08) 0%, transparent 60%),
+              radial-gradient(circle at 30% 70%, rgba(253, 68, 176, 0.05) 0%, transparent 60%);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blueprints-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.blueprints-main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: white;
+}
+
+.blueprints-main-description {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+@media (max-width: 992px) {
+  .blueprints-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .blueprints-main-title {
+    font-size: 2.5rem;
+  }
 }
 
 .glass-panel--light {
@@ -4227,7 +4273,7 @@ body {
   top: 15%;
   bottom: 15%;
   width: 3px;
-  background: #a362ff;
+  background: var(--accent-purple-light);
   border-radius: 0 4px 4px 0;
   opacity: 0.3;
   transition: all 0.4s ease;
@@ -4235,9 +4281,9 @@ body {
 
 .project-mini-card:hover {
   transform: translateX(12px) scale(1.02);
-  background: rgba(163, 98, 255, 0.05) !important;
-  border-color: rgba(163, 98, 255, 0.3) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: rgba(163, 98, 255, 0.08) !important;
+  border-color: rgba(163, 98, 255, 0.4) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(163, 98, 255, 0.1);
 }
 
 .project-mini-card:hover::before {
@@ -4305,27 +4351,41 @@ body {
 .project-mini-card:nth-child(1)::before {
   background: #a362ff;
 }
+.project-mini-card:nth-child(1):hover {
+  background: rgba(163, 98, 255, 0.1) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(163, 98, 255, 0.2) !important;
+}
+
 .project-mini-card:nth-child(2)::before {
   background: #34d399;
 }
-.project-mini-card:nth-child(3)::before {
-  background: #fb923c;
-}
-
 .project-mini-card:nth-child(2).active,
 .project-mini-card:nth-child(2):hover {
-  border-color: rgba(52, 211, 153, 0.3) !important;
+  border-color: rgba(52, 211, 153, 0.4) !important;
+  background: rgba(52, 211, 153, 0.1) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(52, 211, 153, 0.2) !important;
 }
 .project-mini-card:nth-child(2) .repo-link {
   color: #34d399 !important;
 }
+.project-mini-card:nth-child(2):hover::before {
+  box-shadow: 0 0 15px #34d399;
+}
 
+.project-mini-card:nth-child(3)::before {
+  background: #fb923c;
+}
 .project-mini-card:nth-child(3).active,
 .project-mini-card:nth-child(3):hover {
-  border-color: rgba(251, 146, 60, 0.3) !important;
+  border-color: rgba(251, 146, 60, 0.4) !important;
+  background: rgba(251, 146, 60, 0.1) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(251, 146, 60, 0.2) !important;
 }
 .project-mini-card:nth-child(3) .repo-link {
   color: #fb923c !important;
+}
+.project-mini-card:nth-child(3):hover::before {
+  box-shadow: 0 0 15px #fb923c;
 }
 
 /* ========================================
