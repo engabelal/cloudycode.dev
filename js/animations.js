@@ -136,10 +136,10 @@ export function initTypingEffect() {
   type();
 }
 
-// Initialize Particles.js
+// Initialize Particles.js (Optional - only if library is loaded)
 export function initParticles() {
   if (typeof particlesJS === "undefined") {
-    console.warn("Particles.js not loaded");
+    // Particles.js not loaded - this is optional
     return;
   }
 
@@ -214,10 +214,10 @@ export function initParticles() {
   particlesJS("particles-js", particlesConfig);
 }
 
-// Initialize AOS (Animate On Scroll)
+// Initialize AOS (Animate On Scroll) - Optional
 export function initAOS() {
   if (typeof AOS === "undefined") {
-    console.warn("AOS not loaded");
+    // AOS not loaded - this is optional
     return;
   }
 

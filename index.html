@@ -39,6 +39,7 @@
   <meta name="twitter:creator" content="@engabelal">
 
   <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="apple-touch-icon" href="images/icon-192.png">
   <link rel="manifest" href="manifest.json">
@@ -127,12 +128,14 @@
             <a href="mailto:ahmedbelal@cloudycode.dev" class="btn btn-primary-header">Get Started</a>
           </div>
 
-          <button class="mobile-menu-button" id="mobile-menu-btn" aria-label="Toggle menu" style="display: none; position: absolute; right: 2rem;">
-            <i class="fas fa-bars"></i>
+          <button class="mobile-menu-button" id="mobile-menu-btn" aria-label="Toggle menu">
+            <i class="fas fa-bars" id="menu-icon"></i>
           </button>
         </div>
       </div>
     </nav>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
   </header>
 
   <main id="main-content">
@@ -792,7 +795,7 @@
         </div>
 
         <div class="getting-row">
-          <select aria-label="Languages" class="getting-select">
+          <select id="language-select" name="language" aria-label="Languages" class="getting-select" autocomplete="off">
             <option value="android">Android</option>
             <option value="dotnet">.NET</option>
             <option value="go">Go</option>
