@@ -1,6 +1,6 @@
 /* ========================================
    CLOUDYCODE COLOR & DESIGN TOKENS
-   Sync'd with exact Sentry.io technical specs
+   CloudyCode brand specifications
    ======================================== */
 
 :root {
@@ -165,7 +165,7 @@
   --text-small: 0.875rem;
 }
 
-/* DIAGONAL SEPARATORS - NEUTRALIZED for Sentry.io Flat Design */
+/* DIAGONAL SEPARATORS - NEUTRALIZED for Flat Design */
 .diagonal-section,
 .diagonal-bg,
 .diagonal-top-left > .diagonal-bg,
