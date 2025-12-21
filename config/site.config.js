@@ -58,7 +58,7 @@ const siteConfig = {
   // IMPORTANT: When updating this version, also update CACHE_VERSION in sw.js
   // This is the single source of truth for the site version displayed in the footer
   // Version 7.0.0 - Complete redesign
-  version: '7.0.0',
+  version: '2.0.2',
 };
 
 // Export for use in other files
