@@ -551,53 +551,98 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
           <!-- Left: Content -->
           <div>
-            <p style="font-size: 0.875rem; font-weight: 700; color: var(--color-accent-purple); margin-bottom: 1rem; letter-spacing: 0.5px;">CI/CD MASTERY</p>
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Blue/Green Deployments & Zero Downtime</h2>
+            <p style="font-size: 0.875rem; font-weight: 700; color: var(--color-accent-purple); margin-bottom: 1rem; letter-spacing: 0.5px;">DevOps and Cloud Projects</p>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2;">Engineering Blueprints</h2>
+            <p style="opacity: 0.7; font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">
+              Architectures focused on <span style="color: var(--color-accent-purple); font-weight: 600;">production-grade automation</span> and cloud-native excellence.
+            </p>
 
-            <!-- Feature Cards -->
+            <!-- Project Cards -->
             <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-              <!-- Card 1 -->
-              <div style="background: rgba(255,255,255,0.05); border: 2px solid var(--color-accent-purple); border-radius: 0.75rem; padding: 2rem;">
-                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">ECS Fargate Scaling</h3>
-                <p style="opacity: 0.9; line-height: 1.6;">Automated CodeDeploy strategies with zero-downtime updates and GitHub Actions OIDC integration.</p>
-                <a href="#projects" style="color: var(--color-accent-purple); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">EXPLORE REPO</a>
+              <!-- Project 1: ECS Fargate -->
+              <div class="project-mini-card glass" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.5rem; cursor: pointer;">
+                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: #fff;">ECS Fargate Blue/Green</h3>
+                <p style="opacity: 0.8; line-height: 1.5; font-size: 0.9rem; margin-bottom: 0;">Automated container deployment with zero-downtime updates via CodeDeploy and GitHub Actions.</p>
+                <a href="https://github.com/engabelal/ecs-fargate-terraform-deployment" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
               </div>
 
-              <!-- Card 2 -->
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 2rem;">
-                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Node.js Optimization</h3>
-                <p style="opacity: 0.9; line-height: 1.6;">Sub-15-second deployments via optimized GitHub Actions and Terraform blueprints.</p>
+              <!-- Project 2: Node.js Pipeline -->
+              <div class="project-mini-card glass" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.5rem; cursor: pointer;">
+                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: #fff;">Node.js CI/CD Pipeline</h3>
+                <p style="opacity: 0.8; line-height: 1.5; font-size: 0.9rem; margin-bottom: 0;">Optimized pipeline delivering sub-15-second deployments via Terraform and GitHub Actions.</p>
+                <a href="https://github.com/engabelal/simple-nodejs-ec2-cicd" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
               </div>
 
-              <!-- Card 3 -->
-              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 2rem;">
-                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Automatic Rollbacks</h3>
-                <p style="opacity: 0.9; line-height: 1.6;">Intelligent health checks triggering instant reverts on failed deployments.</p>
+              <!-- Project 3: Serverless Platform -->
+              <div class="project-mini-card glass" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.5rem; cursor: pointer;">
+                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: #fff;">AWS Serverless Event Platform</h3>
+                <p style="opacity: 0.8; line-height: 1.5; font-size: 0.9rem; margin-bottom: 0;">EventBridge & Lambda stack codified as IaC with automated environment provisioning.</p>
+                <a href="https://github.com/engabelal/iac-aws-serverless-event" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
               </div>
             </div>
           </div>
 
           <!-- Right: Screenshot Mockup -->
-          <div style="position: relative;">
-            <!-- Pink Monster on Top Right -->
-            <div style="position: absolute; top: -50px; right: -30px; width: 100px; height: 120px; z-index: 10;">
-              <div style="width: 70px; height: 90px; background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); border-radius: 50% 50% 0 0; position: relative;">
-                <!-- Eye -->
-                <div style="position: absolute; top: 30%; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: white; border-radius: 50%;"></div>
+          <!-- Right: Project Showcase 3D -->
+          <div class="project-showcase-wrapper">
+            <!-- Decorative Glow -->
+            <div style="position: absolute; inset: -30px; background: radial-gradient(circle, rgba(163,98,255,0.25) 0%, transparent 70%); filter: blur(50px); z-index: 0;"></div>
+
+            <!-- Main 3D Card -->
+            <div class="project-card-3d">
+
+              <!-- Fake OS Header -->
+              <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
+                 <div style="display: flex; gap: 8px;">
+                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
+                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
+                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
+                 </div>
+                 <div style="font-family: 'Fira Code', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.5);">~/blueprints/ha-architecture</div>
+              </div>
+
+              <!-- IDE / Code Body -->
+              <div class="project-code-area">
+                 <div style="display: flex; gap: 1rem; font-size: 0.85rem; line-height: 1.6;">
+                    <div style="color: rgba(255,255,255,0.2); text-align: right; user-select: none;">
+                       1<br>2<br>3<br>4<br>5
+                    </div>
+                    <div style="color: #d4d4d4;">
+                       <span style="color: #c586c0;">module</span> "autoscale" {<br>
+                       &nbsp;&nbsp;source = <span style="color: #ce9178;">"./aws/asg"</span><br>
+                       &nbsp;&nbsp;min_size = <span style="color: #b5cea8;">2</span><br>
+                       &nbsp;&nbsp;max_size = <span style="color: #b5cea8;">10</span><br>
+                       }
+                    </div>
+                 </div>
+
+                 <!-- Floating Deployment Badge -->
+                 <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(251, 146, 60, 0.15); border: 1px solid rgba(251, 146, 60, 0.3); color: #fb923c; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.7rem; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(5px);">
+                    <div style="width: 6px; height: 6px; background: #fb923c; border-radius: 50%; box-shadow: 0 0 8px #fb923c; animation: pulse 2s infinite;"></div> MORE COMING SOON
+                 </div>
+              </div>
+
+              <!-- Card Footer with GitHub Link -->
+              <div style="background: rgba(0,0,0,0.2); padding: 1.25rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
+                 <div>
+                    <h4 style="color: white; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Infrastructure Blueprint</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">Production-grade Terraform modules</p>
+                 </div>
+                 <a href="https://github.com/engabelal/devops-hands-on-labs" target="_blank" class="repo-link-btn">
+                    <i class="fab fa-github" style="font-size: 1.1rem;"></i> View more projects
+                 </a>
               </div>
             </div>
 
-            <!-- Screenshot Container -->
-            <div style="background: white; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); transform: rotate(-2deg);">
-              <!-- Browser Bar -->
-              <div style="background: #f9fafb; padding: 0.75rem 1rem; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; gap: 0.5rem;">
-                <div style="width: 10px; height: 10px; background: #ef4444; border-radius: 50%;"></div>
-                <div style="width: 10px; height: 10px; background: #f59e0b; border-radius: 50%;"></div>
-                <div style="width: 10px; height: 10px; background: #10b981; border-radius: 50%;"></div>
-              </div>
+            <!-- Floating Tech Icons -->
+            <div class="tech-float-icon" style="top: -20px; left: -20px; transform: rotate(-8deg);">
+               <i class="fab fa-aws" style="font-size: 28px; color: #ff9900;"></i>
+            </div>
 
-              <!-- Content -->
-              <div style="padding: 2rem; background: linear-gradient(180deg, #fef2f2 0%, white 100%);">
+            <div class="tech-float-icon" style="bottom: 40px; right: -25px; transform: rotate(12deg);">
+               <img src="images/icon-terraform.svg" alt="TF" style="width: 28px; height: 28px;">
+            </div>
+          </div>
                 <!-- Error Badge -->
                 <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #FEE2E2; color: #991B1B; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">
                   <span>⚠️</span>

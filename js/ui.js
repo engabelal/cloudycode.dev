@@ -378,6 +378,28 @@ export function initFloatingCards() {
     });
   });
 }
+// Project Mini Cards Interaction (For DevOps and Cloud Projects Section)
+export function initProjectMiniCards() {
+  const cards = document.querySelectorAll('.project-mini-card');
+
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      const isActive = card.classList.contains('active');
+
+      // Close all others first
+      cards.forEach(c => c.classList.remove('active'));
+
+      if (!isActive) {
+        card.classList.add('active');
+      }
+    });
+
+    const repoLink = card.querySelector('.repo-link');
+    repoLink?.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  });
+}
 
 // Initialize All UI Components
 export function initUI() {
@@ -389,6 +411,7 @@ export function initUI() {
   initCertifications();
   initActiveNavLink();
   initFloatingCards();
+  initProjectMiniCards();
   displaySiteVersion();
 
   // Hide loading screen after everything is ready

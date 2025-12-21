@@ -4067,3 +4067,193 @@ body {
   transform: translateY(3px);
   color: #fd44b0;
 }
+/* ========================================
+   Project Showcase 3D Card
+   ======================================== */
+.project-showcase-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+.project-card-3d {
+  transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.project-showcase-wrapper:hover .project-card-3d {
+  transform: perspective(1000px) rotateY(0) rotateX(0) translateY(-10px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6),
+              0 0 0 1px rgba(163, 98, 255, 0.3);
+}
+
+.project-code-area {
+  background: #1e1e1e;
+  padding: 1.5rem;
+  font-family: 'IBM Plex Mono', 'Fira Code', monospace;
+  position: relative;
+}
+
+.repo-link-btn {
+  background: #ffffff;
+  color: #1a1a1a;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.repo-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  color: #a362ff;
+}
+
+.tech-float-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 20;
+  transition: all 0.4s ease;
+}
+
+.project-showcase-wrapper:hover .tech-float-icon {
+  transform: perspective(1000px) scale(1.1);
+  border-color: rgba(163, 98, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(163, 98, 255, 0.2);
+}
+
+/* ========================================
+   Ultra-Premium Project Mini Cards
+   ======================================== */
+.project-mini-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  padding: 1.5rem 1.5rem 1.5rem 2rem !important; /* Extra space for left bar */
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1) !important;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* The Glowing Accent Bar */
+.project-mini-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15%;
+  bottom: 15%;
+  width: 3px;
+  background: #a362ff;
+  border-radius: 0 4px 4px 0;
+  opacity: 0.3;
+  transition: all 0.4s ease;
+}
+
+.project-mini-card:hover {
+  transform: translateX(12px) scale(1.02);
+  background: rgba(163, 98, 255, 0.05) !important;
+  border-color: rgba(163, 98, 255, 0.3) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-mini-card:hover::before {
+  top: 0;
+  bottom: 0;
+  opacity: 1;
+  box-shadow: 0 0 15px #a362ff;
+}
+
+.project-mini-card h3 {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin: 0 !important;
+  letter-spacing: -0.01em;
+}
+
+.project-mini-card p {
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  margin: 0 !important;
+  transition: color 0.3s ease;
+}
+
+.project-mini-card:hover p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.project-mini-card .repo-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a362ff !important;
+  text-decoration: none;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-mini-card.active .repo-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-mini-card .repo-link i {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.project-mini-card .repo-link:hover {
+  color: #fff !important;
+}
+
+.project-mini-card .repo-link:hover i {
+  transform: translate(3px, -3px);
+}
+
+/* Specific Card Accents */
+.project-mini-card:nth-child(1)::before { background: #a362ff; }
+.project-mini-card:nth-child(2)::before { background: #34d399; }
+.project-mini-card:nth-child(3)::before { background: #fb923c; }
+
+.project-mini-card:nth-child(2).active,
+.project-mini-card:nth-child(2):hover { border-color: rgba(52, 211, 153, 0.3) !important; }
+.project-mini-card:nth-child(2) .repo-link { color: #34d399 !important; }
+
+.project-mini-card:nth-child(3).active,
+.project-mini-card:nth-child(3):hover { border-color: rgba(251, 146, 60, 0.3) !important; }
+.project-mini-card:nth-child(3) .repo-link { color: #fb923c !important; }
+
+
