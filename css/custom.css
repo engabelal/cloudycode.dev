@@ -4765,6 +4765,65 @@ body {
   }
 }
 
+/* ========================================
+   Accreditation Section Mobile Responsive Fix
+   Addresses: cert-split-layout 2-column grid causing overflow on mobile
+   ======================================== */
+.cert-split-layout {
+  display: grid;
+}
+
+@media (max-width: 992px) {
+  .cert-split-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .cert-image-wrapper {
+    min-height: 280px !important;
+    height: auto !important;
+    order: 1; /* Lottie animation first on mobile */
+  }
+
+  .cert-library-side {
+    order: 2; /* Certificates grid second on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-split-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .cert-image-wrapper {
+    min-height: 220px !important;
+    padding: 1rem 0 !important;
+  }
+
+  .cert-image-wrapper .aurora-blob-wrapper {
+    display: none; /* Hide decorative blob on small screens for performance */
+  }
+
+  .cert-image-wrapper lottie-player {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .cert-library-side {
+    padding: 1.5rem !important;
+    border-radius: 1rem !important;
+  }
+
+  #accreditation {
+    padding: 4rem 0 !important;
+  }
+
+  #accreditation .section-header {
+    margin-bottom: 2rem !important;
+  }
+}
+
 .dark-theme-grid .cert-archive-item {
   background: rgba(255, 255, 255, 0.03) !important;
   backdrop-filter: blur(10px) !important;
