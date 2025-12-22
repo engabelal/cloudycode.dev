@@ -1,5 +1,8 @@
 import { prefersReducedMotion, createObserver } from "./utils.js";
 
+const MOBILE_QUERY = "(max-width: 768px)";
+const isMobileView = () => window.matchMedia(MOBILE_QUERY).matches;
+
 /**
  * Enhanced Scroll Animations for CloudyCode Portfolio
  * Fixed version that doesn't interfere with existing floating cards
@@ -7,7 +10,7 @@ import { prefersReducedMotion, createObserver } from "./utils.js";
 
 // Initialize Enhanced Scroll Animations - Enhanced version
 export function initEnhancedScrollAnimations() {
-  if (prefersReducedMotion()) return;
+  if (prefersReducedMotion() || isMobileView()) return;
 
   // Add a small delay to ensure DOM is fully ready
   setTimeout(() => {
@@ -22,16 +25,22 @@ export function initEnhancedScrollAnimations() {
 // Initialize section-based animations - Enhanced for better visibility
 function initSectionAnimations() {
   const sections = document.querySelectorAll("section");
+  const isMobile = isMobileView();
+  const duration = isMobile ? 0.7 : 1.2;
+  const durationMs = duration * 1000;
+  const translateY = isMobile ? 30 : 60;
+  const easing = "cubic-bezier(0.25, 0.46, 0.45, 0.94)";
 
   sections.forEach((section) => {
     // Skip hero and arsenal sections (they have their own animations)
     if (section.id === "hero" || section.id === "arsenal") return;
+    if (section.hasAttribute("data-aos")) return;
 
     // Apply more dramatic fade-up animation to sections
     section.style.opacity = "0";
-    section.style.transform = "translateY(60px)";
-    section.style.transition = "all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-    section.style.filter = "blur(4px)";
+    section.style.transform = `translateY(${translateY}px)`;
+    section.style.transition = `transform ${duration}s ${easing}, opacity ${duration}s ${easing}`;
+    section.style.willChange = "transform, opacity";
 
     const observer = createObserver(
       (entries) => {
@@ -39,18 +48,21 @@ function initSectionAnimations() {
           if (entry.isIntersecting) {
             entry.target.style.opacity = "1";
             entry.target.style.transform = "translateY(0px)";
-            entry.target.style.filter = "blur(0px)";
 
             // Animate section children with enhanced stagger
-            animateSectionChildren(entry.target);
+            animateSectionChildren(entry.target, isMobile);
+
+            setTimeout(() => {
+              entry.target.style.willChange = "";
+            }, durationMs + 150);
 
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.15, // Trigger earlier
-        rootMargin: "-20px 0px -20px 0px", // Less margin for better timing
+        threshold: isMobile ? 0.08 : 0.15, // Trigger earlier on mobile
+        rootMargin: isMobile ? "-10px 0px -10px 0px" : "-20px 0px -20px 0px",
       }
     );
 
@@ -59,7 +71,7 @@ function initSectionAnimations() {
 }
 
 // Animate children of a section with enhanced stagger effect
-function animateSectionChildren(section) {
+function animateSectionChildren(section, isMobile) {
   // Different selectors for different sections
   let childSelector = "";
 
@@ -75,19 +87,25 @@ function animateSectionChildren(section) {
 
   const children = section.querySelectorAll(childSelector);
 
+  const duration = isMobile ? 0.5 : 0.8;
+  const translateY = isMobile ? 24 : 40;
+  const startScale = isMobile ? 0.98 : 0.95;
+  const baseDelay = isMobile ? 80 : 200;
+  const stagger = isMobile ? 60 : 120;
+  const glowDuration = isMobile ? 300 : 800;
+
   children.forEach((child, index) => {
     // Skip if it's a floating card (they have their own animations)
     if (child.classList.contains("floating-card")) return;
 
     child.style.opacity = "0";
-    child.style.transform = "translateY(40px) scale(0.95)";
-    child.style.transition = "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)";
-    child.style.filter = "blur(2px)";
+    child.style.transform = `translateY(${translateY}px) scale(${startScale})`;
+    child.style.transition = `transform ${duration}s cubic-bezier(0.34, 1.56, 0.64, 1), opacity ${duration}s cubic-bezier(0.34, 1.56, 0.64, 1)`;
+    child.style.willChange = "transform, opacity";
 
     setTimeout(() => {
       child.style.opacity = "1";
       child.style.transform = "translateY(0px) scale(1)";
-      child.style.filter = "blur(0px)";
 
       // Add subtle glow effect during animation
       child.style.boxShadow = "0 10px 30px rgba(163, 98, 255, 0.1)";
@@ -95,8 +113,9 @@ function animateSectionChildren(section) {
       // Remove glow after animation
       setTimeout(() => {
         child.style.boxShadow = "";
-      }, 800);
-    }, 200 + index * 120); // Increased stagger delay
+        child.style.willChange = "";
+      }, glowDuration);
+    }, baseDelay + index * stagger);
   });
 }
 
@@ -123,12 +142,19 @@ function initCertificationAnimations() {
   const certItems = document.querySelectorAll(
     "#accreditation .cert-item, #accreditation .cert-card, #accreditation .certification-item"
   );
+  const isMobile = isMobileView();
+  const duration = isMobile ? 0.7 : 1;
+  const durationMs = duration * 1000;
+  const translateY = isMobile ? 30 : 50;
+  const startScale = isMobile ? 0.94 : 0.8;
+  const startRotate = isMobile ? -1 : -2;
+  const stagger = isMobile ? 80 : 150;
 
   certItems.forEach((cert, index) => {
     cert.style.opacity = "0";
-    cert.style.transform = "scale(0.8) translateY(50px) rotate(-2deg)";
-    cert.style.transition = "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-    cert.style.filter = "blur(3px)";
+    cert.style.transform = `scale(${startScale}) translateY(${translateY}px) rotate(${startRotate}deg)`;
+    cert.style.transition = `transform ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+    cert.style.willChange = "transform, opacity";
 
     const observer = createObserver(
       (entries) => {
@@ -138,35 +164,40 @@ function initCertificationAnimations() {
               entry.target.style.opacity = "1";
               entry.target.style.transform =
                 "scale(1) translateY(0px) rotate(0deg)";
-              entry.target.style.filter = "blur(0px)";
 
-              // Add enhanced glow effect
-              entry.target.style.boxShadow =
-                "0 15px 40px rgba(163, 98, 255, 0.15)";
+              if (!isMobile) {
+                // Add enhanced glow effect
+                entry.target.style.boxShadow =
+                  "0 15px 40px rgba(163, 98, 255, 0.15)";
 
-              // Enhanced bounce effect with multiple stages
-              setTimeout(() => {
-                entry.target.style.transform =
-                  "scale(1.08) translateY(-5px) rotate(1deg)";
+                // Enhanced bounce effect with multiple stages
                 setTimeout(() => {
                   entry.target.style.transform =
-                    "scale(0.98) translateY(2px) rotate(-0.5deg)";
+                    "scale(1.08) translateY(-5px) rotate(1deg)";
                   setTimeout(() => {
                     entry.target.style.transform =
-                      "scale(1) translateY(0px) rotate(0deg)";
-                    // Remove glow after animation
+                      "scale(0.98) translateY(2px) rotate(-0.5deg)";
                     setTimeout(() => {
-                      entry.target.style.boxShadow = "";
-                    }, 300);
-                  }, 150);
-                }, 200);
-              }, 400);
-            }, index * 150); // Increased stagger delay
+                      entry.target.style.transform =
+                        "scale(1) translateY(0px) rotate(0deg)";
+                      // Remove glow after animation
+                      setTimeout(() => {
+                        entry.target.style.boxShadow = "";
+                      }, 300);
+                    }, 150);
+                  }, 200);
+                }, 400);
+              }
+
+              setTimeout(() => {
+                entry.target.style.willChange = "";
+              }, durationMs + 200);
+            }, index * stagger);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 } // Trigger earlier
+      { threshold: isMobile ? 0.08 : 0.15 }
     );
 
     observer.observe(cert);
@@ -176,15 +207,22 @@ function initCertificationAnimations() {
 // Project card animations - Enhanced for better visibility
 function initProjectCardAnimations() {
   const projectCards = document.querySelectorAll(".project-card, .bento-card");
+  const isMobile = isMobileView();
+  const duration = isMobile ? 0.7 : 1;
+  const durationMs = duration * 1000;
+  const translateY = isMobile ? 40 : 60;
+  const startScale = isMobile ? 0.95 : 0.9;
+  const rotateX = isMobile ? 6 : 15;
+  const stagger = isMobile ? 120 : 250;
 
   projectCards.forEach((card, index) => {
     // Skip if it's a floating card
     if (card.classList.contains("floating-card")) return;
 
     card.style.opacity = "0";
-    card.style.transform = "translateY(60px) rotateX(15deg) scale(0.9)";
-    card.style.transition = "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-    card.style.filter = "blur(4px)";
+    card.style.transform = `translateY(${translateY}px) rotateX(${rotateX}deg) scale(${startScale})`;
+    card.style.transition = `transform ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+    card.style.willChange = "transform, opacity";
 
     const observer = createObserver(
       (entries) => {
@@ -194,36 +232,42 @@ function initProjectCardAnimations() {
               entry.target.style.opacity = "1";
               entry.target.style.transform =
                 "translateY(0px) rotateX(0deg) scale(1)";
-              entry.target.style.filter = "blur(0px)";
 
-              // Add glow effect during animation
-              entry.target.style.boxShadow =
-                "0 15px 40px rgba(163, 98, 255, 0.15)";
+              if (!isMobile) {
+                // Add glow effect during animation
+                entry.target.style.boxShadow =
+                  "0 15px 40px rgba(163, 98, 255, 0.15)";
 
-              // Enhanced bounce effect
-              setTimeout(() => {
-                entry.target.style.transform =
-                  "translateY(-8px) rotateX(-2deg) scale(1.02)";
+                // Enhanced bounce effect
                 setTimeout(() => {
                   entry.target.style.transform =
-                    "translateY(2px) rotateX(1deg) scale(0.99)";
+                    "translateY(-8px) rotateX(-2deg) scale(1.02)";
                   setTimeout(() => {
                     entry.target.style.transform =
-                      "translateY(0px) rotateX(0deg) scale(1)";
-                    // Remove glow after animation
+                      "translateY(2px) rotateX(1deg) scale(0.99)";
                     setTimeout(() => {
-                      entry.target.style.boxShadow = "";
-                    }, 300);
-                  }, 150);
-                }, 200);
-              }, 400);
-            }, index * 250); // Increased stagger delay
+                      entry.target.style.transform =
+                        "translateY(0px) rotateX(0deg) scale(1)";
+                      // Remove glow after animation
+                      setTimeout(() => {
+                        entry.target.style.boxShadow = "";
+                      }, 300);
+                    }, 150);
+                  }, 200);
+                }, 400);
+              }
+
+              setTimeout(() => {
+                entry.target.style.willChange = "";
+              }, durationMs + 200);
+            }, index * stagger);
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.15, // Trigger earlier
+        threshold: isMobile ? 0.1 : 0.15,
+        rootMargin: isMobile ? "0px 0px -10px 0px" : "0px 0px -20px 0px",
       }
     );
 
@@ -234,25 +278,31 @@ function initProjectCardAnimations() {
 // Stats animations with enhanced counter effect
 function initStatsAnimations() {
   const statNumbers = document.querySelectorAll(".stat-number");
+  const isMobile = isMobileView();
+  const duration = isMobile ? 0.6 : 1;
+  const startScale = isMobile ? 0.7 : 0.5;
 
   statNumbers.forEach((stat) => {
     // Set initial state
     stat.style.opacity = "0";
-    stat.style.transform = "scale(0.5)";
-    stat.style.filter = "blur(2px)";
+    stat.style.transform = `scale(${startScale})`;
+    stat.style.willChange = "transform, opacity";
 
     const observer = createObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Animate the stat number
           entry.target.style.transition =
-            "all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+            `transform ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
           entry.target.style.opacity = "1";
           entry.target.style.transform = "scale(1)";
-          entry.target.style.filter = "blur(0px)";
 
           // Add enhanced pulse animation with glow
           entry.target.style.animation = "statPulseEnhanced 1.2s ease-out";
+
+          setTimeout(() => {
+            entry.target.style.willChange = "";
+          }, duration * 1000 + 200);
 
           observer.unobserve(entry.target);
         }
@@ -276,19 +326,15 @@ export function addScrollAnimationStyles() {
     @keyframes statPulseEnhanced {
       0% {
         transform: scale(1);
-        filter: drop-shadow(0 0 10px rgba(163, 98, 255, 0.2));
       }
       30% {
         transform: scale(1.15);
-        filter: drop-shadow(0 0 20px rgba(163, 98, 255, 0.4));
       }
       60% {
         transform: scale(0.95);
-        filter: drop-shadow(0 0 15px rgba(163, 98, 255, 0.3));
       }
       100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 10px rgba(163, 98, 255, 0.2));
       }
     }
 
@@ -429,14 +475,14 @@ export function addScrollAnimationStyles() {
 
     /* Terminal animation styles - Enhanced */
     .hero-terminal {
-      will-change: transform, opacity, filter;
+      will-change: transform, opacity;
       backface-visibility: hidden;
       transform-style: preserve-3d;
     }
 
     /* Arsenal floating cards animation styles - Enhanced */
     #arsenal .floating-card {
-      will-change: transform, opacity, filter;
+      will-change: transform, opacity;
       backface-visibility: hidden;
       transform-style: preserve-3d;
     }
@@ -451,7 +497,7 @@ export function addScrollAnimationStyles() {
 
     /* Smooth transitions for all animated elements */
     .stat-card, .mini-stat, .project-card, .bento-card, .cert-card, .cert-item {
-      will-change: transform, opacity, filter;
+      will-change: transform, opacity;
       backface-visibility: hidden;
       transform-style: preserve-3d;
     }
@@ -463,20 +509,26 @@ export function addScrollAnimationStyles() {
 function initTerminalAnimation() {
   const terminal = document.querySelector(".hero-terminal");
   const driftCard = document.querySelector("#hero-drift-card");
+  const isMobile = isMobileView();
+  const duration = isMobile ? 1 : 1.5;
+  const durationMs = duration * 1000;
+  const translateY = isMobile ? 40 : 80;
+  const scale = isMobile ? 0.95 : 0.85;
 
   if (!terminal) return;
 
   // Set initial state with more dramatic effect
   terminal.style.opacity = "0";
-  terminal.style.transform = "translateY(80px) scale(0.85)";
-  terminal.style.transition = "all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-  terminal.style.filter = "blur(8px)";
+  terminal.style.transform = `translateY(${translateY}px) scale(${scale})`;
+  terminal.style.transition = `transform ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+  terminal.style.willChange = "transform, opacity";
 
   if (driftCard) {
     driftCard.style.opacity = "0";
-    driftCard.style.transform = "translateY(60px) scale(0.8) rotate(5deg)";
-    driftCard.style.transition = "all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)";
-    driftCard.style.filter = "blur(4px)";
+    driftCard.style.transform = "translateY(60px) scale(0.9) rotate(5deg)";
+    driftCard.style.transition =
+      "transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)";
+    driftCard.style.willChange = "transform, opacity";
   }
 
   const observer = createObserver(
@@ -487,7 +539,6 @@ function initTerminalAnimation() {
           setTimeout(() => {
             entry.target.style.opacity = "1";
             entry.target.style.transform = "translateY(0) scale(1)";
-            entry.target.style.filter = "blur(0px)";
 
             // Add glow effect during animation
             entry.target.style.boxShadow = "0 0 50px rgba(163, 98, 255, 0.3)";
@@ -496,6 +547,10 @@ function initTerminalAnimation() {
             setTimeout(() => {
               entry.target.style.boxShadow = "";
             }, 1500);
+
+            setTimeout(() => {
+              entry.target.style.willChange = "";
+            }, durationMs + 200);
           }, 300);
 
           // Animate drift card with enhanced delay and effect
@@ -503,10 +558,13 @@ function initTerminalAnimation() {
             setTimeout(() => {
               driftCard.style.opacity = "1";
               driftCard.style.transform = "translateY(0) scale(1) rotate(0deg)";
-              driftCard.style.filter = "blur(0px)";
 
               // Add pulse effect
               driftCard.style.animation = "terminalCardPulse 0.6s ease-out";
+
+              setTimeout(() => {
+                driftCard.style.willChange = "";
+              }, 1000);
             }, 1000);
           }
 
@@ -529,6 +587,13 @@ function initArsenalAnimations() {
   if (!arsenalSection) return;
 
   const floatingCards = arsenalSection.querySelectorAll(".floating-card");
+  const isMobile = isMobileView();
+  const duration = isMobile ? 0.5 : 1.2;
+  const durationMs = duration * 1000;
+  const translateY = isMobile ? 0 : 80;
+  const startScale = isMobile ? 1 : 0.7;
+  const stagger = isMobile ? 60 : 200;
+  const easing = "cubic-bezier(0.25, 0.46, 0.45, 0.94)";
 
   floatingCards.forEach((card, index) => {
     // Preserve original transforms but add enhanced animation states
@@ -537,9 +602,13 @@ function initArsenalAnimations() {
 
     // Set initial animation state with more dramatic effect
     card.style.opacity = "0";
-    card.style.transform = `${originalTransform} translateY(80px) scale(0.7)`;
-    card.style.transition = "all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-    card.style.filter = "blur(6px)";
+    card.style.transform = isMobile
+      ? originalTransform
+      : `${originalTransform} translateY(${translateY}px) scale(${startScale})`;
+    card.style.transition = isMobile
+      ? `opacity ${duration}s ${easing}`
+      : `transform ${duration}s ${easing}, opacity ${duration}s ${easing}`;
+    card.style.willChange = "transform, opacity";
 
     const observer = createObserver(
       (entries) => {
@@ -548,66 +617,75 @@ function initArsenalAnimations() {
             setTimeout(() => {
               // Restore original transform with enhanced animation
               entry.target.style.opacity = "1";
-              entry.target.style.filter = "blur(0px)";
 
-              // Handle different card positions
-              if (
-                entry.target.style.transform.includes("translate(-50%, -50%)")
-              ) {
-                // Central card
-                entry.target.style.transform = "translate(-50%, -50%) scale(1)";
-              } else if (rotation && rotation !== "0deg") {
-                // Rotated cards
-                entry.target.style.transform = `rotate(${rotation}) scale(1)`;
+              if (!isMobile) {
+                // Handle different card positions
+                if (
+                  entry.target.style.transform.includes("translate(-50%, -50%)")
+                ) {
+                  // Central card
+                  entry.target.style.transform = "translate(-50%, -50%) scale(1)";
+                } else if (rotation && rotation !== "0deg") {
+                  // Rotated cards
+                  entry.target.style.transform = `rotate(${rotation}) scale(1)`;
+                } else {
+                  // Default cards
+                  entry.target.style.transform = "translateY(0) scale(1)";
+                }
               } else {
-                // Default cards
-                entry.target.style.transform = "translateY(0) scale(1)";
+                entry.target.style.transform = originalTransform;
               }
 
               // Add animated class for CSS to maintain transforms
               entry.target.classList.add("animated");
 
-              // Add enhanced glow effect during animation
-              entry.target.style.boxShadow =
-                "0 20px 60px rgba(163, 98, 255, 0.2)";
+              if (!isMobile) {
+                // Add enhanced glow effect during animation
+                entry.target.style.boxShadow =
+                  "0 20px 60px rgba(163, 98, 255, 0.2)";
 
-              // Enhanced bounce effect with multiple stages
-              setTimeout(() => {
-                entry.target.style.transform += " scale(1.05)";
+                // Enhanced bounce effect with multiple stages
                 setTimeout(() => {
-                  entry.target.style.transform =
-                    entry.target.style.transform.replace(
-                      " scale(1.05)",
-                      " scale(0.98)"
-                    );
+                  entry.target.style.transform += " scale(1.05)";
                   setTimeout(() => {
-                    if (
-                      entry.target.style.transform.includes(
-                        "translate(-50%, -50%)"
-                      )
-                    ) {
-                      entry.target.style.transform =
-                        "translate(-50%, -50%) scale(1)";
-                    } else if (rotation && rotation !== "0deg") {
-                      entry.target.style.transform = `rotate(${rotation}) scale(1)`;
-                    } else {
-                      entry.target.style.transform = "translateY(0) scale(1)";
-                    }
+                    entry.target.style.transform =
+                      entry.target.style.transform.replace(
+                        " scale(1.05)",
+                        " scale(0.98)"
+                      );
+                    setTimeout(() => {
+                      if (
+                        entry.target.style.transform.includes(
+                          "translate(-50%, -50%)"
+                        )
+                      ) {
+                        entry.target.style.transform =
+                          "translate(-50%, -50%) scale(1)";
+                      } else if (rotation && rotation !== "0deg") {
+                        entry.target.style.transform = `rotate(${rotation}) scale(1)`;
+                      } else {
+                        entry.target.style.transform = "translateY(0) scale(1)";
+                      }
 
-                    // Remove glow after animation
-                    entry.target.style.boxShadow = "";
-                  }, 150);
-                }, 200);
-              }, 500);
-            }, index * 200); // Increased stagger delay
+                      // Remove glow after animation
+                      entry.target.style.boxShadow = "";
+                    }, 150);
+                  }, 200);
+                }, 500);
+              }
+
+              setTimeout(() => {
+                entry.target.style.willChange = "";
+              }, durationMs + 200);
+            }, index * stagger);
 
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.15, // Trigger earlier
-        rootMargin: "0px 0px -20px 0px", // Less margin for better timing
+        threshold: isMobile ? 0.08 : 0.15,
+        rootMargin: isMobile ? "0px 0px -10px 0px" : "0px 0px -20px 0px",
       }
     );
 
