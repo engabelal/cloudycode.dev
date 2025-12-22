@@ -259,13 +259,9 @@
 }
 
 .stat-card:hover .stat-label {
-  color: #ffffff;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3); /* Blooms to become clearer on hover */
-  transform: translateY(-2px);
-}
-
-.stat-card:hover .stat-label {
   color: #a362ff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 /* About Content Wrapper */
@@ -2302,43 +2298,6 @@ h3 {
   }
 }
 
-#accreditation {
-  background: #fbfaff !important; /* Premium Off-white */
-  position: relative;
-  overflow: hidden;
-  color: #1f2937 !important;
-}
-
-#accreditation::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(163, 98, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(163, 98, 255, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(circle at center, black, transparent 90%);
-  -webkit-mask-image: radial-gradient(circle at center, black, transparent 90%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-#accreditation::after {
-  content: "";
-  position: absolute;
-  bottom: -20%;
-  left: -10%;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(163, 98, 255, 0.07), transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-#accreditation .container {
-  position: relative;
-  z-index: 1;
-}
 
 #accreditation {
   background: #1f1633 !important; /* Perfect match with site base */
@@ -2563,12 +2522,6 @@ h3 {
 
 .terminal-line {
   display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.terminal-line {
-  display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
@@ -2633,7 +2586,6 @@ h3 {
   color: #ffffff;
 }
 .cmd-flag {
-  color: #6ee7b7;
   color: #6ee7b7;
 }
 
@@ -3675,6 +3627,8 @@ h3 {
   .terminal-content {
     font-size: 0.65rem;
     padding: 10px !important;
+    word-break: break-word;
+    overflow-x: auto;
   }
 
   .drift-detection-card {
