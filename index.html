@@ -87,9 +87,24 @@
   <link rel="preload" href="css/theme.css" as="style">
   <link rel="preload" href="css/custom.css" as="style">
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0R7SWE5Z8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V0R7SWE5Z8', {
+      anonymize_ip: true,
+      cookie_flags: 'SameSite=Strict; Secure'
+    });
+  </script>
+
   <!-- DNS Prefetch for External Resources -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
