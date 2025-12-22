@@ -25,6 +25,6 @@ GitHub Actions for CI/CD
 Minification: clean-css, terser
 
 /* VERSION */
-Version: 2.2.0
+Version: 2.2.5
 Build: Production
 Environment: GitHub Pages

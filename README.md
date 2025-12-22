@@ -1,4 +1,4 @@
-# CloudyCode v2.2.0 - Portfolio Website
+# CloudyCode v2.2.5 - Portfolio Website
 
 > A modern, premium portfolio website for a DevOps & Cloud Engineer
 
@@ -34,7 +34,7 @@ A complete redesign featuring a modern, professional design language:
 - ✅ Automatic CSS/JS minification via GitHub Actions
 - ✅ Lazy loading with `decoding="async"`
 - ✅ Critical image prioritization (`fetchpriority="high"`)
-- ✅ Service Worker caching (v2.2.0)
+- ✅ Service Worker caching (v2.2.5)
 - ✅ Optimized WebP images
 
 ### SEO
@@ -59,7 +59,7 @@ cloudycode/
 ├── index.html              # Main HTML
 ├── offline.html            # PWA offline fallback
 ├── manifest.json           # PWA manifest
-├── sw.js                   # Service worker (v2.2.0)
+├── sw.js                   # Service worker (v2.2.5)
 ├── sitemap.xml             # SEO sitemap
 ├── robots.txt              # Search engine config
 ├── _headers                # Security headers
@@ -117,7 +117,7 @@ The GitHub Actions workflow will:
 | JS Minification  | GitHub Actions (terser)               |
 | Image Loading    | `loading="lazy"` + `decoding="async"` |
 | Critical Images  | `fetchpriority="high"`                |
-| Caching          | Service Worker v2.2.0                 |
+| Caching          | Service Worker v2.2.5                 |
 | DNS Prefetch     | CDN domains pre-resolved              |
 
 ## 📱 PWA Features
@@ -138,7 +138,7 @@ The GitHub Actions workflow will:
 
 ## 🔄 Version History
 
-### v2.2.0 (Current)
+### v2.2.5 (Current)
 
 - Premium loading screen
 - JSON-LD structured data for SEO
