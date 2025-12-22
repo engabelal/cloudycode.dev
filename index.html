@@ -708,12 +708,12 @@
           <h2 class="section-title" style="color: #ffffff; letter-spacing: -0.02em;">Certifications & Licenses</h2>
         </div>
 
-        <div class="cert-split-layout" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center;">
+        <div class="cert-split-layout" style="display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: start;">
           <!-- Left: Animated Success Visual -->
-          <div class="cert-image-wrapper" data-aos="fade-right" style="position: relative; height: 450px; display: flex; align-items: center; justify-content: center;">
-            <!-- Refined Aurora Blob (Precisely Centered) -->
+          <div class="cert-image-wrapper" data-aos="fade-right" style="position: relative; height: 100%; min-height: 450px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <!-- Restored Aurora Blob (Background) -->
             <div class="aurora-blob-wrapper" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transform-origin: center; animation: certFloat 8s infinite alternate ease-in-out;">
-              <svg viewBox="-1500 -1500 3000 3000" style="width: 130%; height: 130%; filter: blur(80px); opacity: 0.35;">
+              <svg viewBox="-1500 -1500 3000 3000" style="width: 140%; height: 140%; filter: blur(80px); opacity: 0.4;">
                 <defs>
                   <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style="stop-color:var(--accent-purple-light); stop-opacity:1" />
@@ -730,7 +730,7 @@
                 src="https://assets10.lottiefiles.com/packages/lf20_96bovdur.json"
                 background="transparent"
                 speed="1"
-                style="width: 380px; height: 380px;"
+                style="width: 300px; height: 300px;"
                 loop
                 autoplay>
               </lottie-player>
@@ -751,112 +751,134 @@
               </div>
 
               <!-- Certifications Grid -->
-              <div class="cert-archive-grid dark-theme-grid">
+              <div id="certifications-archive" class="cert-archive-grid dark-theme-grid">
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="0" style="--brand-color: #FF9900">
-                <div class="archive-icon"><i class="fab fa-aws"></i></div>
+                <div class="archive-icon">
+                  <img src="images/icon-aws.svg" alt="AWS" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">AWS DevOps</div>
-                  <div class="archive-meta">PROFESSIONAL // OCT 2025</div>
+                  <div class="archive-title">AWS Certified: DevOps Engineer</div>
+                  <div class="archive-meta">Professional</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="50" style="--brand-color: #00A4EF">
-                <div class="archive-icon"><i class="fab fa-microsoft"></i></div>
+                <div class="archive-icon">
+                  <img src="images/icon-azure.svg" alt="Azure" style="width: 26px; height: 26px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">Azure Architect</div>
-                  <div class="archive-meta">EXPERT // JAN 2024</div>
+                  <div class="archive-title">Microsoft Certified: Azure Solutions Architect</div>
+                  <div class="archive-meta">Expert</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="100" style="--brand-color: #00A4EF">
-                <div class="archive-icon"><i class="fab fa-microsoft"></i></div>
+                <div class="archive-icon">
+                  <img src="images/icon-azure.svg" alt="Azure" style="width: 26px; height: 26px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">Azure Admin</div>
-                  <div class="archive-meta">ASSOCIATE // JAN 2024</div>
+                  <div class="archive-title">Microsoft Certified: Azure Administrator</div>
+                  <div class="archive-meta">Associate</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="150" style="--brand-color: #F80000">
-                <div class="archive-icon"><i class="fas fa-cloud"></i></div>
+                <div class="archive-icon"><i class="fas fa-database" style="font-size: 1.2rem;"></i></div>
                 <div class="archive-info">
-                  <div class="archive-title">Oracle Cloud</div>
-                  <div class="archive-meta">PROFESSIONAL // JUL 2023</div>
+                  <div class="archive-title">Oracle Cloud Infrastructure 2023 Architect</div>
+                  <div class="archive-meta">Professional</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="200" style="--brand-color: #607078">
-                <div class="archive-icon"><i class="fas fa-server"></i></div>
+                <div class="archive-icon">
+                    <img src="images/icon-vmware.svg" alt="VMware" style="width: 38px; height: 20px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">VMware VCP-NV</div>
-                  <div class="archive-meta">PROFESSIONAL // FEB 2023</div>
+                  <div class="archive-title">VMware Certified Professional — Network Virtualization</div>
+                  <div class="archive-meta">VCP-NV 2023</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="250" style="--brand-color: #3d4d5d">
-                <div class="archive-icon"><i class="fas fa-cube"></i></div>
+                <div class="archive-icon">
+                    <img src="images/icon-nutanix.svg" alt="Nutanix" style="width: 40px; height: 24px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">Nutanix NCM</div>
-                  <div class="archive-meta">MASTER // NOV 2022</div>
+                  <div class="archive-title">Nutanix Certified Master 5 — Multicloud Infrastructure</div>
+                  <div class="archive-meta">NCM-MCI5</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="300" style="--brand-color: #EE0000">
-                <div class="archive-icon"><i class="fab fa-redhat"></i></div>
+                <div class="archive-icon">
+                    <img src="images/icon-redhat.svg" alt="Red Hat" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">Ansible</div>
-                  <div class="archive-meta">SPECIALIST // FEB 2022</div>
+                  <div class="archive-title">Red Hat Certified Specialist in Ansible Automation</div>
+                  <div class="archive-meta">Specialist</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="350" style="--brand-color: #017CAD">
-                <div class="archive-icon"><i class="fas fa-network-wired"></i></div>
+                <div class="archive-icon">
+                    <img src="images/icon-cisco.svg" alt="Cisco" style="width: 36px; height: 22px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">CCNP DC</div>
-                  <div class="archive-meta">PROFESSIONAL // JAN 2021</div>
+                  <div class="archive-title">Cisco Certified Network Professional Data Center</div>
+                  <div class="archive-meta">CCNP Data Center</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="400" style="--brand-color: #017CAD">
-                <div class="archive-icon"><i class="fas fa-network-wired"></i></div>
+                <div class="archive-icon">
+                    <img src="images/icon-cisco.svg" alt="Cisco" style="width: 36px; height: 22px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">Cisco DC Design</div>
-                  <div class="archive-meta">SPECIALIST // JAN 2021</div>
+                  <div class="archive-title">Cisco Certified Specialist — Data Center Design</div>
+                  <div class="archive-meta">Specialist</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="450" style="--brand-color: #607078">
-                <div class="archive-icon"><i class="fas fa-server"></i></div>
+                <div class="archive-icon">
+                    <img src="images/icon-vmware.svg" alt="VMware" style="width: 38px; height: 20px; filter: brightness(0) invert(1);">
+                </div>
                 <div class="archive-info">
-                  <div class="archive-title">VMware VCP-DCV</div>
-                  <div class="archive-meta">PROFESSIONAL // OCT 2020</div>
+                  <div class="archive-title">VMware Certified Professional — Data Center Virtualization</div>
+                  <div class="archive-meta">VCP-DCV 2020</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="500" style="--brand-color: #00BFB3">
-                <div class="archive-icon"><i class="fas fa-certificate"></i></div>
+                <div class="archive-icon"><i class="fas fa-certificate" style="font-size: 1.2rem;"></i></div>
                 <div class="archive-info">
-                  <div class="archive-title">ITIL</div>
-                  <div class="archive-meta">FOUNDATION // OCT 2020</div>
+                  <div class="archive-title">ITIL® Foundation Certificate in IT Service Management</div>
+                  <div class="archive-meta">Foundation</div>
                 </div>
                 <div class="archive-glow"></div>
               </div>
 
               <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="550" style="--brand-color: #EE0000">
-                <div class="archive-icon"><i class="fab fa-redhat"></i></div>
-                <div class="archive-info">
-                  <div class="archive-title">RHCE</div>
-                  <div class="archive-meta">ENGINEER // SEP 2016</div>
+                <div class="archive-icon">
+                    <img src="images/icon-redhat.svg" alt="RedHat" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
                 </div>
+                <div class="archive-info">
+                  <div class="archive-title">Red Hat Certified Engineer (RHCE)</div>
+                  <div class="archive-meta">Engineer</div>
+                </div>
+                <div class="archive-glow"></div>
+              </div>
                 <div class="archive-glow"></div>
               </div>
             </div>
