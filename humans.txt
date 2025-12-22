@@ -1,12 +1,30 @@
+# humanstxt.org
+
 /* TEAM */
 Developer: Ahmed Belal
-Site: https://cloudycode.dev
-Email: ahmedbelal@cloudycode.dev
-Location: Saudi Arabia
+Contact: ahmedbelal@cloudycode.dev
+Twitter: @engabelal
+From: Egypt
 
 /* SITE */
-Standards: HTML5, CSS3, JavaScript ES6+
-Components: PWA, Service Worker, Structured Data
-Software: VS Code, Git, GitHub Actions
-Version: 2.0.2
-Last update: 2025/12/21
+Last update: 2025/12/22
+Language: English
+Doctype: HTML5
+IDE: Kiro, VS Code
+
+/* THANKS */
+Font Awesome for icons
+Google Fonts for typography
+GitHub Pages for hosting
+Cloudflare for CDN & security
+
+/* TECH STACK */
+HTML5, CSS3, Vanilla JavaScript
+PWA, Service Worker
+GitHub Actions for CI/CD
+Minification: clean-css, terser
+
+/* VERSION */
+Version: 2.2.0
+Build: Production
+Environment: GitHub Pages
