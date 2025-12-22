@@ -455,57 +455,115 @@ export function initHeroTerminal() {
     const isK8s = step.cmd.includes("kubectl");
     const isLs = step.cmd.includes("ls -la");
 
+    // Mobile detection for responsive grid
+    const isMobile = window.innerWidth <= 768;
+    const isVerySmall = window.innerWidth <= 360;
+
     if (isDocker || isK8s) {
       const grid = document.createElement("div");
-      grid.style.display = "grid";
-      grid.style.width = "100%";
-      grid.style.gridTemplateColumns = isDocker
-        ? "200px 120px 1fr"
-        : "200px 80px 100px 1fr";
-      grid.style.gap = "8px 15px";
+      // Use flex column on mobile for better readability
+      if (isMobile) {
+        grid.style.display = "flex";
+        grid.style.flexDirection = "column";
+        grid.style.gap = "8px";
+      } else {
+        grid.style.display = "grid";
+        grid.style.width = "100%";
+        grid.style.gridTemplateColumns = isDocker
+          ? "200px 120px 1fr"
+          : "200px 80px 100px 1fr";
+        grid.style.gap = "8px 15px";
+      }
 
       step.output.split("\n").forEach((line, idx) => {
         const cells = line.trim().split(/\s{2,}/);
         const finalCells = cells.length < 2 ? line.trim().split(/\s+/) : cells;
 
-        finalCells.forEach((cellText, cellIdx) => {
-          const cell = document.createElement("span");
-          cell.style.whiteSpace = "nowrap";
-          if (idx === 0) {
-            cell.style.color = "rgba(255, 255, 255, 0.2)";
-            cell.style.fontSize = "0.7rem";
-            cell.style.textTransform = "uppercase";
-            cell.style.borderBottom = "1px solid rgba(255, 255, 255, 0.05)";
-            cell.style.paddingBottom = "4px";
-          }
-          if (cellText === "healthy" || cellText === "Running") {
-            cell.innerHTML = `<span class="badge ${
-              cellText === "healthy" ? "badge-healthy" : "badge-running"
-            }">${cellText}</span>`;
-          } else {
-            cell.textContent = cellText;
-            if (idx > 0)
-              cell.style.color =
-                cellIdx === 0 ? "#fff" : "rgba(202, 211, 245, 0.7)";
-          }
-          grid.appendChild(cell);
-        });
+        if (isMobile) {
+          // On mobile, render each row as a single line
+          const row = document.createElement("div");
+          row.style.display = "flex";
+          row.style.flexWrap = "wrap";
+          row.style.gap = "6px";
+          row.style.alignItems = "center";
+          row.style.fontSize = isVerySmall ? "0.55rem" : "0.65rem";
+
+          finalCells.forEach((cellText, cellIdx) => {
+            const cell = document.createElement("span");
+            cell.style.whiteSpace = "nowrap";
+            if (idx === 0) {
+              cell.style.color = "rgba(255, 255, 255, 0.3)";
+              cell.style.fontSize = isVerySmall ? "0.5rem" : "0.6rem";
+              cell.style.textTransform = "uppercase";
+            }
+            if (cellText === "healthy" || cellText === "Running") {
+              cell.innerHTML = `<span class="badge ${
+                cellText === "healthy" ? "badge-healthy" : "badge-running"
+              }" style="font-size: ${
+                isVerySmall ? "0.5rem" : "0.55rem"
+              }; padding: 1px 4px;">${cellText}</span>`;
+            } else {
+              cell.textContent = cellText;
+              if (idx > 0)
+                cell.style.color =
+                  cellIdx === 0 ? "#fff" : "rgba(202, 211, 245, 0.7)";
+            }
+            row.appendChild(cell);
+          });
+          grid.appendChild(row);
+        } else {
+          finalCells.forEach((cellText, cellIdx) => {
+            const cell = document.createElement("span");
+            cell.style.whiteSpace = "nowrap";
+            if (idx === 0) {
+              cell.style.color = "rgba(255, 255, 255, 0.2)";
+              cell.style.fontSize = "0.7rem";
+              cell.style.textTransform = "uppercase";
+              cell.style.borderBottom = "1px solid rgba(255, 255, 255, 0.05)";
+              cell.style.paddingBottom = "4px";
+            }
+            if (cellText === "healthy" || cellText === "Running") {
+              cell.innerHTML = `<span class="badge ${
+                cellText === "healthy" ? "badge-healthy" : "badge-running"
+              }">${cellText}</span>`;
+            } else {
+              cell.textContent = cellText;
+              if (idx > 0)
+                cell.style.color =
+                  cellIdx === 0 ? "#fff" : "rgba(202, 211, 245, 0.7)";
+            }
+            grid.appendChild(cell);
+          });
+        }
       });
       container.appendChild(grid);
     } else if (isLs) {
       const grid = document.createElement("div");
-      grid.style.display = "grid";
-      grid.style.gridTemplateColumns = "max-content max-content";
-      grid.style.justifyContent = "start";
-      grid.style.gap = "8px 40px";
+      if (isMobile) {
+        grid.style.display = "flex";
+        grid.style.flexDirection = "column";
+        grid.style.gap = "4px";
+      } else {
+        grid.style.display = "grid";
+        grid.style.gridTemplateColumns = "max-content max-content";
+        grid.style.justifyContent = "start";
+        grid.style.gap = "8px 40px";
+      }
       step.output.split("\n").forEach((line) => {
         const match = line.match(/^([drwx\-]+)\s+(\w+)\s+(\w+)\s+(.+)$/);
         if (match) {
           const [_, perms, owner, group, name] = match;
           const entry = document.createElement("div");
           entry.style.display = "flex";
-          entry.style.gap = "15px";
-          entry.innerHTML = `<span style="color: #4b5563; font-size: 0.8rem;">${perms}</span><span style="color: #a362ff; font-weight: 600;">${name}</span>`;
+          entry.style.gap = isMobile ? "8px" : "15px";
+          entry.style.fontSize = isVerySmall
+            ? "0.55rem"
+            : isMobile
+            ? "0.65rem"
+            : "inherit";
+          entry.innerHTML = isMobile
+            ? `<span style="color: #a362ff; font-weight: 600;">${name}</span>`
+            : `<span style="color: #4b5563; font-size: 0.8rem;">${perms}</span><span style="color: #a362ff; font-weight: 600;">${name}</span>`;
           grid.appendChild(entry);
         }
       });
@@ -514,20 +572,35 @@ export function initHeroTerminal() {
       const wrapper = document.createElement("div");
       wrapper.style.display = "flex";
       wrapper.style.flexDirection = "column";
-      wrapper.style.gap = "12px";
+      wrapper.style.gap = isMobile ? "8px" : "12px";
       const labels = ["USER", "ROLE"];
       step.output.split("\n").forEach((line, i) => {
         const row = document.createElement("div");
         row.style.display = "flex";
-        row.style.gap = "15px";
+        row.style.gap = isMobile ? "8px" : "15px";
         row.style.alignItems = "baseline";
-        row.innerHTML = `<span style="font-size: 0.65rem; font-weight: 800; color: rgba(163, 98, 255, 0.5); border: 1px solid rgba(163, 98, 255, 0.2); padding: 2px 6px; border-radius: 3px; min-width: 45px; text-align: center;">${
+        row.style.flexWrap = isMobile ? "wrap" : "nowrap";
+        const fontSize = isVerySmall
+          ? "0.55rem"
+          : isMobile
+          ? "0.7rem"
+          : i === 0
+          ? "1rem"
+          : "0.9rem";
+        const labelSize = isVerySmall
+          ? "0.45rem"
+          : isMobile
+          ? "0.5rem"
+          : "0.65rem";
+        row.innerHTML = `<span style="font-size: ${labelSize}; font-weight: 800; color: rgba(163, 98, 255, 0.5); border: 1px solid rgba(163, 98, 255, 0.2); padding: 2px 6px; border-radius: 3px; min-width: ${
+          isMobile ? "35px" : "45px"
+        }; text-align: center;">${
           labels[i] || "INFO"
         }</span><span style="color: ${
           i === 0 ? "#fff" : "rgba(202, 211, 245, 0.8)"
-        }; font-weight: ${i === 0 ? "700" : "400"}; font-size: ${
-          i === 0 ? "1rem" : "0.9rem"
-        };">${line}</span>`;
+        }; font-weight: ${
+          i === 0 ? "700" : "400"
+        }; font-size: ${fontSize};">${line}</span>`;
         wrapper.appendChild(row);
       });
       container.appendChild(wrapper);
@@ -535,21 +608,29 @@ export function initHeroTerminal() {
       const wrapper = document.createElement("div");
       wrapper.style.display = "flex";
       wrapper.style.flexDirection = "column";
-      wrapper.style.gap = "8px";
+      wrapper.style.gap = isMobile ? "4px" : "8px";
       step.output.split("\n").forEach((line) => {
         const row = document.createElement("div");
-        row.style.fontSize = "0.9rem";
+        row.style.fontSize = isVerySmall
+          ? "0.55rem"
+          : isMobile
+          ? "0.7rem"
+          : "0.9rem";
         if (line.includes("Plan:")) {
           row.style.color = "#fff";
           row.style.fontWeight = "700";
-          row.style.marginBottom = "10px";
+          row.style.marginBottom = isMobile ? "6px" : "10px";
           row.textContent = line;
         } else if (line.trim().startsWith("+")) {
-          row.innerHTML = `<span style="color: #6ee7b7; font-weight: 900; margin-right: 10px;">+</span><span style="color: rgba(202, 211, 245, 0.9);">${line
+          row.innerHTML = `<span style="color: #6ee7b7; font-weight: 900; margin-right: ${
+            isMobile ? "6px" : "10px"
+          };">+</span><span style="color: rgba(202, 211, 245, 0.9);">${line
             .replace("+", "")
             .trim()}</span>`;
         } else if (line.trim().startsWith("~")) {
-          row.innerHTML = `<span style="color: #f59e0b; font-weight: 900; margin-right: 10px;">~</span><span style="color: rgba(202, 211, 245, 0.9);">${line
+          row.innerHTML = `<span style="color: #f59e0b; font-weight: 900; margin-right: ${
+            isMobile ? "6px" : "10px"
+          };">~</span><span style="color: rgba(202, 211, 245, 0.9);">${line
             .replace("~", "")
             .trim()}</span>`;
         } else {
@@ -563,11 +644,11 @@ export function initHeroTerminal() {
       const wrapper = document.createElement("div");
       wrapper.style.display = "flex";
       wrapper.style.flexDirection = "column";
-      wrapper.style.gap = "10px";
+      wrapper.style.gap = isMobile ? "6px" : "10px";
       step.output.split("\n").forEach((line) => {
         const row = document.createElement("div");
         row.style.display = "flex";
-        row.style.gap = "12px";
+        row.style.gap = isMobile ? "8px" : "12px";
         const text = line
           .replace(
             /(\d+\+?\s?years|\d+\.\d+%)/g,
@@ -577,14 +658,23 @@ export function initHeroTerminal() {
             /(KSA and Egypt|Multi-cloud|High-availability)/g,
             '<span style="color: #fff; font-weight: 600;">$1</span>'
           );
-        row.innerHTML = `<span style="color: #a362ff;">▹</span><span style="color: rgba(202, 211, 245, 0.9); font-size: 0.9rem; line-height: 1.5;">${text}</span>`;
+        const fontSize = isVerySmall
+          ? "0.55rem"
+          : isMobile
+          ? "0.7rem"
+          : "0.9rem";
+        row.innerHTML = `<span style="color: #a362ff;">▹</span><span style="color: rgba(202, 211, 245, 0.9); font-size: ${fontSize}; line-height: 1.5;">${text}</span>`;
         wrapper.appendChild(row);
       });
       container.appendChild(wrapper);
     } else {
       const pre = document.createElement("pre");
-      pre.style.cssText =
-        "color: rgba(202, 211, 245, 0.9); white-space: pre-wrap; font-size: 0.9rem; line-height: 1.7; margin: 0;";
+      const fontSize = isVerySmall
+        ? "0.55rem"
+        : isMobile
+        ? "0.65rem"
+        : "0.9rem";
+      pre.style.cssText = `color: rgba(202, 211, 245, 0.9); white-space: pre-wrap; font-size: ${fontSize}; line-height: 1.6; margin: 0; word-break: break-word; overflow-wrap: break-word;`;
       if (step.cmd.includes("git log")) {
         pre.innerHTML = step.output
           .split("\n")
