@@ -1,5 +1,8 @@
 import { prefersReducedMotion, createObserver } from "./utils.js";
 
+const MOBILE_QUERY = "(max-width: 768px)";
+const isMobileView = () => window.matchMedia(MOBILE_QUERY).matches;
+
 /**
  * Starfield Animation - Background stars effect
  */
@@ -21,7 +24,7 @@ class Starfield {
     this.canvas.height = window.innerHeight * dpr;
     this.canvas.style.width = `${window.innerWidth}px`;
     this.canvas.style.height = `${window.innerHeight}px`;
-    this.ctx.scale(dpr, dpr);
+    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     this.stars = [];
     for (let i = 0; i < this.numStars; i++) {
@@ -239,14 +242,15 @@ export function initAOS() {
     // AOS not loaded - this is optional
     return;
   }
+  const isMobile = isMobileView();
 
   AOS.init({
-    duration: prefersReducedMotion() ? 0 : 800,
+    duration: prefersReducedMotion() || isMobile ? 0 : 800,
     easing: "ease-out",
     once: true,
     offset: 100,
     delay: 0,
-    disable: prefersReducedMotion(),
+    disable: prefersReducedMotion() || isMobile,
   });
 }
 
@@ -328,10 +332,12 @@ export function initTerminalAnimation() {
 
 // Initialize Scroll-triggered Animations
 export function initScrollAnimations() {
-  if (prefersReducedMotion()) return;
+  if (prefersReducedMotion() || isMobileView()) return;
 
   const elements = document.querySelectorAll("[data-aos]");
   if (elements.length === 0) return;
+  const skipSelectors =
+    ".project-card, .bento-card, .cert-card, .cert-item, .certification-item";
 
   const observer = createObserver(
     (entries) => {
@@ -345,7 +351,10 @@ export function initScrollAnimations() {
     { threshold: 0.1 }
   );
 
-  elements.forEach((el) => observer.observe(el));
+  elements.forEach((el) => {
+    if (el.matches(skipSelectors)) return;
+    observer.observe(el);
+  });
 }
 
 // Initialize Stagger Animations
@@ -678,6 +687,36 @@ export function initHeroTerminal() {
     driftCard.style.boxShadow = isCritical
       ? "0 30px 60px rgba(163, 98, 255, 0.15)"
       : "0 15px 30px rgba(0, 0, 0, 0.5)";
+  }
+
+  function renderStaticStep(step) {
+    terminalContainer.innerHTML = "";
+    const stepWrapper = document.createElement("div");
+    stepWrapper.className = "terminal-step";
+
+    const line = document.createElement("div");
+    line.className = "terminal-line";
+    line.style.display = "block";
+    line.innerHTML = `<div class="p10k-prompt">${getP10kHTML(step)}</div>`;
+
+    const arrowDiv = line.querySelector(".p10k-arrow");
+    const cmdSpan = document.createElement("span");
+    cmdSpan.className = "command";
+    cmdSpan.innerHTML = highlightCommand(step.cmd);
+    arrowDiv.appendChild(cmdSpan);
+
+    const outputDiv = document.createElement("div");
+
+    stepWrapper.appendChild(line);
+    stepWrapper.appendChild(outputDiv);
+    terminalContainer.appendChild(stepWrapper);
+
+    renderOutput(step, outputDiv);
+  }
+
+  if (prefersReducedMotion()) {
+    renderStaticStep(terminalSequence[0]);
+    return;
   }
 
   function typeStep(idx) {
