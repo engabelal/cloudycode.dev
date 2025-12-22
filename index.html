@@ -17,6 +17,42 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://cloudycode.dev">
 
+  <!-- Structured Data - Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahmed Belal",
+    "jobTitle": "DevOps & Cloud Engineer",
+    "url": "https://cloudycode.dev",
+    "sameAs": [
+      "https://github.com/engabelal",
+      "https://www.linkedin.com/in/engabelal/",
+      "https://blog.cloudycode.dev"
+    ],
+    "knowsAbout": ["DevOps", "Cloud Computing", "AWS", "Azure", "Kubernetes", "Terraform", "Docker", "CI/CD"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "CloudyCode"
+    }
+  }
+  </script>
+
+  <!-- Structured Data - Website Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CloudyCode.dev",
+    "url": "https://cloudycode.dev",
+    "description": "Building reliable cloud infrastructure and automating systems with AWS, Terraform, and CI/CD.",
+    "author": {
+      "@type": "Person",
+      "name": "Ahmed Belal"
+    }
+  }
+  </script>
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cloudycode.dev">
@@ -46,7 +82,7 @@
   <meta name="theme-color" content="#7127ba">
 
   <!-- Preload Critical Resources -->
-  <link rel="preload" href="images/avatar.webp" as="image" type="image/webp">
+  <link rel="preload" href="images/avatar.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="images/welcome-bg.webp" as="image" type="image/webp">
   <link rel="preload" href="css/theme.css" as="style">
   <link rel="preload" href="css/custom.css" as="style">
@@ -86,9 +122,119 @@
       z-index: -2;
       pointer-events: none;
     }
+    /* Premium Loading Screen */
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #1f1633 0%, #2d1f4e 50%, #1f1633 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loading-logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 2rem;
+      animation: logoPulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(163, 98, 255, 0.4));
+    }
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
+    .loading-spinner {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+    }
+    .loading-spinner::before,
+    .loading-spinner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 3px solid transparent;
+    }
+    .loading-spinner::before {
+      border-top-color: #a362ff;
+      border-right-color: #a362ff;
+      animation: spinnerRotate 1.2s linear infinite;
+    }
+    .loading-spinner::after {
+      border-bottom-color: #fd44b0;
+      border-left-color: #fd44b0;
+      animation: spinnerRotate 1.2s linear infinite reverse;
+      inset: 6px;
+    }
+    @keyframes spinnerRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loading-text {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .loading-progress {
+      width: 200px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    .loading-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #a362ff, #fd44b0);
+      border-radius: 3px;
+      animation: progressLoad 1.5s ease-out forwards;
+    }
+    @keyframes progressLoad {
+      0% { width: 0%; }
+      50% { width: 70%; }
+      100% { width: 100%; }
+    }
+    /* Mobile Loading Adjustments */
+    @media (max-width: 768px) {
+      .loading-logo {
+        width: 80px;
+        margin-bottom: 1.5rem;
+      }
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+      }
+      .loading-text {
+        font-size: 0.75rem;
+      }
+      .loading-progress {
+        width: 150px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Premium Loading Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <img src="images/cloudycode-light.webp" alt="CloudyCode" class="loading-logo">
+    <div class="loading-spinner"></div>
+    <span class="loading-text">Initializing</span>
+    <div class="loading-progress">
+      <div class="loading-progress-bar"></div>
+    </div>
+  </div>
+
   <canvas id="starfield-canvas"></canvas>
 
   <!-- Scroll Progress Bar -->
@@ -520,31 +666,31 @@
         </div>
 
         <div class="tech-stack-grid">
-          <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-aws.svg" alt="AWS" loading="lazy"><span>AWS</span></a>
-          <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-azure.svg" alt="Azure" loading="lazy"><span>Azure</span></a>
-          <a href="https://cloud.google.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gcp.svg" alt="GCP" loading="lazy"><span>GCP</span></a>
-          <a href="https://kubernetes.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-k8s.svg" alt="Kubernetes" loading="lazy"><span>Kubernetes</span></a>
-          <a href="https://www.terraform.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-terraform.svg" alt="Terraform" loading="lazy"><span>Terraform</span></a>
-          <a href="https://www.docker.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-docker.svg" alt="Docker" loading="lazy"><span>Docker</span></a>
-          <a href="https://www.ansible.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ansible.svg" alt="Ansible" loading="lazy"><span>Ansible</span></a>
-          <a href="https://git-scm.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-git.svg" alt="Git" style="transform: scale(1.6); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy"><span>Git</span></a>
-          <a href="https://github.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-github.svg" alt="GitHub" loading="lazy"><span>GitHub</span></a>
-          <a href="https://about.gitlab.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gitlab.svg" alt="GitLab" loading="lazy"><span>GitLab</span></a>
-          <a href="https://www.jenkins.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-jenkins.svg" alt="Jenkins" loading="lazy"><span>Jenkins</span></a>
-          <a href="https://argo-cd.readthedocs.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-argocd.svg" alt="ArgoCD" loading="lazy"><span>ArgoCD</span></a>
-          <a href="https://helm.sh/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-helm.svg" alt="Helm" style="filter: brightness(0) invert(1) opacity(0.6);" loading="lazy"><span>Helm</span></a>
-          <a href="https://prometheus.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-prometheus.svg" alt="Prometheus" loading="lazy"><span>Prometheus</span></a>
-          <a href="https://grafana.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-grafana.svg" alt="Grafana" loading="lazy"><span>Grafana</span></a>
-          <a href="https://www.python.org/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-python.svg" alt="Python" loading="lazy"><span>Python</span></a>
-          <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-bash.svg" alt="Bash" loading="lazy"><span>Bash</span></a>
-          <a href="https://www.nginx.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nginx.svg" alt="Nginx" loading="lazy"><span>Nginx</span></a>
-          <a href="https://ubuntu.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ubuntu.svg" alt="Ubuntu" loading="lazy"><span>Ubuntu</span></a>
-          <a href="https://www.redhat.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redhat.svg" alt="Red Hat" style="transform: scale(2); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy"><span>Red Hat</span></a>
-          <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redis.svg" alt="Redis" loading="lazy"><span>Redis</span></a>
-          <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-mongodb.svg" alt="MongoDB" loading="lazy"><span>MongoDB</span></a>
-          <a href="https://www.vmware.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-vmware.svg" alt="VMware" loading="lazy"><span>VMware</span></a>
-          <a href="https://www.nutanix.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nutanix.svg" alt="Nutanix" loading="lazy"><span>Nutanix</span></a>
-          <a href="https://www.cisco.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-cisco.svg" alt="Cisco" loading="lazy"><span>Cisco</span></a>
+          <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-aws.svg" alt="AWS" loading="lazy" decoding="async"><span>AWS</span></a>
+          <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-azure.svg" alt="Azure" loading="lazy" decoding="async"><span>Azure</span></a>
+          <a href="https://cloud.google.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gcp.svg" alt="GCP" loading="lazy" decoding="async"><span>GCP</span></a>
+          <a href="https://kubernetes.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-k8s.svg" alt="Kubernetes" loading="lazy" decoding="async"><span>Kubernetes</span></a>
+          <a href="https://www.terraform.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-terraform.svg" alt="Terraform" loading="lazy" decoding="async"><span>Terraform</span></a>
+          <a href="https://www.docker.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-docker.svg" alt="Docker" loading="lazy" decoding="async"><span>Docker</span></a>
+          <a href="https://www.ansible.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ansible.svg" alt="Ansible" loading="lazy" decoding="async"><span>Ansible</span></a>
+          <a href="https://git-scm.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-git.svg" alt="Git" style="transform: scale(1.6); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy" decoding="async"><span>Git</span></a>
+          <a href="https://github.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-github.svg" alt="GitHub" loading="lazy" decoding="async"><span>GitHub</span></a>
+          <a href="https://about.gitlab.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gitlab.svg" alt="GitLab" loading="lazy" decoding="async"><span>GitLab</span></a>
+          <a href="https://www.jenkins.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-jenkins.svg" alt="Jenkins" loading="lazy" decoding="async"><span>Jenkins</span></a>
+          <a href="https://argo-cd.readthedocs.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-argocd.svg" alt="ArgoCD" loading="lazy" decoding="async"><span>ArgoCD</span></a>
+          <a href="https://helm.sh/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-helm.svg" alt="Helm" style="filter: brightness(0) invert(1) opacity(0.6);" loading="lazy" decoding="async"><span>Helm</span></a>
+          <a href="https://prometheus.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-prometheus.svg" alt="Prometheus" loading="lazy" decoding="async"><span>Prometheus</span></a>
+          <a href="https://grafana.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-grafana.svg" alt="Grafana" loading="lazy" decoding="async"><span>Grafana</span></a>
+          <a href="https://www.python.org/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-python.svg" alt="Python" loading="lazy" decoding="async"><span>Python</span></a>
+          <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-bash.svg" alt="Bash" loading="lazy" decoding="async"><span>Bash</span></a>
+          <a href="https://www.nginx.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nginx.svg" alt="Nginx" loading="lazy" decoding="async"><span>Nginx</span></a>
+          <a href="https://ubuntu.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ubuntu.svg" alt="Ubuntu" loading="lazy" decoding="async"><span>Ubuntu</span></a>
+          <a href="https://www.redhat.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redhat.svg" alt="Red Hat" style="transform: scale(2); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy" decoding="async"><span>Red Hat</span></a>
+          <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redis.svg" alt="Redis" loading="lazy" decoding="async"><span>Redis</span></a>
+          <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-mongodb.svg" alt="MongoDB" loading="lazy" decoding="async"><span>MongoDB</span></a>
+          <a href="https://www.vmware.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-vmware.svg" alt="VMware" loading="lazy" decoding="async"><span>VMware</span></a>
+          <a href="https://www.nutanix.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nutanix.svg" alt="Nutanix" loading="lazy" decoding="async"><span>Nutanix</span></a>
+          <a href="https://www.cisco.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-cisco.svg" alt="Cisco" loading="lazy" decoding="async"><span>Cisco</span></a>
           <a href="https://en.wikipedia.org/wiki/High_availability" target="_blank" rel="noopener" class="tech-item"><i class="fas fa-shield-alt"></i><span>HA/DR</span></a>
           <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener" class="tech-item"><i class="fab fa-windows"></i><span>Windows</span></a>
         </div>
@@ -1102,7 +1248,7 @@
           <!-- Unified DevOps Version Badge -->
           <div style="display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.4rem 0.9rem; border-radius: 2rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px;">
             <i class="fas fa-cloud" style="color: #a362ff;"></i>
-            <span>VERSION : <span style="color: white; font-weight: 800;">2.1.0</span></span>
+            <span>VERSION : <span style="color: white; font-weight: 800;">2.2.0</span></span>
             <div style="display: flex; align-items: center; gap: 0.35rem; color: #10b981; font-weight: 700;">
               <span style="width: 4px; height: 4px; background: #10b981; border-radius: 50%;"></span>
               STABLE
@@ -1120,5 +1266,15 @@
 
   <!-- App Scripts -->
   <script type="module" src="js/main.js"></script>
+
+  <!-- Loading Screen Handler -->
+  <script>
+    window.addEventListener('load', function() {
+      const loadingScreen = document.getElementById('loading-screen');
+      setTimeout(function() {
+        loadingScreen.classList.add('hidden');
+      }, 1500);
+    });
+  </script>
 </body>
 </html>
