@@ -4813,10 +4813,29 @@ body {
    Light Theme Override for Cert Grid (Mini-Cards)
    ======================================== */
 /* Dark Theme Grid for Accreditation - Premium Glass Experience */
+/* ========================================
+   Detailed Certification List Layout
+   ======================================== */
+/* ========================================
+/* ========================================
+   Detailed Certification List Layout (Landscape Grid Cards)
+   ======================================== */
 .dark-theme-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .dark-theme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .dark-theme-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .dark-theme-grid .cert-archive-item {
@@ -4825,63 +4844,85 @@ body {
   -webkit-backdrop-filter: blur(10px) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 0.75rem !important;
-  padding: 0.6rem 0.8rem !important;
+  padding: 0.85rem 1rem !important; /* Compact padding */
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 0.75rem; /* Tighter gap to give text room */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 45px;
+  min-height: 90px; /* Compact height */
   box-shadow: none !important;
-  cursor: default !important; /* Non-clickable cursor */
+  cursor: pointer !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-theme-grid .cert-archive-item:active {
+  transform: scale(0.97);
 }
 
 .dark-theme-grid .cert-archive-item:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
   border-color: rgba(163, 98, 255, 0.3) !important;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
 }
 
-/* Remove the aggressive top line and any other extra glows */
-.dark-theme-grid .cert-archive-item::before,
-.dark-theme-grid .cert-archive-item::after {
-  display: none !important;
+.dark-theme-grid .archive-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Optimized logo size */
+  height: 40px;
+  min-width: 40px;
+  margin-bottom: 0;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.dark-theme-grid .archive-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dark-theme-grid .archive-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  width: 100%;
+  overflow: hidden;
 }
 
 .dark-theme-grid .archive-title {
   color: rgba(255, 255, 255, 0.95) !important;
   font-weight: 700 !important;
-  font-size: 0.75rem;
-  line-height: 1.2;
+  font-size: 0.8rem; /* Perfect balance for readability */
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .dark-theme-grid .archive-meta {
   display: block;
-  font-size: 0.55rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.6rem;
+  font-weight: 600;
+  opacity: 0.7;
+  color: var(--brand-color);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-top: 2px;
-}
-
-.dark-theme-grid .archive-icon {
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--brand-color, #fff) !important;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.dark-theme-grid .cert-archive-item:hover .archive-icon {
-  background: rgba(255, 255, 255, 0.1) !important;
-  transform: scale(1.05);
-  color: #fff !important;
+  margin-top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 /* ========================================
@@ -5220,4 +5261,149 @@ body {
   border-color: rgba(255, 255, 255, 0.3) !important;
   transform: translateY(-3px);
   box-shadow: 0 15px 30px -10px rgba(0,0,0,0.3);
+}
+
+/* ========================================
+   Certification Detailed Modal - Glassmorphism
+   ======================================== */
+.cert-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 5, 20, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem;
+}
+
+.cert-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cert-modal-content {
+  background: linear-gradient(145deg, rgba(30, 27, 46, 0.95) 0%, rgba(20, 17, 35, 0.98) 100%);
+  border: 1px solid rgba(163, 98, 255, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(163, 98, 255, 0.1);
+  width: 100%;
+  max-width: 500px;
+  border-radius: 1.5rem;
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.cert-modal-overlay.active .cert-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.cert-modal-header {
+  background: linear-gradient(90deg, rgba(163, 98, 255, 0.1), transparent);
+  padding: 2rem 2rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cert-modal-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.cert-modal-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.cert-modal-title-group h3 {
+  color: white;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.cert-modal-issuer {
+  color: #a362ff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cert-modal-body {
+  padding: 2rem;
+}
+
+.cert-detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cert-detail-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cert-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.cert-value {
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cert-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.cert-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transform: rotate(90deg);
 }

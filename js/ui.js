@@ -172,129 +172,226 @@ export function hideLoadingScreen() {
 export function initCertifications() {
   const certifications = [
     {
-      title: "AWS Certified DevOps Engineer - Professional",
+      title: "AWS Certified: DevOps Engineer",
       shortName: "AWS DevOps",
       level: "Professional",
       year: "Oct 2025",
-      icon: "fab fa-aws",
+      icon: "images/icon-aws.svg",
       color: "#FF9900",
-      description: "Advanced certification demonstrating expertise in provisioning, operating, and managing distributed systems on AWS."
+      description: "Validates technical expertise in provisioning, operating, and managing distributed application systems on the AWS platform."
     },
     {
-      title: "Microsoft Azure Solutions Architect Expert",
+      title: "Microsoft Certified: Azure Solutions Architect",
       shortName: "Azure Architect",
       level: "Expert",
       year: "Jan 2024",
-      icon: "fab fa-microsoft",
+      icon: "images/icon-azure.svg",
       color: "#00A4EF",
-      description: "Expert-level certification for designing cloud and hybrid solutions on Microsoft Azure platform."
+      description: "Expert-level certification for designing and implementing solutions that run on Microsoft Azure, including aspects like compute, network, storage, and security."
     },
     {
-      title: "Microsoft Azure Administrator Associate",
+      title: "Microsoft Certified: Azure Administrator",
       shortName: "Azure Admin",
       level: "Associate",
       year: "Jan 2024",
-      icon: "fab fa-microsoft",
+      icon: "images/icon-azure.svg",
       color: "#00A4EF",
-      description: "Associate-level certification for implementing, managing, and monitoring Azure environments."
+      description: "Validates the skills needed to implement, manage, and monitor an organization’s Microsoft Azure environment."
     },
     {
-      title: "Oracle Cloud Infrastructure 2023 Certified Architect",
+      title: "Oracle Cloud Infrastructure 2023 Architect",
       shortName: "Oracle Cloud",
       level: "Professional",
       year: "Jul 2023",
-      icon: "fas fa-cloud",
+      icon: "fas fa-database",
       color: "#F80000",
-      description: "Professional certification for designing and implementing OCI solutions and architectures."
+      description: "Demonstrates the knowledge required to specify and architect infrastructure solutions using Oracle Cloud Infrastructure services."
     },
     {
-      title: "VMware Certified Professional - Network Virtualization (VCP-NV 2023)",
+      title: "VMware Certified Professional — Network Virtualization",
       shortName: "VMware VCP-NV",
-      level: "Professional",
+      level: "VCP-NV 2023",
       year: "Feb 2023",
-      icon: "fas fa-server",
+      icon: "images/icon-vmware.svg",
       color: "#607078",
-      description: "Professional certification for VMware NSX network virtualization and security."
+      description: "Validates the ability to transform the economics of network and security operations for your organization using NSX."
     },
     {
-      title: "Nutanix Certified Master 5 - Multicloud Infrastructure (NCM-MCI5)",
+      title: "Nutanix Certified Master 5 — Multicloud Infrastructure",
       shortName: "Nutanix NCM",
-      level: "Master",
+      level: "NCM-MCI5",
       year: "Nov 2022",
-      icon: "fas fa-cube",
+      icon: "images/icon-nutanix.svg",
       color: "#3d4d5d",
-      description: "Master-level certification for Nutanix hyperconverged infrastructure solutions."
+      description: "Master-level certification proving ability to perform advanced administrative tasks on Nutanix clusters."
     },
     {
       title: "Red Hat Certified Specialist in Ansible Automation",
       shortName: "Ansible",
       level: "Specialist",
       year: "Feb 2022",
-      icon: "fab fa-redhat",
+      icon: "images/icon-ansible.svg",
       color: "#EE0000",
-      description: "Specialist certification for automation using Ansible and configuration management."
+      description: "Demonstrates the skills, knowledge, and abilities needed to use Ansible to automate the management and deployment of systems and applications."
     },
     {
-      title: "CCNP Data Center",
+      title: "Cisco Certified Network Professional Data Center",
       shortName: "CCNP DC",
-      level: "Professional",
+      level: "CCNP Data Center",
       year: "Jan 2021",
-      icon: "fas fa-network-wired",
+      icon: "images/icon-cisco.svg",
       color: "#017CAD",
-      description: "Professional-level certification for data center networking and infrastructure."
+      description: "Professional-level certification covering data center infrastructure skills, from implementation to design and operation."
     },
     {
-      title: "Cisco Certified Specialist - Data Center Design",
+      title: "Cisco Certified Specialist — Data Center Design",
       shortName: "Cisco DC Design",
       level: "Specialist",
       year: "Jan 2021",
-      icon: "fas fa-network-wired",
+      icon: "images/icon-cisco.svg",
       color: "#017CAD",
-      description: "Specialist certification for designing scalable data center architectures."
+      description: "Specialist certification focusing on the design of data center infrastructure."
     },
     {
-      title: "VMware Certified Professional - Data Center Virtualization (VCP-DCV 2020)",
+      title: "VMware Certified Professional — Data Center Virtualization",
       shortName: "VMware VCP-DCV",
-      level: "Professional",
+      level: "VCP-DCV 2020",
       year: "Oct 2020",
-      icon: "fas fa-server",
+      icon: "images/icon-vmware.svg",
       color: "#607078",
-      description: "Professional certification for vSphere data center virtualization."
+      description: "Validates the skills to implement, manage, and troubleshoot a vSphere infrastructure."
     },
     {
-      title: "ITIL Foundation Certificate in IT Service Management",
+      title: "ITIL® Foundation Certificate in IT Service Management",
       shortName: "ITIL",
       level: "Foundation",
       year: "Oct 2020",
       icon: "fas fa-certificate",
       color: "#00BFB3",
-      description: "Foundation certification for IT service management best practices."
+      description: "Introduction to the management of modern IT-enabled services, proving understanding of the common language and key concepts."
     },
     {
       title: "Red Hat Certified Engineer (RHCE)",
       shortName: "RHCE",
       level: "Engineer",
       year: "Sep 2016",
-      icon: "fab fa-redhat",
+      icon: "images/icon-redhat.svg",
       color: "#EE0000",
-      description: "Professional certification for advanced Red Hat Enterprise Linux system administration."
+      description: "A Red Hat Certified System Administrator who possesses the additional skills, knowledge, and abilities required of a senior system administrator."
     },
   ];
 
+  // Render Certification Cards
   const archiveContainer = document.getElementById("certifications-archive");
   if (!archiveContainer) return;
 
+  // Create Modal Elements (Inject into DOM if not exists)
+  if (!document.querySelector('.cert-modal-overlay')) {
+    const modalHTML = `
+      <div class="cert-modal-overlay" id="cert-modal">
+        <div class="cert-modal-content">
+          <button class="cert-modal-close" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+
+          <div class="cert-modal-header">
+            <div class="cert-modal-icon" id="modal-icon-container">
+              <!-- Icon or Image inserted here -->
+            </div>
+            <div class="cert-modal-title-group">
+              <div class="cert-modal-issuer" id="modal-issuer">Issuer Name</div>
+              <h3 id="modal-title">Certification Title</h3>
+            </div>
+          </div>
+
+          <div class="cert-modal-body">
+             <div class="cert-detail-row">
+              <span class="cert-label">Level</span>
+              <span class="cert-value" id="modal-level">Professional</span>
+            </div>
+            <div class="cert-detail-row">
+              <span class="cert-label">Issued</span>
+              <span class="cert-value" id="modal-year">2024</span>
+            </div>
+             <div class="cert-detail-row" style="flex-direction: column; gap: 0.5rem; justify-content: flex-start; align-items: flex-start;">
+              <span class="cert-label">Description</span>
+              <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5;" id="modal-desc">
+                Description goes here...
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+  }
+
+  // Generate Cards
   archiveContainer.innerHTML = certifications
-    .map((cert, index) => `
-      <div class="cert-archive-item glass" data-aos="fade-up" data-aos-delay="${index * 50}" style="--brand-color: ${cert.color}">
-        <div class="archive-icon"><i class="${cert.icon}"></i></div>
+    .map((cert, index) => {
+        // Prepare icon HTML
+        let iconHtml = '';
+        if (cert.icon.startsWith('fab') || cert.icon.startsWith('fas')) {
+             iconHtml = `<i class="${cert.icon}" style="font-size: 1.4rem;"></i>`;
+        } else {
+             // It's an image path
+             iconHtml = `<img src="${cert.icon}" alt="${cert.shortName}" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">`;
+        }
+
+        return `
+      <div class="cert-archive-item glass cursor-pointer"
+           data-aos="fade-up"
+           data-aos-delay="${index * 50}"
+           style="--brand-color: ${cert.color}; cursor: pointer;"
+           onclick="openCertModal(${index})">
+        <div class="archive-icon">${iconHtml}</div>
         <div class="archive-info">
-          <div class="archive-title">${cert.shortName}</div>
-          <div class="archive-meta" style="font-family: monospace; font-size: 0.65rem; margin-top: 4px;">CONFIRMED_${cert.year} // ${cert.level.toUpperCase()}</div>
+          <div class="archive-title">${cert.title}</div>
+          <div class="archive-meta" style="margin-top: 2px;">${cert.level}</div>
         </div>
         <div class="archive-glow"></div>
       </div>
-    `).join("");
+    `;
+    }).join("");
+
+    // Modal Logic
+    const modal = document.getElementById('cert-modal');
+    const closeBtn = modal.querySelector('.cert-modal-close');
+    const overlay = modal;
+
+    window.openCertModal = (index) => {
+      const cert = certifications[index];
+
+      // Populate Data
+      document.getElementById('modal-title').textContent = cert.title;
+      document.getElementById('modal-issuer').textContent = cert.shortName.split(' ')[0] || 'Issuer'; // Simple heuristic
+      document.getElementById('modal-level').textContent = cert.level;
+      document.getElementById('modal-year').textContent = cert.year;
+      document.getElementById('modal-desc').textContent = cert.description;
+
+      const iconContainer = document.getElementById('modal-icon-container');
+      if (cert.icon.startsWith('fab') || cert.icon.startsWith('fas')) {
+          iconContainer.innerHTML = `<i class="${cert.icon}" style="font-size: 2rem; color: white;"></i>`;
+      } else {
+          iconContainer.innerHTML = `<img src="${cert.icon}" alt="Logo" style="width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1);">`;
+      }
+
+      // Show
+      modal.classList.add('active');
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal();
+    });
+
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
 }
 
 // Add scroll buttons for certifications
