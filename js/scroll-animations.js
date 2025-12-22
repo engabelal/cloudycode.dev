@@ -588,11 +588,11 @@ function initArsenalAnimations() {
 
   const floatingCards = arsenalSection.querySelectorAll(".floating-card");
   const isMobile = isMobileView();
-  const duration = isMobile ? 0.5 : 1.2;
+  const duration = isMobile ? 0.5 : 0.9;
   const durationMs = duration * 1000;
   const translateY = isMobile ? 0 : 80;
   const startScale = isMobile ? 1 : 0.7;
-  const stagger = isMobile ? 60 : 200;
+  const stagger = isMobile ? 60 : 120;
   const easing = "cubic-bezier(0.25, 0.46, 0.45, 0.94)";
 
   floatingCards.forEach((card, index) => {
