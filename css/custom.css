@@ -519,11 +519,11 @@
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.9rem;
   }
 
   .section-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 }
 
@@ -585,9 +585,12 @@
   }
 
   .announcement-pill {
-    font-size: 0.65rem;
-    padding: 0.45rem 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    padding: 0.55rem 1rem;
     gap: 0.3rem;
+    text-align: center;
+    white-space: normal;
   }
 
   .announcement-pill i {
@@ -3295,13 +3298,13 @@ h3 {
   }
 
   .hero-title {
-    font-size: 1.85rem !important;
+    font-size: clamp(2rem, 6vw, 2.6rem) !important;
     line-height: 1.2;
     margin-bottom: 1.25rem;
   }
 
   .hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
   }
 
@@ -3325,20 +3328,20 @@ h3 {
   }
 
   .basic-information .quote .judges-a-book {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     line-height: 1.2;
   }
 
   .basic-information .quote .who {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .basic-information .quote .greeting {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .basic-information .quote .affirmative {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 
   /* Terminal */
@@ -3631,7 +3634,7 @@ h3 {
 /* Small Mobile (< 480px) */
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 1.6rem !important;
+    font-size: clamp(1.75rem, 7vw, 2.2rem) !important;
   }
 
   .basic-information .quote .judges-a-book {
@@ -3871,6 +3874,8 @@ body {
     width: 100%;
     text-align: center;
     justify-content: center;
+    min-height: 44px;
+    font-size: 0.95rem;
   }
 
   /* Fix section padding */
