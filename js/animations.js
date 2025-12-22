@@ -81,6 +81,25 @@ export function initStarfield() {
   if (sf.canvas) sf.animate();
 }
 
+// Reset and restart animated-breaks animation
+export function resetAnimatedBreaks() {
+  const animatedBreaks = document.querySelector(".animated-breaks");
+  if (!animatedBreaks || prefersReducedMotion()) return;
+
+  // Remove animation temporarily
+  animatedBreaks.style.animation = "none";
+  animatedBreaks.style.transform = "rotate(0deg)";
+
+  // Force reflow
+  animatedBreaks.offsetHeight;
+
+  // Restart animation
+  setTimeout(() => {
+    animatedBreaks.style.animation =
+      "swingDown 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s forwards";
+  }, 50);
+}
+
 // Typing Animation
 export function initTypingEffect() {
   const element = document.querySelector(".typed-text");
