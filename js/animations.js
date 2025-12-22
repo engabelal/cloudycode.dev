@@ -416,7 +416,7 @@ export function initHeroTerminal() {
 
   let currentIdx = 0;
 
-  function getP10kHTML(step) {
+  function getP10kHTML() {
     // metadata line
     let html = `<div class="p10k-metadata">`;
     html += `<span class="p-folder">devops_workspace</span>`;

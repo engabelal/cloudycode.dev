@@ -1193,6 +1193,7 @@ h3 {
 .basic-information .me .avatar .avatar-image {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   opacity: 0;
   object-fit: contain;
@@ -1406,14 +1407,6 @@ h3 {
   100% {
     transform: rotate(-7.5deg) translateZ(0);
   }
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  line-height: 1.75;
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-buttons {
@@ -2374,20 +2367,28 @@ h3 {
 .skip-link {
   position: absolute;
   top: -100px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: var(--color-accent-purple);
   color: white;
-  padding: 8px 16px;
+  padding: 12px 24px;
   text-decoration: none;
   z-index: 10000;
   opacity: 0;
   pointer-events: none;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 12px rgba(163, 98, 255, 0.3);
+  transition: top 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 .skip-link:focus {
   top: 0;
   opacity: 1;
   pointer-events: auto;
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
 :focus-visible {
@@ -2873,20 +2874,19 @@ h3 {
 .tech-stack-section {
   position: relative;
   z-index: 10;
-  padding: 0 0 3.5rem 0;
+  padding: 8rem 0 3.5rem 0;
   background: transparent;
   margin-top: -4rem;
   scroll-margin-top: 120px; /* Offset for fixed header */
 }
 
 .tech-stack-title {
+  font-size: 2.25rem;
+  font-weight: 800;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 1rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
 }
 
 /* Skills to Tech Stack Link Button */
@@ -2897,22 +2897,6 @@ h3 {
 
 #skills a[href="#tech-stack"]:active {
   transform: translateY(0);
-}
-
-/* Hyper-Premium Tech Stack Styles */
-.tech-stack-section {
-  padding: 8rem 0;
-  position: relative;
-  background: transparent;
-}
-
-.tech-stack-title {
-  font-size: 2.25rem;
-  font-weight: 800;
-  text-align: center;
-  color: #fff;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
 }
 
 .tech-stack-grid {
@@ -3559,6 +3543,13 @@ h3 {
     display: none !important;
   }
 
+  /* Project Showcase Glow - Tablet/Mobile */
+  .project-showcase-wrapper > div[style*="inset: -30px"] {
+    inset: -20px !important;
+    filter: blur(35px) !important;
+    opacity: 0.8 !important;
+  }
+
   /* Footer */
   #page-footer {
     margin-top: 2rem;
@@ -3708,8 +3699,9 @@ h3 {
 
   /* Constrain the decorative glow on mobile */
   .project-showcase-wrapper > div[style*="inset: -30px"] {
-    inset: -15px !important;
-    filter: blur(30px) !important;
+    inset: -10px !important;
+    filter: blur(25px) !important;
+    opacity: 0.7 !important;
   }
 
   .project-card-3d {
@@ -3726,32 +3718,50 @@ h3 {
     line-height: 1.5 !important;
   }
 
-  .tech-float-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .tech-float-icon i,
-  .tech-float-icon img {
-    font-size: 20px !important;
-    width: 20px !important;
-    height: 20px !important;
-  }
-
-  /* Adjust floating icon positions for mobile */
+  /* Tech float icons - 480px */
   .tech-float-icon[style*="top: -20px"][style*="left: -20px"] {
-    top: -10px !important;
-    left: -10px !important;
+    top: -6px !important;
+    left: -6px !important;
   }
 
   .tech-float-icon[style*="bottom: 40px"][style*="right: -25px"] {
     bottom: 20px !important;
-    right: -10px !important;
+    right: -6px !important;
+  }
+
+  .tech-float-icon {
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .tech-float-icon i,
+  .tech-float-icon img {
+    font-size: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  /* Adjust floating icon positions for mobile - keep visible within bounds */
+  .tech-float-icon[style*="top: -20px"][style*="left: -20px"] {
+    top: -8px !important;
+    left: -8px !important;
+    transform: rotate(-8deg) scale(0.9) !important;
+  }
+
+  .tech-float-icon[style*="bottom: 40px"][style*="right: -25px"] {
+    bottom: 25px !important;
+    right: -8px !important;
+    transform: rotate(12deg) scale(0.9) !important;
   }
 
   .repo-link-btn {
-    padding: 0.5rem 0.8rem;
+    padding: 0.6rem 1rem;
     font-size: 0.75rem;
+    margin-top: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
   }
 }
 
@@ -5186,8 +5196,9 @@ body {
   }
 
   .project-showcase-wrapper > div[style*="inset: -30px"] {
-    inset: -10px !important;
-    filter: blur(20px) !important;
+    inset: -5px !important;
+    filter: blur(15px) !important;
+    opacity: 0.5 !important;
   }
 
   .project-code-area {
@@ -5200,20 +5211,34 @@ body {
   }
 
   .tech-float-icon {
-    width: 30px !important;
-    height: 30px !important;
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .tech-float-icon i,
   .tech-float-icon img {
-    font-size: 14px !important;
-    width: 14px !important;
-    height: 14px !important;
+    font-size: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  /* Very small screens - tighter positioning */
+  .tech-float-icon[style*="top: -20px"][style*="left: -20px"] {
+    top: -5px !important;
+    left: -5px !important;
+    transform: rotate(-8deg) scale(0.85) !important;
+  }
+
+  .tech-float-icon[style*="bottom: 40px"][style*="right: -25px"] {
+    bottom: 15px !important;
+    right: -5px !important;
+    transform: rotate(12deg) scale(0.85) !important;
   }
 
   .repo-link-btn {
-    padding: 0.4rem 0.6rem !important;
+    padding: 0.5rem 0.75rem !important;
     font-size: 0.65rem !important;
+    gap: 0.3rem;
   }
 }
 
