@@ -1,0 +1,10 @@
+Contact: mailto:ahmedbelal@cloudycode.dev
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: en, ar
+Canonical: https://cloudycode.dev/.well-known/security.txt
+Policy: https://cloudycode.dev/security-policy
+Acknowledgments: https://cloudycode.dev/security-acknowledgments
+
+# Security Policy
+# Please report security vulnerabilities responsibly.
+# We appreciate your efforts to improve our security.

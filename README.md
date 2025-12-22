@@ -93,6 +93,8 @@ cloudycode/
 
 ### GitHub Pages (Automatic)
 
+**Repository:** [github.com/engabelal/cloudycode-portfolio](https://github.com/engabelal/cloudycode-portfolio)
+
 Push to `main` branch triggers automatic deployment with CSS/JS minification:
 
 ```bash
