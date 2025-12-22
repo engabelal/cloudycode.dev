@@ -1,14 +1,13 @@
 // Service Worker
 // CloudyCode v7.0.0
 
-const CACHE_VERSION = "v2.0.2";
+const CACHE_VERSION = "v2.1.0";
 const CACHE_NAME = `cloudycode-${CACHE_VERSION}`;
 
 // Critical assets to cache on install
 const CRITICAL_ASSETS = [
   "/",
   "/index.html",
-  "/css/tokens.css",
   "/css/theme.css",
   "/css/custom.css",
   "/js/main.js",
@@ -23,6 +22,7 @@ const CRITICAL_ASSETS = [
   "/images/icon-192.png",
   "/images/icon-512.png",
   "/images/og-image.webp",
+  "/images/welcome-bg.webp",
   "/offline.html",
   "/manifest.json",
 ];
