@@ -3312,8 +3312,8 @@ h3 {
     font-size: 0.95rem;
   }
 
-  /* Terminal - Mobile Audit Fix */
-  /* Tested widths: 320px, 360px, 375px, 390px, 414px */
+  /* Terminal - Mobile Fix: Match Desktop Exactly */
+  /* Preserve all content, enable horizontal scroll if needed */
   .hero-terminal {
     margin: 1.5rem auto 0;
     max-width: 100%;
@@ -3326,53 +3326,37 @@ h3 {
   }
 
   .terminal-header {
-    padding: 8px 12px;
+    padding: 10px 14px;
   }
 
   .terminal-content {
-    padding: 12px !important;
+    padding: 16px !important;
     height: auto !important;
-    min-height: 140px;
+    min-height: 200px;
     max-height: none !important;
-    font-size: 0.7rem;
-    line-height: 1.5;
-    overflow-x: hidden !important;
+    font-size: 0.65rem;
+    line-height: 1.6;
+    overflow-x: auto !important; /* Allow horizontal scroll to preserve content */
     overflow-y: auto;
-    word-wrap: break-word;
-    word-break: break-word;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Terminal output grid fixes for mobile */
-  .terminal-content div[style*="grid"] {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 4px !important;
-  }
-
-  .terminal-content div[style*="grid"] > span,
-  .terminal-content div[style*="grid"] > div {
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-
-  /* P10K prompt mobile adjustments */
+  /* P10K prompt - scale down but keep structure */
   .p10k-prompt {
-    font-size: 0.65rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.6rem !important;
+    line-height: 1.5 !important;
   }
 
   .p10k-metadata {
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important; /* Keep on one line like desktop */
     gap: 4px !important;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   .p10k-arrow {
     margin-top: 6px !important;
-  }
-
-  .command {
-    word-break: break-word !important;
   }
 
   .terminal-title {
@@ -3380,13 +3364,13 @@ h3 {
   }
 
   .terminal-context {
-    font-size: 0.5rem;
-    padding: 2px 5px;
+    font-size: 0.55rem;
+    padding: 2px 6px;
   }
 
   .terminal-dots .dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
   .drift-detection-card {
@@ -3400,22 +3384,22 @@ h3 {
   }
 
   .terminal-footer {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 6px 10px;
-    font-size: 0.6rem;
+    padding: 8px 12px;
+    font-size: 0.55rem;
   }
 
   .terminal-footer .footer-left,
   .terminal-footer .footer-right {
-    width: 100%;
     justify-content: center;
     flex-wrap: wrap;
     gap: 6px;
   }
 
   .terminal-footer .footer-sep {
-    display: none;
+    display: inline;
   }
 
   /* Tech Stack */
@@ -3684,21 +3668,22 @@ h3 {
   .terminal-content {
     font-size: 0.6rem;
     padding: 10px !important;
-    word-break: break-word;
-    overflow-x: hidden !important;
+    word-break: normal;
+    overflow-x: auto !important;
   }
 
-  /* Terminal output mobile - ensure no horizontal scroll */
+  /* Terminal output mobile - allow horizontal scroll to match desktop */
   .terminal-content pre {
-    white-space: pre-wrap !important;
-    word-wrap: break-word !important;
-    overflow-x: hidden !important;
-    max-width: 100% !important;
+    white-space: pre !important;
+    word-wrap: normal !important;
+    overflow-x: auto !important;
+    max-width: none !important;
   }
 
   .terminal-step {
-    max-width: 100% !important;
-    overflow: hidden !important;
+    max-width: none !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
   }
 
   .drift-detection-card {
@@ -3711,6 +3696,62 @@ h3 {
 
   .drift-body {
     font-size: 0.65rem;
+  }
+
+  /* Project Showcase - Mobile Fix */
+  /* Contain the glow effect within bounds */
+  .project-showcase-wrapper {
+    overflow: hidden;
+    margin: 0 -15px;
+    padding: 15px;
+  }
+
+  /* Constrain the decorative glow on mobile */
+  .project-showcase-wrapper > div[style*="inset: -30px"] {
+    inset: -15px !important;
+    filter: blur(30px) !important;
+  }
+
+  .project-card-3d {
+    transform: none !important;
+  }
+
+  .project-code-area {
+    padding: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .project-code-area > div {
+    font-size: 0.7rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .tech-float-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tech-float-icon i,
+  .tech-float-icon img {
+    font-size: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Adjust floating icon positions for mobile */
+  .tech-float-icon[style*="top: -20px"][style*="left: -20px"] {
+    top: -10px !important;
+    left: -10px !important;
+  }
+
+  .tech-float-icon[style*="bottom: 40px"][style*="right: -25px"] {
+    bottom: 20px !important;
+    right: -10px !important;
+  }
+
+  .repo-link-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -5089,6 +5130,8 @@ body {
     font-size: 0.5rem !important;
     min-height: 80px !important;
     line-height: 1.4 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .terminal-dots .dot {
@@ -5134,6 +5177,43 @@ body {
 
   .drift-body {
     font-size: 0.5rem !important;
+  }
+
+  /* Project Showcase - 320px specific */
+  .project-showcase-wrapper {
+    margin: 0 -10px !important;
+    padding: 10px !important;
+  }
+
+  .project-showcase-wrapper > div[style*="inset: -30px"] {
+    inset: -10px !important;
+    filter: blur(20px) !important;
+  }
+
+  .project-code-area {
+    padding: 0.75rem !important;
+    font-size: 0.6rem !important;
+  }
+
+  .project-code-area > div {
+    font-size: 0.55rem !important;
+  }
+
+  .tech-float-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .tech-float-icon i,
+  .tech-float-icon img {
+    font-size: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .repo-link-btn {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.65rem !important;
   }
 }
 
