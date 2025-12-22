@@ -1,5 +1,5 @@
-# Deploy static site to GitHub Pages using Jekyll
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+# Deploy static site to GitHub Pages with CSS/JS minification
+name: Deploy to GitHub Pages with Optimization
 
 on:
   push:
@@ -21,6 +21,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install minification tools
+        run: npm install -g clean-css-cli terser
+
+      - name: Minify CSS files
+        run: |
+          for file in css/*.css; do
+            cleancss -o "$file" "$file"
+            echo "Minified: $file"
+          done
+
+      - name: Minify JS files
+        run: |
+          for file in js/*.js; do
+            terser "$file" -o "$file" -c -m
+            echo "Minified: $file"
+          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
