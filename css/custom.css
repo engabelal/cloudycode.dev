@@ -4884,6 +4884,46 @@ body {
   color: #fff !important;
 }
 
+/* ========================================
+   Certification Library Side Panel
+   ======================================== */
+.cert-library-side {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Top highlight */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle inner glow */
+.cert-library-side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 10%, rgba(163, 98, 255, 0.05), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cert-library-side > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dark-theme-grid .cert-archive-item:hover .archive-icon {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: scale(1.05);
+  color: #fff !important;
+}
+
 @keyframes footer-glow {
   0% { transform: scale(1); opacity: 0.3; }
   100% { transform: scale(1.05); opacity: 0.5; }
@@ -4906,6 +4946,120 @@ body {
   height: 2.5rem;
   margin-bottom: 1.5rem;
   filter: drop-shadow(0 0 10px rgba(163, 98, 255, 0.3));
+}
+
+/* ========================================
+   Achievements Section (Key Highlights)
+   ======================================== */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.achievement-card {
+  background: linear-gradient(180deg, rgba(30, 27, 46, 0.7) 0%, rgba(20, 17, 35, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+/* Glowing bottom line effect */
+.achievement-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #a362ff, transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.achievement-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(163, 98, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(163, 98, 255, 0.1);
+}
+
+.achievement-card:hover::after {
+  transform: scaleX(1);
+}
+
+.achievement-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.02);
+  position: absolute;
+  top: -1rem;
+  right: -0.5rem;
+  line-height: 1;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.achievement-card:hover .achievement-number {
+  color: rgba(163, 98, 255, 0.05);
+  transform: translateY(-5px);
+}
+
+.achievement-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(163, 98, 255, 0.1);
+  border: 1px solid rgba(163, 98, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c084fc;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 15px rgba(163, 98, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.achievement-card:hover .achievement-icon {
+  background: #a362ff;
+  border-color: #a362ff;
+  color: white;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 30px rgba(163, 98, 255, 0.4);
+}
+
+.achievement-card h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
+}
+
+.achievement-card p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-desc-premium {
