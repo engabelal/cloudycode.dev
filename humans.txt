@@ -3,7 +3,6 @@
 /* TEAM */
 Developer: Ahmed Belal
 Contact: ahmedbelal@cloudycode.dev
-Twitter: @engabelal
 From: Egypt
 
 /* SITE */
