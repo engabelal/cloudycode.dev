@@ -115,4 +115,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 200);
     }
   });
+
+  // Restart animated-breaks after hover to swing back down
+  const animatedBreaks = document.querySelector(".animated-breaks");
+  if (animatedBreaks) {
+    animatedBreaks.addEventListener("mouseleave", () => {
+      resetAnimatedBreaks();
+    });
+  }
 });
