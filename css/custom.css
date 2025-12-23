@@ -1214,12 +1214,12 @@ h3 {
   margin: 0 auto 4rem auto;
   text-wrap: balance;
   text-align: center;
-  font-family: var(--font-primary);
+  font-family: "Dammit Sans", "Rubik", sans-serif;
   color: #ffffff;
   font-size: 4.6rem;
-  line-height: 1.1;
-  font-weight: 850;
-  letter-spacing: -0.04em;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   max-width: 1200px;
 }
 
