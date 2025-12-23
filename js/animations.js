@@ -89,7 +89,8 @@ export function resetAnimatedBreaks() {
   const animatedBreaks = document.querySelector(".animated-breaks");
   if (!animatedBreaks || prefersReducedMotion()) return;
 
-  // Remove animation temporarily
+  // Remove loaded class to restart animation
+  animatedBreaks.classList.remove("loaded");
   animatedBreaks.style.animation = "none";
   animatedBreaks.style.transform = "rotate(0deg)";
 
@@ -100,6 +101,11 @@ export function resetAnimatedBreaks() {
   setTimeout(() => {
     animatedBreaks.style.animation =
       "swingDown 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s forwards";
+
+    // Re-add loaded class after animation completes
+    setTimeout(() => {
+      animatedBreaks.classList.add("loaded");
+    }, 2000);
   }, 50);
 }
 
@@ -790,4 +796,13 @@ export function initAnimations() {
   initTerminalAnimation();
   initScrollAnimations();
   initHeroTerminal();
+
+  // Add loaded class to animated-breaks after swingDown animation completes
+  const animatedBreaks = document.querySelector(".animated-breaks");
+  if (animatedBreaks && !prefersReducedMotion()) {
+    // Animation takes 1.2s + 0.8s delay = 2s total
+    setTimeout(() => {
+      animatedBreaks.classList.add("loaded");
+    }, 2000);
+  }
 }
