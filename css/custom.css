@@ -1214,13 +1214,17 @@ h3 {
   margin: 0 auto 4rem auto;
   text-wrap: balance;
   text-align: center;
-  font-family: "Dammit Sans", "Rubik", sans-serif;
+  font-family: var(--font-primary);
   color: #ffffff;
   font-size: 4.6rem;
-  line-height: 1;
+  max-width: 1200px;
+}
+
+/* Match hero title and judges-a-book typography */
+.basic-information .quote .judges-a-book {
+  font-family: "Preahvihear", sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;
-  max-width: 1200px;
 }
 
 /* Responsive refinements handled by clamp */
@@ -1334,13 +1338,10 @@ h3 {
 
 .basic-information .quote .judges-a-book {
   font-size: 3.5rem;
-  line-height: 1;
+  line-height: 1.2;
   margin-top: 0;
   margin-bottom: 1rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
   color: #ffffff;
-  font-family: "Dammit Sans", "Rubik", sans-serif;
 }
 
 .basic-information .quote .affirmative {
