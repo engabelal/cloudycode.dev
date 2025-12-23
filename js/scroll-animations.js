@@ -487,14 +487,6 @@ export function addScrollAnimationStyles() {
       transform-style: preserve-3d;
     }
 
-    /* Enhanced floating card hover effects */
-    #arsenal .floating-card:hover {
-      transform: translateY(-10px) scale(1.05) !important;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-      box-shadow: 0 25px 60px rgba(163, 98, 255, 0.25) !important;
-      filter: brightness(1.05) !important;
-    }
-
     /* Smooth transitions for all animated elements */
     .stat-card, .mini-stat, .project-card, .bento-card, .cert-card, .cert-item {
       will-change: transform, opacity;
