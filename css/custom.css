@@ -1447,9 +1447,10 @@ h3 {
 .animated-breaks {
   color: #fd44b0;
   display: inline-block;
-  transform: rotate(0deg) translateZ(0); /* Start inline */
+  transform: rotate(-7.5deg) translateZ(0); /* Resting tilt */
   transform-origin: bottom right;
-  animation: swingDown 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s forwards;
+  animation: swingDown 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Performance optimizations */
   backface-visibility: hidden;
@@ -1467,13 +1468,14 @@ h3 {
 /* After animation completes, enable smooth hover transitions */
 .animated-breaks.loaded {
   animation: none !important; /* Remove animation */
-  transform: rotate(-7.2deg) translateZ(0) !important; /* Stay tilted */
+  transform: rotate(-7.5deg) translateZ(0) !important; /* Stay tilted */
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Enable smooth transitions */
 }
 
 /* Straightens up on hover - rotates to 0 degrees (on the line) */
-.animated-breaks-wrap:hover .animated-breaks.loaded {
+.animated-breaks-wrap:hover .animated-breaks {
   transform: rotate(0deg) translateZ(0) !important;
+  animation-play-state: paused;
 }
 
 /* Enhanced swing animation - swings from inline to tilted */
@@ -1481,29 +1483,29 @@ h3 {
   0% {
     transform: rotate(0deg) translateZ(0); /* Start inline */
   }
-  20% {
-    transform: rotate(0deg) translateZ(0); /* Stay inline briefly */
-  }
-  40% {
-    transform: rotate(-8deg) translateZ(0); /* Quick swing down */
-  }
-  50% {
-    transform: rotate(-6deg) translateZ(0); /* Bounce back */
-  }
   60% {
-    transform: rotate(-7.5deg) translateZ(0); /* Settle */
+    transform: rotate(0deg) translateZ(0);
   }
   70% {
-    transform: rotate(-7deg) translateZ(0); /* Fine adjustments */
+    transform: rotate(-8deg) translateZ(0);
+  }
+  75% {
+    transform: rotate(-7deg) translateZ(0);
   }
   80% {
-    transform: rotate(-7.3deg) translateZ(0);
+    transform: rotate(-7.8deg) translateZ(0);
+  }
+  85% {
+    transform: rotate(-7.2deg) translateZ(0);
   }
   90% {
-    transform: rotate(-7.1deg) translateZ(0);
+    transform: rotate(-7.5deg) translateZ(0);
+  }
+  95% {
+    transform: rotate(-7.4deg) translateZ(0);
   }
   100% {
-    transform: rotate(-7.2deg) translateZ(0); /* Final tilted position */
+    transform: rotate(-7.5deg) translateZ(0); /* Final tilted position */
   }
 }
 

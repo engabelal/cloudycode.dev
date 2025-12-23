@@ -91,6 +91,7 @@ export function resetAnimatedBreaks() {
 
   // Remove loaded class to restart animation
   animatedBreaks.classList.remove("loaded");
+  animatedBreaks.style.transition = "none";
   animatedBreaks.style.animation = "none";
   animatedBreaks.style.transform = "rotate(0deg)";
 
@@ -99,13 +100,14 @@ export function resetAnimatedBreaks() {
 
   // Restart animation
   setTimeout(() => {
+    animatedBreaks.style.transition = "";
     animatedBreaks.style.animation =
-      "swingDown 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s forwards";
+      "swingDown 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards";
 
     // Re-add loaded class after animation completes
     setTimeout(() => {
       animatedBreaks.classList.add("loaded");
-    }, 2000);
+    }, 800);
   }, 50);
 }
 
@@ -800,9 +802,9 @@ export function initAnimations() {
   // Add loaded class to animated-breaks after swingDown animation completes
   const animatedBreaks = document.querySelector(".animated-breaks");
   if (animatedBreaks && !prefersReducedMotion()) {
-    // Animation takes 1.2s + 0.8s delay = 2s total
+    // Animation takes 0.75s total
     setTimeout(() => {
       animatedBreaks.classList.add("loaded");
-    }, 2000);
+    }, 800);
   }
 }
