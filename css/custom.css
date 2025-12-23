@@ -1427,6 +1427,22 @@ h3 {
 }
 
 /* Animated word - Enhanced smooth rotation */
+.animated-breaks-wrap {
+  display: inline-block;
+  position: relative;
+  padding: 0 0.1em;
+  margin: 0 -0.1em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.animated-breaks-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -0.18em -0.12em;
+  display: block;
+}
+
 .animated-breaks {
   color: #fd44b0;
   display: inline-block;
@@ -1440,6 +1456,7 @@ h3 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transform-style: preserve-3d;
+  will-change: transform;
 
   /* Prevent text selection for cleaner interaction */
   user-select: none;
@@ -1454,7 +1471,7 @@ h3 {
 }
 
 /* Straightens up on hover - rotates to 0 degrees (on the line) */
-.animated-breaks.loaded:hover {
+.animated-breaks-wrap:hover .animated-breaks.loaded {
   transform: rotate(0deg) translateZ(0) !important;
 }
 
