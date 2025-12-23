@@ -76,8 +76,13 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       # ------------------------------------------------------
+      # Prepare Trivy cache directory (prevents cache warnings)
+      # ------------------------------------------------------
+      - name: Prepare Trivy cache directory
+        run: mkdir -p ~/.cache/trivy
+
+      # ------------------------------------------------------
       # Cache Trivy vulnerability database
-      # Dramatically speeds up subsequent runs
       # ------------------------------------------------------
       - name: Cache Trivy DB
         uses: actions/cache@v4
@@ -171,7 +176,6 @@ jobs:
 
       # ------------------------------------------------------
       # Sign the container image using keyless OIDC
-      # Signature is bound to image digest
       # ------------------------------------------------------
       - name: Sign container image
         run: |
@@ -180,7 +184,6 @@ jobs:
 
       # ------------------------------------------------------
       # Create GitHub Release for the tag
-      # Attach SBOM and auto-generate release notes
       # ------------------------------------------------------
       - name: Create Release
         uses: softprops/action-gh-release@v2
