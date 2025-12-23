@@ -1,0 +1,22 @@
+# Git repository metadata
+# Not required inside the Docker image and breaks cache efficiency
+.git
+.gitignore
+
+# Editor and OS specific files
+# Have no value inside a container
+.vscode
+.DS_Store
+
+# Node.js artifacts
+# Project is static, no runtime or build-time Node usage
+node_modules
+npm-debug.log
+
+# Documentation files
+# Do not affect runtime behavior
+*.md
+
+# Local orchestration files
+# Docker image should be environment-agnostic
+docker-compose.yml
