@@ -50,24 +50,25 @@
 }
 
 /* Preserve rotation transforms after animation */
-#arsenal .floating-card[data-rotation="-3deg"].animated {
+#arsenal .floating-card[data-rotation="-3deg"].animated:not(:hover) {
   transform: rotate(-3deg) !important;
 }
 
-#arsenal .floating-card[data-rotation="3deg"].animated {
+#arsenal .floating-card[data-rotation="3deg"].animated:not(:hover) {
   transform: rotate(3deg) !important;
 }
 
-#arsenal .floating-card[data-rotation="-2deg"].animated {
+#arsenal .floating-card[data-rotation="-2deg"].animated:not(:hover) {
   transform: rotate(-2deg) !important;
 }
 
-#arsenal .floating-card[data-rotation="2deg"].animated {
+#arsenal .floating-card[data-rotation="2deg"].animated:not(:hover) {
   transform: rotate(2deg) !important;
 }
 
 /* Central card positioning fix after animation */
-#arsenal .floating-card[style*="translate(-50%, -50%)"].animated {
+#arsenal
+  .floating-card[style*="translate(-50%, -50%)"].animated:not(:hover) {
   transform: translate(-50%, -50%) !important;
 }
 
