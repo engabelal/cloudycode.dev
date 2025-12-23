@@ -1430,7 +1430,7 @@ h3 {
 .animated-breaks {
   color: #fd44b0;
   display: inline-block;
-  transform: rotate(0deg); /* Start in line, then animate */
+  transform: rotate(-7.2deg); /* Resting position after swing */
   transform-origin: bottom right;
   animation: swingDown 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s forwards; /* Delay 0.8s */
 
