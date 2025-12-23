@@ -5,7 +5,7 @@
 # - Scan image for vulnerabilities BEFORE publishing
 # - Build and push multi-architecture image (amd64 + arm64)
 # - Generate SBOM
-# - Sign image with Cosign (keyless)
+# - Sign image with Cosign (keyless via OIDC)
 # - Create GitHub Release
 # ============================================================
 
@@ -20,8 +20,7 @@ on:
       - "v*"
 
 # ------------------------------------------------------------
-# Prevent parallel runs for the same ref
-# If a new run starts, the old one is cancelled
+# Prevent parallel runs for the same tag/ref
 # ------------------------------------------------------------
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -32,17 +31,13 @@ jobs:
     runs-on: ubuntu-latest
 
     # --------------------------------------------------------
-    # Required permissions:
-    # - contents: write  -> create GitHub releases
-    # - packages: write  -> push container images
-    # - security-events: write -> upload SARIF scan results
-    # - id-token: write -> OIDC for Cosign keyless signing
+    # Required permissions
     # --------------------------------------------------------
     permissions:
-      contents: write
-      packages: write
-      security-events: write
-      id-token: write
+      contents: write          # Create GitHub Releases
+      packages: write          # Push container images
+      security-events: write   # Upload SARIF results
+      id-token: write          # OIDC for Cosign signing
 
     steps:
       # ------------------------------------------------------
@@ -52,17 +47,13 @@ jobs:
         uses: actions/checkout@v4
 
       # ------------------------------------------------------
-      # Enable Docker Buildx (required for multi-arch builds)
+      # Set up Docker Buildx (required for multi-arch builds)
       # ------------------------------------------------------
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
       # ------------------------------------------------------
-      # Generate Docker image metadata:
-      # - Semantic version tags
-      # - Major / minor tags
-      # - SHA-based tag
-      # - latest tag
+      # Generate Docker image metadata and tags
       # ------------------------------------------------------
       - name: Docker metadata
         id: meta
@@ -73,7 +64,6 @@ jobs:
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
-            type=sha
             type=raw,value=latest
 
       # ------------------------------------------------------
@@ -86,10 +76,20 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       # ------------------------------------------------------
-      # Build a SINGLE-ARCH image (amd64 only) for vulnerability scanning
-      # Reason:
-      # - Trivy cannot scan multi-arch manifest lists
-      # - Image must be loaded into local Docker daemon
+      # Cache Trivy vulnerability database
+      # Dramatically speeds up subsequent runs
+      # ------------------------------------------------------
+      - name: Cache Trivy DB
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/trivy
+          key: trivy-db-${{ runner.os }}
+          restore-keys: |
+            trivy-db-
+
+      # ------------------------------------------------------
+      # Build single-arch image (amd64) for vulnerability scan
+      # Image is loaded locally ONLY (not pushed)
       # ------------------------------------------------------
       - name: Build image for scan
         uses: docker/build-push-action@v6
@@ -97,41 +97,38 @@ jobs:
           context: .
           platforms: linux/amd64
           load: true
-          tags: engabelal/cloudycode:scan-${{ github.run_id }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          tags: engabelal/cloudycode:scan
+          cache-from: type=gha,scope=cloudycode
+          cache-to: type=gha,mode=max,scope=cloudycode
 
       # ------------------------------------------------------
       # Scan image with Trivy
       # - Fail pipeline on HIGH or CRITICAL vulnerabilities
-      # - Use .trivyignore to suppress accepted/known CVEs
-      # - Output results in SARIF format for GitHub Security tab
+      # - Use .trivyignore for accepted CVEs
       # ------------------------------------------------------
       - name: Scan for vulnerabilities
         uses: aquasecurity/trivy-action@0.33.1
         with:
-          image-ref: "engabelal/cloudycode:scan-${{ github.run_id }}"
-          format: "sarif"
-          output: "trivy-results.sarif"
-          severity: "HIGH,CRITICAL"
+          image-ref: engabelal/cloudycode:scan
+          format: sarif
+          output: trivy-results.sarif
+          severity: HIGH,CRITICAL
           exit-code: "1"
           trivyignores: .trivyignore
 
       # ------------------------------------------------------
-      # Upload Trivy SARIF results to GitHub Security
-      # Always run this step, even if scan fails
+      # Upload Trivy SARIF results to GitHub Security tab
       # ------------------------------------------------------
       - name: Upload scan to GitHub Security
         uses: github/codeql-action/upload-sarif@v4
-        if: always()
+        if: always() && hashFiles('trivy-results.sarif') != ''
         with:
-          sarif_file: "trivy-results.sarif"
+          sarif_file: trivy-results.sarif
 
       # ------------------------------------------------------
       # Build and push the REAL multi-arch image
       # - amd64 + arm64
-      # - Push to Docker Hub
-      # - Generate provenance and SBOM metadata
+      # - Reuses cached layers from previous build
       # ------------------------------------------------------
       - name: Build and push multi-arch
         uses: docker/build-push-action@v6
@@ -142,24 +139,23 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,scope=cloudycode
           provenance: true
           sbom: true
 
       # ------------------------------------------------------
-      # Generate standalone SBOM using Trivy
-      # - Uses immutable image digest (not mutable tags)
+      # Generate standalone SBOM (SPDX JSON)
+      # Uses immutable image digest
       # ------------------------------------------------------
       - name: Generate SBOM
         uses: aquasecurity/trivy-action@0.33.1
         with:
-          image-ref: "engabelal/cloudycode@${{ steps.build.outputs.digest }}"
-          format: "spdx-json"
-          output: "sbom.json"
+          image-ref: engabelal/cloudycode@${{ steps.build.outputs.digest }}
+          format: spdx-json
+          output: sbom.json
 
       # ------------------------------------------------------
-      # Upload SBOM as a workflow artifact
+      # Upload SBOM as workflow artifact
       # ------------------------------------------------------
       - name: Upload SBOM artifact
         uses: actions/upload-artifact@v4
@@ -168,26 +164,23 @@ jobs:
           path: sbom.json
 
       # ------------------------------------------------------
-      # Install Cosign for container signing
+      # Install Cosign (latest stable)
       # ------------------------------------------------------
       - name: Install Cosign
         uses: sigstore/cosign-installer@v3
 
       # ------------------------------------------------------
-      # Sign the container image using keyless (OIDC) signing
-      # - Signature is bound to the image digest
+      # Sign the container image using keyless OIDC
+      # Signature is bound to image digest
       # ------------------------------------------------------
       - name: Sign container image
         run: |
           cosign sign --yes \
             engabelal/cloudycode@${{ steps.build.outputs.digest }}
-        env:
-          COSIGN_EXPERIMENTAL: 1
 
       # ------------------------------------------------------
-      # Create a GitHub Release for the pushed tag
-      # - Attach SBOM
-      # - Auto-generate release notes
+      # Create GitHub Release for the tag
+      # Attach SBOM and auto-generate release notes
       # ------------------------------------------------------
       - name: Create Release
         uses: softprops/action-gh-release@v2
