@@ -469,6 +469,8 @@ export function displaySiteVersion() {
 // Floating Card Interactions
 export function initFloatingCards() {
   const cards = document.querySelectorAll(".floating-card");
+  const hoverTransition =
+    "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1)";
 
   cards.forEach((card) => {
     const originalRotation = card.getAttribute("data-rotation") || "0deg";
@@ -477,6 +479,7 @@ export function initFloatingCards() {
       card.style.transform.includes("translate(-50%, -50%)");
 
     card.addEventListener("mouseenter", () => {
+      card.style.transition = hoverTransition;
       if (isCenter) {
         card.style.transform = "translate(-50%, -50%) rotate(0deg) scale(1.05)";
       } else {
@@ -486,6 +489,7 @@ export function initFloatingCards() {
     });
 
     card.addEventListener("mouseleave", () => {
+      card.style.transition = hoverTransition;
       if (isCenter) {
         card.style.transform = `translate(-50%, -50%) rotate(${originalRotation})`;
       } else {
