@@ -1,5 +1,5 @@
 // Utility Functions Module
-// CloudyCode v2.3
+// CloudyCode v7.0.0
 
 // Focus Trap for Modals (Accessibility)
 export function trapFocus(element) {

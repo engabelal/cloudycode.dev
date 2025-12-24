@@ -16,6 +16,7 @@ const CRITICAL_ASSETS = [
   "/js/animations.js",
   "/js/ui.js",
   "/js/projects.js",
+  "/js/scroll-animations.js",
   "/js/enhancements.js",
   "/config/site.config.js",
   "/images/avatar.webp",

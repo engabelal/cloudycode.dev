@@ -12,8 +12,7 @@ class Starfield {
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext("2d");
     this.stars = [];
-    // Optimized: Reduced from 250 to 150 for better performance
-    this.numStars = prefersReducedMotion() ? 50 : 150;
+    this.numStars = prefersReducedMotion() ? 50 : 250;
     this.init();
     window.addEventListener("resize", () => this.init());
   }
