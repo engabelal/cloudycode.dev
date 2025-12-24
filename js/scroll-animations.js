@@ -292,8 +292,7 @@ function initStatsAnimations() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Animate the stat number
-          entry.target.style.transition =
-            `transform ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+          entry.target.style.transition = `transform ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
           entry.target.style.opacity = "1";
           entry.target.style.transform = "scale(1)";
 
@@ -584,7 +583,7 @@ function initArsenalAnimations() {
   const durationMs = duration * 1000;
   const translateY = isMobile ? 0 : 80;
   const startScale = isMobile ? 1 : 0.7;
-  const stagger = isMobile ? 60 : 120;
+  const stagger = isMobile ? 30 : 50; // Reduced from 120 to 50 for faster, more synchronized entrance
   const easing = "cubic-bezier(0.25, 0.46, 0.45, 0.94)";
 
   floatingCards.forEach((card, index) => {
@@ -616,7 +615,8 @@ function initArsenalAnimations() {
                   entry.target.style.transform.includes("translate(-50%, -50%)")
                 ) {
                   // Central card
-                  entry.target.style.transform = "translate(-50%, -50%) scale(1)";
+                  entry.target.style.transform =
+                    "translate(-50%, -50%) scale(1)";
                 } else if (rotation && rotation !== "0deg") {
                   // Rotated cards
                   entry.target.style.transform = `rotate(${rotation}) scale(1)`;
