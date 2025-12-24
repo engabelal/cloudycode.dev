@@ -67,8 +67,7 @@
 }
 
 /* Central card positioning fix after animation */
-#skills
-  .floating-card[style*="translate(-50%, -50%)"].animated:not(:hover) {
+#skills .floating-card[style*="translate(-50%, -50%)"].animated:not(:hover) {
   transform: translate(-50%, -50%) !important;
 }
 
@@ -694,6 +693,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-primary);
+  font-size: 16px;
   background-color: #1f1633;
   color: var(--text-primary);
   line-height: 1.6;
@@ -3102,6 +3102,113 @@ h3 {
    MOBILE RESPONSIVE - COMPREHENSIVE
    ======================================== */
 
+/* ========================================
+   Typography Mobile Enhancements
+   Requirements: 1.1, 1.2, 1.4, 1.5
+   ======================================== */
+@media (max-width: 768px) {
+  /* Ensure minimum 16px body font size to prevent iOS zoom on input focus */
+  /* Requirement 1.1 */
+  body {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Hero title with balanced wrapping and smooth scaling */
+  /* Requirements 1.4, 1.5 */
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 3.25rem) !important;
+    text-wrap: balance;
+    line-height: 1.15 !important;
+  }
+
+  /* Section titles with balanced wrapping */
+  /* Requirement 1.5 */
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 1.9rem) !important;
+    text-wrap: balance;
+    line-height: 1.2;
+  }
+
+  /* About section title */
+  .about-title {
+    text-wrap: balance;
+    line-height: 1.25;
+  }
+
+  /* Judges-a-book quote text with balanced wrapping */
+  .basic-information .quote .judges-a-book {
+    text-wrap: balance;
+    line-height: 1.2;
+  }
+
+  /* Body text line-height for optimal readability */
+  /* Requirement 1.2 */
+  p,
+  .about-paragraph,
+  .section-description {
+    line-height: 1.6;
+  }
+
+  /* Intro text refinements */
+  .intro-text,
+  .text-intro {
+    line-height: 1.7;
+  }
+}
+
+/* Small mobile typography refinements (480px and below) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(1.5rem, 10vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.35rem, 7vw, 1.65rem) !important;
+  }
+
+  .basic-information .quote .judges-a-book {
+    font-size: clamp(1.75rem, 9vw, 2.5rem) !important;
+    line-height: 1.25;
+  }
+}
+
+/* Extra small mobile typography (360px and below) */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: clamp(1.35rem, 11vw, 1.85rem) !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.25rem, 8vw, 1.5rem) !important;
+  }
+
+  .basic-information .quote .judges-a-book {
+    font-size: clamp(1.5rem, 10vw, 2rem) !important;
+  }
+}
+
+/* Minimum supported width (320px) */
+@media (max-width: 320px) {
+  body {
+    font-size: 16px !important; /* Maintain minimum readable size */
+  }
+
+  .hero-title {
+    font-size: 1.35rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-title {
+    font-size: 1.25rem !important;
+  }
+
+  .basic-information .quote .judges-a-book {
+    font-size: 1.5rem !important;
+  }
+}
+
 /* Mobile Navigation */
 @media (max-width: 768px) {
   /* Navbar */
@@ -3365,8 +3472,8 @@ h3 {
   }
 
   .hero-title {
-    font-size: clamp(2rem, 6vw, 2.6rem) !important;
-    line-height: 1.2;
+    /* font-size and line-height handled by Typography Mobile Enhancements section */
+    text-wrap: balance;
     margin-bottom: 1.25rem;
   }
 
@@ -3744,9 +3851,7 @@ h3 {
 
 /* Small Mobile (< 480px) */
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: clamp(1.75rem, 7vw, 2.2rem) !important;
-  }
+  /* hero-title font-size handled by Typography Mobile Enhancements section */
 
   .basic-information .quote .judges-a-book {
     font-size: 1.5rem;
@@ -4172,9 +4277,7 @@ body {
 
 /* Very Small Screens (< 360px) */
 @media (max-width: 360px) {
-  .hero-title {
-    font-size: 1.4rem !important;
-  }
+  /* hero-title font-size handled by Typography Mobile Enhancements section */
 
   .basic-information .quote .judges-a-book {
     font-size: 1.35rem;
@@ -6078,4 +6181,570 @@ body {
   background: rgba(255, 255, 255, 0.15);
   color: white;
   transform: rotate(90deg);
+}
+
+/* ========================================
+   MOBILE POLISH AUDIT - ADDITIONAL ENHANCEMENTS
+   Tasks 2-14 Implementation
+   ======================================== */
+
+/* ========================================
+   Task 2.2: Basic Information Section Polish
+   Requirements: 9.2, 2.4
+   ======================================== */
+@media (max-width: 768px) {
+  .basic-information .me .avatar {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .basic-information .me .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .basic-information .quote .affirmative {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}
+
+/* ========================================
+   Task 2.3: Hero Terminal Mobile Optimization
+   Requirements: 5.1, 5.2, 5.3, 5.4, 5.5
+   ======================================== */
+@media (max-width: 768px) {
+  .terminal-content {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .terminal-content::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .terminal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+  }
+
+  .terminal-content::-webkit-scrollbar-thumb {
+    background: rgba(163, 98, 255, 0.3);
+    border-radius: 2px;
+  }
+}
+
+/* ========================================
+   Task 3.1 & 3.2: Navigation Mobile Refinements
+   Requirements: 3.2, 3.3, 8.2, 8.5
+   ======================================== */
+@media (max-width: 768px) {
+  /* Ensure scroll lock when mobile menu is active */
+  body.mobile-menu-active {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Enhanced mobile menu overlay animation */
+  .mobile-menu-overlay {
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Ensure nav links have adequate touch targets */
+  .mobile-menu-overlay .nav-link {
+    min-height: 48px;
+    padding: 0.9rem 1.4rem;
+  }
+}
+
+/* ========================================
+   Task 4.1 & 4.2: Floating Cards Section Mobile
+   Requirements: 4.1, 4.2, 4.3, 2.4, 4.5
+   ======================================== */
+@media (max-width: 768px) {
+  /* Override inline position styles for floating cards */
+  .floating-card,
+  #skills .floating-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Floating cards container */
+  #skills [style*="min-height: 600px"],
+  .floating-cards-container {
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    padding: 1rem 0 !important;
+  }
+
+  /* Card internal padding */
+  .floating-card .glass-panel,
+  .floating-card > div {
+    padding: 1.25rem !important;
+  }
+}
+
+/* ========================================
+   Task 5.1 & 5.2: About & Stats Section Mobile
+   Requirements: 2.3, 1.2, 12.1, 2.4
+   ======================================== */
+@media (max-width: 768px) {
+  .about-stats-section {
+    padding: 3rem 0;
+  }
+
+  .stat-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .stat-number {
+    font-size: 2.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+
+  .mini-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .mini-stat {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .mini-stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mini-stat-number {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .mini-stat {
+    padding: 0.875rem;
+  }
+}
+
+/* ========================================
+   Task 6.1 & 6.2: Tech Stack Section Mobile
+   Requirements: 9.3, 2.4, 2.5
+   ======================================== */
+@media (max-width: 768px) {
+  .tech-stack-section {
+    padding: 2rem 0;
+    overflow-x: hidden;
+  }
+
+  .tech-stack-grid {
+    gap: 0.75rem 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .tech-item {
+    font-size: 0.7rem;
+  }
+
+  .tech-item img {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Lab context pill */
+  .lab-context-pill,
+  [class*="context-pill"] {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-stack-grid {
+    gap: 0.6rem 0.75rem;
+  }
+
+  .tech-item {
+    font-size: 0.65rem;
+  }
+
+  .tech-item img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ========================================
+   Task 7.1, 7.2, 7.3: Projects Section Mobile
+   Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 8.1
+   ======================================== */
+@media (max-width: 768px) {
+  /* Stack blueprints grid */
+  .blueprints-grid,
+  [style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Project showcase card - remove 3D transforms */
+  .project-card-3d {
+    transform: none !important;
+  }
+
+  .project-showcase-wrapper:hover .project-card-3d {
+    transform: translateY(-5px) !important;
+  }
+
+  /* Contain glow effect */
+  .project-showcase-wrapper {
+    overflow: hidden;
+    margin: 0 -1rem;
+    padding: 1rem;
+  }
+
+  /* Project mini cards - full width */
+  .project-mini-card {
+    width: 100% !important;
+    padding: 1.25rem 1.25rem 1.25rem 1.75rem !important;
+  }
+
+  .project-mini-card h3 {
+    font-size: 1rem !important;
+  }
+
+  .project-mini-card p {
+    font-size: 0.85rem !important;
+  }
+
+  /* Repo link button touch target */
+  .repo-link-btn {
+    min-height: 44px !important;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* ========================================
+   Task 9.1 & 9.2: Testimonials & Achievements Mobile
+   Requirements: 12.1, 12.5, 12.2, 12.4
+   ======================================== */
+@media (max-width: 768px) {
+  /* Testimonials section */
+  #testimonials {
+    padding: 3rem 0 !important;
+  }
+
+  /* Achievements grid - single column */
+  .achievements-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+
+  .achievement-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .achievement-card h3 {
+    font-size: 1.35rem;
+  }
+
+  .achievement-card p {
+    font-size: 0.95rem;
+  }
+
+  .achievement-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .achievement-number {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievement-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .achievement-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .achievement-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ========================================
+   Task 10.1 & 10.2: Contact Section Mobile
+   Requirements: 13.1, 13.2, 13.4, 13.5
+   ======================================== */
+@media (max-width: 768px) {
+  #contact {
+    padding: 4rem 0 !important;
+  }
+
+  #contact h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+    text-wrap: balance;
+  }
+
+  #contact p {
+    font-size: 1rem;
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* Stack CTA buttons vertically */
+  #contact [style*="display: flex"][style*="gap: 1.5rem"] {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100%;
+  }
+
+  /* Full-width buttons with adequate height */
+  #contact .btn,
+  #contact .btn-hyper-primary,
+  #contact .btn-glass-secondary {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+    padding: 1rem 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact {
+    padding: 3rem 0 !important;
+  }
+
+  #contact h2 {
+    font-size: 1.35rem !important;
+  }
+
+  #contact p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ========================================
+   Task 11.1 & 11.2: Footer Mobile Layout
+   Requirements: 11.1, 11.3, 11.4, 11.5
+   ======================================== */
+@media (max-width: 768px) {
+  .footer-premium {
+    padding: 2rem 0 1.5rem !important;
+  }
+
+  /* Center footer content */
+  .footer-premium .container {
+    text-align: center;
+  }
+
+  /* Center navigation links */
+  .footer-premium nav {
+    justify-content: center !important;
+    gap: 0.35rem !important;
+  }
+
+  .footer-nav-link {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  /* Center social icons */
+  .footer-social {
+    justify-content: center !important;
+  }
+
+  /* Footer bottom - vertical stack */
+  .footer-bottom-premium {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    text-align: center;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+  }
+
+  .footer-version-tag {
+    font-size: 0.65rem;
+  }
+}
+
+/* ========================================
+   Task 12.1, 12.2, 12.3: Performance Optimizations
+   Requirements: 10.1, 10.5, 10.4, 6.5, 10.3
+   ======================================== */
+@media (max-width: 768px) {
+  /* Disable heavy floating animations on mobile */
+  .floating-card,
+  .tech-float-icon,
+  .about-bg-decorator {
+    animation: none !important;
+  }
+
+  /* Reduce backdrop blur for performance */
+  .glass-panel,
+  .mobile-menu-overlay,
+  .stat-card,
+  .mini-stat {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  /* Hide decorative blur elements */
+  .aurora-blob-wrapper,
+  .about-bg-decorator {
+    display: none !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .floating-card,
+  .tech-float-icon,
+  .cyber-cap,
+  .cap-tassel,
+  .cyber-diploma {
+    animation: none !important;
+  }
+}
+
+/* ========================================
+   Task 13.1 & 13.2: Touch Target Audit
+   Requirements: 8.1, 8.4, 8.2
+   ======================================== */
+@media (max-width: 768px) {
+  /* Ensure all interactive elements meet 44px minimum */
+  a:not(.nav-link):not(.footer-nav-link),
+  button:not(.mobile-menu-button) {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Social icons */
+  .social-icon,
+  .footer-social-link,
+  .social-pill {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px;
+  }
+
+  /* Ensure adequate spacing between adjacent interactive elements */
+  .footer-social,
+  .header__social {
+    gap: 0.5rem !important;
+  }
+
+  /* CTA buttons */
+  .cta-button,
+  .btn-hyper-primary,
+  .btn-glass-secondary {
+    min-height: 48px !important;
+  }
+}
+
+/* ========================================
+   Task 14.1 & 14.2: Final Overflow Prevention
+   Requirements: 2.5, 9.5
+   ======================================== */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow on all sections */
+  section {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
+
+  /* Hide decorative elements that might overflow */
+  [style*="position: absolute"][style*="right: -"],
+  [style*="position: absolute"][style*="left: -"] {
+    display: none !important;
+  }
+
+  /* Ensure images don't cause overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Code blocks overflow handling */
+  pre,
+  code {
+    max-width: 100%;
+    overflow-x: auto;
+    word-wrap: break-word;
+  }
+}
+
+/* Additional 320px width fixes */
+@media (max-width: 320px) {
+  /* Extra tight container padding */
+  .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* Smaller section padding */
+  section {
+    padding: 2rem 0 !important;
+  }
+
+  /* Tighter button padding */
+  .btn,
+  .cta-button {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Footer nav links */
+  .footer-nav-link {
+    font-size: 0.6rem;
+    padding: 0.35rem 0.5rem;
+  }
 }
