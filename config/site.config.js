@@ -58,8 +58,8 @@ const siteConfig = {
   // Version
   // IMPORTANT: When updating this version, also update CACHE_VERSION in sw.js
   // This is the single source of truth for the site version displayed in the footer
-  // Version 2.3 - Design Enhancements
-  version: "2.3",
+  // Version 2.4 - Mobile Polish & Test Suite
+  version: "2.4",
 };
 
 // Export for use in other files

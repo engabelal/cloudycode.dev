@@ -1,7 +1,7 @@
 // Service Worker
-// CloudyCode v2.3
+// CloudyCode v2.4
 
-const CACHE_VERSION = "v2.3";
+const CACHE_VERSION = "v2.4";
 const CACHE_NAME = `cloudycode-${CACHE_VERSION}`;
 
 // Critical assets to cache on install
