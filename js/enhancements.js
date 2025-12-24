@@ -102,30 +102,30 @@ export function initCommandPalette() {
         </div>
         <div class="command-palette-results" id="command-results">
           <div class="command-category">Navigation</div>
-          <div class="command-item" data-action="goto-expertise">
+          <div class="command-item" data-action="goto-about">
             <i class="fas fa-user"></i>
             <span>Go to About</span>
-            <kbd>#expertise</kbd>
+            <kbd>#about</kbd>
           </div>
-          <div class="command-item" data-action="goto-arsenal">
+          <div class="command-item" data-action="goto-skills">
             <i class="fas fa-cogs"></i>
             <span>Go to Skills</span>
-            <kbd>#arsenal</kbd>
+            <kbd>#skills</kbd>
           </div>
-          <div class="command-item" data-action="goto-blueprints">
+          <div class="command-item" data-action="goto-projects">
             <i class="fas fa-folder"></i>
             <span>Go to Projects</span>
-            <kbd>#blueprints</kbd>
+            <kbd>#projects</kbd>
           </div>
           <div class="command-item" data-action="goto-certifications">
             <i class="fas fa-certificate"></i>
             <span>Go to Certifications</span>
-            <kbd>#accreditation</kbd>
+            <kbd>#certifications</kbd>
           </div>
           <div class="command-item" data-action="goto-contact">
             <i class="fas fa-envelope"></i>
             <span>Go to Contact</span>
-            <kbd>#connection</kbd>
+            <kbd>#contact</kbd>
           </div>
           <div class="command-category">Actions</div>
           <div class="command-item" data-action="scroll-top">
@@ -345,29 +345,29 @@ export function initCommandPalette() {
 
   function handleCommand(action) {
     switch (action) {
-      case "goto-expertise":
+      case "goto-about":
         document
-          .getElementById("expertise")
+          .getElementById("about")
           ?.scrollIntoView({ behavior: "smooth" });
         break;
-      case "goto-arsenal":
+      case "goto-skills":
         document
-          .getElementById("arsenal")
+          .getElementById("skills")
           ?.scrollIntoView({ behavior: "smooth" });
         break;
-      case "goto-blueprints":
+      case "goto-projects":
         document
-          .getElementById("blueprints")
+          .getElementById("projects")
           ?.scrollIntoView({ behavior: "smooth" });
         break;
       case "goto-certifications":
         document
-          .getElementById("accreditation")
+          .getElementById("certifications")
           ?.scrollIntoView({ behavior: "smooth" });
         break;
       case "goto-contact":
         document
-          .getElementById("connection")
+          .getElementById("contact")
           ?.scrollIntoView({ behavior: "smooth" });
         break;
       case "scroll-top":

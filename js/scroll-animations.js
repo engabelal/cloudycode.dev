@@ -32,8 +32,8 @@ function initSectionAnimations() {
   const easing = "cubic-bezier(0.25, 0.46, 0.45, 0.94)";
 
   sections.forEach((section) => {
-    // Skip hero and arsenal sections (they have their own animations)
-    if (section.id === "hero" || section.id === "arsenal") return;
+    // Skip hero and skills sections (they have their own animations)
+    if (section.id === "hero" || section.id === "skills") return;
     if (section.hasAttribute("data-aos")) return;
 
     // Apply more dramatic fade-up animation to sections
@@ -75,11 +75,11 @@ function animateSectionChildren(section, isMobile) {
   // Different selectors for different sections
   let childSelector = "";
 
-  if (section.id === "expertise") {
+  if (section.id === "about") {
     childSelector = ".stat-card, .mini-stat";
-  } else if (section.id === "blueprints") {
+  } else if (section.id === "projects") {
     childSelector = ".project-card, .bento-card";
-  } else if (section.id === "accreditation") {
+  } else if (section.id === "certifications") {
     childSelector = ".cert-card, .cert-badge, .cert-item";
   } else {
     childSelector = ".card, .item";
@@ -133,14 +133,14 @@ function initSpecialElementAnimations() {
   // Animate terminal entrance
   initTerminalAnimation();
 
-  // Animate arsenal floating cards
-  initArsenalAnimations();
+  // Animate skills floating cards
+  initSkillsAnimations();
 }
 
 // Enhanced certification animations with better visibility
 function initCertificationAnimations() {
   const certItems = document.querySelectorAll(
-    "#accreditation .cert-item, #accreditation .cert-card, #accreditation .certification-item"
+    "#certifications .cert-item, #certifications .cert-card, #certifications .certification-item"
   );
   const isMobile = isMobileView();
   const duration = isMobile ? 0.7 : 1;
@@ -432,7 +432,7 @@ export function addScrollAnimationStyles() {
     /* Enhanced scroll-triggered animations */
     @media (prefers-reduced-motion: no-preference) {
       .hero-terminal,
-      #arsenal .floating-card,
+      #skills .floating-card,
       .stat-card,
       .project-card,
       .cert-card {
@@ -465,9 +465,9 @@ export function addScrollAnimationStyles() {
     }
 
     /* Certification section improvements */
-    #accreditation .cert-item,
-    #accreditation .cert-card,
-    #accreditation .certification-item {
+    #certifications .cert-item,
+    #certifications .cert-card,
+    #certifications .certification-item {
       will-change: transform, opacity;
       backface-visibility: hidden;
     }
@@ -479,8 +479,8 @@ export function addScrollAnimationStyles() {
       transform-style: preserve-3d;
     }
 
-    /* Arsenal floating cards animation styles - Enhanced */
-    #arsenal .floating-card {
+    /* Skills floating cards animation styles - Enhanced */
+    #skills .floating-card {
       will-change: transform, opacity;
       backface-visibility: hidden;
       transform-style: preserve-3d;
@@ -572,12 +572,12 @@ function initTerminalAnimation() {
   observer.observe(terminal);
 }
 
-// Arsenal floating cards animation - Enhanced for better visibility
-function initArsenalAnimations() {
-  const arsenalSection = document.querySelector("#arsenal");
-  if (!arsenalSection) return;
+// Skills floating cards animation - Enhanced for better visibility
+function initSkillsAnimations() {
+  const skillsSection = document.querySelector("#skills");
+  if (!skillsSection) return;
 
-  const floatingCards = arsenalSection.querySelectorAll(".floating-card");
+  const floatingCards = skillsSection.querySelectorAll(".floating-card");
   const isMobile = isMobileView();
   const duration = isMobile ? 0.5 : 0.9;
   const durationMs = duration * 1000;
