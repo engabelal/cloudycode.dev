@@ -129,9 +129,15 @@ body {
 a,
 button,
 .btn,
-.tech-item,
 .project-card {
   cursor: pointer;
+}
+
+/* Skills section - normal cursor */
+.tech-item,
+.floating-card,
+#arsenal {
+  cursor: default;
 }
 
 /* ========================================
