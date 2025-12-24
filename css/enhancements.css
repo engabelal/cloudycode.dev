@@ -138,29 +138,7 @@ button,
    7. SPOTLIGHT MOUSE-FOLLOW EFFECT ON HERO
    ======================================== */
 
-.hero-section::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(
-    circle,
-    rgba(163, 98, 255, 0.15),
-    transparent 70%
-  );
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  left: var(--mouse-x, 50%);
-  top: var(--mouse-y, 50%);
-  z-index: 1;
-}
-
-.hero-section:hover::before {
-  opacity: 1;
-}
+/* Disabled - removed glow effect */
 
 /* ========================================
    8. NOISE TEXTURE OVERLAY FOR DEPTH
