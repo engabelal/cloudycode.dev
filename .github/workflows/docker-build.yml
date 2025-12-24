@@ -12,12 +12,14 @@
 name: Build Multi-Arch Docker Image
 
 # ------------------------------------------------------------
-# Trigger workflow only when a version tag is pushed (v1.2.3)
+# Trigger workflow only when a version tag is pushed (v1, v1.2, or v1.2.3)
 # ------------------------------------------------------------
 on:
   push:
     tags:
-      - "v*"
+      - "v[0-9]+"
+      - "v[0-9]+.[0-9]+"
+      - "v[0-9]+.[0-9]+.[0-9]+"
 
 # ------------------------------------------------------------
 # Prevent parallel runs for the same tag/ref
@@ -34,10 +36,10 @@ jobs:
     # Required permissions
     # --------------------------------------------------------
     permissions:
-      contents: write          # Create GitHub Releases
-      packages: write          # Push container images
-      security-events: write   # Upload SARIF results
-      id-token: write          # OIDC for Cosign signing
+      contents: write # Create GitHub Releases
+      packages: write # Push container images
+      security-events: write # Upload SARIF results
+      id-token: write # OIDC for Cosign signing
 
     steps:
       # ------------------------------------------------------
