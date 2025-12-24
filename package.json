@@ -3,14 +3,9 @@
   "version": "7.0.0",
   "description": "CloudyCode.dev - DevOps & Cloud Engineer Portfolio",
   "scripts": {
-    "serve": "npx serve -l 8080",
-    "test": "npx playwright test",
-    "test:mobile": "npx playwright test tests/mobile-polish.spec.js",
-    "test:ui": "npx playwright test --ui",
-    "test:report": "npx playwright show-report"
+    "serve": "npx serve -l 8080"
   },
   "devDependencies": {
-    "@playwright/test": "^1.40.0",
     "serve": "^14.2.0"
   },
   "keywords": [
