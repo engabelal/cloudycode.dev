@@ -519,23 +519,37 @@
    Section Badges & Headers - Modern & Clean
    ======================================== */
 .section-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   position: relative;
-  padding: 0.55rem 1.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(163, 98, 255, 0.12),
-    rgba(253, 68, 176, 0.08)
-  );
-  border: 1px solid rgba(163, 98, 255, 0.3);
-  border-radius: 50px;
-  color: #e0d0ff;
-  font-size: 0.75rem;
-  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  background: rgba(163, 98, 255, 0.08);
+  border: 1px solid rgba(163, 98, 255, 0.2);
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 10px rgba(163, 98, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.section-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #a362ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(163, 98, 255, 0.6);
+}
+
+.section-badge:hover {
+  background: rgba(163, 98, 255, 0.12);
+  border-color: rgba(163, 98, 255, 0.35);
 }
 
 .section-header {
@@ -3039,7 +3053,7 @@ h3 {
 .tech-item span {
   font-size: 0.85rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
   position: relative;
@@ -3048,10 +3062,10 @@ h3 {
 
 .tech-item img,
 .tech-item i {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
-  filter: grayscale(1) brightness(1.5) opacity(0.6);
+  filter: grayscale(0.3) brightness(1.2) opacity(0.9);
   transition: all 0.4s ease;
   position: relative;
   z-index: 2;

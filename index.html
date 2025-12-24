@@ -704,28 +704,105 @@
           <a href="https://www.redhat.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redhat.svg" alt="Red Hat" style="transform: scale(2); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy" decoding="async"><span>Red Hat</span></a>
           <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redis.svg" alt="Redis" loading="lazy" decoding="async"><span>Redis</span></a>
           <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-mongodb.svg" alt="MongoDB" loading="lazy" decoding="async"><span>MongoDB</span></a>
-          <a href="https://www.vmware.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-vmware.svg" alt="VMware" loading="lazy" decoding="async"><span>VMware</span></a>
-          <a href="https://www.nutanix.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nutanix.svg" alt="Nutanix" loading="lazy" decoding="async"><span>Nutanix</span></a>
-          <a href="https://www.cisco.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-cisco.svg" alt="Cisco" loading="lazy" decoding="async"><span>Cisco</span></a>
-          <a href="https://en.wikipedia.org/wiki/High_availability" target="_blank" rel="noopener" class="tech-item"><i class="fas fa-shield-alt"></i><span>HA/DR</span></a>
-          <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener" class="tech-item"><i class="fab fa-windows"></i><span>Windows</span></a>
+          <a href="https://www.vmware.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-vmware.svg" alt="VMware" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>VMware</span></a>
+          <a href="https://www.nutanix.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nutanix.svg" alt="Nutanix" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Nutanix</span></a>
+          <a href="https://www.cisco.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-cisco.svg" alt="Cisco" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Cisco</span></a>
+          <a href="https://www.veeam.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/Veeam_logo.svg" alt="Veeam" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Veeam</span></a>
+          <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener" class="tech-item"><i class="fab fa-windows" style="color: #00a4ef;"></i><span>Windows</span></a>
         </div>
 
         <!-- High-End Lab Context - Refined Pill -->
-        <div style="margin-top: 5rem; display: flex; justify-content: center;">
-          <div class="glass-morph" style="padding: 0.8rem 2.5rem; background: rgba(163, 98, 255, 0.02); border: 1px solid rgba(163, 98, 255, 0.15); border-radius: 100px; display: flex; align-items: center; gap: 1.25rem; backdrop-filter: blur(10px); box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(163, 98, 255, 0.05); position: relative; overflow: hidden;">
-            <!-- Animated Inner Glow -->
-            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(163, 98, 255, 0.05), transparent); animation: sweep 5s infinite;"></div>
-
-            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(163, 98, 255, 0.1); border-radius: 50%; box-shadow: 0 0 15px rgba(163, 98, 255, 0.2);">
-              <i class="fas fa-flask" style="color: #a362ff; font-size: 0.85rem; filter: drop-shadow(0 0 5px #a362ff);"></i>
+        <!-- Lab Context Banner - Purple Border Effect -->
+        <div style="margin-top: 5rem; display: flex; justify-content: center; padding: 0 1rem;">
+          <div class="lab-pill-wrapper">
+            <div class="lab-pill-border"></div>
+            <div class="lab-pill-content">
+              <span class="lab-icon"><i class="fas fa-flask"></i></span>
+              <span class="lab-text">
+                <span class="lab-name">CloudyCode.dev</span> — my personal lab for <span class="lab-highlight">DevOps</span> experiments & <span class="lab-highlight">cloud-native</span> exploration
+              </span>
             </div>
-
-            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.5; letter-spacing: 0.2px; font-weight: 500;">
-              <span style="color: #fff; font-family: 'IBM Plex Mono', monospace; font-weight: 700; border-bottom: 1px solid rgba(163, 98, 255, 0.4); padding-bottom: 1px;">CloudyCode.dev</span> is my personal playground for testing DevOps ideas and cloud-native solutions.
-            </p>
           </div>
         </div>
+
+        <style>
+          .lab-pill-wrapper {
+            position: relative;
+            border-radius: 100px;
+            padding: 2px;
+          }
+          .lab-pill-border {
+            position: absolute;
+            inset: 0;
+            border-radius: 100px;
+            padding: 2px;
+            background: conic-gradient(from var(--angle, 0deg), transparent 40%, #7c3aed 60%, #a78bfa 75%, #c4b5fd 85%, transparent 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotateBorder 4s linear infinite;
+          }
+          @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+          }
+          @keyframes rotateBorder {
+            to { --angle: 360deg; }
+          }
+          .lab-pill-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.75rem;
+            background: rgba(31, 22, 51, 0.85);
+            border-radius: 100px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+          }
+          .lab-pill-wrapper:hover .lab-pill-content {
+            background: rgba(31, 22, 51, 0.95);
+          }
+          .lab-pill-wrapper:hover {
+            transform: translateY(-2px);
+          }
+          .lab-icon {
+            font-size: 1rem;
+            color: #a362ff;
+            filter: drop-shadow(0 0 6px rgba(163, 98, 255, 0.5));
+          }
+          .lab-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            letter-spacing: 0.2px;
+          }
+          .lab-name {
+            color: #a362ff;
+            font-weight: 600;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+          }
+          .lab-highlight {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+          }
+          @media (max-width: 768px) {
+            .lab-pill-content {
+              padding: 0.75rem 1.25rem;
+              gap: 0.5rem;
+              text-align: center;
+              flex-wrap: wrap;
+              justify-content: center;
+            }
+            .lab-text { font-size: 0.8rem; }
+            .lab-name { font-size: 0.8rem; }
+          }
+        </style>
       </div>
     </section>
       </div>
