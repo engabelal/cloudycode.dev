@@ -109,7 +109,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Preahvihear&family=Rubik:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Preahvihear&family=Rubik:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome - Non-blocking load -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -870,11 +870,14 @@
         <div class="blueprints-grid">
           <!-- Left: Content -->
           <div>
-            <p style="font-size: 0.875rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 1rem; letter-spacing: 0.5px; text-transform: uppercase;">DevOps and Cloud Projects</p>
-            <h2 class="blueprints-main-title" style="margin-bottom: 0.75rem;">Engineering Blueprints</h2>
-            <p class="blueprints-main-description">
-              Architectures focused on <span style="color: var(--accent-purple); font-weight: 600;">production-grade automation</span> and cloud-native excellence.
-            </p>
+            <div class="shipped-title-wrapper" style="position: relative; display: inline-block; margin-bottom: 2.5rem;">
+              <!-- Brush stroke with skew like real paint -->
+              <div style="position: absolute; top: 50%; left: -15px; right: -15px; height: 65%; transform: translateY(-50%) skewX(-3deg); background: linear-gradient(90deg, rgba(163,98,255,0.2) 0%, rgba(192,132,252,0.3) 30%, rgba(233,181,252,0.28) 60%, rgba(253,68,176,0.2) 100%); border-radius: 3px; z-index: 0;"></div>
+
+              <h2 class="blueprints-main-title" style="margin: 0; position: relative; z-index: 1;">
+                <span style="font-family: 'Dancing Script', cursive; font-size: 2.8rem; font-weight: 700; background: linear-gradient(135deg, #fff 0%, #c4b5fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Things I've Shipped</span>
+              </h2>
+            </div>
 
             <!-- Project Cards -->
             <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
