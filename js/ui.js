@@ -1,5 +1,5 @@
 // UI Module
-// CloudyCode v2.3
+// CloudyCode v7.0.0
 
 import {
   smoothScrollTo,

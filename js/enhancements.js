@@ -9,16 +9,18 @@ import { prefersReducedMotion } from "./utils.js";
 export function initMagneticCursor() {
   if (prefersReducedMotion()) return;
 
-  const buttons = document.querySelectorAll('.btn-primary, .btn-primary-header, .btn-secondary');
+  const buttons = document.querySelectorAll(
+    ".btn-primary, .btn-primary-header, .btn-secondary"
+  );
 
-  buttons.forEach(button => {
-    button.addEventListener('mousemove', (e) => {
+  buttons.forEach((button) => {
+    button.addEventListener("mousemove", (e) => {
       const rect = button.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-      button.style.setProperty('--mouse-x', `${x}%`);
-      button.style.setProperty('--mouse-y', `${y}%`);
+      button.style.setProperty("--mouse-x", `${x}%`);
+      button.style.setProperty("--mouse-y", `${y}%`);
     });
   });
 }
@@ -29,16 +31,16 @@ export function initMagneticCursor() {
 export function initSpotlight() {
   if (prefersReducedMotion()) return;
 
-  const hero = document.querySelector('.hero-section');
+  const hero = document.querySelector(".hero-section");
   if (!hero) return;
 
-  hero.addEventListener('mousemove', (e) => {
+  hero.addEventListener("mousemove", (e) => {
     const rect = hero.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    hero.style.setProperty('--mouse-x', `${x}px`);
-    hero.style.setProperty('--mouse-y', `${y}px`);
+    hero.style.setProperty("--mouse-x", `${x}px`);
+    hero.style.setProperty("--mouse-y", `${y}px`);
   });
 }
 
@@ -48,21 +50,23 @@ export function initSpotlight() {
 export function initRippleEffect() {
   if (prefersReducedMotion()) return;
 
-  const elements = document.querySelectorAll('.floating-card, .stat-card, .tech-item, .project-card');
+  const elements = document.querySelectorAll(
+    ".stat-card, .tech-item, .project-card"
+  );
 
-  elements.forEach(element => {
-    element.addEventListener('click', function(e) {
-      const ripple = document.createElement('span');
-      ripple.classList.add('ripple');
+  elements.forEach((element) => {
+    element.addEventListener("click", function (e) {
+      const ripple = document.createElement("span");
+      ripple.classList.add("ripple");
 
       const rect = this.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
       const x = e.clientX - rect.left - size / 2;
       const y = e.clientY - rect.top - size / 2;
 
-      ripple.style.width = ripple.style.height = size + 'px';
-      ripple.style.left = x + 'px';
-      ripple.style.top = y + 'px';
+      ripple.style.width = ripple.style.height = size + "px";
+      ripple.style.left = x + "px";
+      ripple.style.top = y + "px";
 
       this.appendChild(ripple);
 
@@ -78,15 +82,19 @@ export function initParallax() {
   if (prefersReducedMotion()) return;
   if (window.innerWidth < 768) return; // Disable on mobile
 
-  const terminal = document.querySelector('.hero-terminal');
+  const terminal = document.querySelector(".hero-terminal");
 
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrolled = window.pageYOffset;
 
-    if (terminal) {
-      terminal.style.transform = `translateY(${scrolled * 0.15}px)`;
-    }
-  }, { passive: true });
+      if (terminal) {
+        terminal.style.transform = `translateY(${scrolled * 0.15}px)`;
+      }
+    },
+    { passive: true }
+  );
 }
 
 // ========================================
@@ -302,44 +310,44 @@ export function initCommandPalette() {
   `;
 
   // Inject into DOM
-  document.body.insertAdjacentHTML('beforeend', paletteHTML);
+  document.body.insertAdjacentHTML("beforeend", paletteHTML);
 
-  const palette = document.getElementById('command-palette');
-  const input = document.getElementById('command-input');
-  const backdrop = palette.querySelector('.command-palette-backdrop');
+  const palette = document.getElementById("command-palette");
+  const input = document.getElementById("command-input");
+  const backdrop = palette.querySelector(".command-palette-backdrop");
 
   // Keyboard shortcut to open (Cmd/Ctrl + K)
-  document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+  document.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
       e.preventDefault();
       togglePalette();
     }
 
     // Close on Escape
-    if (e.key === 'Escape' && palette.classList.contains('active')) {
+    if (e.key === "Escape" && palette.classList.contains("active")) {
       closePalette();
     }
   });
 
   function togglePalette() {
-    palette.classList.toggle('active');
-    if (palette.classList.contains('active')) {
+    palette.classList.toggle("active");
+    if (palette.classList.contains("active")) {
       input.focus();
     }
   }
 
   function closePalette() {
-    palette.classList.remove('active');
-    input.value = '';
+    palette.classList.remove("active");
+    input.value = "";
   }
 
   // Close on backdrop click
-  backdrop.addEventListener('click', closePalette);
+  backdrop.addEventListener("click", closePalette);
 
   // Handle command actions
-  const commandItems = document.querySelectorAll('.command-item');
-  commandItems.forEach(item => {
-    item.addEventListener('click', () => {
+  const commandItems = document.querySelectorAll(".command-item");
+  commandItems.forEach((item) => {
+    item.addEventListener("click", () => {
       const action = item.dataset.action;
       handleCommand(action);
       closePalette();
@@ -347,44 +355,54 @@ export function initCommandPalette() {
   });
 
   function handleCommand(action) {
-    switch(action) {
-      case 'goto-expertise':
-        document.getElementById('expertise')?.scrollIntoView({ behavior: 'smooth' });
+    switch (action) {
+      case "goto-expertise":
+        document
+          .getElementById("expertise")
+          ?.scrollIntoView({ behavior: "smooth" });
         break;
-      case 'goto-arsenal':
-        document.getElementById('arsenal')?.scrollIntoView({ behavior: 'smooth' });
+      case "goto-arsenal":
+        document
+          .getElementById("arsenal")
+          ?.scrollIntoView({ behavior: "smooth" });
         break;
-      case 'goto-blueprints':
-        document.getElementById('blueprints')?.scrollIntoView({ behavior: 'smooth' });
+      case "goto-blueprints":
+        document
+          .getElementById("blueprints")
+          ?.scrollIntoView({ behavior: "smooth" });
         break;
-      case 'goto-certifications':
-        document.getElementById('accreditation')?.scrollIntoView({ behavior: 'smooth' });
+      case "goto-certifications":
+        document
+          .getElementById("accreditation")
+          ?.scrollIntoView({ behavior: "smooth" });
         break;
-      case 'goto-contact':
-        document.getElementById('connection')?.scrollIntoView({ behavior: 'smooth' });
+      case "goto-contact":
+        document
+          .getElementById("connection")
+          ?.scrollIntoView({ behavior: "smooth" });
         break;
-      case 'scroll-top':
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      case "scroll-top":
+        window.scrollTo({ top: 0, behavior: "smooth" });
         break;
-      case 'copy-email':
-        navigator.clipboard.writeText('ahmedbelal@cloudycode.dev');
-        showToast('Email copied to clipboard!');
+      case "copy-email":
+        navigator.clipboard.writeText("ahmedbelal@cloudycode.dev");
+        showToast("Email copied to clipboard!");
         break;
-      case 'toggle-theme':
-        showToast('Theme toggle coming soon!');
+      case "toggle-theme":
+        showToast("Theme toggle coming soon!");
         break;
     }
   }
 
   // Simple search filter
-  input.addEventListener('input', (e) => {
+  input.addEventListener("input", (e) => {
     const query = e.target.value.toLowerCase();
-    commandItems.forEach(item => {
+    commandItems.forEach((item) => {
       const text = item.textContent.toLowerCase();
       if (text.includes(query)) {
-        item.style.display = 'flex';
+        item.style.display = "flex";
       } else {
-        item.style.display = 'none';
+        item.style.display = "none";
       }
     });
   });
@@ -394,8 +412,8 @@ export function initCommandPalette() {
 // 6. TOAST NOTIFICATIONS
 // ========================================
 function showToast(message) {
-  const toast = document.createElement('div');
-  toast.className = 'toast-notification';
+  const toast = document.createElement("div");
+  toast.className = "toast-notification";
   toast.textContent = message;
   toast.style.cssText = `
     position: fixed;
@@ -413,7 +431,7 @@ function showToast(message) {
 
   document.body.appendChild(toast);
   setTimeout(() => {
-    toast.style.animation = 'slideOut 0.3s ease';
+    toast.style.animation = "slideOut 0.3s ease";
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
@@ -426,57 +444,8 @@ export function optimizeStarfield() {
   return {
     particleCount: 150, // Reduced from 250
     minOpacity: 0.2,
-    maxOpacity: 0.7
+    maxOpacity: 0.7,
   };
-}
-
-// ========================================
-// 8. 3D CARD TILT (VANILLA-TILT ALTERNATIVE)
-// ========================================
-export function init3DTilt() {
-  if (prefersReducedMotion()) return;
-  if (window.innerWidth < 768) return;
-
-  const cards = document.querySelectorAll('.floating-card');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', handleTilt);
-    card.addEventListener('mouseleave', resetTilt);
-  });
-
-  function handleTilt(e) {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * -10;
-    const rotateY = ((x - centerX) / centerX) * 10;
-
-    const originalRotation = card.getAttribute('data-rotation') || '0deg';
-    const isCenter = card.style.transform && card.style.transform.includes('translate(-50%, -50%)');
-
-    if (isCenter) {
-      card.style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.05)`;
-    } else {
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.02)`;
-    }
-  }
-
-  function resetTilt(e) {
-    const card = e.currentTarget;
-    const originalRotation = card.getAttribute('data-rotation') || '0deg';
-    const isCenter = card.style.transform && card.style.transform.includes('translate(-50%, -50%)');
-
-    if (isCenter) {
-      card.style.transform = `translate(-50%, -50%)`;
-    } else {
-      card.style.transform = `rotate(${originalRotation})`;
-    }
-  }
 }
 
 // ========================================
@@ -485,19 +454,22 @@ export function init3DTilt() {
 export function initSmoothReveals() {
   if (prefersReducedMotion()) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px",
+    }
+  );
 
-  document.querySelectorAll('section').forEach(section => {
+  document.querySelectorAll("section").forEach((section) => {
     observer.observe(section);
   });
 }
@@ -506,15 +478,14 @@ export function initSmoothReveals() {
 // 10. INITIALIZE ALL ENHANCEMENTS
 // ========================================
 export function initEnhancements() {
-  console.log('🚀 CloudyCode Enhancements v2.3 Loading...');
+  console.log("🚀 CloudyCode Enhancements v2.3 Loading...");
 
   initMagneticCursor();
   initSpotlight();
   initRippleEffect();
   initParallax();
   initCommandPalette();
-  init3DTilt();
   initSmoothReveals();
 
-  console.log('✨ All enhancements loaded successfully!');
+  console.log("✨ All enhancements loaded successfully!");
 }
