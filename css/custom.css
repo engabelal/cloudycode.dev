@@ -3023,6 +3023,11 @@ h3 {
   margin: 0 auto;
 }
 
+/* Hide duplicate items on desktop */
+.tech-item-duplicate {
+  display: none !important;
+}
+
 .tech-item {
   display: flex;
   align-items: center;
@@ -6381,16 +6386,92 @@ body {
     overflow-x: hidden;
   }
 
+  /* Tech Stack Marquee for Mobile */
+  .tech-stack-section .container {
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+  }
+
+  /* Fade edges effect */
+  .tech-stack-section .container::before,
+  .tech-stack-section .container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .tech-stack-section .container::before {
+    left: 0;
+    background: linear-gradient(to right, #1f1633 0%, transparent 100%);
+  }
+
+  .tech-stack-section .container::after {
+    right: 0;
+    background: linear-gradient(to left, #1f1633 0%, transparent 100%);
+  }
+
   .tech-stack-grid {
-    gap: 0.75rem 1rem;
-    padding: 0 0.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding: 1rem 0;
+    max-width: none;
+    animation: techMarquee 60s linear infinite;
+    width: max-content;
+    transition: animation-duration 0.5s ease;
+  }
+
+  .tech-stack-grid:hover,
+  .tech-stack-grid:active {
+    animation-duration: 200s;
+  }
+
+  /* Show duplicate items for seamless marquee */
+  .tech-item-duplicate {
+    display: flex !important;
   }
 
   .tech-item {
-    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
+    background: rgba(163, 98, 255, 0.08);
+    border: 1px solid rgba(163, 98, 255, 0.15);
   }
 
-  .tech-item img {
+  .tech-item:hover {
+    background: rgba(163, 98, 255, 0.15);
+    border-color: rgba(163, 98, 255, 0.3);
+    box-shadow: none;
+    transform: none;
+  }
+
+  @keyframes techMarquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .tech-item {
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    background: rgba(163, 98, 255, 0.08);
+    border: 1px solid rgba(163, 98, 255, 0.15);
+  }
+
+  .tech-item span {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .tech-item img,
+  .tech-item i {
     width: 18px;
     height: 18px;
   }
@@ -6405,14 +6486,25 @@ body {
 
 @media (max-width: 480px) {
   .tech-stack-grid {
-    gap: 0.6rem 0.75rem;
+    gap: 1.5rem;
+    animation: techMarquee 50s linear infinite;
+  }
+
+  .tech-stack-grid:hover,
+  .tech-stack-grid:active {
+    animation-play-state: paused;
   }
 
   .tech-item {
-    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
   }
 
-  .tech-item img {
+  .tech-item span {
+    font-size: 0.7rem;
+  }
+
+  .tech-item img,
+  .tech-item i {
     width: 16px;
     height: 16px;
   }
