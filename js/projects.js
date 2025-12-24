@@ -1,5 +1,5 @@
 // Projects Module
-// CloudyCode v7.0.0
+// CloudyCode v2.3
 
 import { slugify, trapFocus } from './utils.js';
 
