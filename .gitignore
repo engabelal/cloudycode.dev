@@ -66,3 +66,6 @@ temp/
 # Downloaded SVG files (cleanup)
 *_Logo*.svg
 *_logo*.svg
+
+# Stakpak session files
+.stakpak/session*

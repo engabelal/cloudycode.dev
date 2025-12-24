@@ -31,6 +31,10 @@ module.exports = defineConfig({
       name: "Mobile Safari",
       use: { ...devices["iPhone 12"] },
     },
+    {
+      name: "Desktop Chrome",
+      use: { ...devices["Desktop Chrome"] },
+    },
   ],
 
   // Disable webServer since using Live Server
