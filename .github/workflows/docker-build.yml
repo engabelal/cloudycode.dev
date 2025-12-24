@@ -17,9 +17,7 @@ name: Build Multi-Arch Docker Image
 on:
   push:
     tags:
-      - "v[0-9]+"
-      - "v[0-9]+.[0-9]+"
-      - "v[0-9]+.[0-9]+.[0-9]+"
+      - "v*"
 
 # ------------------------------------------------------------
 # Prevent parallel runs for the same tag/ref
