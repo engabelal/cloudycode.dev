@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-CloudyCode v7.0.0 is a modern DevOps & Cloud Engineer portfolio website showcasing a premium terminal aesthetic. It's a static PWA (Progressive Web App) built with vanilla JavaScript, HTML5, and CSS3, featuring no build step or framework dependencies.
+CloudyCode v2.3 is a modern DevOps & Cloud Engineer portfolio website showcasing a premium terminal aesthetic. It's a static PWA (Progressive Web App) built with vanilla JavaScript, HTML5, and CSS3, featuring no build step or framework dependencies.
 
 ## Development Commands
 
