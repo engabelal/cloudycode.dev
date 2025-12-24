@@ -44,7 +44,7 @@ jobs:
       # Checkout repository source code
       # ------------------------------------------------------
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # ------------------------------------------------------
       # Set up Docker Buildx (required for multi-arch builds)
