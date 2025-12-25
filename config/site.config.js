@@ -58,8 +58,8 @@ const siteConfig = {
   // Version
   // IMPORTANT: When updating this version, also update CACHE_VERSION in sw.js
   // This is the single source of truth for the site version displayed in the footer
-  // Version 2.4.1 - Mobile Tech Stack Marquee & UI Polish
-  version: "2.4.1",
+  // Version 2.4.7 - Title Design Simplification & UI Polish
+  version: "2.4.7",
 };
 
 // Export for use in other files
