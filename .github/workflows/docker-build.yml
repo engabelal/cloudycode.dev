@@ -112,7 +112,7 @@ jobs:
       # - Use .trivyignore for accepted CVEs
       # ------------------------------------------------------
       - name: Scan for vulnerabilities
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@0.34.0
         with:
           image-ref: engabelal/cloudycode:scan
           format: sarif
@@ -153,7 +153,7 @@ jobs:
       # Uses immutable image digest
       # ------------------------------------------------------
       - name: Generate SBOM
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@0.34.0
         with:
           image-ref: engabelal/cloudycode@${{ steps.build.outputs.digest }}
           format: spdx-json
