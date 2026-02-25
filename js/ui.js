@@ -172,6 +172,15 @@ export function hideLoadingScreen() {
 export function initCertifications() {
   const certifications = [
     {
+      title: "Certified Kubernetes Administrator (CKA)",
+      shortName: "CKA",
+      level: "CNCF",
+      year: "Jan 2026",
+      icon: "images/icon-k8s.svg",
+      color: "#326CE5",
+      description: "Validates the skills, knowledge, and competency to perform the responsibilities of Kubernetes administrators."
+    },
+    {
       title: "AWS Certified: DevOps Engineer",
       shortName: "AWS DevOps",
       level: "Professional",
