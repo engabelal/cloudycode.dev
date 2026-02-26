@@ -1,5 +1,5 @@
 // Main Entry Point
-// CloudyCode v2.4.7 - Mobile Polish Edition
+// CloudyCode v2.4.8 - Mobile Polish Edition
 
 import { forceScrollReset, log } from "./utils.js";
 import { initAnimations, resetAnimatedBreaks } from "./animations.js";
@@ -14,7 +14,7 @@ import { initEnhancements } from "./enhancements.js";
 // Initialize Application
 function init() {
   try {
-    log.info("CloudyCode v2.4.7 - Initializing...");
+    log.info("CloudyCode v2.4.8 - Initializing...");
 
     // Force scroll to top on page load
     forceScrollReset();
@@ -36,11 +36,11 @@ function init() {
       initEnhancedScrollAnimations();
       // Reset animated breaks on page load
       resetAnimatedBreaks();
-      // Initialize all enhancements (v2.4.7)
+      // Initialize all enhancements (v2.4.8)
       initEnhancements();
     }, 100);
 
-    log.info("CloudyCode v2.4.7 - Initialization complete!");
+    log.info("CloudyCode v2.4.8 - Initialization complete!");
   } catch (error) {
     log.error("Error during initialization:", error);
   }

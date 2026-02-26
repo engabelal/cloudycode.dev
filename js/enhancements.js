@@ -1,5 +1,5 @@
 // CloudyCode.dev Design Enhancements
-// Version 2.4.7
+// Version 2.4.8
 
 import { prefersReducedMotion } from "./utils.js";
 
@@ -467,7 +467,7 @@ export function initSmoothReveals() {
 // 10. INITIALIZE ALL ENHANCEMENTS
 // ========================================
 export function initEnhancements() {
-  console.log("🚀 CloudyCode Enhancements v2.4.7 Loading...");
+  console.log("🚀 CloudyCode Enhancements v2.4.8 Loading...");
 
   initMagneticCursor();
   initSpotlight();
