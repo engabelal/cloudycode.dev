@@ -102,14 +102,13 @@
   <!-- DNS Prefetch for External Resources -->
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://unpkg.com">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Preahvihear&family=Rubik:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Preahvihear&family=Rubik:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome - Non-blocking load -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -119,9 +118,6 @@
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="css/enhancements.css">
-
-  <!-- Lottie Player - Pinned version for cache stability -->
-  <script defer src="https://unpkg.com/@lottiefiles/lottie-player@2.0.4/dist/lottie-player.js"></script>
 
   <!-- Critical Inline CSS -->
   <style>
@@ -1381,7 +1377,7 @@
           <!-- Unified DevOps Version Badge -->
           <div style="display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.4rem 0.9rem; border-radius: 2rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px;">
             <i class="fas fa-cloud" style="color: #a362ff;"></i>
-            <span>VERSION : <span style="color: white; font-weight: 800;">2.4.8</span></span>
+            <span>VERSION : <span id="site-version" style="color: white; font-weight: 800;">2.4.9</span></span>
             <div style="display: flex; align-items: center; gap: 0.35rem; color: #10b981; font-weight: 700;">
               <span style="width: 4px; height: 4px; background: #10b981; border-radius: 50%;"></span>
               STABLE
@@ -1400,14 +1396,5 @@
   <!-- App Scripts -->
   <script type="module" src="js/main.js"></script>
 
-  <!-- Loading Screen Handler -->
-  <script>
-    window.addEventListener('load', function() {
-      const loadingScreen = document.getElementById('loading-screen');
-      setTimeout(function() {
-        loadingScreen.classList.add('hidden');
-      }, 1500);
-    });
-  </script>
 </body>
 </html>

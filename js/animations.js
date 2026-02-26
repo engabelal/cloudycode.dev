@@ -80,6 +80,16 @@ class Starfield {
 }
 
 export function initStarfield() {
+  if (prefersReducedMotion()) return;
+
+  const canvas = document.getElementById("starfield-canvas");
+  if (!canvas) return;
+
+  const canvasStyle = window.getComputedStyle(canvas);
+  if (canvasStyle.display === "none" || canvasStyle.visibility === "hidden") {
+    return;
+  }
+
   const sf = new Starfield("starfield-canvas");
   if (sf.canvas) sf.animate();
 }

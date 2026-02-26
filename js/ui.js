@@ -545,5 +545,9 @@ export function initUI() {
   displaySiteVersion();
 
   // Hide loading screen after everything is ready
-  window.addEventListener("load", hideLoadingScreen);
+  if (document.readyState === "complete") {
+    hideLoadingScreen();
+  } else {
+    window.addEventListener("load", hideLoadingScreen, { once: true });
+  }
 }

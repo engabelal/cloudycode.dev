@@ -1,5 +1,5 @@
 // Main Entry Point
-// CloudyCode v2.4.8 - Mobile Polish Edition
+// CloudyCode v2.4.9 - Mobile Polish Edition
 
 import { forceScrollReset, log } from "./utils.js";
 import { initAnimations, resetAnimatedBreaks } from "./animations.js";
@@ -11,10 +11,70 @@ import { initUI } from "./ui.js";
 import { initProjects } from "./projects.js";
 import { initEnhancements } from "./enhancements.js";
 
+const LOTTIE_PLAYER_SRC =
+  "https://unpkg.com/@lottiefiles/lottie-player@2.0.4/dist/lottie-player.js";
+
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
+
+  window.addEventListener("load", () => {
+    const swUrl = new URL("./sw.js", window.location.href);
+    const scope = new URL("./", window.location.href).pathname;
+
+    navigator.serviceWorker
+      .register(swUrl.pathname, { scope })
+      .then(() => {
+        log.info("Service worker registered");
+      })
+      .catch((error) => {
+        log.warn("Service worker registration failed:", error);
+      });
+  });
+}
+
+function initLazyLottiePlayer() {
+  const lottieEl = document.querySelector("lottie-player");
+  if (!lottieEl || customElements.get("lottie-player")) return;
+
+  let loaded = false;
+  const loadLottie = () => {
+    if (loaded || customElements.get("lottie-player")) return;
+    loaded = true;
+
+    const script = document.createElement("script");
+    script.src = LOTTIE_PLAYER_SRC;
+    script.defer = true;
+    script.crossOrigin = "anonymous";
+    document.head.appendChild(script);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const target = document.getElementById("certifications") || lottieEl;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          loadLottie();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" }
+    );
+    observer.observe(target);
+  } else {
+    window.addEventListener("load", loadLottie, { once: true });
+  }
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(loadLottie, { timeout: 6000 });
+  } else {
+    setTimeout(loadLottie, 6000);
+  }
+}
+
 // Initialize Application
 function init() {
   try {
-    log.info("CloudyCode v2.4.8 - Initializing...");
+    log.info("CloudyCode v2.4.9 - Initializing...");
 
     // Force scroll to top on page load
     forceScrollReset();
@@ -27,6 +87,8 @@ function init() {
 
     // Initialize projects section (rendering, filtering, modals)
     initProjects();
+    // Load non-critical animation runtime only when needed
+    initLazyLottiePlayer();
 
     // Initialize animations (typing, particles, AOS, counters, etc.)
     // Wait a bit to ensure DOM is fully ready
@@ -36,11 +98,11 @@ function init() {
       initEnhancedScrollAnimations();
       // Reset animated breaks on page load
       resetAnimatedBreaks();
-      // Initialize all enhancements (v2.4.8)
+      // Initialize all enhancements (v2.4.9)
       initEnhancements();
     }, 100);
 
-    log.info("CloudyCode v2.4.8 - Initialization complete!");
+    log.info("CloudyCode v2.4.9 - Initialization complete!");
   } catch (error) {
     log.error("Error during initialization:", error);
   }
@@ -52,6 +114,8 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
+
+registerServiceWorker();
 
 // Handle page visibility changes (for better performance)
 document.addEventListener("visibilitychange", () => {
