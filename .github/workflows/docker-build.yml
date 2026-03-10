@@ -97,7 +97,7 @@ jobs:
       # Image is loaded locally ONLY (not pushed)
       # ------------------------------------------------------
       - name: Build image for scan
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           platforms: linux/amd64
@@ -136,7 +136,7 @@ jobs:
       # - Reuses cached layers from previous build
       # ------------------------------------------------------
       - name: Build and push multi-arch
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         id: build
         with:
           context: .
