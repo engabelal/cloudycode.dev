@@ -1,48 +1,45 @@
 {
-  "name": "CloudyCode.dev - Ahmed Belal | DevOps & Cloud Engineer",
-  "short_name": "CloudyCode",
-  "description": "DevOps & Cloud Engineer Portfolio - Building reliable cloud infrastructure and automating systems with AWS, Terraform, and CI/CD",
+  "name": "Ahmed Belal — DevSecOps & Cloud Architect",
+  "short_name": "Ahmed Belal",
+  "description": "Secure cloud systems, built to ship and stay reliable.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "background_color": "#1f1633",
-  "theme_color": "#7127ba",
+  "orientation": "any",
+  "background_color": "#fcfcfa",
+  "theme_color": "#0b1118",
   "categories": ["portfolio", "technology", "devops", "cloud"],
   "lang": "en-US",
   "dir": "ltr",
   "icons": [
     {
-      "src": "images/icon-192.png",
-      "sizes": "192x60",
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "images/icon-512.png",
-      "sizes": "512x161",
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "shortcuts": [
     {
-      "name": "Projects",
-      "short_name": "Projects",
-      "description": "View DevOps & Cloud projects",
-      "url": "/#projects"
+      "name": "Selected fieldwork",
+      "short_name": "Fieldwork",
+      "url": "/#fieldwork"
     },
     {
-      "name": "Skills",
-      "short_name": "Skills",
-      "description": "View technical skills",
-      "url": "/#skills"
+      "name": "Open labs",
+      "short_name": "Labs",
+      "url": "/#labs"
     },
     {
-      "name": "Certifications",
-      "short_name": "Certs",
-      "description": "View certifications",
-      "url": "/#certifications"
+      "name": "Contact Ahmed",
+      "short_name": "Contact",
+      "url": "/#contact"
     }
   ]
 }

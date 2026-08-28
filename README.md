@@ -1,199 +1,72 @@
-# CloudyCode v2.4.1 - Portfolio Website
+# Ahmed Belal Portfolio — The Control Plane
 
-> A modern, premium portfolio website for a DevOps & Cloud Engineer
+Personal portfolio for Ahmed Belal, a DevSecOps and Cloud Architect based in Riyadh. The site presents anonymized professional fieldwork and inspectable public infrastructure labs.
 
-![CloudyCode](./images/cloudycode-light.webp)
+## Live site
 
-## 🌐 Live Site
+[cloudycode.dev](https://cloudycode.dev)
 
-**[cloudycode.dev](https://cloudycode.dev)**
+## Design direction
 
-## 🎨 Design
+The Control Plane uses the visual language of delivery paths, system records, architecture reviews, and operational evidence. It is intentionally not a terminal-themed portfolio or a wall of technology logos.
 
-A complete redesign featuring a modern, professional design language:
+- Mobile-first at 360–390px
+- Refined light/dark editorial system
+- Responsive Source → Build → Policy → Deploy → Observe path
+- Anonymized professional outcomes
+- Direct links to public GitHub labs
+- No portrait, glassmorphism, heavy animation, or runtime UI dependencies
 
-- **Dark purple aesthetic** (#1F1633) with gradient accents
-- **Premium loading screen** with animated spinner
-- **Glassmorphism and backdrop blur effects**
-- **Responsive design** (mobile-first)
-- **Smooth animations and transitions**
+The complete design rationale and decision log are in [`docs/design-brief.md`](docs/design-brief.md).
 
-## 🚀 Features
+## Stack
 
-### Design & UX
+- Semantic HTML5
+- Modern mobile-first CSS
+- Minimal vanilla JavaScript
+- Self-hosted Sora and IBM Plex Mono fonts
+- Service worker and web app manifest
+- GitHub Pages deployment through GitHub Actions
 
-- ✅ Premium loading screen with progress bar
-- ✅ Bento-grid project showcase
-- ✅ Glassmorphism effects
-- ✅ Gradient text and backgrounds
-- ✅ Scroll progress indicator
-- ✅ Mobile-first responsive design
+There is no package install or application build step.
 
-### Performance
-
-- ✅ Automatic CSS/JS minification via GitHub Actions
-- ✅ Lazy loading with `decoding="async"`
-- ✅ Critical image prioritization (`fetchpriority="high"`)
-- ✅ Service Worker caching (v2.4)
-- ✅ Optimized WebP images
-
-### SEO
-
-- ✅ JSON-LD Structured Data (Person & Website schemas)
-- ✅ Open Graph & Twitter Cards
-- ✅ Semantic HTML structure
-- ✅ Updated sitemap.xml
-- ✅ robots.txt configured
-
-### Technical
-
-- ✅ PWA-enabled (installable, offline support)
-- ✅ GitHub Pages deployment with auto-minification
-- ✅ Vanilla CSS & JavaScript (no framework)
-- ✅ Accessibility-first (WCAG 2.1 AA)
-
-## 📁 Project Structure
-
-```
-cloudycode/
-├── index.html              # Main HTML
-├── offline.html            # PWA offline fallback
-├── manifest.json           # PWA manifest
-├── sw.js                   # Service worker (v2.4)
-├── sitemap.xml             # SEO sitemap
-├── robots.txt              # Search engine config
-├── _headers                # Security headers
-├── css/
-│   ├── theme.css           # Design tokens
-│   └── custom.css          # Custom styles
-├── js/
-│   ├── main.js             # Entry point
-│   ├── utils.js            # Utilities
-│   ├── animations.js       # Animations
-│   ├── ui.js               # UI components
-│   └── projects.js         # Project data
-├── images/                 # Images & icons
-├── config/
-│   └── site.config.js      # Site configuration
-└── .github/
-    └── workflows/
-        └── jekyll-gh-pages.yml  # CI/CD with minification
-```
-
-## 🛠️ Tech Stack
-
-- **HTML5** - Semantic markup
-- **Vanilla CSS** - Custom styles
-- **Vanilla JavaScript** - ES6 modules
-- **Font Awesome** - Icons
-- **Google Fonts** - Plus Jakarta Sans, Rubik, IBM Plex Mono
-- **GitHub Actions** - CI/CD with CSS/JS minification
-
-## 🚀 Deployment
-
-### GitHub Pages (Automatic)
-
-**Repository:** [github.com/engabelal/cloudycode-portfolio](https://github.com/engabelal/cloudycode-portfolio)
-
-Push to `main` branch triggers automatic deployment with CSS/JS minification:
+## Local development
 
 ```bash
-git add .
-git commit -m "your commit message"
-git push origin main
+python3 -m http.server 8000
 ```
 
-The GitHub Actions workflow will:
+Then open [http://localhost:8000](http://localhost:8000).
 
-1. Minify all CSS files (clean-css)
-2. Minify all JS files (terser)
-3. Deploy to GitHub Pages
+## Important files
 
-## 🎯 Performance Optimizations
+```text
+index.html                    Homepage content and structured data
+css/control-plane.css         Complete responsive design system
+js/control-plane.js           Navigation and service-worker registration
+fonts/                        Locally hosted production fonts
+images/og-image.webp          1200×630 social preview
+manifest.json                 PWA metadata and icons
+sw.js                         Offline cache strategy
+docs/design-brief.md          Approved design and responsive contract
+```
 
-| Optimization     | Implementation                        |
-| ---------------- | ------------------------------------- |
-| CSS Minification | GitHub Actions (clean-css-cli)        |
-| JS Minification  | GitHub Actions (terser)               |
-| Image Loading    | `loading="lazy"` + `decoding="async"` |
-| Critical Images  | `fetchpriority="high"`                |
-| Caching          | Service Worker v2.4                   |
-| DNS Prefetch     | CDN domains pre-resolved              |
+## Responsive acceptance widths
 
-## 📱 PWA Features
+- 360px
+- 390px
+- 768px
+- 1024px
+- 1440px
 
-- Installable on mobile and desktop
-- Works offline
-- Splash screen
-- Theme color (#7127ba)
-- Standalone display mode
+At every width the page must have no horizontal overflow, no hover-only information, readable diagrams, visible focus states, and touch targets of at least 44×44px.
 
-## 🔒 Security
+## Deployment
 
-- Content Security Policy (CSP)
-- X-Frame-Options: DENY
-- X-Content-Type-Options: nosniff
-- Referrer Policy: strict-origin-when-cross-origin
-- Protected by Cloudflare
+Pushes to `main` trigger `.github/workflows/jekyll-gh-pages.yml`, which minifies CSS and JavaScript in the runner and deploys the static output to GitHub Pages.
 
-## 🔄 Version History
+The custom domain is defined by `CNAME`.
 
-### v2.4 (Current)
+## Content safety
 
-- Mobile Polish Audit - comprehensive mobile responsiveness improvements
-- Comprehensive test suites (accessibility, performance, SEO, interactions)
-- Desktop regression tests
-- Fixed body font-size for mobile (16px base)
-- Improved touch targets and spacing
-- Enhanced mobile menu and navigation
-
-### v2.3
-
-- Design Enhancements
-- Accessibility & contrast fixes
-- Smooth section transitions
-- Magnetic cursor effect
-- Command palette (Cmd/Ctrl + K)
-- Glass morphism refinements
-- Custom scrollbar
-- Performance optimizations
-
-### v2.2.5
-
-- Premium loading screen
-- JSON-LD structured data for SEO
-- GitHub Actions CSS/JS minification
-- Image loading optimizations
-- Updated sitemap.xml
-
-### v2.1.0
-
-- Footer redesign
-- Service Worker updates
-- Resource hints optimization
-
-### v2.0.0
-
-- Complete redesign
-- Mobile responsiveness fixes
-- Performance audit fixes
-
-## 📧 Contact
-
-**Ahmed Belal**
-
-- Website: [cloudycode.dev](https://cloudycode.dev)
-- Blog: [blog.cloudycode.dev](https://blog.cloudycode.dev)
-- GitHub: [@engabelal](https://github.com/engabelal)
-- LinkedIn: [engabelal](https://www.linkedin.com/in/engabelal/)
-- Email: ahmedbelal@cloudycode.dev
-
-## 📜 License
-
-© 2025 CloudyCode. All rights reserved.
-
----
-
-**Built with ❤️ by Ahmed Belal**
-
-_DevOps & Cloud Engineer | 12+ Years Experience | AWS, Azure, Kubernetes, Terraform_
+Professional fieldwork is anonymized. Do not add client names, private architecture details, secrets, or unsupported performance claims. Public technical proof should link to a repository or other inspectable artifact.

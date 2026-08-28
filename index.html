@@ -1,1400 +1,407 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fcfcfa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b1118" media="(prefers-color-scheme: dark)">
 
-  <!-- Security Headers -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Ahmed Belal — DevSecOps &amp; Cloud Architect</title>
+    <meta name="description" content="Ahmed Belal designs secure cloud platforms, delivery systems, and reliable infrastructure. Explore anonymized fieldwork and public DevOps labs.">
+    <meta name="author" content="Ahmed Belal">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://cloudycode.dev/">
 
-  <!-- Primary Meta Tags -->
-  <title>CloudyCode.dev – Ahmed Belal | DevOps & Cloud Engineer</title>
-  <meta name="title" content="CloudyCode.dev – Ahmed Belal | DevOps & Cloud Engineer">
-  <meta name="description" content="Building reliable cloud infrastructure and automating systems with AWS, Terraform, and CI/CD.">
-  <meta name="keywords" content="DevOps Engineer, Cloud Engineer, AWS, Azure, Kubernetes, Terraform, Docker, CI/CD, Ansible, Infrastructure as Code">
-  <meta name="author" content="Ahmed Belal">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://cloudycode.dev">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cloudycode.dev/">
+    <meta property="og:title" content="Ahmed Belal — DevSecOps &amp; Cloud Architect">
+    <meta property="og:description" content="Secure cloud systems, built to ship and stay reliable.">
+    <meta property="og:image" content="https://cloudycode.dev/images/og-image.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ahmed Belal, DevSecOps and Cloud Architect">
+    <meta property="og:site_name" content="Ahmed Belal">
 
-  <!-- Structured Data - Person Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ahmed Belal",
-    "jobTitle": "DevOps & Cloud Engineer",
-    "url": "https://cloudycode.dev",
-    "sameAs": [
-      "https://github.com/engabelal",
-      "https://www.linkedin.com/in/engabelal/",
-      "https://blog.cloudycode.dev"
-    ],
-    "knowsAbout": ["DevOps", "Cloud Computing", "AWS", "Azure", "Kubernetes", "Terraform", "Docker", "CI/CD"],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "CloudyCode"
-    }
-  }
-  </script>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ahmed Belal — DevSecOps &amp; Cloud Architect">
+    <meta name="twitter:description" content="Secure cloud systems, built to ship and stay reliable.">
+    <meta name="twitter:image" content="https://cloudycode.dev/images/og-image.webp">
 
-  <!-- Structured Data - Website Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "CloudyCode.dev",
-    "url": "https://cloudycode.dev",
-    "description": "Building reliable cloud infrastructure and automating systems with AWS, Terraform, and CI/CD.",
-    "author": {
-      "@type": "Person",
-      "name": "Ahmed Belal"
-    }
-  }
-  </script>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/control-plane.css">
+    <script type="module" src="js/control-plane.js"></script>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cloudycode.dev">
-  <meta property="og:title" content="CloudyCode.dev – Ahmed Belal | DevOps & Cloud Engineer">
-  <meta property="og:description" content="Building reliable cloud infrastructure and automating systems with AWS, Terraform, and CI/CD.">
-  <meta property="og:image" content="https://cloudycode.dev/images/og-image.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Ahmed Belal - DevOps & Cloud Engineer Portfolio">
-  <meta property="og:site_name" content="CloudyCode.dev">
-  <meta property="og:locale" content="en_US">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://cloudycode.dev">
-  <meta name="twitter:title" content="CloudyCode.dev – Ahmed Belal | DevOps & Cloud Engineer">
-  <meta name="twitter:description" content="Building reliable cloud infrastructure and automating systems with AWS, Terraform, and CI/CD.">
-  <meta name="twitter:image" content="https://cloudycode.dev/images/og-image.webp">
-  <meta name="twitter:image:alt" content="Ahmed Belal - DevOps & Cloud Engineer Portfolio">
-  <meta name="twitter:creator" content="@engabelal">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <link rel="apple-touch-icon" href="images/icon-192.png">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#7127ba">
-
-  <!-- Preload Critical Resources -->
-  <link rel="preload" href="images/avatar.webp" as="image" type="image/webp" fetchpriority="high">
-  <link rel="preload" href="images/welcome-bg.webp" as="image" type="image/webp">
-  <link rel="preload" href="css/theme.css" as="style">
-  <link rel="preload" href="css/custom.css" as="style">
-
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0R7SWE5Z8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-V0R7SWE5Z8', {
-      anonymize_ip: true,
-      cookie_flags: 'SameSite=Strict; Secure'
-    });
-  </script>
-
-  <!-- DNS Prefetch for External Resources -->
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Preahvihear&family=Rubik:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome - Non-blocking load -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/custom.css">
-  <link rel="stylesheet" href="css/enhancements.css">
-
-  <!-- Critical Inline CSS -->
-  <style>
-    body {
-      background-color: #1f1633 !important;
-      margin: 0;
-    }
-    #starfield-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: -2;
-      pointer-events: none;
-    }
-    /* Premium Loading Screen */
-    .loading-screen {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(135deg, #1f1633 0%, #2d1f4e 50%, #1f1633 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 99999;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
-    .loading-screen.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .loading-logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 2rem;
-      animation: logoPulse 2s ease-in-out infinite;
-      filter: drop-shadow(0 0 20px rgba(163, 98, 255, 0.4));
-    }
-    @keyframes logoPulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.8; }
-    }
-    .loading-spinner {
-      position: relative;
-      width: 60px;
-      height: 60px;
-      margin-bottom: 1.5rem;
-    }
-    .loading-spinner::before,
-    .loading-spinner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      border: 3px solid transparent;
-    }
-    .loading-spinner::before {
-      border-top-color: #a362ff;
-      border-right-color: #a362ff;
-      animation: spinnerRotate 1.2s linear infinite;
-    }
-    .loading-spinner::after {
-      border-bottom-color: #fd44b0;
-      border-left-color: #fd44b0;
-      animation: spinnerRotate 1.2s linear infinite reverse;
-      inset: 6px;
-    }
-    @keyframes spinnerRotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .loading-text {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.6);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .loading-progress {
-      width: 200px;
-      height: 3px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 3px;
-      margin-top: 1rem;
-      overflow: hidden;
-    }
-    .loading-progress-bar {
-      height: 100%;
-      background: linear-gradient(90deg, #a362ff, #fd44b0);
-      border-radius: 3px;
-      animation: progressLoad 1.5s ease-out forwards;
-    }
-    @keyframes progressLoad {
-      0% { width: 0%; }
-      50% { width: 70%; }
-      100% { width: 100%; }
-    }
-    /* Mobile Loading Adjustments */
-    @media (max-width: 768px) {
-      .loading-logo {
-        width: 80px;
-        margin-bottom: 1.5rem;
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ahmed Belal",
+        "url": "https://cloudycode.dev/",
+        "jobTitle": "DevSecOps and Cloud Architect",
+        "sameAs": [
+          "https://github.com/engabelal",
+          "https://www.linkedin.com/in/engabelal/"
+        ],
+        "knowsAbout": [
+          "DevSecOps",
+          "Cloud Architecture",
+          "Platform Engineering",
+          "Kubernetes",
+          "Infrastructure as Code",
+          "Site Reliability Engineering"
+        ]
       }
-      .loading-spinner {
-        width: 50px;
-        height: 50px;
-      }
-      .loading-text {
-        font-size: 0.75rem;
-      }
-      .loading-progress {
-        width: 150px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Premium Loading Screen -->
-  <div class="loading-screen" id="loading-screen">
-    <img src="images/cloudycode-light.webp" alt="CloudyCode" class="loading-logo">
-    <div class="loading-spinner"></div>
-    <span class="loading-text">Initializing</span>
-    <div class="loading-progress">
-      <div class="loading-progress-bar"></div>
-    </div>
-  </div>
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <canvas id="starfield-canvas"></canvas>
+    <header class="site-header" data-header>
+      <div class="shell header-inner">
+        <a class="brand" href="#top">
+          <img class="brand-portrait" src="images/ahmed-belal-avatar.webp" width="128" height="128" alt="">
+          <span class="brand-copy">
+            <strong>Ahmed Belal</strong>
+            <small>DevSecOps &amp; Cloud Architect</small>
+            <span class="brand-status"><i aria-hidden="true"></i> Available for select projects</span>
+          </span>
+        </a>
 
-  <!-- Scroll Progress Bar -->
-  <div id="scroll-progress"></div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle>
+          <span class="sr-only">Open navigation</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
 
-  <!-- Skip Link -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Main Header - Navigation at the very top -->
-  <header id="navbar">
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container">
-        <div class="nav-container">
-          <!-- Logo Section (Left) -->
-          <div class="header-left">
-            <a href="/" class="logo">
-              <img src="images/cloudycode-light.webp" alt="Cloudycode" class="logo-img" width="156" height="52">
-            </a>
-          </div>
-
-          <!-- Menu Section (Center) - Also used for mobile -->
-          <div class="header-center">
-            <ul class="nav-menu" id="nav-menu">
-              <li><a href="/" class="nav-link">Home</a></li>
-              <li><a href="#about" class="nav-link">About</a></li>
-              <li><a href="#skills" class="nav-link">Skills</a></li>
-              <li><a href="#projects" class="nav-link">Projects</a></li>
-              <li><a href="#certifications" class="nav-link">Certifications</a></li>
-              <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-          </div>
-
-          <!-- Actions Section (Right) -->
-          <div class="header-right">
-            <div class="header__social" role="list" aria-label="Social media links">
-              <a href="https://blog.cloudycode.dev" target="_blank" rel="noopener" class="social-icon" aria-label="Visit my blog" role="listitem">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                </svg>
-              </a>
-              <a href="https://github.com/engabelal" target="_blank" rel="noopener" class="social-icon" aria-label="View my GitHub profile" role="listitem">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
-                </svg>
-              </a>
-              <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener" class="social-icon" aria-label="Connect on LinkedIn" role="listitem">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-                </svg>
-              </a>
-            </div>
-            <a href="mailto:ahmedbelal@cloudycode.dev" class="btn btn-primary-header">Get Started</a>
-          </div>
-
-          <button class="mobile-menu-button" id="mobile-menu-btn" aria-label="Toggle menu">
-            <i class="fas fa-bars" id="menu-icon"></i>
-          </button>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-    <nav class="mobile-menu-panel" aria-label="Mobile navigation">
-      <a href="/" class="nav-link">Home</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#certifications" class="nav-link">Certifications</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </div>
-
-  <main id="main-content">
-    <div class="bg-section" data-fade-top="false" data-fade-bottom="true" style="--gradientHeight: 30%;">
-      <div class="background-layer bg-welcome"></div>
-      <div class="bg-content">
-
-    <!-- Hero Section: Premium welcome and value proposition -->
-    <section id="hero" class="hero-section" style="background: transparent;">
-      <div class="container-hero" style="position: relative; z-index: 10;">
-        <div class="hero-content">
-          <!-- Centered Announcement Pill -->
-          <div class="announcement-pill-wrapper">
-            <a href="#contact" class="announcement-pill hover-lift">
-              <span class="announcement-text">Exploring cloud infrastructure, automation, or DevOps solutions?</span>
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-
-
-          <h1 class="hero-title">
-            Systems <span class="animated-breaks-wrap"><span class="animated-breaks">break,</span></span> we’re ready
-          </h1>
-
-          <!-- Original Basic Information Section -->
-          <div class="basic-information">
-            <div class="me">
-              <div class="avatar">
-                <img class="avatar-image" src="./images/avatar.webp" alt="Ahmed Belal - DevOps Engineer" loading="eager" width="280" height="280" onerror="this.style.display='none'">
-              </div>
-            </div>
-            <div class="quote">
-              <p class="greeting">Hello! I'm <span class="purple-text-light">Ahmed Belal</span></p>
-              <p class="who">A DevOps &amp; Cloud Engineer who</p>
-              <p class="judges-a-book">
-                Codes infrastructure <br>
-                like <span class="pink-text">poetry</span>...
-              </p>
-              <p class="affirmative typing-text">
-                <span class="typed-text"></span><span class="cursor">|</span>
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Dashboard Screenshot Mockup -->
-        <div style="position: relative; max-width: 900px; margin: 4rem auto 0; z-index: 1;">
-
-          <!-- Terminal Simulation Mockup -->
-          <div class="hero-terminal">
-            <div class="terminal-window">
-              <div class="terminal-header">
-                <div class="terminal-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <div class="terminal-title">ahmed@cloudycode: ~</div>
-                <div class="terminal-context" id="terminal-context-indicator">
-                  <span class="status-dot"></span>
-                  PROD-CLUSTER
-                </div>
-              </div>
-              <div class="terminal-content" id="hero-terminal-container" style="height: 280px; padding: 25px 30px;">
-                <!-- History and typing will happen here dynamically -->
-              </div>
-
-              <!-- Terminal Status Bar / Footer -->
-              <div class="terminal-footer">
-                <div class="footer-left">
-                  <span class="footer-item"><i class="fas fa-book-open"></i> devops_workspace</span>
-                  <span class="footer-sep">|</span>
-                  <span class="footer-item"><i class="fas fa-code-branch"></i> main*</span>
-                  <span class="footer-sep">|</span>
-                  <span class="footer-item"><i class="fas fa-cloud-upload-alt"></i> us-east-1</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Floating Card (Moved outside window for better layering) -->
-            <div class="drift-detection-card" id="hero-drift-card">
-              <div class="drift-header">
-                <i class="fas fa-rocket"></i>
-                <span>PIPELINE ALERT</span>
-              </div>
-              <div class="drift-body">
-                <div class="code-line"><span class="op">▶</span> git push origin main</div>
-                <div class="code-line error"><span class="sign">✗</span> Security scan failed: CVE-2023-441</div>
-                <div class="code-line success"><span class="sign">✔</span> Automated rollback to stable build</div>
-                <div class="code-comment">// Zero-downtime deployment active.</div>
-              </div>
-            </div>
-          </div>
-
-
-            <!-- Dashboard Sidebar (Right) -->
-            <div style="position: absolute; right: -150px; top: 50%; transform: translateY(-50%); background: white; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); width: 140px; display: none; /* Hidden on mobile */">
-              <div style="font-size: 0.75rem; font-weight: 600; color: #6b7280; margin-bottom: 0.5rem;">RESOURCES AFFECTED</div>
-              <div style="font-size: 1.5rem; font-weight: 700; color: #ef4444;">12</div>
-            </div>
-          </div>
-
-    </section>
-
-    <!-- About & Stats Section - Premium Design -->
-    <!-- Expertise Section: Experience and impact statistics -->
-    <section id="about" class="about-stats-section">
-      <!-- Decorative Backdrop Elements -->
-      <div class="about-bg-decorator about-bg-decorator--1"></div>
-      <div class="about-bg-decorator about-bg-decorator--2"></div>
-
-      <div class="container relative">
-        <!-- Section Header with Badge -->
-        <div class="section-header">
-          <span class="section-badge">About Me</span>
-          <h2 class="section-title">Transforming Infrastructure Through Code</h2>
-        </div>
-
-        <!-- Hero Stats -->
-        <div class="hero-stats">
-          <div class="stat-card">
-            <div class="stat-number-wrapper">
-              <span class="stat-number">12</span>
-              <span class="stat-plus">+</span>
-            </div>
-            <span class="stat-label">Years Experience</span>
-            <div class="stat-glow"></div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number-wrapper">
-              <span class="stat-number">150</span>
-              <span class="stat-plus">+</span>
-            </div>
-            <span class="stat-label">Infrastructure Projects</span>
-            <div class="stat-glow"></div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number-wrapper">
-              <span class="stat-number">99.9</span>
-              <span class="stat-plus">%</span>
-            </div>
-            <span class="stat-label">Availability SLA</span>
-            <div class="stat-glow"></div>
-          </div>
-        </div>
-
-        <!-- About Content -->
-        <div class="about-content-wrapper">
-          <div class="about-text-panel">
-            <div class="about-accent-line"></div>
-            <h2 class="about-title">Building the future of infrastructure</h2>
-            <p class="about-paragraph">
-              With over <span class="highlight">12+ years of experience</span>, from managing
-              <span class="highlight">enterprise data centers</span> to building
-              <span class="highlight">cloud platforms</span>, my journey has always been driven by a passion for
-              <span class="highlight">automation</span>.
-            </p>
-            <p class="about-paragraph">
-              I constantly built <span class="highlight">scripts and tools</span> to eliminate manual work and solve real problems.
-              That's when I discovered my true passion in <span class="highlight">DevOps & Cloud</span>, where
-              <span class="highlight">infrastructure meets code</span>, and where I now build
-              <span class="highlight">automated, scalable systems</span> that just work.
-            </p>
-          </div>
-
-          <!-- Mini Stats Grid -->
-          <div class="mini-stats-grid">
-            <div class="mini-stat" style="--stat-color: #a362ff; --stat-bg: rgba(163, 98, 255, 0.1); --stat-border: rgba(163, 98, 255, 0.2); cursor: default;">
-              <div class="mini-stat-icon">
-                <i class="fas fa-award"></i>
-              </div>
-              <div class="mini-stat-content">
-                <div class="mini-stat-number">12+</div>
-                <div class="mini-stat-label">Verified Certifications</div>
-              </div>
-            </div>
-
-            <div class="mini-stat" style="--stat-color: #3b82f6; --stat-bg: rgba(59, 130, 246, 0.1); --stat-border: rgba(59, 130, 246, 0.2); cursor: default;">
-              <div class="mini-stat-icon">
-                <i class="fas fa-gauge-high"></i>
-              </div>
-              <div class="mini-stat-content">
-                <div class="mini-stat-number">+35%</div>
-                <div class="mini-stat-label">Avg. System Speedup</div>
-              </div>
-            </div>
-
-            <div class="mini-stat" style="--stat-color: #10b981; --stat-bg: rgba(16, 185, 129, 0.1); --stat-border: rgba(16, 185, 129, 0.2); cursor: default;">
-              <div class="mini-stat-icon">
-                <i class="fas fa-coins"></i>
-              </div>
-              <div class="mini-stat-content">
-                <div class="mini-stat-number">-25%</div>
-                <div class="mini-stat-label">Cloud Cost Reduction</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section with Floating Cards -->
-    <!-- Arsenal Section: Technical skills and floating interaction cards -->
-    <section id="skills" style="padding: 0; position: relative; overflow: visible; background: transparent;">
-
-      <div style="width: 100%; max-width: 1152px; margin: 0 auto; padding: 8rem 2rem 14rem 2rem; position: relative; z-index: 1;">
-        <div class="section-header">
-          <span class="section-badge">Skills</span>
-          <h2 class="section-title">DevOps Expertise & Cloud Mastery</h2>
-        </div>
-
-        <div style="position: relative; min-height: 600px; max-width: 1200px; margin: 0 auto;">
-
-          <!-- Traditional Infrastructure Stack Card - Top Left -->
-          <div class="floating-card glass-panel" data-rotation="-3deg" style="position: absolute; top: 0; left: 5%; width: 280px; transform: rotate(-3deg); transition: all 0.3s ease;">
-            <div style="background: white; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 25px 80px rgba(0,0,0,0.4); border: 3px solid rgba(255, 255, 255, 0.5);">
-              <div style="background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%); border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1rem; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; position: relative;">
-                <!-- Server Rack Visual -->
-                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                  <div style="display: flex; flex-direction: column; gap: 0.25rem;">
-                    <div style="width: 50px; height: 8px; background: #10b981; border-radius: 2px; box-shadow: 0 0 8px rgba(16,185,129,0.5);"></div>
-                    <div style="width: 50px; height: 8px; background: #3b82f6; border-radius: 2px; box-shadow: 0 0 8px rgba(59,130,246,0.5);"></div>
-                    <div style="width: 50px; height: 8px; background: #10b981; border-radius: 2px; box-shadow: 0 0 8px rgba(16,185,129,0.5);"></div>
-                    <div style="width: 50px; height: 8px; background: #f59e0b; border-radius: 2px; box-shadow: 0 0 8px rgba(245,158,11,0.5);"></div>
-                  </div>
-                  <div style="display: flex; flex-direction: column; gap: 0.25rem;">
-                    <div style="width: 50px; height: 8px; background: #3b82f6; border-radius: 2px; box-shadow: 0 0 8px rgba(59,130,246,0.5);"></div>
-                    <div style="width: 50px; height: 8px; background: #10b981; border-radius: 2px; box-shadow: 0 0 8px rgba(16,185,129,0.5);"></div>
-                    <div style="width: 50px; height: 8px; background: #3b82f6; border-radius: 2px; box-shadow: 0 0 8px rgba(59,130,246,0.5);"></div>
-                    <div style="width: 50px; height: 8px; background: #10b981; border-radius: 2px; box-shadow: 0 0 8px rgba(16,185,129,0.5);"></div>
-                  </div>
-                </div>
-                <!-- Tech Stack Icons -->
-                <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
-                  <i class="fas fa-server" style="font-size: 1.5rem; color: #10b981;"></i>
-                  <i class="fas fa-network-wired" style="font-size: 1.5rem; color: #3b82f6;"></i>
-                  <i class="fas fa-database" style="font-size: 1.5rem; color: #f59e0b;"></i>
-                  <i class="fab fa-linux" style="font-size: 1.5rem; color: #ef4444;"></i>
-                </div>
-              </div>
-              <p style="text-align: center; font-weight: 600; color: var(--color-dark-purple); font-size: 0.95rem;">On-Prem Infrastructure</p>
-            </div>
-          </div>
-
-          <!-- Central Core Skills Card -->
-          <div class="floating-card glass-panel" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 380px; z-index: 10; transition: all 0.3s ease;">
-            <div style="background: white; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 35px 100px rgba(0,0,0,0.5); border: 3px solid rgba(255, 255, 255, 0.5); position: relative;">
-              <!-- Certified Badge -->
-              <div style="position: absolute; top: -15px; right: -15px; background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 12px rgba(16,185,129,0.5);">
-                <i class="fas fa-check-circle"></i> CERTIFIED
-              </div>
-
-              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #f3f4f6;">
-                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                  <i class="fas fa-cogs" style="color: white; font-size: 1rem;"></i>
-                </div>
-                <span style="font-weight: 700; font-size: 1.125rem; color: var(--color-dark-purple);">CORE EXPERTISE</span>
-              </div>
-
-              <!-- Skill Items -->
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: #f0fdf4; border-radius: 0.5rem;">
-                  <div style="width: 40px; height: 40px; background: #10b981; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;"><i class="fas fa-cloud" style="color: white;"></i></div>
-                  <span style="font-weight: 500; color: var(--color-dark-purple); font-size: 0.9rem;">Scalable Cloud Infrastructure</span>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: #eff6ff; border-radius: 0.5rem;">
-                  <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;"><i class="fas fa-code-branch" style="color: white;"></i></div>
-                  <span style="font-weight: 500; color: var(--color-dark-purple); font-size: 0.9rem;">CI/CD Pipeline Automation</span>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: #fef3f2; border-radius: 0.5rem;">
-                  <div style="width: 40px; height: 40px; background: #f97316; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center;"><i class="fas fa-chart-line" style="color: white;"></i></div>
-                  <span style="font-weight: 500; color: var(--color-dark-purple); font-size: 0.9rem;">Monitoring & Observability</span>
-                </div>
-              </div>
-
-              <a href="#certifications" style="display: block; width: 100%; margin-top: 1.5rem; background: var(--color-dark-purple); color: white; padding: 0.875rem; border-radius: 0.5rem; font-weight: 600; text-align: center; text-decoration: none; transition: transform 0.2s ease;">
-                AWS & Azure Certified
-              </a>
-            </div>
-          </div>
-
-          <!-- Tracing Card - Top Right -->
-          <div class="floating-card glass-panel" data-rotation="3deg" style="position: absolute; top: 0; right: 5%; width: 280px; transform: rotate(3deg); transition: all 0.3s ease;">
-            <div style="background: white; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 25px 80px rgba(0,0,0,0.4); border: 3px solid rgba(255, 255, 255, 0.5);">
-              <div style="background: #f3f4f6; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; min-height: 120px;">
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                  <div style="display: flex; gap: 0.5rem; align-items: center;">
-                    <div style="width: 12px; height: 12px; background: #10b981; border-radius: 50%;"></div>
-                    <div style="height: 6px; background: #10b981; border-radius: 2px; flex: 1;"></div>
-                  </div>
-                  <div style="display: flex; gap: 0.5rem; align-items: center; margin-left: 1rem;">
-                    <div style="width: 12px; height: 12px; background: #3b82f6; border-radius: 50%;"></div>
-                    <div style="height: 6px; background: #3b82f6; border-radius: 2px; flex: 1;"></div>
-                  </div>
-                  <div style="display: flex; gap: 0.5rem; align-items: center; margin-left: 2rem;">
-                    <div style="width: 12px; height: 12px; background: #f59e0b; border-radius: 50%;"></div>
-                    <div style="height: 6px; background: #f59e0b; border-radius: 2px; flex: 1;"></div>
-                  </div>
-                </div>
-              </div>
-              <p style="text-align: center; font-weight: 600; color: var(--color-dark-purple); font-size: 0.95rem;">CI/CD Excellence</p>
-            </div>
-          </div>
-
-          <!-- IaC & Automation Card - Bottom Left -->
-          <div class="floating-card glass-panel" data-rotation="-2deg" style="position: absolute; bottom: 0; left: 8%; width: 280px; transform: rotate(-2deg); transition: all 0.3s ease;">
-            <div style="background: white; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 25px 80px rgba(0,0,0,0.4); border: 3px solid rgba(255, 255, 255, 0.5);">
-              <div style="background: #1e1e1e; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; min-height: 120px;">
-                <pre style="margin: 0; color: #e0e0e0; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; line-height: 1.4;"><code>resource "aws_instance" {
-  ami = "ami-xyz"
-  instance_type = "t3.micro"
-  tags = {
-    Name = "prod-server"
-  }
-}</code></pre>
-              </div>
-              <p style="text-align: center; font-weight: 600; color: var(--color-dark-purple); font-size: 0.95rem;">IaC & Automation</p>
-            </div>
-          </div>
-
-          <!-- Container Orchestration Card - Bottom Right -->
-          <div class="floating-card glass-panel" data-rotation="2deg" style="position: absolute; bottom: 0; right: 8%; width: 280px; transform: rotate(2deg); transition: all 0.3s ease;">
-            <div style="background: white; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 25px 80px rgba(0,0,0,0.4); border: 3px solid rgba(255, 255, 255, 0.5);">
-              <div style="background: linear-gradient(135deg, #2496ed 0%, #326ce5 100%); border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1rem; min-height: 120px; display: flex; align-items: center; justify-content: center; gap: 1.5rem; position: relative;">
-                <i class="fab fa-docker" style="font-size: 3.5rem; color: white;"></i>
-                <img src="images/icon-k8s.svg" style="width: 3.5rem; height: 3.5rem; filter: brightness(0) invert(1);" alt="Kubernetes" loading="lazy">
-              </div>
-              <p style="text-align: center; font-weight: 600; color: var(--color-dark-purple); font-size: 0.95rem;">Container Orchestration</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Link to detailed tech stack -->
-        <div style="text-align: center; margin-top: 1rem;">
-          <a href="#technologies" class="tech-stack-link">
-            <i class="fas fa-tools"></i>
-            View All Technologies & Tools
-            <i class="fas fa-arrow-down"></i>
+        <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation" data-menu>
+          <a href="#fieldwork"><span>Fieldwork</span><small>01</small></a>
+          <a href="#labs"><span>Open labs</span><small>02</small></a>
+          <a href="#approach"><span>Approach</span><small>03</small></a>
+          <a class="nav-cta" href="#contact">
+            <span>Discuss a project</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg>
           </a>
-        </div>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <!-- Tech Stack: Detailed grid of production-grade tools -->
-    <section id="technologies" class="tech-stack-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Tech Stack</span>
-          <h2 class="section-title">Production-Grade Technologies & Tools</h2>
-          <p class="section-description">The complete toolkit powering modern cloud infrastructure</p>
-        </div>
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-pulse" aria-hidden="true"></span> DevSecOps · Cloud · Platform Engineering</p>
+            <h1 id="hero-title">Secure cloud systems, built to <em>ship</em> and stay reliable.</h1>
+            <p class="hero-intro">I’m Ahmed Belal — a hands-on engineer, architect, and technical leader turning complex infrastructure into secure, automated platforms teams can operate with confidence.</p>
+            <div class="hero-actions" aria-label="Featured actions">
+              <a class="button button-primary" href="#fieldwork">View selected work <span aria-hidden="true">↓</span></a>
+              <a class="button button-secondary" href="https://github.com/engabelal/devops-hands-on-labs" target="_blank" rel="noopener noreferrer">Explore GitHub labs <span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="availability"><span aria-hidden="true">●</span> Riyadh, Saudi Arabia · Open to consulting and technical leadership conversations</p>
+          </div>
 
-        <div class="tech-stack-grid">
-          <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-aws.svg" alt="AWS" loading="lazy" decoding="async"><span>AWS</span></a>
-          <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-azure.svg" alt="Azure" loading="lazy" decoding="async"><span>Azure</span></a>
-          <a href="https://cloud.google.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gcp.svg" alt="GCP" loading="lazy" decoding="async"><span>GCP</span></a>
-          <a href="https://kubernetes.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-k8s.svg" alt="Kubernetes" loading="lazy" decoding="async"><span>Kubernetes</span></a>
-          <a href="https://www.terraform.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-terraform.svg" alt="Terraform" loading="lazy" decoding="async"><span>Terraform</span></a>
-          <a href="https://www.docker.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-docker.svg" alt="Docker" loading="lazy" decoding="async"><span>Docker</span></a>
-          <a href="https://www.ansible.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ansible.svg" alt="Ansible" loading="lazy" decoding="async"><span>Ansible</span></a>
-          <a href="https://git-scm.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-git.svg" alt="Git" style="transform: scale(1.6); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy" decoding="async"><span>Git</span></a>
-          <a href="https://github.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-github.svg" alt="GitHub" loading="lazy" decoding="async"><span>GitHub</span></a>
-          <a href="https://about.gitlab.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-gitlab.svg" alt="GitLab" loading="lazy" decoding="async"><span>GitLab</span></a>
-          <a href="https://www.jenkins.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-jenkins.svg" alt="Jenkins" loading="lazy" decoding="async"><span>Jenkins</span></a>
-          <a href="https://argo-cd.readthedocs.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-argocd.svg" alt="ArgoCD" loading="lazy" decoding="async"><span>ArgoCD</span></a>
-          <a href="https://helm.sh/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-helm.svg" alt="Helm" style="filter: brightness(0) invert(1) opacity(0.6);" loading="lazy" decoding="async"><span>Helm</span></a>
-          <a href="https://prometheus.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-prometheus.svg" alt="Prometheus" loading="lazy" decoding="async"><span>Prometheus</span></a>
-          <a href="https://grafana.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-grafana.svg" alt="Grafana" loading="lazy" decoding="async"><span>Grafana</span></a>
-          <a href="https://www.python.org/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-python.svg" alt="Python" loading="lazy" decoding="async"><span>Python</span></a>
-          <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-bash.svg" alt="Bash" loading="lazy" decoding="async"><span>Bash</span></a>
-          <a href="https://www.nginx.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nginx.svg" alt="Nginx" loading="lazy" decoding="async"><span>Nginx</span></a>
-          <a href="https://ubuntu.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-ubuntu.svg" alt="Ubuntu" loading="lazy" decoding="async"><span>Ubuntu</span></a>
-          <a href="https://www.redhat.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redhat.svg" alt="Red Hat" style="transform: scale(2); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy" decoding="async"><span>Red Hat</span></a>
-          <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-redis.svg" alt="Redis" loading="lazy" decoding="async"><span>Redis</span></a>
-          <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-mongodb.svg" alt="MongoDB" loading="lazy" decoding="async"><span>MongoDB</span></a>
-          <a href="https://www.vmware.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-vmware.svg" alt="VMware" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>VMware</span></a>
-          <a href="https://www.nutanix.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-nutanix.svg" alt="Nutanix" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Nutanix</span></a>
-          <a href="https://www.cisco.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-cisco.svg" alt="Cisco" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Cisco</span></a>
-          <a href="https://www.veeam.com/" target="_blank" rel="noopener" class="tech-item"><img src="images/icon-veeam.svg" alt="Veeam" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Veeam</span></a>
-          <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener" class="tech-item"><i class="fab fa-windows" style="color: #00a4ef;"></i><span>Windows</span></a>
-          <!-- Duplicate items for seamless marquee on mobile -->
-          <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-aws.svg" alt="AWS" loading="lazy" decoding="async"><span>AWS</span></a>
-          <a href="https://azure.microsoft.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-azure.svg" alt="Azure" loading="lazy" decoding="async"><span>Azure</span></a>
-          <a href="https://cloud.google.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-gcp.svg" alt="GCP" loading="lazy" decoding="async"><span>GCP</span></a>
-          <a href="https://kubernetes.io/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-k8s.svg" alt="Kubernetes" loading="lazy" decoding="async"><span>Kubernetes</span></a>
-          <a href="https://www.terraform.io/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-terraform.svg" alt="Terraform" loading="lazy" decoding="async"><span>Terraform</span></a>
-          <a href="https://www.docker.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-docker.svg" alt="Docker" loading="lazy" decoding="async"><span>Docker</span></a>
-          <a href="https://www.ansible.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-ansible.svg" alt="Ansible" loading="lazy" decoding="async"><span>Ansible</span></a>
-          <a href="https://git-scm.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-git.svg" alt="Git" style="transform: scale(1.6); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy" decoding="async"><span>Git</span></a>
-          <a href="https://github.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-github.svg" alt="GitHub" loading="lazy" decoding="async"><span>GitHub</span></a>
-          <a href="https://about.gitlab.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-gitlab.svg" alt="GitLab" loading="lazy" decoding="async"><span>GitLab</span></a>
-          <a href="https://www.jenkins.io/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-jenkins.svg" alt="Jenkins" loading="lazy" decoding="async"><span>Jenkins</span></a>
-          <a href="https://argo-cd.readthedocs.io/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-argocd.svg" alt="ArgoCD" loading="lazy" decoding="async"><span>ArgoCD</span></a>
-          <a href="https://helm.sh/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-helm.svg" alt="Helm" style="filter: brightness(0) invert(1) opacity(0.6);" loading="lazy" decoding="async"><span>Helm</span></a>
-          <a href="https://prometheus.io/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-prometheus.svg" alt="Prometheus" loading="lazy" decoding="async"><span>Prometheus</span></a>
-          <a href="https://grafana.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-grafana.svg" alt="Grafana" loading="lazy" decoding="async"><span>Grafana</span></a>
-          <a href="https://www.python.org/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-python.svg" alt="Python" loading="lazy" decoding="async"><span>Python</span></a>
-          <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-bash.svg" alt="Bash" loading="lazy" decoding="async"><span>Bash</span></a>
-          <a href="https://www.nginx.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-nginx.svg" alt="Nginx" loading="lazy" decoding="async"><span>Nginx</span></a>
-          <a href="https://ubuntu.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-ubuntu.svg" alt="Ubuntu" loading="lazy" decoding="async"><span>Ubuntu</span></a>
-          <a href="https://www.redhat.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-redhat.svg" alt="Red Hat" style="transform: scale(2); filter: brightness(0) invert(1) opacity(0.85);" loading="lazy" decoding="async"><span>Red Hat</span></a>
-          <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-redis.svg" alt="Redis" loading="lazy" decoding="async"><span>Redis</span></a>
-          <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-mongodb.svg" alt="MongoDB" loading="lazy" decoding="async"><span>MongoDB</span></a>
-          <a href="https://www.vmware.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-vmware.svg" alt="VMware" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>VMware</span></a>
-          <a href="https://www.nutanix.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-nutanix.svg" alt="Nutanix" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Nutanix</span></a>
-          <a href="https://www.cisco.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-cisco.svg" alt="Cisco" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Cisco</span></a>
-          <a href="https://www.veeam.com/" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><img src="images/icon-veeam.svg" alt="Veeam" style="filter: brightness(0) invert(1) opacity(0.9);" loading="lazy" decoding="async"><span>Veeam</span></a>
-          <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener" class="tech-item tech-item-duplicate" aria-hidden="true"><i class="fab fa-windows" style="color: #00a4ef;"></i><span>Windows</span></a>
-        </div>
+          <div class="control-plane" aria-label="A secure delivery path from source code to observability">
+            <div class="plane-header">
+              <div>
+                <p class="system-label">SYSTEM / DELIVERY CONTROL PLANE</p>
+                <p class="plane-title">One path. Evidence at every boundary.</p>
+              </div>
+              <span class="system-state">HEALTHY</span>
+            </div>
 
-        <!-- High-End Lab Context - Refined Pill -->
-        <!-- Lab Context Banner - Purple Border Effect -->
-        <div style="margin-top: 5rem; display: flex; justify-content: center; padding: 0 1rem;">
-          <div class="lab-pill-wrapper">
-            <div class="lab-pill-border"></div>
-            <div class="lab-pill-content">
-              <span class="lab-icon"><i class="fas fa-flask"></i></span>
-              <span class="lab-text">
-                <span class="lab-name">CloudyCode.dev</span> — my personal lab for <span class="lab-highlight">DevOps</span> experiments & <span class="lab-highlight">cloud-native</span> exploration
-              </span>
+            <ol class="flow" aria-label="Delivery stages">
+              <li class="flow-step">
+                <span class="flow-index">01</span>
+                <strong>Source</strong>
+                <small>Commit signed</small>
+              </li>
+              <li class="flow-step">
+                <span class="flow-index">02</span>
+                <strong>Build</strong>
+                <small>Artifact traced</small>
+              </li>
+              <li class="flow-step flow-step-active">
+                <span class="flow-index">03</span>
+                <strong>Policy</strong>
+                <small>Risk gated</small>
+              </li>
+              <li class="flow-step">
+                <span class="flow-index">04</span>
+                <strong>Deploy</strong>
+                <small>Change controlled</small>
+              </li>
+              <li class="flow-step">
+                <span class="flow-index">05</span>
+                <strong>Observe</strong>
+                <small>Signals connected</small>
+              </li>
+            </ol>
+
+            <div class="plane-log" aria-label="System status record">
+              <span>23:14:08</span>
+              <span class="log-event">policy/check</span>
+              <strong>evidence verified</strong>
+              <span class="log-result">PASS</span>
             </div>
           </div>
         </div>
 
-        <style>
-          .lab-pill-wrapper {
-            position: relative;
-            border-radius: 100px;
-            padding: 2px;
-          }
-          .lab-pill-border {
-            position: absolute;
-            inset: 0;
-            border-radius: 100px;
-            padding: 2px;
-            background: conic-gradient(from var(--angle, 0deg), transparent 40%, #7c3aed 60%, #a78bfa 75%, #c4b5fd 85%, transparent 100%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: rotateBorder 4s linear infinite;
-          }
-          @property --angle {
-            syntax: '<angle>';
-            initial-value: 0deg;
-            inherits: false;
-          }
-          @keyframes rotateBorder {
-            to { --angle: 360deg; }
-          }
-          .lab-pill-content {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.875rem 1.75rem;
-            background: rgba(31, 22, 51, 0.85);
-            border-radius: 100px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-          }
-          .lab-pill-wrapper:hover .lab-pill-content {
-            background: rgba(31, 22, 51, 0.95);
-          }
-          .lab-pill-wrapper:hover {
-            transform: translateY(-2px);
-          }
-          .lab-icon {
-            font-size: 1rem;
-            color: #a362ff;
-            filter: drop-shadow(0 0 6px rgba(163, 98, 255, 0.5));
-          }
-          .lab-text {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 400;
-            letter-spacing: 0.2px;
-          }
-          .lab-name {
-            color: #a362ff;
-            font-weight: 600;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.85rem;
-          }
-          .lab-highlight {
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-          }
-          @media (max-width: 768px) {
-            .lab-pill-wrapper {
-              margin: 0 1rem;
-            }
-            .lab-pill-content {
-              padding: 0.6rem 1rem;
-              gap: 0.4rem;
-              text-align: center;
-              flex-direction: column;
-            }
-            .lab-icon {
-              font-size: 0.85rem;
-            }
-            .lab-text {
-              font-size: 0.7rem;
-              line-height: 1.5;
-            }
-            .lab-name {
-              font-size: 0.7rem;
-              display: block;
-            }
-            .lab-highlight {
-              font-weight: 600;
-            }
-          }
-        </style>
-      </div>
-    </section>
-      </div>
-    </div>
-
-
-
-    <div class="bg-section" data-fade-top="true" data-fade-bottom="true" style="--gradientHeight: 25%;">
-      <div class="background-layer bg-welcome"></div>
-      <div class="bg-content">
-
-    <!-- Blueprints Section: Featured production-ready DevOps projects -->
-    <section id="projects" class="section-ribbon" style="padding: 6rem 0 4rem 0; background: transparent;">
-      <div class="section-overlay bg-everything-connected"></div>
-        <div class="container">
-        <!-- Section Header -->
-        <div class="section-header">
-          <span class="section-badge">Projects</span>
-          <h2 class="section-title">Featured Production-Ready Projects</h2>
-          <p class="section-description">Open-source references that showcase IaC patterns, automation workflows, and delivery blueprints ready for production teams.</p>
+        <div class="shell proof-strip" aria-label="Professional summary">
+          <div><strong>12+</strong><span>years across infrastructure and cloud</span></div>
+          <div><strong>KSA · EGY</strong><span>enterprise delivery experience</span></div>
+          <div><strong>13+</strong><span>technical credentials</span></div>
+          <div><strong>Open labs</strong><span>architecture, IaC, GitOps, CI/CD</span></div>
         </div>
+      </section>
 
-        <div class="blueprints-grid">
-          <!-- Left: Content -->
-          <div>
-            <div class="shipped-title-wrapper">
-              <h3 class="shipped-title">Things I've Shipped</h3>
+      <aside class="system-rail" aria-label="Core areas of practice">
+        <ul class="shell">
+          <li>Secure delivery</li>
+          <li>Cloud foundations</li>
+          <li>Platform engineering</li>
+          <li>Reliability &amp; leadership</li>
+        </ul>
+      </aside>
+
+      <section class="fieldwork section-dark" id="fieldwork" aria-labelledby="fieldwork-title">
+        <div class="shell">
+          <div class="section-ruler"><span>[01]</span><span>CONFIDENTIAL / FIELD NOTES</span></div>
+          <div class="section-heading section-heading-split">
+            <div>
+              <p class="eyebrow eyebrow-dark">Selected fieldwork</p>
+              <h2 id="fieldwork-title">Professional outcomes, without exposing the client.</h2>
             </div>
-
-            <!-- Project Cards -->
-            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
-              <!-- Project 1: ECS Fargate -->
-              <div class="project-mini-card glass">
-                <h3>ECS Fargate Blue/Green</h3>
-                <p>Automated container deployment with zero-downtime updates via CodeDeploy and GitHub Actions.</p>
-                <a href="https://github.com/engabelal/ecs-fargate-terraform-deployment" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
-              </div>
-
-              <!-- Project 2: Node.js Pipeline -->
-              <div class="project-mini-card glass">
-                <h3>Node.js CI/CD Pipeline</h3>
-                <p>Optimized pipeline delivering sub-15-second deployments via Terraform and GitHub Actions.</p>
-                <a href="https://github.com/engabelal/simple-nodejs-ec2-cicd" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
-              </div>
-
-              <!-- Project 3: Serverless Platform -->
-              <div class="project-mini-card glass">
-                <h3>AWS Serverless Event Platform</h3>
-                <p>EventBridge & Lambda stack codified as IaC with automated environment provisioning.</p>
-                <a href="https://github.com/engabelal/iac-aws-serverless-event" target="_blank" class="repo-link">EXPLORE REPO <i class="fas fa-external-link-alt"></i></a>
-              </div>
-            </div>
-
+            <p>Most production engagements are confidential. These system records preserve the challenge, operating scope, and outcome while keeping client details private.</p>
           </div>
 
-          <!-- Right: Project Showcase 3D -->
-          <div class="project-showcase-wrapper">
-            <!-- Decorative Glow -->
-            <div style="position: absolute; inset: -30px; background: radial-gradient(circle, rgba(163,98,255,0.25) 0%, transparent 70%); filter: blur(50px); z-index: 0;"></div>
-
-            <!-- Main 3D Card -->
-            <div class="project-card-3d">
-
-              <!-- Fake OS Header -->
-              <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
-                 <div style="display: flex; gap: 8px;">
-                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
-                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
-                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
-                 </div>
-                 <div style="font-family: 'Fira Code', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.5);">~/blueprints/ha-architecture</div>
+          <div class="records-grid">
+            <article class="system-record record-featured">
+              <header>
+                <span>RECORD / 001</span>
+                <span>RESILIENCE</span>
+              </header>
+              <div class="record-body">
+                <p class="record-context">Telecom · Utilities · Financial services</p>
+                <h3>Enterprise infrastructure built for continuity.</h3>
+                <p>Led infrastructure design across critical environments where recovery, availability, and operational clarity could not be afterthoughts.</p>
               </div>
+              <dl class="record-metrics">
+                <div><dt>Availability</dt><dd>99.9%</dd></div>
+                <div><dt>DR validation</dt><dd>Zero data loss</dd></div>
+                <div><dt>Scope</dt><dd>Multi-sector</dd></div>
+              </dl>
+            </article>
 
-              <!-- IDE / Code Body -->
-              <div class="project-code-area">
-                 <div style="display: flex; gap: 1rem; font-size: 0.85rem; line-height: 1.6;">
-                    <div style="color: rgba(255,255,255,0.2); text-align: right; user-select: none;">
-                       1<br>2<br>3<br>4<br>5
-                    </div>
-                    <div style="color: #d4d4d4;">
-                       <span style="color: #c586c0;">module</span> "autoscale" {<br>
-                       &nbsp;&nbsp;source = <span style="color: #ce9178;">"./aws/asg"</span><br>
-                       &nbsp;&nbsp;min_size = <span style="color: #b5cea8;">2</span><br>
-                       &nbsp;&nbsp;max_size = <span style="color: #b5cea8;">10</span><br>
-                       }
-                    </div>
-                 </div>
-
-                 <!-- Floating Deployment Badge -->
-                 <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(251, 146, 60, 0.15); border: 1px solid rgba(251, 146, 60, 0.3); color: #fb923c; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.7rem; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(5px);">
-                    <div style="width: 6px; height: 6px; background: #fb923c; border-radius: 50%; box-shadow: 0 0 8px #fb923c; animation: pulse 2s infinite;"></div> MORE COMING SOON
-                 </div>
+            <article class="system-record">
+              <header>
+                <span>RECORD / 002</span>
+                <span>OPTIMIZATION</span>
+              </header>
+              <div class="record-body">
+                <p class="record-context">Automation · Cloud-native design</p>
+                <h3>Faster systems with less operational waste.</h3>
+                <p>Combined automation and platform improvements to reduce manual work, simplify delivery, and improve infrastructure efficiency.</p>
               </div>
+              <dl class="record-metrics">
+                <div><dt>Performance</dt><dd>+30%</dd></div>
+                <div><dt>Cost</dt><dd>−20%</dd></div>
+              </dl>
+            </article>
 
-              <!-- Card Footer with GitHub Link -->
-              <div style="background: rgba(0,0,0,0.2); padding: 1.25rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
-                 <div>
-                    <h4 style="color: white; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Infrastructure Blueprint</h4>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">Production-grade Terraform modules</p>
-                 </div>
-                 <a href="https://github.com/engabelal/devops-hands-on-labs" target="_blank" class="repo-link-btn">
-                    <i class="fab fa-github" style="font-size: 1.1rem;"></i> View more projects
-                 </a>
+            <article class="system-record">
+              <header>
+                <span>RECORD / 003</span>
+                <span>LEADERSHIP</span>
+              </header>
+              <div class="record-body">
+                <p class="record-context">Cross-functional · Multi-national</p>
+                <h3>Architecture that teams can understand and own.</h3>
+                <p>Bridged business requirements and engineering constraints, translating complex change into practical delivery paths and shared operating models.</p>
               </div>
-            </div>
-
-            <!-- Floating Tech Icons -->
-            <div class="tech-float-icon" style="top: -20px; left: -20px; transform: rotate(-8deg);">
-               <i class="fab fa-aws" style="font-size: 28px; color: #ff9900;"></i>
-            </div>
-
-            <div class="tech-float-icon" style="bottom: 40px; right: -25px; transform: rotate(12deg);">
-               <img src="images/icon-terraform.svg" alt="TF" style="width: 28px; height: 28px;" loading="lazy">
-            </div>
+              <dl class="record-metrics">
+                <div><dt>Mode</dt><dd>Hands-on</dd></div>
+                <div><dt>Focus</dt><dd>Team clarity</dd></div>
+              </dl>
+            </article>
           </div>
-          </div>
+
+          <p class="confidential-note"><span aria-hidden="true">◈</span> Detailed context can be discussed privately where confidentiality allows.</p>
         </div>
-      <style>
-        @media (max-width: 768px) {
-          section .container > div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      </style>
-        </div>
-      </div>
-    </section>
+      </section>
 
-
-    <!-- Accreditation Section: Verified certifications and licenses -->
-    <section id="certifications" style="padding: 8rem 0; background: #1f1633;">
-      <!-- Deep Aurora Harmony (Matches site's Glow style) -->
-      <div style="position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(163, 98, 255, 0.12) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(253, 68, 176, 0.08) 0%, transparent 50%); pointer-events: none; z-index: 0;"></div>
-
-      <div class="container" style="position: relative; z-index: 1;">
-        <!-- Section Header -->
-        <div class="section-header" style="text-align: center; margin-bottom: 5rem;">
-          <span class="section-badge" style="background: rgba(163, 98, 255, 0.1); color: #c084fc; border: 1px solid rgba(163, 98, 255, 0.2);">Credentials</span>
-          <h2 class="section-title" style="color: #ffffff; letter-spacing: -0.02em;">Certifications & Licenses</h2>
-        </div>
-
-        <div class="cert-split-layout" style="display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: start;">
-          <!-- Left: Animated Success Visual -->
-          <div class="cert-image-wrapper" data-aos="fade-right" style="position: relative; height: 100%; min-height: 450px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <!-- Restored Aurora Blob (Background) -->
-            <div class="aurora-blob-wrapper" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transform-origin: center; animation: certFloat 8s infinite alternate ease-in-out;">
-              <svg viewBox="-1500 -1500 3000 3000" style="width: 140%; height: 140%; filter: blur(80px); opacity: 0.4;">
-                <defs>
-                  <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:var(--accent-purple-light); stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:var(--accent-pink-light); stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-                <path fill="url(#blobGradient)" d="M1262.1719970703125,445.3659973144531 C1003.8699951171875,1062.458984375 315.81298828125,1408.156982421875 -280.8710021972656,1314.906982421875 C-377.9639892578125,1299.7320556640625 -644.14599609375,1254.531982421875 -879.8140258789062,1041.2919921875 C-1333.489013671875,630.7890014648438 -1430.510986328125,-182.06100463867188 -1064.5450439453125,-754.89501953125 C-798.1849975585938,-1171.8179931640625 -320.7090148925781,-1408.156982421875 132.98599243164062,-1396.3360595703125 C230.71299743652344,-1393.788940429675 605.239990234375,-1378.094970703125 934.3839721679688,-1102.720947265625 C982.72998046875,-1062.2740478515625 1089.3590087890625,-966.1599731445312 1185.45703125,-813.6820068359375 C1411.114013671875,-455.635986328125 1430.510986328125,43.20000076293945 1262.1719970703125,445.3659973144531z"></path>
-              </svg>
+      <section class="labs" id="labs" aria-labelledby="labs-title">
+        <div class="shell">
+          <div class="section-ruler section-ruler-light"><span>[02]</span><span>PUBLIC / INSPECTABLE SYSTEMS</span></div>
+          <div class="section-heading section-heading-split">
+            <div>
+              <p class="eyebrow">Open systems</p>
+              <h2 id="labs-title">The work you can inspect.</h2>
             </div>
-
-            <!-- Lottie Animation with subtle internal shadow -->
-            <div style="position: relative; z-index: 1;">
-              <lottie-player
-                src="https://assets10.lottiefiles.com/packages/lf20_96bovdur.json"
-                background="transparent"
-                speed="1"
-                style="width: 300px; height: 300px;"
-                loop
-                autoplay>
-              </lottie-player>
-            </div>
+            <p>Public labs turn architecture choices into code, pipelines, diagrams, and reproducible environments—not just tool lists.</p>
           </div>
 
-            <!-- Right: The Archive Library -->
-            <div class="cert-library-side">
-              <!-- Library Header with Icon -->
-              <!-- Simplified Library Header -->
-              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <div style="width: 32px; height: 32px; background: rgba(163, 98, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #c084fc;">
-                  <i class="fas fa-layer-group" style="font-size: 0.9rem;"></i>
-                </div>
-                <div>
-                  <h3 style="font-size: 0.95rem; font-weight: 700; color: #ffffff; margin: 0;">Verified Credentials</h3>
-                </div>
-              </div>
-
-              <!-- Certifications Grid -->
-              <div id="certifications-archive" class="cert-archive-grid dark-theme-grid">
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="0" style="--brand-color: #FF9900">
-                <div class="archive-icon">
-                  <img src="images/icon-aws.svg" alt="AWS" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">AWS Certified: DevOps Engineer</div>
-                  <div class="archive-meta">Professional</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="50" style="--brand-color: #00A4EF">
-                <div class="archive-icon">
-                  <img src="images/icon-azure.svg" alt="Azure" style="width: 26px; height: 26px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">Microsoft Certified: Azure Solutions Architect</div>
-                  <div class="archive-meta">Expert</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="100" style="--brand-color: #00A4EF">
-                <div class="archive-icon">
-                  <img src="images/icon-azure.svg" alt="Azure" style="width: 26px; height: 26px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">Microsoft Certified: Azure Administrator</div>
-                  <div class="archive-meta">Associate</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="150" style="--brand-color: #F80000">
-                <div class="archive-icon"><i class="fas fa-database" style="font-size: 1.2rem;"></i></div>
-                <div class="archive-info">
-                  <div class="archive-title">Oracle Cloud Infrastructure 2023 Architect</div>
-                  <div class="archive-meta">Professional</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="200" style="--brand-color: #607078">
-                <div class="archive-icon">
-                    <img src="images/icon-vmware.svg" alt="VMware" style="width: 38px; height: 20px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">VMware Certified Professional — Network Virtualization</div>
-                  <div class="archive-meta">VCP-NV 2023</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="250" style="--brand-color: #3d4d5d">
-                <div class="archive-icon">
-                    <img src="images/icon-nutanix.svg" alt="Nutanix" style="width: 40px; height: 24px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">Nutanix Certified Master 5 — Multicloud Infrastructure</div>
-                  <div class="archive-meta">NCM-MCI5</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="300" style="--brand-color: #EE0000">
-                <div class="archive-icon">
-                    <img src="images/icon-redhat.svg" alt="Red Hat" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">Red Hat Certified Specialist in Ansible Automation</div>
-                  <div class="archive-meta">Specialist</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="350" style="--brand-color: #017CAD">
-                <div class="archive-icon">
-                    <img src="images/icon-cisco.svg" alt="Cisco" style="width: 36px; height: 22px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">Cisco Certified Network Professional Data Center</div>
-                  <div class="archive-meta">CCNP Data Center</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="400" style="--brand-color: #017CAD">
-                <div class="archive-icon">
-                    <img src="images/icon-cisco.svg" alt="Cisco" style="width: 36px; height: 22px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">Cisco Certified Specialist — Data Center Design</div>
-                  <div class="archive-meta">Specialist</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="450" style="--brand-color: #607078">
-                <div class="archive-icon">
-                    <img src="images/icon-vmware.svg" alt="VMware" style="width: 38px; height: 20px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">VMware Certified Professional — Data Center Virtualization</div>
-                  <div class="archive-meta">VCP-DCV 2020</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="500" style="--brand-color: #00BFB3">
-                <div class="archive-icon"><i class="fas fa-certificate" style="font-size: 1.2rem;"></i></div>
-                <div class="archive-info">
-                  <div class="archive-title">ITIL® Foundation Certificate in IT Service Management</div>
-                  <div class="archive-meta">Foundation</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
-
-              <div class="cert-archive-item glass animate-fade-in-up" data-aos="fade-up" data-aos-delay="550" style="--brand-color: #EE0000">
-                <div class="archive-icon">
-                    <img src="images/icon-redhat.svg" alt="RedHat" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
-                </div>
-                <div class="archive-info">
-                  <div class="archive-title">Red Hat Certified Engineer (RHCE)</div>
-                  <div class="archive-meta">Engineer</div>
-                </div>
-                <div class="archive-glow"></div>
-              </div>
+          <article class="lab-feature">
+            <div class="lab-copy">
+              <div class="lab-meta"><span>FEATURED LAB</span><span>KUBERNETES · GITOPS</span></div>
+              <h3>Kubernetes GitOps Canary Showcase</h3>
+              <p>A progressive delivery environment using Argo CD, Gateway API traffic splitting, cert-manager, and Git-based versioning. The repository documents the delivery path and operating model.</p>
+              <ul class="tag-list" aria-label="Technologies used">
+                <li>Kubernetes</li><li>Argo CD</li><li>Gateway API</li><li>cert-manager</li>
+              </ul>
+              <a class="text-link" href="https://github.com/engabelal/k8s-gitops-canary-showcase" target="_blank" rel="noopener noreferrer">Inspect repository <span aria-hidden="true">↗</span></a>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Achievements: Social proof and professional testimonials -->
-    <section id="testimonials" class="section-ribbon bg-testimonials-footer" style="padding: 6rem 0;">
-        <div class="container">
-        <div class="text-center mb-4">
-          <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Loved by developers at these companies</h2>
-        </div>
+            <div class="lab-diagram" role="img" aria-label="Git commit flows through Argo CD to two Kubernetes releases and an observed gateway">
+              <div class="diagram-node node-source"><span>01</span><strong>Git tag</strong><small>Desired state</small></div>
+              <div class="diagram-link" aria-hidden="true"></div>
+              <div class="diagram-node node-control"><span>02</span><strong>Argo CD</strong><small>Reconcile</small></div>
+              <div class="diagram-branch" aria-hidden="true"></div>
+              <div class="diagram-releases">
+                <div class="diagram-node"><span>A</span><strong>Stable</strong><small>60% traffic</small></div>
+                <div class="diagram-node node-accent"><span>B</span><strong>Canary</strong><small>40% traffic</small></div>
+              </div>
+              <div class="diagram-footer"><span>Gateway API</span><span>TLS automated</span><span>Observed</span></div>
+            </div>
+          </article>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-          <!-- Testimonial 1 -->
-          <div class="hover-lift" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem;">
-            <div style="font-size: 2rem; margin-bottom: 1rem;">
-              <span style="font-weight: 700; font-size: 1.5rem; color: white;">Cost Optimization</span>
-            </div>
-            <p style="color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 1.5rem;">
-              "Automated scaling policies implemented by Ahmed reduced our monthly AWS usage costs by over 40% while maintaining peak performance."
-            </p>
-            <div style="font-size: 0.875rem; opacity: 0.7;">
-              <strong>FinOps Strategy</strong><br>
-              Cloud Architect
-            </div>
+          <div class="lab-grid">
+            <article class="lab-card">
+              <div class="lab-number">02 / DELIVERY</div>
+              <h3>ECS Fargate Blue/Green</h3>
+              <p>Terraform-driven container infrastructure with CodeDeploy and a controlled blue/green release path.</p>
+              <ul class="tag-list"><li>Terraform</li><li>ECS</li><li>CodeDeploy</li></ul>
+              <a class="text-link" href="https://github.com/engabelal/ecs-fargate-terraform-deployment" target="_blank" rel="noopener noreferrer">Inspect repository <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="lab-card lab-card-dark">
+              <div class="lab-number">03 / TOOLING</div>
+              <h3>Cloudy Runner</h3>
+              <p>A multi-architecture DevOps runner image built to standardize CI/CD tooling across repeatable automation jobs.</p>
+              <ul class="tag-list"><li>Docker</li><li>Multi-arch</li><li>CI/CD</li></ul>
+              <a class="text-link" href="https://github.com/engabelal/cloudy-runner" target="_blank" rel="noopener noreferrer">Inspect repository <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="lab-card">
+              <div class="lab-number">04 / INFRASTRUCTURE</div>
+              <h3>Layered Terraform Architecture</h3>
+              <p>Environment-aware infrastructure with isolated state, reusable layers, and an application-to-database delivery model.</p>
+              <ul class="tag-list"><li>Terraform</li><li>AWS</li><li>RDS</li></ul>
+              <a class="text-link" href="https://github.com/engabelal/terraform-layered-mern-rds" target="_blank" rel="noopener noreferrer">Inspect repository <span aria-hidden="true">↗</span></a>
+            </article>
           </div>
 
-          <!-- Testimonial 2 -->
-          <div class="hover-lift" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem;">
-            <div style="font-size: 2rem; margin-bottom: 1rem;">
-              <span style="font-weight: 700; font-size: 1.5rem; color: white;">Deployment Speed</span>
-            </div>
-            <p style="color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 1.5rem;">
-              "Ahmed's CI/CD pipeline optimizations slashed our deployment times from 30 minutes to under 5 minutes, significantly boosting developer productivity."
-            </p>
-            <div style="font-size: 0.875rem; opacity: 0.7;">
-              <strong>CI/CD Lead</strong><br>
-              Software Engineering Manager
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="hover-lift" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem;">
-            <div style="font-size: 2rem; margin-bottom: 1rem;">
-              <span style="font-weight: 700; font-size: 1.5rem; color: white;">System Uptime</span>
-            </div>
-            <p style="color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 1.5rem;">
-              "Thanks to Ahmed's robust infrastructure design and proactive monitoring, we achieved 99.99% uptime, virtually eliminating critical outages."
-            </p>
-            <div style="font-size: 0.875rem; opacity: 0.7;">
-              <strong>SRE Manager</strong><br>
-              Head of Operations
-            </div>
-          </div>
-
-          <!-- Testimonial 4 -->
-          <div class="hover-lift" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem;">
-            <div style="font-size: 2rem; margin-bottom: 1rem;">
-              <span style="font-weight: 700; font-size: 1.5rem; color: white;">Security Posture</span>
-            </div>
-            <p style="color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 1.5rem;">
-              "Ahmed integrated security best practices directly into our DevOps workflows, significantly strengthening our overall security posture and compliance."
-            </p>
-            <div style="font-size: 0.875rem; opacity: 0.7;">
-              <strong>Security Lead</strong><br>
-              Chief Information Security Officer
-            </div>
-          </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- New Achievements Section -->
-    <section class="achievements-section fade-in-section aos-init aos-animate is-visible" id="achievements" data-aos="fade-up" data-aos-duration="800" style="padding: 6rem 0; position: relative;">
-        <div class="container">
-          <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-            <span class="section-badge" style="background: rgba(163, 98, 255, 0.1); color: #c084fc; border: 1px solid rgba(163, 98, 255, 0.2);">Achievements</span>
-            <h2 class="section-title" style="color: white;">Key Highlights</h2>
-          </div>
-          <div class="achievements-grid">
-            <div class="achievement-card">
-              <div class="achievement-number">01</div>
-              <div class="achievement-icon">
-                <i class="fas fa-globe"></i>
-              </div>
-              <h3>Enterprise Scale</h3>
-              <p>
-                Led infrastructure design for telecom, utilities, and financial
-                sectors across KSA and Egypt—ensuring 99.9% uptime and zero
-                data-loss in disaster recovery tests.
-              </p>
-            </div>
-            <div class="achievement-card">
-              <div class="achievement-number">02</div>
-              <div class="achievement-icon">
-                <i class="fas fa-rocket"></i>
-              </div>
-              <h3>Performance</h3>
-              <p>
-                Optimized critical infrastructures achieving 30% faster
-                performance and 20% cost reduction through automation and
-                cloud-native architectures.
-              </p>
-            </div>
-            <div class="achievement-card">
-              <div class="achievement-number">03</div>
-              <div class="achievement-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <h3>Collaboration</h3>
-              <p>
-                Successfully delivered large-scale IT projects with
-                cross-functional and multi-national teams—bridging business needs
-                with reliable cloud solutions.
-              </p>
-            </div>
+          <div class="catalogue-link">
+            <p><strong>More systems are documented in the full lab catalogue.</strong><br>Explore Kubernetes, AWS, IaC, automation, and delivery examples.</p>
+            <a class="button button-primary" href="https://github.com/engabelal/devops-hands-on-labs" target="_blank" rel="noopener noreferrer">Open project catalogue <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
 
-    <div class="bg-section" data-fade-top="false" data-fade-bottom="false" style="--gradientHeight: 30%;">
-      <div class="background-layer bg-glow"></div>
-      <div class="bg-content">
+      <section class="approach" id="approach" aria-labelledby="approach-title">
+        <div class="shell approach-grid">
+          <div class="approach-intro">
+            <div class="section-ruler section-ruler-light"><span>[03]</span><span>METHOD / OPERATING MODEL</span></div>
+            <p class="eyebrow">Operating model</p>
+            <h2 id="approach-title">Depth where it matters. Clarity everywhere else.</h2>
+            <p>I work across implementation, architecture, and leadership—choosing the level that moves the system forward without losing sight of day-two operations.</p>
+          </div>
 
-    <!-- Connection Section: Final CTA and availability status -->
-    <section id="contact" style="padding: 8rem 0; background: transparent; position: relative;">
-        <div class="container">
-            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-
-                <!-- Status Badge -->
-                <div style="display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 0.4rem 0.8rem; border-radius: 2rem; margin-bottom: 2rem;">
-                    <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: pulse-glow 2s infinite;"></span>
-                    <span style="font-size: 0.75rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">Available for new projects</span>
-                </div>
-
-                <h2 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: white; margin-bottom: 1.5rem; letter-spacing: -0.03em;">
-                    Let's architect your <span style="color: #a362ff;">next milestone</span>.
-                </h2>
-
-                <p style="font-size: 1.15rem; color: rgba(255,255,255,0.6); margin-bottom: 3.5rem; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    I translate complex infrastructure requirements into resilient, automated, and scalable cloud solutions.
-                </p>
-
-                <div style="display: flex; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
-                    <a href="mailto:ahmedbelal@cloudycode.dev" class="btn btn-hyper-primary" style="padding: 1.1rem 2.5rem; border-radius: 1rem; font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 0.8rem; font-size: 1rem; letter-spacing: 0.5px;">
-                        <span>Initiate Partnership</span>
-                        <i class="fas fa-rocket"></i>
-                    </a>
-                    <a href="https://github.com/engabelal" target="_blank" rel="noopener" class="btn btn-glass-secondary" style="padding: 1.1rem 2.5rem; border-radius: 1rem; font-weight: 700; text-decoration: none; font-size: 1rem; letter-spacing: 0.5px;">
-                        Explore Portfolios
-                    </a>
-                </div>
-            </div>
+          <ol class="capability-list">
+            <li>
+              <span>01</span>
+              <div><h3>Secure delivery</h3><p>CI/CD architecture, automated controls, supply-chain evidence, and release safety.</p></div>
+              <small>BUILD · SCAN · ATTEST · DEPLOY</small>
+            </li>
+            <li>
+              <span>02</span>
+              <div><h3>Cloud foundations</h3><p>Practical AWS and Azure architecture, infrastructure as code, migration, resilience, and cost awareness.</p></div>
+              <small>LAND · SCALE · RECOVER</small>
+            </li>
+            <li>
+              <span>03</span>
+              <div><h3>Platform engineering</h3><p>Kubernetes, GitOps, repeatable environments, and paved roads that reduce developer friction.</p></div>
+              <small>PLATFORM · GITOPS · ENABLE</small>
+            </li>
+            <li>
+              <span>04</span>
+              <div><h3>Reliability &amp; leadership</h3><p>Observability, operational readiness, architecture decisions, and cross-functional technical direction.</p></div>
+              <small>OBSERVE · DECIDE · LEAD</small>
+            </li>
+          </ol>
         </div>
-    </section>
-    </div>
-    </div>
 
-  </main>
-
-  <!-- Footer Section - Ultra Premium -->
-  <footer class="footer-premium">
-    <div class="container">
-        <!-- Brand & Description -->
-        <div style="text-align: center; margin-bottom: 2rem;">
-          <img src="images/cloudycode-light.webp" alt="Cloudycode Logo" style="height: 1.6rem; margin-bottom: 1rem; filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(163, 98, 255, 0.2)); opacity: 0.8;" loading="lazy">
-          <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem; max-width: 500px; margin: 0 auto 1.5rem; line-height: 1.5;">
-            Architecting secure, automated, and high-performance cloud ecosystems.
-          </p>
-
-          <!-- Compact Nav Clusters - Matching Header Style -->
-          <nav style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;" aria-label="Footer navigation">
-            <a href="/" class="footer-nav-link">Home</a>
-            <a href="#about" class="footer-nav-link">About</a>
-            <a href="#skills" class="footer-nav-link">Skills</a>
-            <a href="#projects" class="footer-nav-link">Projects</a>
-            <a href="#certifications" class="footer-nav-link">Certifications</a>
-            <a href="#contact" class="footer-nav-link">Contact</a>
-          </nav>
-
-          <!-- Social Cluster - Matching Header Style -->
-          <div class="footer-social" role="list" aria-label="Social media links">
-            <a href="https://blog.cloudycode.dev" target="_blank" rel="noopener" class="social-icon" aria-label="Visit my blog" role="listitem">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-              </svg>
-            </a>
-            <a href="https://github.com/engabelal" target="_blank" rel="noopener" class="social-icon" aria-label="View my GitHub profile" role="listitem">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener" class="social-icon" aria-label="Connect on LinkedIn" role="listitem">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-              </svg>
-            </a>
+        <div class="shell identity-panel">
+          <figure class="identity-portrait">
+            <img src="images/ahmed-belal.webp" width="720" height="720" loading="lazy" decoding="async" alt="Ahmed Belal, DevSecOps and Cloud Architect">
+          </figure>
+          <div class="identity-story">
+            <div class="section-ruler section-ruler-light"><span>[03.B]</span><span>ENGINEER / ARCHITECT / LEADER</span></div>
+            <p class="eyebrow">Behind the systems</p>
+            <h3>Hands-on enough to see the details. Experienced enough to set the direction.</h3>
+            <p>My path runs from enterprise data centers to cloud platforms, with automation as the constant. I stay close to implementation while building the architecture, controls, and shared understanding teams need to operate confidently.</p>
+            <dl class="identity-facts">
+              <div><dt>Experience</dt><dd>12+ years</dd></div>
+              <div><dt>Credentials</dt><dd>13+ verified</dd></div>
+              <div><dt>Based in</dt><dd>Riyadh, KSA</dd></div>
+            </dl>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Footer Bottom Bar - Centered Engineering Ledger -->
-      <div class="footer-bottom-premium" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-
-        <!-- Live Status & Manifest Cluster -->
-        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
-          <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px; font-weight: 500;">
-            &copy; 2025 <span style="color: white; font-weight: 800; letter-spacing: 1px;">CLOUDYCODE</span>
+      <section class="credentials section-dark" id="credentials" aria-labelledby="credentials-title">
+        <div class="shell credentials-grid">
+          <div class="credentials-copy">
+            <div class="section-ruler"><span>[04]</span><span>EVIDENCE / CREDENTIALS</span></div>
+            <p class="eyebrow eyebrow-dark">Selected credentials</p>
+            <h2 id="credentials-title">Breadth earned across the stack.</h2>
+            <p>Credentials support the work; they do not replace it. This selection spans cloud architecture, Kubernetes, automation, virtualization, and enterprise infrastructure.</p>
+            <a class="text-link text-link-light" href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener noreferrer">View full profile on LinkedIn <span aria-hidden="true">↗</span></a>
           </div>
+          <ul class="credential-list">
+            <li><span>AWS</span><strong>DevOps Engineer — Professional</strong></li>
+            <li><span>CNCF</span><strong>Certified Kubernetes Administrator</strong></li>
+            <li><span>Azure</span><strong>Solutions Architect — Expert</strong></li>
+            <li><span>Red Hat</span><strong>Ansible Automation Specialist</strong></li>
+            <li><span>VMware</span><strong>Network Virtualization Professional</strong></li>
+            <li><span>Cisco</span><strong>CCNP Data Center</strong></li>
+          </ul>
+        </div>
+      </section>
 
-          <div style="height: 12px; width: 1px; background: rgba(255,255,255,0.15);"></div>
-
-          <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <i class="fas fa-shield-alt" style="font-size: 0.7rem; color: #a362ff; opacity: 0.6;"></i>
-            <span style="font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Protected by Cloudflare</span>
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="shell contact-panel">
+          <div>
+            <div class="section-ruler section-ruler-contact"><span>[05]</span><span>CONTACT / NEXT SYSTEM</span></div>
+            <p class="eyebrow">Start a conversation</p>
+            <h2 id="contact-title">Have a cloud platform, delivery, or reliability problem worth solving?</h2>
           </div>
-
-          <div style="height: 12px; width: 1px; background: rgba(255,255,255,0.15);"></div>
-
-          <!-- Unified DevOps Version Badge -->
-          <div style="display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.4rem 0.9rem; border-radius: 2rem; color: rgba(255,255,255,0.5); letter-spacing: 0.5px;">
-            <i class="fas fa-cloud" style="color: #a362ff;"></i>
-            <span>VERSION : <span id="site-version" style="color: white; font-weight: 800;">2.4.9</span></span>
-            <div style="display: flex; align-items: center; gap: 0.35rem; color: #10b981; font-weight: 700;">
-              <span style="width: 4px; height: 4px; background: #10b981; border-radius: 50%;"></span>
-              STABLE
+          <div class="contact-copy">
+            <p>Tell me what is changing, where the risk is, and what a better operating state should look like.</p>
+            <div class="contact-actions">
+              <a class="button button-inverse" href="mailto:ahmedbelal@cloudycode.dev">Email Ahmed <span aria-hidden="true">↗</span></a>
+              <a class="button button-ghost" href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <!-- Designer Credit Signature -->
-        <div style="font-size: 0.6rem; color: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 4px; font-weight: 500;">
-          Crafted with Precision by <span style="color: rgba(255,255,255,0.4);">Ahmed Belal</span>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <strong>Ahmed Belal</strong>
+          <p>DevSecOps · Cloud Architecture · Platform Engineering</p>
         </div>
+        <div class="footer-links">
+          <a href="https://github.com/engabelal" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://blog.cloudycode.dev" target="_blank" rel="noopener noreferrer">Writing</a>
+        </div>
+        <p class="footer-meta">© <span data-year>2026</span> Ahmed Belal · Riyadh, Saudi Arabia</p>
+        <div class="footer-wordmark" aria-hidden="true">AHMED BELAL</div>
       </div>
-    </div>
-  </footer>
-
-  <!-- App Scripts -->
-  <script type="module" src="js/main.js"></script>
-
-</body>
+    </footer>
+  </body>
 </html>

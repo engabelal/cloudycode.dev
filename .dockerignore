@@ -37,6 +37,8 @@ build
 .cache
 .tmp
 tmp
+artifacts
+.playwright-mcp
 
 # ============================================================
 # CI/CD and security artifacts

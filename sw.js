@@ -1,31 +1,24 @@
 // Service Worker
-// CloudyCode v2.4.9
+// Ahmed Belal Portfolio v3.1.0
 
-const CACHE_VERSION = "v2.4.9";
+const CACHE_VERSION = "v3.1.0";
 const CACHE_NAME = `cloudycode-${CACHE_VERSION}`;
 
 // Critical assets to cache on install
 const CRITICAL_ASSETS = [
   "/",
   "/index.html",
-  "/css/theme.css",
-  "/css/custom.css",
-  "/css/enhancements.css",
-  "/js/main.js",
-  "/js/utils.js",
-  "/js/animations.js",
-  "/js/ui.js",
-  "/js/projects.js",
-  "/js/scroll-animations.js",
-  "/js/enhancements.js",
-  "/config/site.config.js",
-  "/images/avatar.webp",
-  "/images/cloudycode-light.webp",
+  "/css/control-plane.css",
+  "/js/control-plane.js",
+  "/fonts/sora-latin.woff2",
+  "/fonts/ibm-plex-mono-500-latin.woff2",
   "/images/favicon.svg",
+  "/favicon.ico",
   "/images/icon-192.png",
   "/images/icon-512.png",
+  "/images/ahmed-belal-avatar.webp",
+  "/images/ahmed-belal.webp",
   "/images/og-image.webp",
-  "/images/welcome-bg.webp",
   "/offline.html",
   "/manifest.json",
 ];

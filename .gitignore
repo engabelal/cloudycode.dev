@@ -69,3 +69,7 @@ temp/
 
 # Stakpak session files
 .stakpak/session*
+
+# Local browser-review artifacts
+.playwright-mcp/
+artifacts/

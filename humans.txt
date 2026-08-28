@@ -1,29 +1,23 @@
 # humanstxt.org
 
 /* TEAM */
-Developer: Ahmed Belal
+Owner and engineer: Ahmed Belal
 Contact: ahmedbelal@cloudycode.dev
-From: Egypt
+Based in: Riyadh, Saudi Arabia
 
 /* SITE */
-Last update: 2025/12/22
+Last update: 2026/08/28
 Language: English
 Doctype: HTML5
-IDE: Kiro, VS Code
 
-/* THANKS */
-Font Awesome for icons
-Google Fonts for typography
-GitHub Pages for hosting
-Cloudflare for CDN & security
+/* TYPE */
+Sora and IBM Plex Mono are self-hosted for performance and privacy.
 
 /* TECH STACK */
-HTML5, CSS3, Vanilla JavaScript
-PWA, Service Worker
-GitHub Actions for CI/CD
-Minification: clean-css, terser
+Semantic HTML5, mobile-first CSS, minimal vanilla JavaScript
+PWA service worker and web app manifest
+GitHub Actions and GitHub Pages
 
 /* VERSION */
-Version: 2.4.1
-Build: Production
+Version: 3.0.0 — The Control Plane
 Environment: GitHub Pages

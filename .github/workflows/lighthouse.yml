@@ -11,9 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      
+
+      - name: Start local static server
+        run: |
+          python3 -m http.server 8000 > /tmp/cloudycode-http.log 2>&1 &
+          echo $! > /tmp/cloudycode-http.pid
+          sleep 2
+
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
-            https://cloudycode.dev
+            http://127.0.0.1:8000
+          configPath: ./.lighthouserc.json
+          uploadArtifacts: true
