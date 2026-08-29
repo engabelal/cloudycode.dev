@@ -10,7 +10,7 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Start local static server
         run: |
@@ -19,7 +19,7 @@ jobs:
           sleep 2
 
       - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v12
+        uses: treosh/lighthouse-ci-action@12.6.2
         with:
           urls: |
             http://127.0.0.1:8000

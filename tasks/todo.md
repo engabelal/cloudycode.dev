@@ -295,3 +295,21 @@
 - Validated HTML anchors/assets, JSON, SVG/XML, CSS URLs, service-worker precache paths, JavaScript syntax, HTTP 200 responses, and zero diff whitespace errors.
 - Browser checks passed at 320, 360, 390, 768, 1024, and 1440 px with no horizontal overflow; the mobile menu locks scroll, closes on Escape, restores focus, and keeps 44 px or larger targets.
 - Final mobile Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 1.8 s, TBT 0 ms, CLS 0.
+
+# CI Runtime and Action Version Refresh
+
+- [x] Inventory every runtime, GitHub Action, and pinned npm tool used by the active workflows.
+- [x] Verify current releases and compatibility against official upstream sources.
+- [x] Upgrade EOL Node.js and outdated GitHub Pages actions to compatible maintained releases.
+- [x] Reproduce the Pages artifact and minification flow with the upgraded runtime/toolchain.
+- [x] Validate workflow syntax, site assets, JavaScript, and the final branch state.
+- [x] Commit on a feature branch and fast-forward the verified result into `main`.
+
+## Version Refresh Results
+
+- Replaced EOL Node.js 20 with Node.js 24 LTS and explicitly disabled unused package-manager caching.
+- Upgraded Checkout 6→7, Setup Node 6→7, Configure Pages 5→6, Upload Pages Artifact 4→5, and Deploy Pages 4→5.
+- Pinned Lighthouse CI Action to the current 12.6.2 release, which runs on Node.js 24.
+- Replaced the two-tool Clean CSS/Terser install with esbuild 0.28.2 after the former emitted deprecated transitive-dependency warnings; the replacement audit reports zero vulnerabilities.
+- Enabled hidden-file packaging so `.well-known/security.txt` and `.nojekyll` remain in the Pages artifact.
+- Verified every upstream action tag, parsed all workflow YAML, passed actionlint 1.7.12, reproduced the 21-file/268 KB artifact, and syntax-checked source and minified JavaScript.

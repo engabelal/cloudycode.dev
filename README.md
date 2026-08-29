@@ -65,6 +65,8 @@ At every width the page must have no horizontal overflow, no hover-only informat
 
 Pushes to `main` trigger `.github/workflows/pages.yml`, which stages only public runtime files, minifies CSS and JavaScript, and deploys the result to GitHub Pages.
 
+The build uses Node.js 24 LTS and a pinned esbuild release; Dependabot monitors the GitHub Actions versions.
+
 The custom domain is defined by `CNAME`.
 
 ## Content safety
