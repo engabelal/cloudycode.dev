@@ -328,3 +328,10 @@
 - [x] Remove Anthropic/Claude-linked co-author trailers without changing commit contents or topology.
 - [x] Force-update `main` and `portfolio-redesign` atomically and verify both local/remote refs match.
 - [x] Confirm the rewritten history contains no Dependabot author or Anthropic/Claude co-author attribution.
+
+# Documentation Directory Removal
+
+- [x] Inventory the `docs/` directory and all references to its files.
+- [x] Remove the internal repository guidance and design brief.
+- [x] Remove stale README links while preserving runtime and deployment behavior.
+- [x] Validate the repository, synchronize `portfolio-redesign` with `main`, and push both branches.

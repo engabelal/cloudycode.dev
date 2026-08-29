@@ -17,8 +17,6 @@ The Control Plane uses the visual language of delivery paths, system records, ar
 - Direct links to public GitHub labs
 - No portrait, glassmorphism, heavy animation, or runtime UI dependencies
 
-The complete design rationale and decision log are in [`docs/design-brief.md`](docs/design-brief.md).
-
 ## Stack
 
 - Semantic HTML5
@@ -48,7 +46,6 @@ fonts/                        Locally hosted production fonts
 images/og-image.webp          1200×630 social preview
 manifest.json                 PWA metadata and icons
 sw.js                         Offline cache strategy
-docs/design-brief.md          Approved design and responsive contract
 ```
 
 ## Responsive acceptance widths
