@@ -126,7 +126,7 @@
 ### Hero / Brand Results
 - Rebuilt the approved thesis as three intentional lines with a blue signal line and restrained amber underline; it now stays on exactly three lines at 390, 1024, 1440, and 1586px instead of exploding into six oversized lines.
 - Updated page, social, structured-data, header, and footer role copy to “Senior DevSecOps and Cloud Engineer.”
-- Replaced the compact portrait with an original CloudyCode cloud/terminal mark at `images/cloudycode-mark-v2.svg`; the SVG contains no background rectangle or circle and is genuinely transparent.
+- Replaced the compact portrait with an original transparent CloudyCode cloud/terminal mark (later superseded by the final v4 mark).
 - Issued new v3.5.2 cache keys and a new logo filename so the corrected assets cannot be confused with the stale preview.
 - Verified no horizontal overflow, zero browser console warnings/errors, local references, service-worker coverage, and transparent SVG source.
 - Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.5s, LCP 2.1s, CLS 0, TBT 0ms.
@@ -219,7 +219,7 @@
 ### CloudyCode Mark Results
 - Replaced the overlapping cloud/terminal badge with one clear cloud silhouette and an integrated code glyph.
 - Reduced the palette from gradient blue/cyan/black to the site’s existing signal blue `#2563eb` and ink `#0b1118`; the SVG has no background shape and is genuinely transparent.
-- Delivered the new 586-byte mark as `images/cloudycode-mark-v3.svg` and updated its intrinsic aspect ratio so it no longer renders inside a forced circle.
+- Delivered a lighter v3 mark and corrected its intrinsic aspect ratio (later superseded by the final v4 mark).
 - Verified exact vertical centering beside the identity copy at 360/390/768/1024/1440px, no overflow, zero console warnings/errors, complete service-worker coverage, and no remaining v2 references.
 - Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 2.0s, CLS 0.
 
@@ -275,3 +275,23 @@
 - [x] Remove geographic labels from the proof strip, identity facts, and footer.
 - [x] Remove personal location from `humans.txt` and repository documentation.
 - [x] Replace removed UI facts with non-geographic professional information and issue cache version 3.9.2.
+
+# Repository and Pipeline Cleanup / Main Integration
+
+- [x] Inspect the current branch, worktree, tracked assets, and CI workflows.
+- [x] Remove assets and runtime dependencies with no executable references.
+- [x] Remove hosting and container configuration that is not used by GitHub Pages.
+- [x] Restrict the Pages artifact to public runtime files only.
+- [x] Validate links, service-worker assets, responsive behavior, and CI configuration.
+- [x] Commit the verified feature branch and merge it into `main` without losing history.
+- [x] Prove `main` contains the exact feature-branch result and leave a clean worktree.
+
+## Cleanup Review / Results
+
+- Confirmed the source branch is `portfolio-redesign`, five commits ahead of `main` before cleanup.
+- Removed 47 tracked files (about 285 KB): unused Lenis files, superseded artwork/tool icons, the retired Docker release path, and hosting configuration unsupported by GitHub Pages.
+- Replaced the Jekyll-wide repository publish with a 21-file public allowlist artifact; minified output is about 268 KB and excludes docs, task notes, and CI metadata.
+- Pinned `clean-css-cli` 5.6.3 and Terser 5.51.2 and reproduced the Pages staging/minification commands locally.
+- Validated HTML anchors/assets, JSON, SVG/XML, CSS URLs, service-worker precache paths, JavaScript syntax, HTTP 200 responses, and zero diff whitespace errors.
+- Browser checks passed at 320, 360, 390, 768, 1024, and 1440 px with no horizontal overflow; the mobile menu locks scroll, closes on Escape, restores focus, and keeps 44 px or larger targets.
+- Final mobile Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 1.8 s, TBT 0 ms, CLS 0.

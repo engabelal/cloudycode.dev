@@ -55,7 +55,7 @@ When changing cached asset paths or shipping a new release:
 
 ## Deployment
 
-`.github/workflows/jekyll-gh-pages.yml` minifies CSS and JavaScript in the CI workspace, builds the static site with Jekyll, and deploys it to GitHub Pages. The repository source should remain readable and unminified.
+`.github/workflows/pages.yml` stages only public runtime files, minifies CSS and JavaScript in the CI workspace, and deploys the artifact directly to GitHub Pages. The repository source should remain readable and unminified.
 
 ## Verification
 

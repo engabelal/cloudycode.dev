@@ -63,7 +63,7 @@ At every width the page must have no horizontal overflow, no hover-only informat
 
 ## Deployment
 
-Pushes to `main` trigger `.github/workflows/jekyll-gh-pages.yml`, which minifies CSS and JavaScript in the runner and deploys the static output to GitHub Pages.
+Pushes to `main` trigger `.github/workflows/pages.yml`, which stages only public runtime files, minifies CSS and JavaScript, and deploys the result to GitHub Pages.
 
 The custom domain is defined by `CNAME`.
 

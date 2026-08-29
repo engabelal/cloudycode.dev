@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Ahmed Belal monogram">
-  <rect width="512" height="512" rx="112" fill="#0b1118"/>
-  <path d="M88 86h336v20H88z" fill="#2563eb"/>
-  <text x="256" y="322" text-anchor="middle" font-family="ui-monospace, monospace" font-size="160" font-weight="600" fill="#fff">AB</text>
-  <circle cx="410" cy="410" r="32" fill="#30c985"/>
-</svg>

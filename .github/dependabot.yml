@@ -1,12 +1,6 @@
 version: 2
 
 updates:
-  # Monitor Dockerfile base image for security and version updates
-  - package-ecosystem: "docker"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-
   # Keep GitHub Actions used in workflows up to date
   - package-ecosystem: "github-actions"
     directory: "/"
