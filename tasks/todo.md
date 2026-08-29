@@ -1,5 +1,20 @@
 # CloudyCode Portfolio Redesign Discovery
 
+## Mobile Menu Capsule Correction
+- [x] Reproduce the closed-state double-capsule silhouette from the supplied mobile screenshot.
+- [x] Align the collapsed navigation panel exactly behind the Menu control so only one capsule is visible.
+- [x] Preserve the open-state expansion geometry, corner radius, alignment, and accessible behavior.
+- [x] Verify closed/open states at 320px, 360px, and 390px and confirm no regression on desktop.
+- [x] Record verification results and bump the asset cache version.
+
+### Mobile Menu Capsule Results
+- The collapsed panel and Menu button now share identical `x`, `y`, width, height, right, and bottom coordinates at 320px, 360px, and 390px; the exposed second capsule is gone.
+- At widths below 368px, secondary brand metadata is hidden so the fixed-width Menu control remains inside the header shell instead of being pushed sideways.
+- The open panel remains 90vw with a 25px radius, while the Close control retains the same 25px radius and the established expansion motion.
+- No horizontal overflow was detected in the open state; the desktop trigger remains hidden and desktop navigation remains static at 1024px.
+- Browser console: zero warnings/errors. JavaScript syntax, local references, version consistency, and diff whitespace checks passed.
+- Cache version advanced to `v3.11.2` so mobile browsers receive the corrected CSS immediately.
+
 ## Plan
 - [x] Inspect the existing repository, content structure, and design tokens.
 - [x] Review the deployed site at desktop width.

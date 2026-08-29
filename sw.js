@@ -1,15 +1,15 @@
 // Service Worker
-// Ahmed Belal Portfolio v3.11.0
+// Ahmed Belal Portfolio v3.11.2
 
-const CACHE_VERSION = "v3.11.0";
+const CACHE_VERSION = "v3.11.2";
 const CACHE_NAME = `cloudycode-${CACHE_VERSION}`;
 
 // Critical assets to cache on install
 const CRITICAL_ASSETS = [
   "/",
   "/index.html",
-  "/css/control-plane.css?v=3.11.0",
-  "/js/control-plane.js?v=3.11.0",
+  "/css/control-plane.css?v=3.11.2",
+  "/js/control-plane.js?v=3.11.2",
   "/fonts/sora-latin.woff2",
   "/fonts/ibm-plex-mono-500-latin.woff2",
   "/images/favicon.svg",

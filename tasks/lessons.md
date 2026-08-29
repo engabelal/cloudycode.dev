@@ -162,3 +162,9 @@
 - Root cause: I removed bot automation and branches but did not initially audit historical author emails and co-author trailers, which GitHub uses for contributor attribution.
 - Prevention rule: For a personal portfolio repository, review reachable commit authors and co-author trailers before publishing history; do not add assistant attribution that conflicts with the owner's contributor policy.
 - How to verify next time: Inspect `git log` identities and trailers, query the contributor API, and allow for GitHub's contributor-statistics refresh window after any approved history rewrite.
+
+### 2026-08-30 - Collapsed animated layers must share one exact silhouette
+- Correction from user: The mobile Menu control visibly rendered as two overlapping black capsules instead of one clean control.
+- Root cause: The collapsed navigation panel used different top and right offsets from the trigger, leaving its background exposed below and beside the button.
+- Prevention rule: When a panel expands from behind a trigger, its collapsed bounding box and radius must exactly match the trigger before any animation begins.
+- How to verify next time: Capture the closed state at every supported mobile width and compare the trigger and collapsed panel bounding rectangles pixel-for-pixel before testing the open transition.

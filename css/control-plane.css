@@ -260,6 +260,18 @@ p {
   box-shadow: 0 0 0 0.18rem rgba(48, 201, 133, 0.13);
 }
 
+@media (max-width: 23rem) {
+  .brand-mark {
+    width: 2.5rem;
+    height: 2rem;
+  }
+
+  .brand-copy small,
+  .brand-status {
+    display: none;
+  }
+}
+
 .menu-toggle {
   position: relative;
   z-index: 4;
@@ -321,8 +333,8 @@ p {
 .primary-nav {
   position: absolute;
   z-index: 3;
-  top: 1.375rem;
-  right: -0.875rem;
+  top: 1.25rem;
+  right: 0;
   display: flex;
   width: 6.25rem;
   height: 2.75rem;
