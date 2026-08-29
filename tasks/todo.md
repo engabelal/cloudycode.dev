@@ -313,3 +313,9 @@
 - Replaced the two-tool Clean CSS/Terser install with esbuild 0.28.2 after the former emitted deprecated transitive-dependency warnings; the replacement audit reports zero vulnerabilities.
 - Enabled hidden-file packaging so `.well-known/security.txt` and `.nojekyll` remain in the Pages artifact.
 - Verified every upstream action tag, parsed all workflow YAML, passed actionlint 1.7.12, reproduced the 21-file/268 KB artifact, and syntax-checked source and minified JavaScript.
+
+# Dependabot Removal
+
+- [x] Confirm the repository has no open Dependabot pull requests.
+- [x] Remove the weekly GitHub Actions Dependabot configuration.
+- [x] Validate the remaining workflows and synchronize `portfolio-redesign` with `main` locally and remotely.

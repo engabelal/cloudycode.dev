@@ -150,3 +150,9 @@
 - Root cause: I implemented workflow scaffolding only inside the active repository.
 - Prevention rule: For behavior/process preferences, apply at parent/global instruction level first, then optionally add local templates.
 - How to verify next time: Confirm requested scope (repo, directory tree, or global) before finalizing and ensure the configured file path matches that scope.
+
+### 2026-08-30 - Keep repository automation aligned with explicit user preference
+- Correction from user: Dependabot update automation is not wanted for this repository.
+- Root cause: I retained weekly automated version-update configuration after simplifying the pipeline because it is commonly useful, instead of treating bot activity as a separate product choice.
+- Prevention rule: Do not preserve or introduce automated dependency-update bots unless the repository owner wants their PR and branch activity.
+- How to verify next time: Audit bot configuration, open bot PRs, and generated branches separately from vulnerability reporting before finalizing repository automation.
