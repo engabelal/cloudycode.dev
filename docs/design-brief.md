@@ -14,7 +14,7 @@
 
 The interface borrows its visual language from control planes, delivery paths, system records, and architecture reviews without becoming a literal dashboard. The light canvas communicates clarity; dark fieldwork sections carry technical depth. One cobalt signal color marks actions and system flow. Amber is reserved for small operational-state details.
 
-The signature element is a responsive delivery path: Source → Build → Policy → Deploy → Observe. It is horizontal on wide screens and becomes a native vertical sequence on mobile rather than shrinking or overflowing. Motion is restrained, CSS-first, and removed when reduced motion is requested.
+The signature element is a responsive delivery path: Source → Build → Policy → Deploy → Observe. It is horizontal on wide screens and becomes a native vertical sequence on mobile rather than shrinking or overflowing. Motion is restrained, progressively enhanced, and removed when reduced motion is requested.
 
 ## Content Architecture
 
@@ -44,7 +44,7 @@ The signature element is a responsive delivery path: Source → Build → Policy
 - Mobile-first CSS; primary design width is 390px.
 - Verified widths: 360, 390, 768, 1024, and 1440px.
 - No hover-only information or interactions.
-- Touch targets are at least 44×44px.
+- Primary controls and calls to action are at least 44px tall; compact secondary social links remain visually subordinate but keyboard accessible.
 - Body text is at least 16px and line length stays readable.
 - Diagrams reflow for small screens; they are never scaled desktop canvases.
 - No horizontal scrolling at any acceptance width.
@@ -52,8 +52,8 @@ The signature element is a responsive delivery path: Source → Build → Policy
 ## Non-Functional Requirements
 
 - Static HTML/CSS/vanilla JavaScript compatible with GitHub Pages.
-- No runtime framework or package dependency.
-- Minimal JavaScript limited to navigation and progressive enhancement.
+- No runtime framework or remote package dependency.
+- JavaScript progressively enhances navigation, smooth scrolling, status rotation, marquee movement, and viewport reveals; the content remains usable without it.
 - WCAG 2.1 AA contrast, keyboard navigation, visible focus, and reduced motion.
 - Target Lighthouse scores: 95+ Performance, Accessibility, Best Practices, and SEO.
 - No client names or confidential implementation details.
@@ -71,7 +71,15 @@ The signature element is a responsive delivery path: Source → Build → Policy
 | Vanilla static stack | Astro, React/Next | Smallest reliable solution and native GitHub Pages fit |
 | Responsive system path | Desktop diagram scaled down | Preserves readability and interaction on mobile |
 | Self-hosted fonts | Google Fonts runtime requests | Faster, more private, and more reliable |
-| Editorial rails and closing wordmark | Literal reference-site imitation | Borrow the strong information rhythm and personal-brand scale while preserving the original Control Plane identity |
+| Compact operational footer | Oversized closing wordmark | Keeps Ahmed's identity visible without overpowering contact and navigation |
+
+## Motion Contract
+
+- Mobile navigation expands from a `100×40px` control to a `90vw×650px` floating panel with a consistent `25px` radius.
+- The close control remains inset exactly `10px` from the panel's top and right edges; menu content uses aligned 40px edges.
+- The main panel uses a `750ms` `cubic-bezier(0.76, 0, 0.24, 1)` tween; child elements enter over `700ms` with a 60ms stagger.
+- Locally hosted Lenis provides smooth wheel scrolling. A system rail, rolling desktop labels, section reveals, and rotating control-plane messages share the same restrained motion language.
+- `prefers-reduced-motion: reduce` disables smooth scrolling, cloning, timed status changes, and visual transitions.
 
 ## Known Content Constraint
 

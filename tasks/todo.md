@@ -36,7 +36,7 @@
 - Rebuilt the site as a dependency-free static experience and removed the obsolete theme/runtime files.
 - Added Ahmed's supplied portrait in a responsive authority block below the operating model rather than forcing it into the hero.
 - Adapted editorial pacing, oversized personal branding, and restrained technical signals from the supplied reference without copying its assets or layout.
-- Verified 360, 390, 768, 1024, and 1440px layouts with no horizontal overflow or undersized interactive targets.
+- Verified 360, 390, 768, 1024, and 1440px layouts with no horizontal overflow; primary controls and calls to action meet the touch-size contract.
 - Verified keyboard menu behavior, focus return, reduced-motion handling, zero browser console warnings/errors, local references, metadata, CSP hash, and service-worker asset coverage.
 - Lighthouse (mobile and desktop): Performance 100, Accessibility 100, Best Practices 100, SEO 100.
 - Mobile lab metrics: FCP 1.4s, LCP 1.5s, CLS 0.006, TBT 0ms. Desktop: FCP/LCP 0.4s, CLS 0.005, TBT 0ms.
@@ -61,7 +61,40 @@
 - Replaced the rejected green-grey paper with near-white `#FCFCFA`; no product surface still uses `#F4F7F6`.
 - Added Ahmed's optimized 128px avatar, role, live availability signal, indexed navigation, and a high-contrast contact capsule.
 - Added a calibration ruler and blue/cyan telemetry aurora as the single atmospheric signature.
-- Desktop and 390px viewport crops inspected; mobile has no overflow and all visible interactive targets are at least 44px.
+- Desktop and 390px viewport crops inspected; mobile has no overflow and primary controls remain comfortably touchable.
 - Mobile menu open/close state, body lock, Escape handling, and focus return verified.
 - Browser console: zero warnings/errors. Static references, JSON, JavaScript syntax, service-worker assets, duplicate IDs, and diff whitespace checks passed.
 - Lighthouse mobile: Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 1.8s, CLS 0.006, TBT 0ms.
+
+## Footer and Mobile Navigation Correction
+- [x] Reproduce the broken mobile navigation overlay at 390px and identify the containing-block issue.
+- [x] Replace the oversized footer wordmark with a quieter operational-signoff composition.
+- [x] Rebuild the mobile menu using the supplied reference's floating-panel geometry and menu/close effect, adapted to CloudyCode.
+- [x] Inspect footer and menu at mobile/desktop widths and rerun interaction/accessibility checks.
+
+### Footer / Menu Results
+- Removed the giant footer name and replaced it with a compact identity block, internal/external link groups, operational status, and back-to-top action.
+- Rebuilt the mobile trigger as a black `Menu` capsule that morphs to a white `Close` capsule while a rounded dark panel expands from the top-right control.
+- Matched the reference hierarchy with large staggered links, bottom contact capsule, and compact social links while preserving CloudyCode content and colors.
+- Added a keyboard focus loop inside the open menu; Escape closes it, restores focus, and unlocks body scrolling.
+- The earlier full-height mobile panel was replaced by the compact reference-matched geometry documented below.
+- Desktop navigation remains unchanged and visible; the mobile trigger remains hidden at desktop width.
+- Final browser console: zero warnings/errors. Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 1.8s, CLS 0.006, TBT 0ms.
+
+## Reference Motion System Rework
+- [x] Audit the reference site's mobile menu geometry at multiple viewport heights and capture its open/close timing.
+- [x] Inventory the reference site's JavaScript-driven motion on mobile and desktop from observable behavior and loaded bundles.
+- [x] Map only suitable motion patterns to CloudyCode sections without copying source code or unrelated content.
+- [x] Rebuild the menu as a compact floating panel with smooth, interruptible animation.
+- [x] Implement a restrained cross-device motion system for header, hero, section reveals, rails, cards, and contact/footer transitions.
+- [x] Verify 360/390px mobile and 1024/1440px desktop behavior, reduced motion, keyboard access, performance, and visual smoothness.
+
+### Motion / Alignment Results
+- Independently adapted the reference interaction constants: the mobile control expands from `100×40px` to `90vw×650px`, retains a `25px` radius, and keeps the close control exactly `10px` from the panel's top and right edges.
+- Matched the `750ms` panel tween, `350ms` close delay, `700ms` child entrance, `60ms` stagger, and `cubic-bezier(0.76, 0, 0.24, 1)` easing.
+- At 360, 390, and 768px, the first link and contact action share the exact same 40px left inset; social links share the exact 40px right inset. Panel and button radii remain identical.
+- Sampled the panel at 120ms, 380ms, and 850ms: the radius remains exactly `25px` throughout the expansion, including after an interrupted close/reopen sequence.
+- Added locally hosted Lenis smooth scrolling, a 30-second systems rail, staggered viewport reveals, rolling desktop navigation labels, and a rotating control-plane status log.
+- Verified no horizontal overflow at 360, 390, 768, 1024, and 1440px; desktop navigation remains visible and aligned.
+- Verified keyboard wrap (`Shift+Tab`/`Tab`), Escape close with focus return, zero reduced-motion animation, and no motion enhancement when `prefers-reduced-motion` is enabled.
+- Final Lighthouse mobile audit: Performance 98, Accessibility 100, Best Practices 100, SEO 100; LCP 2.1s, CLS 0.006, TBT 0ms. Browser console: zero warnings/errors.

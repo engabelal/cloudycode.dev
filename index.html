@@ -31,8 +31,10 @@
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="css/control-plane.css">
-    <script type="module" src="js/control-plane.js"></script>
+    <link rel="stylesheet" href="css/lenis.css?v=1.3.25">
+    <link rel="stylesheet" href="css/control-plane.css?v=3.4.6">
+    <script defer src="js/vendor/lenis.min.js?v=1.3.25"></script>
+    <script type="module" src="js/control-plane.js?v=3.4.6"></script>
 
     <script type="application/ld+json">
       {
@@ -72,18 +74,22 @@
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle>
           <span class="sr-only">Open navigation</span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span class="menu-word" aria-hidden="true"><b>Menu</b><b>Close</b></span>
         </button>
 
         <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation" data-menu>
-          <a href="#fieldwork"><span>Fieldwork</span><small>01</small></a>
-          <a href="#labs"><span>Open labs</span><small>02</small></a>
-          <a href="#approach"><span>Approach</span><small>03</small></a>
+          <a href="#fieldwork"><span class="roll-window"><span class="roll-label">Fieldwork</span></span><small>01</small></a>
+          <a href="#labs"><span class="roll-window"><span class="roll-label">Open labs</span></span><small>02</small></a>
+          <a href="#approach"><span class="roll-window"><span class="roll-label">Approach</span></span><small>03</small></a>
           <a class="nav-cta" href="#contact">
             <span>Discuss a project</span>
             <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg>
           </a>
+          <div class="nav-meta">
+            <a href="https://github.com/engabelal" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://blog.cloudycode.dev" target="_blank" rel="noopener noreferrer">Writing</a>
+          </div>
         </nav>
       </div>
     </header>
@@ -389,18 +395,41 @@
     </main>
 
     <footer class="site-footer">
-      <div class="shell footer-grid">
-        <div>
-          <strong>Ahmed Belal</strong>
-          <p>DevSecOps · Cloud Architecture · Platform Engineering</p>
+      <div class="shell footer-main">
+        <div class="footer-brand">
+          <a class="footer-identity" href="#top" aria-label="Ahmed Belal — back to top">
+            <span aria-hidden="true">AB</span>
+            <div>
+              <strong>Ahmed Belal</strong>
+              <small>DevSecOps &amp; Cloud Architect</small>
+            </div>
+          </a>
+          <p>Secure platforms, reliable delivery, and operational clarity—from architecture to production.</p>
         </div>
-        <div class="footer-links">
+
+        <div class="footer-group">
+          <p class="footer-label">Navigate</p>
+          <div class="footer-links">
+            <a href="#fieldwork">Fieldwork</a>
+            <a href="#labs">Open labs</a>
+            <a href="#approach">Approach</a>
+          </div>
+        </div>
+
+        <div class="footer-group">
+          <p class="footer-label">Elsewhere</p>
+          <div class="footer-links">
           <a href="https://github.com/engabelal" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/engabelal/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://blog.cloudycode.dev" target="_blank" rel="noopener noreferrer">Writing</a>
+          </div>
         </div>
-        <p class="footer-meta">© <span data-year>2026</span> Ahmed Belal · Riyadh, Saudi Arabia</p>
-        <div class="footer-wordmark" aria-hidden="true">AHMED BELAL</div>
+      </div>
+
+      <div class="shell footer-bottom">
+        <p>© <span data-year>2026</span> Ahmed Belal · Riyadh, Saudi Arabia</p>
+        <p class="footer-status"><i aria-hidden="true"></i> cloudycode.dev / operational</p>
+        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
       </div>
     </footer>
   </body>
