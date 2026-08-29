@@ -13,6 +13,90 @@
 - How to verify next time:
 
 ## Entries
+### 2026-08-30 - Follow explicit logo geometry, not just the concept
+- Correction from user: The simplified cloud with a `</>` glyph still felt poorly designed; the desired mark is an open-baseline cloud containing a terminal `>_` prompt.
+- Root cause: I preserved the general cloud/code idea but changed the supplied visual language too much, especially the silhouette and glyph.
+- Prevention rule: When the user supplies a clear logo reference, reproduce its defining geometry—silhouette, negative space, glyph, and stroke character—while keeping the final vector original and palette-aligned.
+- How to verify next time: Compare the defining features side by side at large size, then inspect the SVG again at the actual header size.
+
+### 2026-08-30 - Repeated proof is not stronger proof
+- Correction from user: The four-cell hero summary felt visually generic and its claims repeated information already explained elsewhere.
+- Root cause: I treated repeated metrics as reassurance even though the credentials, labs, and experience sections already provide stronger contextual evidence.
+- Prevention rule: Every summary strip must add a distinct decision-making signal; if its content is repeated or generic, remove the component rather than redesigning it.
+- How to verify next time: Map each summary claim to the page and remove any item whose strongest version already appears in a dedicated section.
+
+### 2026-08-30 - Do not repeat personal location metadata
+- Correction from user: Personal location should be removed from the hero and everywhere else on the site.
+- Root cause: Location appeared as repeated authority metadata across the hero, profile facts, footer, and repository documentation without a current need.
+- Prevention rule: Treat personal location as optional private metadata; include it only when the user explicitly wants it public and never duplicate it across surfaces by default.
+- How to verify next time: Search all public source, metadata, documentation, and auxiliary text files for city, country, regional abbreviations, and “based in” wording.
+
+### 2026-08-30 - Small identity marks need ruthless restraint
+- Correction from user: The CloudyCode mark’s cyan gradient, black terminal tile, and overlapping cloud geometry felt unattractive and disconnected from the site palette.
+- Root cause: I compressed several brand ideas into one small mark and introduced a third accent color that the wider interface did not use.
+- Prevention rule: At header size, use one clear silhouette, no badge-on-badge composition, and no more than two established brand colors.
+- How to verify next time: Inspect the raw transparent SVG and the rendered mark at its actual 42–48px size beside the header typography on both mobile and desktop.
+
+### 2026-08-30 - Dense evidence needs progressive disclosure
+- Correction from user: Even the compact ledger remained too large and visually heavy for a simple portfolio.
+- Root cause: I reduced each record’s height but still rendered all 13 records by default, so the section remained dominated by its archive.
+- Prevention rule: When all details must remain available but the default composition should stay light, surface only the most relevant evidence and place the remainder behind a clearly labeled native disclosure.
+- How to verify next time: Measure the closed-state section height, confirm the complete data is keyboard-accessible when expanded, and test that the summary clearly communicates the hidden item count.
+
+### 2026-08-30 - Simplicity means removing containers
+- Correction from user: The white contact card with two nested rounded action blocks still felt neither simple nor professionally integrated.
+- Root cause: I solved hierarchy by adding another container layer, creating a component-heavy SaaS look instead of the site’s editorial portfolio language.
+- Prevention rule: When the requested direction is simple and professional, first remove surfaces, borders, and nested radii; use typography, spacing, and fine rules to create hierarchy.
+- How to verify next time: Count visible containers and corner treatments, then confirm the section still reads clearly when reduced to its essential text and actions.
+
+### 2026-08-30 - Preserve user-approved positioning language
+- Correction from user: The credential headline should use the stronger positioning statement “Proven expertise across the stack.”
+- Root cause: The earlier simplification reduced complexity but also softened the intended authority signal.
+- Prevention rule: When the user supplies exact brand copy, preserve it verbatim and adjust the layout around the message rather than rewriting it.
+- How to verify next time: Confirm the exact phrase appears in source and review its wrapping at mobile and desktop widths.
+
+### 2026-08-30 - Evidence sections need editorial structure
+- Correction from user: The credential card grid looked less professional than the rest of the portfolio.
+- Root cause: Equal-height generic cards created excessive empty space and treated every credential like a UI tile rather than evidence in a curated archive.
+- Prevention rule: For dense professional evidence, prefer a scan-friendly ledger or timeline with explicit metadata columns over a repetitive dashboard-card grid.
+- How to verify next time: Compare density, hierarchy, and scan speed with the surrounding sections at mobile and desktop widths; every visual container must earn its space.
+
+### 2026-08-29 - Section seams should not look accidental
+- Correction from user: The short green segment between the contact section and footer read as a stray rendering artifact.
+- Root cause: A multicolor footer-top accent became visually disconnected because its blue segment disappeared against the preceding blue section.
+- Prevention rule: At strong color transitions, use a continuous neutral divider or no divider; avoid partial accent segments that can look like glitches.
+- How to verify next time: Inspect every section seam on mobile and desktop, especially where adjacent surfaces share one of the accent colors.
+
+### 2026-08-29 - Contact CTAs need hierarchy, not just scale
+- Correction from user: The blue contact section still looked visually unresolved, with a loose sentence and oversized generic buttons.
+- Root cause: I increased CTA scale for visibility without giving the contact choices a clear internal hierarchy or containing surface.
+- Prevention rule: Conversion sections should use one concise promise, one supporting sentence, and clearly ranked contact rows inside a structured surface.
+- How to verify next time: Inspect the whole contact section at desktop and mobile; ensure the primary channel is obvious without either action dominating the composition.
+
+### 2026-08-29 - Preserve verified content breadth during visual simplification
+- Correction from user: The redesigned credentials section showed only six certifications even though the previous portfolio contained thirteen.
+- Root cause: I treated “selected credentials” as permission to omit verified history without confirming the desired level of completeness.
+- Prevention rule: When redesigning existing content, inventory and preserve all verified records first; simplify presentation, not factual breadth, unless the user approves curation.
+- How to verify next time: Compare item counts and titles against the previous implementation before marking the redesigned section complete.
+
+### 2026-08-29 - Navigation emphasis must follow the active section
+- Correction from user: The mobile menu should brighten the selected/current section and mute the other links.
+- Root cause: The first link was styled as a permanent visual default instead of reflecting scroll position or the user's last destination.
+- Prevention rule: Any menu that visually distinguishes one item must derive that state from navigation/scroll state and expose it with `aria-current`.
+- How to verify next time: Open the menu from each linked section and confirm exactly one matching link is emphasized.
+
+### 2026-08-29 - Bump asset versions after every post-review CSS or logo change
+- Correction from user: The browser still showed the oversized headline and a non-transparent logo treatment after refinement.
+- Root cause: I changed the CSS and SVG after assigning their cache-busting version, allowing the in-app browser to keep the earlier rendered assets.
+- Prevention rule: Any edit after a versioned asset has been previewed must receive a new query version or filename before asking the user to review it.
+- How to verify next time: Load the final URL in a fresh navigation, inspect the requested viewport, and compare computed font sizes and the exact loaded asset URL.
+
+### 2026-08-29 - Separate personal portrait placement from compact brand-mark placement
+- Correction from user: The small header identity should use a CloudyCode-style graphic rather than Ahmed's portrait, while the role should be more explicit and senior.
+- Root cause: I reused one identity asset across contexts that serve different jobs: personal authority and compact brand recognition.
+- Prevention rule: Use portraits where trust and personality need room; use a legible brand mark in compact navigation identity.
+- How to verify next time: Inspect the header at its smallest rendered size and confirm the mark remains recognizable without competing with the name and role.
+
 ### 2026-08-29 - Verify text centering geometrically inside animated controls
 - Correction from user: The word “Menu” still did not look centered inside the capsule.
 - Root cause: The label relied on intrinsic grid content sizing, so typographic metrics and the animated panel behind it could make the control look optically off-center.

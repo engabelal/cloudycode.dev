@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-labelledby="title">
+  <title id="title">CloudyCode cloud terminal mark</title>
+  <defs>
+    <linearGradient id="cloudycode-blue" x1="3" y1="32" x2="93" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1746b3"/>
+      <stop offset="0.55" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#4f8cff"/>
+    </linearGradient>
+  </defs>
+  <path d="M61 55H20C10.6 55 3 47.4 3 38s7.6-17 17-17h4.2C27 10.6 36.4 3 47.6 3c13.4 0 24.4 10 26 23h4.5C86.3 26 93 32.5 93 40.5S86.3 55 78.1 55H72" fill="none" stroke="url(#cloudycode-blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"/>
+  <path d="m41 27 11 10-11 10M58 47h10" fill="none" stroke="url(#cloudycode-blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5"/>
+</svg>

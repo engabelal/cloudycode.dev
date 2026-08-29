@@ -3,6 +3,9 @@ const menu = document.querySelector("[data-menu]");
 const header = document.querySelector("[data-header]");
 const desktopNavigation = window.matchMedia("(min-width: 60rem)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const sectionLinks = menu
+  ? [...menu.querySelectorAll(':scope > a[href^="#"]:not(.nav-cta)')]
+  : [];
 let smoothScroll;
 
 function setMenuState(open) {
@@ -58,6 +61,38 @@ function updateHeader() {
 updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
 
+let activeSectionFrame;
+
+function updateActiveSection() {
+  activeSectionFrame = undefined;
+  if (!sectionLinks.length) return;
+
+  const marker = window.scrollY + Math.max(120, window.innerHeight * 0.28);
+  let currentLink = sectionLinks[0];
+
+  sectionLinks.forEach((link) => {
+    const section = document.querySelector(link.getAttribute("href"));
+    if (section && section.offsetTop <= marker) currentLink = link;
+  });
+
+  sectionLinks.forEach((link) => {
+    const current = link === currentLink;
+    link.classList.toggle("is-current", current);
+    if (current) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+}
+
+function scheduleActiveSectionUpdate() {
+  if (activeSectionFrame) return;
+  activeSectionFrame = window.requestAnimationFrame(updateActiveSection);
+}
+
+updateActiveSection();
+window.addEventListener("scroll", scheduleActiveSectionUpdate, { passive: true });
+window.addEventListener("resize", scheduleActiveSectionUpdate);
+window.addEventListener("hashchange", scheduleActiveSectionUpdate);
+
 const year = document.querySelector("[data-year]");
 if (year) year.textContent = String(new Date().getFullYear());
 
@@ -89,7 +124,8 @@ function initializeMotion() {
     ".process-heading > *",
     ".process-card",
     ".identity-panel > *",
-    ".credentials-grid > *",
+    ".credentials-heading > *",
+    ".credential-list > li",
     ".contact-panel > *",
     ".footer-main > *",
     ".footer-bottom",

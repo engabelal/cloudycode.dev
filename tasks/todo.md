@@ -115,3 +115,150 @@
 - Four mobile menu links, CTA, and social links retain exact 40px edge alignment at 360, 390, and 768px; no overlap and no horizontal overflow.
 - Verified layouts at 360, 390, 768, 1024, and 1440px, keyboard focus wrap, Escape/focus return, reduced-motion fallback, and zero console warnings/errors.
 - Final Lighthouse mobile: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.5s, LCP 2.1s, CLS 0, TBT 0ms.
+
+## Hero and Header Brand Refinement
+- [x] Replace the hero thesis with the approved three-part outcome statement and design a stronger typographic rhythm.
+- [x] Change the header role to “Senior DevSecOps and Cloud Engineer” and keep identity metadata consistent.
+- [x] Design an original lightweight CloudyCode cloud/code mark and replace only the small header portrait.
+- [x] Verify the new mark and hero at mobile and desktop widths, including contrast and line wrapping.
+- [x] Re-run static validation, console checks, reduced motion, and Lighthouse.
+
+### Hero / Brand Results
+- Rebuilt the approved thesis as three intentional lines with a blue signal line and restrained amber underline; it now stays on exactly three lines at 390, 1024, 1440, and 1586px instead of exploding into six oversized lines.
+- Updated page, social, structured-data, header, and footer role copy to “Senior DevSecOps and Cloud Engineer.”
+- Replaced the compact portrait with an original CloudyCode cloud/terminal mark at `images/cloudycode-mark-v2.svg`; the SVG contains no background rectangle or circle and is genuinely transparent.
+- Issued new v3.5.2 cache keys and a new logo filename so the corrected assets cannot be confused with the stale preview.
+- Verified no horizontal overflow, zero browser console warnings/errors, local references, service-worker coverage, and transparent SVG source.
+- Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.5s, LCP 2.1s, CLS 0, TBT 0ms.
+
+## Active Navigation / Methodology / Credentials Correction
+- [x] Add section-aware mobile navigation so only the current destination is bright and all inactive links are muted.
+- [x] Replace the oversized “How I Work” treatment with a clearer, more compact methodology heading.
+- [x] Restore all 13 credentials from the previous portfolio data without inventing new claims.
+- [x] Redesign credentials as a readable responsive archive rather than a long undifferentiated list.
+- [x] Verify scroll-spy behavior, mobile menu states, section typography, full credential layout, reduced motion, and Lighthouse.
+
+### Active Navigation / Methodology / Credentials Results
+- Added a requestAnimationFrame-throttled scroll spy: Home, Fieldwork, Open Labs, and Approach each receive the sole bright state and `aria-current="location"` when active; all other mobile links are muted.
+- Replaced the oversized uppercase “HOW I WORK” treatment with the clearer single-line “How I deliver.” heading and a restrained blue period.
+- Recovered the exact 13-item credential archive from the previous site's local data, including levels and issue dates; no new credential claims were invented.
+- Redesigned credentials into 1/2/3-column cards at mobile/tablet/desktop with issuer pills, title, level, and date, plus a prominent verified count.
+- Verified exactly one active menu item from every linked section, all 13 cards, no overflow at 360/390/768/1024/1440px, reduced-motion visibility, and zero console warnings/errors.
+- Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.5s, LCP 2.0s, CLS 0, TBT 0ms.
+
+## Contact Conversion Refinement
+- [x] Apply the approved simpler credentials heading: “Certified across the stack.”
+- [x] Replace the oversized contact buttons and loose paragraph with a compact, structured contact card.
+- [x] Simplify the contact headline and make the email/LinkedIn hierarchy immediately clear.
+- [x] Verify contact layout and touch behavior on mobile/tablet/desktop, then recheck Lighthouse.
+
+### Contact Conversion Results
+- Simplified the credential headline to “Certified across the stack.” while retaining the full verified archive.
+- Rebuilt the contact section around a concise outcome-led headline and a contained white action card instead of two oversized buttons floating on the blue field.
+- Established a clear channel hierarchy: email is the dark primary row, while LinkedIn is a quieter secondary row; both provide 72px touch targets and descriptive micro-labels.
+- Added restrained concentric telemetry lines to the blue field for depth without introducing image requests or layout overhead.
+- Verified no horizontal overflow at 390px and 1440px, 72px action heights, zero console warnings/errors, valid local references, unique IDs, and complete service-worker asset coverage.
+- Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.5s, LCP 2.0s, CLS 0, TBT 0ms.
+
+## Footer Seam Correction
+- [x] Remove the isolated green accent at the contact/footer boundary.
+- [x] Replace it with a continuous, low-contrast divider that reads intentionally on all viewport sizes.
+- [x] Issue cache version 3.6.2 and verify the seam visually.
+
+## Credential Archive Redesign
+- [x] Replace the generic equal-height card grid with a compact editorial credential ledger.
+- [x] Give each credential a clear scan order: index, issuer, certification, level, and issue date.
+- [x] Preserve all 13 verified credentials and avoid implying unverified links or badge artwork.
+- [x] Build dedicated mobile/tablet/desktop layouts with readable type and no horizontal scrolling.
+- [x] Verify reduced motion, console output, semantics, local assets, and Lighthouse quality.
+
+### Credential Archive Results
+- Replaced 13 tall, repetitive cards with one cohesive evidence ledger whose column hierarchy matches the technical/editorial language of the rest of the site.
+- Desktop and tablet expose explicit No./Issuer/Certification/Level/Issued columns; mobile reflows every record into a compact three-line hierarchy without horizontal scrolling.
+- Preserved all 13 credential names, levels, and dates, added semantic `time` values, and introduced no unverifiable badge art or external claims.
+- Verified 360/375/768/1024/1440px layouts, zero cell overlaps, all records visible, zero console warnings/errors, valid local references, unique IDs, and complete service-worker coverage.
+- Final Lighthouse: Performance 98, Accessibility 100, Best Practices 100, SEO 100; FCP 1.7s, LCP 2.1s, CLS 0, TBT 20ms.
+
+## Credential Headline Copy
+- [x] Replace the credential headline with the user-approved “Proven expertise across the stack.”
+- [x] Issue cache version 3.7.1 and verify responsive wrapping.
+
+## Minimal Contact Redesign
+- [x] Remove the large white card, nested button containers, and decorative rings.
+- [x] Present email and LinkedIn as direct, understated contact rows with clear hierarchy.
+- [x] Tighten the supporting copy and preserve large mobile touch targets.
+- [x] Verify 360–1440px alignment, console output, reduced motion, and Lighthouse.
+
+### Minimal Contact Results
+- Removed every nested surface and rounded action container from the contact area, along with the decorative rings behind it.
+- Rebuilt the section as one shared technical ruler, a concise headline, and two direct contact rows separated only by fine white rules.
+- Email now exposes the real address immediately; LinkedIn identifies Ahmed directly. Both remain full-width 80px touch targets on mobile.
+- Verified no overflow at 360/390/768/1024/1440px, zero console warnings/errors, reduced-motion rendering, and cache version 3.8.0.
+- Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.5s, LCP 2.1s, CLS 0, TBT 0ms.
+
+## Compact Credentials Redesign
+- [x] Reduce the default section height without removing any credential details.
+- [x] Show the three most recent credentials in a concise, border-light list.
+- [x] Move the ten earlier credentials into an accessible native disclosure.
+- [x] Replace the oversized count treatment with compact archive metadata.
+- [x] Verify closed/open states, keyboard behavior, mobile/desktop layouts, and Lighthouse.
+
+### Compact Credentials Results
+- Reworked the section around progressive disclosure: the three newest credentials remain immediately visible while ten earlier records stay one click or keyboard action away.
+- Removed the large count, outer ledger container, rounded corners, numbering, and table header; hierarchy now comes only from typography, spacing, and fine rules.
+- Reduced the closed section to 597px on desktop and 820px on mobile while retaining all 13 names, issuers, levels, and semantic issue dates.
+- Verified native keyboard toggling, closed archive height of 0, all ten records revealed when open, no overflow at 360/390/768/1024/1440px, and zero console warnings/errors.
+- Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.7s, LCP 2.0s, CLS 0, TBT 20ms.
+
+## CloudyCode Mark Redesign
+- [x] Remove the cyan gradient, dark terminal tile, and overlapping badge geometry.
+- [x] Create a transparent, original two-color cloud/code SVG using only the site’s signal blue and ink.
+- [x] Tune the mark for 42–48px header rendering on mobile and desktop.
+- [x] Issue a new filename/cache version and verify alignment, transparency, console output, and Lighthouse.
+
+### CloudyCode Mark Results
+- Replaced the overlapping cloud/terminal badge with one clear cloud silhouette and an integrated code glyph.
+- Reduced the palette from gradient blue/cyan/black to the site’s existing signal blue `#2563eb` and ink `#0b1118`; the SVG has no background shape and is genuinely transparent.
+- Delivered the new 586-byte mark as `images/cloudycode-mark-v3.svg` and updated its intrinsic aspect ratio so it no longer renders inside a forced circle.
+- Verified exact vertical centering beside the identity copy at 360/390/768/1024/1440px, no overflow, zero console warnings/errors, complete service-worker coverage, and no remaining v2 references.
+- Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 2.0s, CLS 0.
+
+## Hero Summary Strip Removal
+- [x] Remove the repeated four-cell metrics strip instead of restyling filler content.
+- [x] Preserve the genuinely useful claims in their dedicated sections only.
+- [x] Rebalance the hero’s bottom spacing before the systems rail.
+- [x] Verify the cleaner transition at mobile and desktop sizes, then rerun Lighthouse.
+
+### Hero Summary Strip Results
+- Removed the entire four-cell strip: 12+ years, enterprise delivery, 13 credentials, and open labs are already communicated more credibly in their dedicated sections.
+- Added only responsive bottom whitespace to the hero, allowing the delivery control plane to transition directly into the dark systems rail.
+- Removed all obsolete strip CSS across mobile, tablet, desktop, hover, and print contexts; no replacement filler copy or component was introduced.
+- Verified no strip remains in source or DOM, no overflow at 390px/1440px, and zero browser console warnings/errors.
+- Final Lighthouse: Performance 98, Accessibility 100, Best Practices 100, SEO 100; FCP 1.7s, LCP 2.1s, CLS 0, TBT 20ms.
+
+## Reference-Led Logo Replacement
+- [x] Replace the rejected enclosed cloud/`</>` mark with the supplied open cloud-terminal direction.
+- [x] Draw original SVG geometry with a `>_` prompt and an intentional break in the cloud baseline.
+- [x] Keep the asset transparent and tune a restrained blue gradient to the site palette.
+- [x] Verify actual-size mobile/desktop rendering, cache coverage, console output, and Lighthouse.
+
+### Reference-Led Logo Results
+- Rebuilt the mark around the reference’s defining features: open cloud baseline, rounded monoline silhouette, terminal chevron, and separate underscore.
+- Used an original SVG path and a restrained site-aligned gradient from `#1746b3` through `#2563eb` to `#4f8cff`; no white or opaque background is present.
+- Delivered the 848-byte transparent asset as `images/cloudycode-mark-v4.svg` and rendered it at 48×36px mobile and approximately 54×40px desktop.
+- Verified zero-pixel vertical center delta beside the identity at 360/390/768/1024/1440px, no overflow, zero console warnings/errors, complete service-worker coverage, and no v2/v3 references.
+- Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 2.0s, CLS 0.
+
+## Full Responsive / Performance Hardening
+- [ ] Baseline 320/360/375/390/412/768/1024/1440px layouts and identify any overflow, overlap, or undersized touch targets.
+- [ ] Test mobile menu geometry, current-section state, keyboard controls, scroll locking, and close behavior.
+- [ ] Test credential disclosure, anchor navigation, sticky header, and reduced-motion behavior.
+- [ ] Audit image/font/script loading, service-worker coverage, total transfer size, and render-blocking work.
+- [ ] Apply only evidence-based performance and mobile fixes.
+- [ ] Re-run mobile and desktop Lighthouse plus browser console and responsive regression checks.
+
+## Personal Location Removal
+- [x] Remove Riyadh/Saudi Arabia from the hero availability line.
+- [x] Remove geographic labels from the proof strip, identity facts, and footer.
+- [x] Remove personal location from `humans.txt` and repository documentation.
+- [x] Replace removed UI facts with non-geographic professional information and issue cache version 3.9.2.

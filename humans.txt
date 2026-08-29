@@ -3,7 +3,6 @@
 /* TEAM */
 Owner and engineer: Ahmed Belal
 Contact: ahmedbelal@cloudycode.dev
-Based in: Riyadh, Saudi Arabia
 
 /* SITE */
 Last update: 2026/08/28

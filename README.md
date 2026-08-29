@@ -1,6 +1,6 @@
 # Ahmed Belal Portfolio — The Control Plane
 
-Personal portfolio for Ahmed Belal, a DevSecOps and Cloud Architect based in Riyadh. The site presents anonymized professional fieldwork and inspectable public infrastructure labs.
+Personal portfolio for Ahmed Belal, a Senior DevSecOps and Cloud Engineer. The site presents anonymized professional fieldwork and inspectable public infrastructure labs.
 
 ## Live site
 

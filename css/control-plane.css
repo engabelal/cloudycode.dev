@@ -206,18 +206,15 @@ p {
   display: inline-flex;
   min-height: 2.75rem;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.55rem;
   text-decoration: none;
 }
 
-.brand-portrait {
-  width: 2.75rem;
-  height: 2.75rem;
+.brand-mark {
+  width: 3rem;
+  height: 2.25rem;
   flex: 0 0 auto;
-  border: 1px solid rgba(11, 17, 24, 0.12);
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 0 0.18rem rgba(255, 255, 255, 0.72);
+  object-fit: contain;
 }
 
 .brand-copy {
@@ -231,7 +228,12 @@ p {
 }
 
 .brand-copy small {
-  display: none;
+  display: block;
+  margin-top: 0.04rem;
+  color: #35414c;
+  font-size: 0.47rem;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
 }
 
 .brand-status {
@@ -258,6 +260,7 @@ p {
   display: grid;
   width: 6.25rem;
   height: 2.5rem;
+  flex: 0 0 6.25rem;
   padding: 0 1rem;
   place-content: center;
   overflow: hidden;
@@ -359,6 +362,7 @@ p {
 .primary-nav > a:not(.nav-cta) {
   width: calc(100% - 5rem);
   margin-left: 2.5rem;
+  color: #666;
 }
 
 .primary-nav > a:first-child {
@@ -381,8 +385,8 @@ p {
   display: none;
 }
 
-.primary-nav > a:first-child {
-  color: #727272;
+.primary-nav > a.is-current:not(.nav-cta) {
+  color: white;
 }
 
 .primary-nav.is-open > a:nth-child(1) {
@@ -481,7 +485,7 @@ p {
 
 .hero {
   position: relative;
-  padding-top: clamp(8rem, 20vw, 11rem);
+  padding: clamp(8rem, 20vw, 11rem) 0 clamp(4rem, 10vw, 7rem);
   overflow: hidden;
 }
 
@@ -536,18 +540,33 @@ p {
 }
 
 .hero h1 {
-  max-width: 13ch;
+  max-width: 14ch;
   margin-bottom: 1.5rem;
-  font-size: clamp(2.65rem, 11vw, 6.75rem);
+  font-size: clamp(2.4rem, 10.2vw, 5.7rem);
   font-weight: 600;
-  letter-spacing: -0.065em;
-  line-height: 0.98;
+  letter-spacing: -0.072em;
+  line-height: 0.94;
+}
+
+.hero h1 span,
+.hero h1 em {
+  display: block;
 }
 
 .hero h1 em {
   position: relative;
+  width: max-content;
+  max-width: calc(100% - clamp(0.5rem, 3vw, 2.4rem));
+  margin: 0.08em 0 0.12em clamp(0.5rem, 3vw, 2.4rem);
   color: var(--signal);
   font-style: normal;
+}
+
+.hero h1 span:last-child {
+  color: #25313d;
+  font-size: 0.72em;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
 }
 
 .hero h1 em::after {
@@ -761,38 +780,6 @@ p {
   color: #80e5b6;
 }
 
-.proof-strip {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: clamp(3.5rem, 10vw, 6rem);
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-}
-
-.proof-strip div {
-  min-width: 0;
-  padding: 1rem;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.proof-strip strong,
-.proof-strip span {
-  display: block;
-}
-
-.proof-strip strong {
-  margin-bottom: 0.35rem;
-  font-size: 0.92rem;
-}
-
-.proof-strip span {
-  color: var(--steel);
-  font-size: 0.66rem;
-  line-height: 1.5;
-}
-
 .system-rail {
   border-top: 1px solid #27333f;
   border-bottom: 1px solid #27333f;
@@ -841,6 +828,10 @@ p {
 .credentials,
 .contact {
   padding-block: var(--section-space);
+}
+
+.credentials {
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
 }
 
 .section-ruler {
@@ -1244,11 +1235,16 @@ p {
 }
 
 .process-heading h2 {
-  max-width: none;
+  max-width: 11ch;
   margin: 0;
-  font-size: clamp(3.15rem, 12vw, 7.5rem);
-  line-height: 0.86;
-  text-transform: uppercase;
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+  text-transform: none;
+}
+
+.process-heading h2 span {
+  color: var(--signal);
 }
 
 .process-heading > p {
@@ -1427,43 +1423,169 @@ p {
   font-weight: 600;
 }
 
-.credentials-grid {
+.credentials-shell {
   display: grid;
-  gap: 3rem;
+  gap: 0;
+}
+
+.credentials-layout {
+  display: grid;
+  gap: clamp(3rem, 9vw, 6rem);
+}
+
+.credentials-copy h2 {
+  max-width: 17ch;
+  font-size: clamp(2rem, 3.6vw, 3rem);
 }
 
 .text-link-light {
   color: #92b2ff;
 }
 
+.credential-records {
+  align-self: start;
+  border-top: 1px solid var(--line-dark);
+}
+
+.credential-records-head {
+  display: flex;
+  min-height: 2.8rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #71808e;
+  font-family: var(--font-data);
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .credential-list {
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--line-dark);
   list-style: none;
 }
 
 .credential-list li {
   display: grid;
-  gap: 0.35rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--line-dark);
+  grid-template-areas:
+    "issuer issued"
+    "title title"
+    "level level";
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.18rem 0.75rem;
+  align-items: center;
+  min-height: 5.1rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--line-dark);
+  transition: background 200ms ease;
 }
 
-.credential-list span {
+.credential-issuer {
+  grid-area: issuer;
   color: #82a7ff;
   font-family: var(--font-data);
-  font-size: 0.58rem;
-  letter-spacing: 0.05em;
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .credential-list strong {
+  grid-area: title;
+  color: white;
   font-size: 0.84rem;
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.credential-level {
+  grid-area: level;
+  color: #8996a3;
+  font-size: 0.66rem;
+}
+
+.credential-list time {
+  grid-area: issued;
+  color: #8996a3;
+  font-family: var(--font-data);
+  font-size: 0.54rem;
+  white-space: nowrap;
+}
+
+.credential-archive {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.credential-archive summary {
+  display: grid;
+  min-height: 4.5rem;
+  cursor: pointer;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "label icon" "count icon";
+  gap: 0.1rem 1rem;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--line-dark);
+  color: white;
+  list-style: none;
+}
+
+.credential-archive summary::-webkit-details-marker {
+  display: none;
+}
+
+.credential-archive summary span {
+  grid-area: label;
+  align-self: end;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.credential-archive summary small {
+  grid-area: count;
+  align-self: start;
+  color: #71808e;
+  font-family: var(--font-data);
+  font-size: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.credential-archive summary i {
+  position: relative;
+  grid-area: icon;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.credential-archive summary i::before,
+.credential-archive summary i::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.75rem;
+  height: 1px;
+  background: #82a7ff;
+  content: "";
+  transform: translate(-50%, -50%);
+  transition: transform 200ms ease;
+}
+
+.credential-archive summary i::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.credential-archive[open] summary i::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.credential-list-archive {
+  border-top: 1px solid var(--line-dark);
 }
 
 .contact {
+  position: relative;
+  overflow: hidden;
   background: var(--signal);
   color: white;
 }
@@ -1473,6 +1595,8 @@ p {
 }
 
 .contact-panel {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 2.5rem;
 }
@@ -1482,18 +1606,64 @@ p {
   margin-bottom: 0;
 }
 
+.contact-copy {
+  padding-top: 0.2rem;
+  color: white;
+}
+
 .contact-copy > p {
-  color: white;
+  max-width: 34rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.65;
 }
 
-.button-inverse {
-  background: white;
-  color: var(--signal-dark);
+.contact-actions {
+  display: grid;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.button-ghost {
-  border-color: rgba(255, 255, 255, 0.4);
+.contact-link {
+  display: flex;
+  min-height: 5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.contact-link span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.contact-link small {
+  color: rgba(255, 255, 255, 0.62);
+  font-family: var(--font-data);
+  font-size: 0.52rem;
+  letter-spacing: 0.07em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.contact-link strong {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  line-height: 1.3;
+}
+
+.contact-link i {
+  width: 1.5rem;
+  flex: 0 0 auto;
+  color: white;
+  font-size: 1.1rem;
+  font-style: normal;
+  text-align: right;
+  transition: transform 300ms cubic-bezier(0.2, 0, 0, 1);
 }
 
 .site-footer {
@@ -1509,8 +1679,8 @@ p {
   top: 0;
   right: 0;
   left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--signal) 0 22%, var(--success) 22% 30%, transparent 30%);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
   content: "";
 }
 
@@ -1716,14 +1886,9 @@ p {
 }
 
 @media (min-width: 32rem) {
-  .hero-actions,
-  .contact-actions {
+  .hero-actions {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  .proof-strip div {
-    padding: 1.25rem;
   }
 
   .record-metrics {
@@ -1799,10 +1964,6 @@ p {
   .log-result {
     grid-row: 1;
     grid-column: 4;
-  }
-
-  .proof-strip {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .section-heading-split {
@@ -1886,7 +2047,6 @@ p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .credentials-grid,
   .contact-panel {
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr);
     align-items: start;
@@ -1894,9 +2054,20 @@ p {
   }
 
   .credential-list li {
-    grid-template-columns: 5rem 1fr;
-    align-items: center;
-    gap: 1rem;
+    grid-template-areas: "issuer title level issued";
+    grid-template-columns: 6.5rem minmax(0, 1fr) 7.5rem 5.5rem;
+    gap: 0.8rem;
+    min-height: 4.25rem;
+    padding: 0.75rem 0;
+  }
+
+  .credential-list strong {
+    font-size: 0.82rem;
+  }
+
+  .credential-level {
+    font-family: var(--font-data);
+    font-size: 0.54rem;
   }
 
   .footer-main {
@@ -1921,6 +2092,11 @@ p {
 }
 
 @media (min-width: 60rem) {
+  .credentials-layout {
+    grid-template-columns: minmax(18rem, 0.78fr) minmax(32rem, 1.22fr);
+    align-items: start;
+  }
+
   body.menu-open {
     overflow: auto;
   }
@@ -1975,6 +2151,11 @@ p {
   .primary-nav > a:not(.nav-cta) {
     width: auto;
     margin-left: 0;
+    color: #28333d;
+  }
+
+  .primary-nav > a.is-current:not(.nav-cta) {
+    color: var(--signal-dark);
   }
 
   .primary-nav > a:first-child {
@@ -2014,9 +2195,13 @@ p {
     min-height: 7rem;
   }
 
-  .brand-portrait {
-    width: 3rem;
-    height: 3rem;
+  .brand-mark {
+    width: 3.35rem;
+    height: 2.5rem;
+  }
+
+  .brand {
+    gap: 0.7rem;
   }
 
   .brand-copy strong {
@@ -2044,16 +2229,7 @@ p {
   }
 
   .hero h1 {
-    font-size: clamp(4.75rem, 7.2vw, 6.75rem);
-  }
-
-  .proof-strip div {
-    min-height: 7.2rem;
-    padding: 1.5rem;
-  }
-
-  .proof-strip strong {
-    font-size: 1rem;
+    font-size: clamp(3.25rem, 4.75vw, 4.25rem);
   }
 
   .records-grid {
@@ -2096,9 +2272,22 @@ p {
   .process-card:nth-child(4) {
     min-height: 27.5rem;
   }
+
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .credential-list li:hover {
+    background: #14202c;
+  }
+
+  .contact-link:hover {
+    color: #dce7ff;
+  }
+
+  .contact-link:hover i {
+    transform: translate(0.16rem, -0.16rem);
+  }
+
   .button:hover {
     transform: translateY(-2px);
   }
@@ -2190,6 +2379,6 @@ p {
   }
 
   .hero {
-    padding-top: 1rem;
+    padding: 1rem 0;
   }
 }
