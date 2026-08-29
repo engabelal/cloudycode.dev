@@ -1,5 +1,19 @@
 # CloudyCode Portfolio Redesign Discovery
 
+## Open Menu Control Alignment Correction
+- [x] Measure the supplied open-state screenshot against the panel edge.
+- [x] Place the Close control fully inside the expanded panel with equal top/right inset.
+- [x] Verify the inset at 320px, 360px, and 390px without changing the closed-state silhouette.
+- [x] Recheck interrupted animation, overflow, console output, and desktop navigation.
+- [x] Bump the cache version, commit, push, and fast-forward `main` after verification.
+
+### Open Menu Alignment Results
+- The open Close control now has an exact `10px` top inset and `10px` right inset inside the panel at 320px, 360px, and 390px.
+- The closed trigger/panel rectangles still match exactly on all six measured edges and dimensions.
+- Rapid close/reopen interruption settles at the same `10px × 10px` inset; Escape closes the menu and restores focus to the trigger.
+- Both the panel and control keep the same 25px radius, with no horizontal overflow or desktop navigation regression.
+- Cache version advanced to `v3.11.3`; browser console remains free of warnings and errors.
+
 ## Mobile Menu Capsule Correction
 - [x] Reproduce the closed-state double-capsule silhouette from the supplied mobile screenshot.
 - [x] Align the collapsed navigation panel exactly behind the Menu control so only one capsule is visible.

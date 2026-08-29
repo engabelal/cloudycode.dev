@@ -317,7 +317,7 @@ p {
 .menu-toggle[aria-expanded="true"] {
   background: white;
   color: var(--ink);
-  transform: translateX(0.25rem);
+  transform: translate(-0.625rem, 0.125rem);
 }
 
 .menu-toggle[aria-expanded="true"] .menu-word b:first-child {

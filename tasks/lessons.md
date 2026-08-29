@@ -168,3 +168,9 @@
 - Root cause: The collapsed navigation panel used different top and right offsets from the trigger, leaving its background exposed below and beside the button.
 - Prevention rule: When a panel expands from behind a trigger, its collapsed bounding box and radius must exactly match the trigger before any animation begins.
 - How to verify next time: Capture the closed state at every supported mobile width and compare the trigger and collapsed panel bounding rectangles pixel-for-pixel before testing the open transition.
+
+### 2026-08-30 - Verify open control inset independently from the closed silhouette
+- Correction from user: Although the closed mobile capsule was fixed, the open Close control still extended beyond the expanded panel and was visibly misaligned.
+- Root cause: I verified matching closed rectangles and matching corner radii, but did not assert the open control's top/right inset relative to the panel; the positive horizontal transform pushed it outside.
+- Prevention rule: Treat closed overlap and open inset as separate geometry contracts, and verify both numerically before publishing.
+- How to verify next time: In the fully open state, assert that `button.top - panel.top` and `panel.right - button.right` are equal, positive, and match the approved inset at every mobile width.
