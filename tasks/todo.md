@@ -250,12 +250,25 @@
 - Final Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 2.0s, CLS 0.
 
 ## Full Responsive / Performance Hardening
-- [ ] Baseline 320/360/375/390/412/768/1024/1440px layouts and identify any overflow, overlap, or undersized touch targets.
-- [ ] Test mobile menu geometry, current-section state, keyboard controls, scroll locking, and close behavior.
-- [ ] Test credential disclosure, anchor navigation, sticky header, and reduced-motion behavior.
-- [ ] Audit image/font/script loading, service-worker coverage, total transfer size, and render-blocking work.
-- [ ] Apply only evidence-based performance and mobile fixes.
-- [ ] Re-run mobile and desktop Lighthouse plus browser console and responsive regression checks.
+- [x] Baseline 320/360/375/390/412/768/1024/1440px layouts and identify any overflow, overlap, or undersized touch targets.
+- [x] Test mobile menu geometry, current-section state, keyboard controls, scroll locking, and close behavior.
+- [x] Test credential disclosure, anchor navigation, sticky header, and reduced-motion behavior.
+- [x] Audit image/font/script loading, service-worker coverage, total transfer size, and render-blocking work.
+- [x] Apply only evidence-based performance and mobile fixes.
+- [x] Re-run mobile and desktop Lighthouse plus browser console and responsive regression checks.
+
+### Responsive / Performance Results
+- Verified zero horizontal overflow or section escape at 320/360/375/390/412/768/1024/1440px and zero browser console warnings/errors.
+- Fixed the 320–360px menu footer collision by separating social links from the project CTA; all panel children remain inside the viewport at heights from 568px upward.
+- Added real mobile scroll locking and made the closed menu inert, preventing background movement and keyboard focus on invisible navigation.
+- Increased the menu trigger and social links to 44px minimum touch targets; the full mobile page now has no undersized interactive controls.
+- Shortened menu motion so every child reaches full opacity within 850ms, retained the exact 25px panel/control radius, and verified Escape plus forward/reverse focus wrapping.
+- Removed Lenis and its stylesheet from the critical path, saving 18.9KB decoded JavaScript/CSS and one continuously scheduled animation frame while retaining native smooth anchor scrolling.
+- Paused the systems marquee outside the viewport, releases its `will-change` layer when inactive, and starts/stops the rotating status timer based on visibility.
+- Removed per-row reveal observers from the credential archive after detecting that previously hidden disclosure rows could remain transparent; all 13 rows now render immediately when opened.
+- Final initial resource load: 7 requests, 94.7KB transferred (excluding the HTML document), no broken images, 35 one-shot reveal targets, and 14 valid service-worker assets.
+- Final mobile Lighthouse: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.4s, LCP 1.8s, CLS 0, TBT 0ms, Speed Index 1.4s.
+- Final desktop Lighthouse: 100 across all four categories; FCP 0.3s, LCP 0.4s, CLS 0, TBT 0ms, Speed Index 0.3s.
 
 ## Personal Location Removal
 - [x] Remove Riyadh/Saudi Arabia from the hero availability line.

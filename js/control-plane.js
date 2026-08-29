@@ -6,7 +6,6 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const sectionLinks = menu
   ? [...menu.querySelectorAll(':scope > a[href^="#"]:not(.nav-cta)')]
   : [];
-let smoothScroll;
 
 function setMenuState(open) {
   if (!menuToggle || !menu) return;
@@ -16,8 +15,11 @@ function setMenuState(open) {
     ? "Close navigation"
     : "Open navigation";
   menu.classList.toggle("is-open", open);
+  menu.inert = !open && !desktopNavigation.matches;
   document.body.classList.toggle("menu-open", open);
 }
+
+setMenuState(false);
 
 menuToggle?.addEventListener("click", () => {
   setMenuState(menuToggle.getAttribute("aria-expanded") !== "true");
@@ -50,9 +52,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-desktopNavigation.addEventListener("change", (event) => {
-  if (event.matches) setMenuState(false);
-});
+desktopNavigation.addEventListener("change", () => setMenuState(false));
 
 function updateHeader() {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -102,7 +102,7 @@ function initializeMotion() {
   document.documentElement.classList.add("motion-enabled");
 
   const heroElements = document.querySelectorAll(
-    ".hero .eyebrow, .hero-intro, .hero-actions, .availability, .control-plane, .proof-strip > div"
+    ".hero .eyebrow, .hero-intro, .hero-actions, .availability, .control-plane"
   );
 
   heroElements.forEach((element, index) => {
@@ -124,8 +124,7 @@ function initializeMotion() {
     ".process-heading > *",
     ".process-card",
     ".identity-panel > *",
-    ".credentials-heading > *",
-    ".credential-list > li",
+    ".credentials-layout > *",
     ".contact-panel > *",
     ".footer-main > *",
     ".footer-bottom",
@@ -162,6 +161,11 @@ function initializeMotion() {
       railList.append(clone);
     });
     rail.classList.add("is-marquee");
+    const railObserver = new IntersectionObserver(
+      ([entry]) => rail.classList.toggle("is-active", entry.isIntersecting),
+      { rootMargin: "15% 0px" }
+    );
+    railObserver.observe(rail);
   }
 
   const log = document.querySelector(".plane-log");
@@ -177,15 +181,31 @@ function initializeMotion() {
 
   if (log && logEvent && logMessage && logResult) {
     let checkIndex = 2;
-    window.setInterval(() => {
-      if (document.hidden || menuToggle?.getAttribute("aria-expanded") === "true") return;
+    let logVisible = false;
+    let logTimer;
+    const rotateLog = () => {
+      if (menuToggle?.getAttribute("aria-expanded") === "true") return;
       log.classList.add("is-switching");
       window.setTimeout(() => {
         checkIndex = (checkIndex + 1) % checks.length;
         [logEvent.textContent, logMessage.textContent, logResult.textContent] = checks[checkIndex];
         log.classList.remove("is-switching");
       }, 320);
-    }, 2500);
+    };
+    const syncLogTimer = () => {
+      window.clearInterval(logTimer);
+      logTimer = undefined;
+      if (logVisible && !document.hidden) logTimer = window.setInterval(rotateLog, 2500);
+    };
+    const logObserver = new IntersectionObserver(
+      ([entry]) => {
+        logVisible = entry.isIntersecting;
+        syncLogTimer();
+      },
+      { rootMargin: "10% 0px" }
+    );
+    logObserver.observe(log);
+    document.addEventListener("visibilitychange", syncLogTimer);
   }
 
   document.querySelectorAll(".primary-nav > a:not(.nav-cta) .roll-label").forEach((label) => {
@@ -195,17 +215,6 @@ function initializeMotion() {
 }
 
 initializeMotion();
-
-if (!reducedMotion.matches && typeof window.Lenis === "function") {
-  smoothScroll = new window.Lenis({
-    autoRaf: true,
-    anchors: true,
-    lerp: 0.1,
-    smoothWheel: true,
-    syncTouch: false,
-    stopInertiaOnNavigate: true,
-  });
-}
 
 if ("serviceWorker" in navigator && location.protocol === "https:") {
   window.addEventListener("load", () => {

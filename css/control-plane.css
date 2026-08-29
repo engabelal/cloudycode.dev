@@ -66,6 +66,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body.menu-open {
+  height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 img,
 svg {
   display: block;
@@ -259,7 +265,7 @@ p {
   z-index: 4;
   display: grid;
   width: 6.25rem;
-  height: 2.5rem;
+  height: 2.75rem;
   flex: 0 0 6.25rem;
   padding: 0 1rem;
   place-content: center;
@@ -269,7 +275,7 @@ p {
   background: var(--ink);
   color: white;
   cursor: pointer;
-  transition: background-color 240ms ease, color 240ms ease, transform 750ms cubic-bezier(0.76, 0, 0.24, 1);
+  transition: background-color 200ms ease, color 200ms ease, transform 520ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .menu-word {
@@ -288,7 +294,7 @@ p {
   font-weight: 600;
   line-height: 1.25rem;
   text-align: center;
-  transition: opacity 360ms ease, transform 500ms cubic-bezier(0.76, 0, 0.24, 1);
+  transition: opacity 260ms ease, transform 360ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .menu-word b:last-child {
@@ -319,7 +325,7 @@ p {
   right: -0.875rem;
   display: flex;
   width: 6.25rem;
-  height: 2.5rem;
+  height: 2.75rem;
   flex-direction: column;
   gap: 0.25rem;
   padding: 0;
@@ -330,7 +336,7 @@ p {
   background: #141414;
   box-shadow: 0 2rem 5rem rgba(11, 17, 24, 0.28);
   pointer-events: none;
-  transition: width 750ms cubic-bezier(0.76, 0, 0.24, 1) 350ms, height 750ms cubic-bezier(0.76, 0, 0.24, 1) 350ms, top 750ms cubic-bezier(0.76, 0, 0.24, 1) 350ms;
+  transition: width 520ms cubic-bezier(0.76, 0, 0.24, 1) 220ms, height 520ms cubic-bezier(0.76, 0, 0.24, 1) 220ms, top 520ms cubic-bezier(0.76, 0, 0.24, 1) 220ms;
 }
 
 .primary-nav.is-open {
@@ -338,7 +344,7 @@ p {
   width: 90vw;
   height: min(40.625rem, calc(100dvh - 1.5rem));
   pointer-events: auto;
-  transition: width 750ms cubic-bezier(0.76, 0, 0.24, 1), height 750ms cubic-bezier(0.76, 0, 0.24, 1), top 750ms cubic-bezier(0.76, 0, 0.24, 1);
+  transition: width 520ms cubic-bezier(0.76, 0, 0.24, 1), height 520ms cubic-bezier(0.76, 0, 0.24, 1), top 520ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .primary-nav a {
@@ -356,13 +362,13 @@ p {
   text-decoration: none;
   opacity: 0;
   transform: translateY(100%);
-  transition: color 180ms ease, opacity 700ms cubic-bezier(0.76, 0, 0.24, 1), transform 700ms cubic-bezier(0.76, 0, 0.24, 1);
+  transition: color 160ms ease, opacity 440ms cubic-bezier(0.76, 0, 0.24, 1), transform 440ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .primary-nav > a:not(.nav-cta) {
   width: calc(100% - 5rem);
   margin-left: 2.5rem;
-  color: #666;
+  color: #8a8a8a;
 }
 
 .primary-nav > a:first-child {
@@ -390,19 +396,19 @@ p {
 }
 
 .primary-nav.is-open > a:nth-child(1) {
-  transition-delay: 350ms;
+  transition-delay: 180ms;
 }
 
 .primary-nav.is-open > a:nth-child(2) {
-  transition-delay: 410ms;
+  transition-delay: 220ms;
 }
 
 .primary-nav.is-open > a:nth-child(3) {
-  transition-delay: 470ms;
+  transition-delay: 260ms;
 }
 
 .primary-nav.is-open > a:nth-child(4) {
-  transition-delay: 530ms;
+  transition-delay: 300ms;
 }
 
 .primary-nav.is-open > a,
@@ -431,7 +437,7 @@ p {
 }
 
 .primary-nav.is-open .nav-cta {
-  transition-delay: 590ms;
+  transition-delay: 340ms;
 }
 
 .primary-nav .nav-cta small {
@@ -450,11 +456,11 @@ p {
   justify-items: end;
   opacity: 0;
   transform: translateY(1rem);
-  transition: opacity 700ms cubic-bezier(0.76, 0, 0.24, 1), transform 700ms cubic-bezier(0.76, 0, 0.24, 1);
+  transition: opacity 440ms cubic-bezier(0.76, 0, 0.24, 1), transform 440ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .primary-nav.is-open .nav-meta {
-  transition-delay: 650ms;
+  transition-delay: 380ms;
 }
 
 .footer-status i {
@@ -468,7 +474,7 @@ p {
 
 .primary-nav .nav-meta a {
   min-width: auto;
-  min-height: 1.4rem;
+  min-height: 2.75rem;
   justify-content: flex-end;
   border: 0;
   color: #a5a5a5;
@@ -481,6 +487,17 @@ p {
   text-decoration: none;
   text-transform: uppercase;
   transition: color 180ms ease;
+}
+
+@media (max-width: 23rem) {
+  .nav-meta {
+    right: 2.5rem;
+    bottom: max(6rem, calc(env(safe-area-inset-bottom) + 6rem));
+    left: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.85rem;
+  }
 }
 
 .hero {
@@ -1830,6 +1847,12 @@ p {
   max-width: none;
   margin-inline: 0;
   animation: rail-marquee 30s linear infinite;
+  animation-play-state: paused;
+  will-change: auto;
+}
+
+.system-rail.is-marquee.is-active ul {
+  animation-play-state: running;
   will-change: transform;
 }
 
