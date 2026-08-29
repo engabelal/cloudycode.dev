@@ -156,3 +156,9 @@
 - Root cause: I retained weekly automated version-update configuration after simplifying the pipeline because it is commonly useful, instead of treating bot activity as a separate product choice.
 - Prevention rule: Do not preserve or introduce automated dependency-update bots unless the repository owner wants their PR and branch activity.
 - How to verify next time: Audit bot configuration, open bot PRs, and generated branches separately from vulnerability reporting before finalizing repository automation.
+
+### 2026-08-30 - Treat commit attribution as part of the public portfolio surface
+- Correction from user: Automated and assistant identities should not appear in the repository Contributors graph.
+- Root cause: I removed bot automation and branches but did not initially audit historical author emails and co-author trailers, which GitHub uses for contributor attribution.
+- Prevention rule: For a personal portfolio repository, review reachable commit authors and co-author trailers before publishing history; do not add assistant attribution that conflicts with the owner's contributor policy.
+- How to verify next time: Inspect `git log` identities and trailers, query the contributor API, and allow for GitHub's contributor-statistics refresh window after any approved history rewrite.

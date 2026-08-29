@@ -319,3 +319,12 @@
 - [x] Confirm the repository has no open Dependabot pull requests.
 - [x] Remove the weekly GitHub Actions Dependabot configuration.
 - [x] Validate the remaining workflows and synchronize `portfolio-redesign` with `main` locally and remotely.
+
+# Contributor Attribution Cleanup
+
+- [x] Inventory author, committer, sign-off, and co-author identities across the default-branch history.
+- [x] Back up the complete pre-rewrite repository history outside the working tree.
+- [x] Reassign seven Dependabot-authored commits to Ahmed and remove Dependabot sign-off trailers.
+- [x] Remove Anthropic/Claude-linked co-author trailers without changing commit contents or topology.
+- [x] Force-update `main` and `portfolio-redesign` atomically and verify both local/remote refs match.
+- [x] Confirm the rewritten history contains no Dependabot author or Anthropic/Claude co-author attribution.
