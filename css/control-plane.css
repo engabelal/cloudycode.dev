@@ -1968,6 +1968,7 @@ p {
   .flow-step {
     min-height: 7.5rem;
     padding: 3.5rem 0.6rem 0.75rem;
+    align-content: start;
     border-top: 1px solid var(--line-dark);
     border-left: 0;
     margin: 0;

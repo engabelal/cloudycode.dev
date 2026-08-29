@@ -1,5 +1,19 @@
 # CloudyCode Portfolio Redesign Discovery
 
+## Delivery Flow Text Alignment Correction
+- [x] Identify why the `Policy` stage sits lower than the other desktop stages.
+- [x] Top-align every stage's title/description block without disturbing the rail, dots, or mobile stack.
+- [x] Verify title and description coordinates across all five stages at desktop widths.
+- [x] Recheck mobile layout, overflow, console output, and cache delivery.
+- [x] Commit, push, and fast-forward `main` after verification.
+
+### Delivery Flow Alignment Results
+- All five stage titles now share the exact same top coordinate at 768px, 1024px, and 1440px (`0px` spread).
+- All five descriptions also begin at the exact same coordinate, while longer descriptions may wrap naturally below that shared baseline.
+- The correction uses top alignment only at the five-column breakpoint; the 390px vertical flow remains unchanged with five equal 68px steps.
+- No horizontal overflow or browser console warnings/errors were detected.
+- Cache version advanced to `v3.11.4` so the corrected layout replaces the cached stylesheet.
+
 ## Open Menu Control Alignment Correction
 - [x] Measure the supplied open-state screenshot against the panel edge.
 - [x] Place the Close control fully inside the expanded panel with equal top/right inset.

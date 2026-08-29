@@ -174,3 +174,9 @@
 - Root cause: I verified matching closed rectangles and matching corner radii, but did not assert the open control's top/right inset relative to the panel; the positive horizontal transform pushed it outside.
 - Prevention rule: Treat closed overlap and open inset as separate geometry contracts, and verify both numerically before publishing.
 - How to verify next time: In the fully open state, assert that `button.top - panel.top` and `panel.right - button.right` are equal, positive, and match the approved inset at every mobile width.
+
+### 2026-08-30 - Do not vertically center variable-height text groups in comparison rows
+- Correction from user: The `Policy` stage sat lower than Source, Build, Deploy, and Observe in the desktop delivery flow.
+- Root cause: Each stage vertically centered its combined title/description content; stages with wrapped descriptions became taller, so their titles moved upward relative to the one-line Policy description.
+- Prevention rule: In side-by-side comparison rows, align text groups to a shared top edge and reserve consistent row space for variable-length descriptions.
+- How to verify next time: Measure the top coordinate of every peer title and description across each responsive column layout, not only the outer card dimensions.
