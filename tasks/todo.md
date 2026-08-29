@@ -98,3 +98,20 @@
 - Verified no horizontal overflow at 360, 390, 768, 1024, and 1440px; desktop navigation remains visible and aligned.
 - Verified keyboard wrap (`Shift+Tab`/`Tab`), Escape close with focus return, zero reduced-motion animation, and no motion enhancement when `prefers-reduced-motion` is enabled.
 - Final Lighthouse mobile audit: Performance 98, Accessibility 100, Best Practices 100, SEO 100; LCP 2.1s, CLS 0.006, TBT 0ms. Browser console: zero warnings/errors.
+
+## Process Section / Navigation Refinement
+- [x] Replace the existing generic capability list with an original four-phase process section inspired by the supplied reference.
+- [x] Place the process after public labs and before the personal authority/credentials sequence.
+- [x] Add Home to desktop and mobile navigation with correct numbering and smooth top navigation.
+- [x] Correct the Menu/Close label centering with geometry-based alignment rather than font-dependent placement.
+- [x] Verify menu stagger/focus order after adding Home and test 360–1440px alignment.
+- [x] Recheck motion smoothness, reduced motion, console output, and Lighthouse performance.
+
+### Process / Navigation Results
+- Reframed the existing Approach section as a clear four-phase methodology—Discover & Frame, Architect & Align, Build & Verify, and Launch & Improve—so the site gains the requested visual rhythm without duplicating content.
+- Kept the section after public labs and before Ahmed's authority profile: evidence first, methodology second, person/credentials third.
+- Added `Home 00` to desktop and mobile navigation and Home to the footer; verified smooth return to the top.
+- Menu/Close label center and button center now match exactly on both axes (`0px` delta) at mobile size.
+- Four mobile menu links, CTA, and social links retain exact 40px edge alignment at 360, 390, and 768px; no overlap and no horizontal overflow.
+- Verified layouts at 360, 390, 768, 1024, and 1440px, keyboard focus wrap, Escape/focus return, reduced-motion fallback, and zero console warnings/errors.
+- Final Lighthouse mobile: Performance 99, Accessibility 100, Best Practices 100, SEO 100; FCP 1.5s, LCP 2.1s, CLS 0, TBT 0ms.

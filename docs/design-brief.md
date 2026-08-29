@@ -22,7 +22,7 @@ The signature element is a responsive delivery path: Source → Build → Policy
 2. Compact credibility record
 3. Anonymized professional fieldwork
 4. Selected public systems and GitHub labs
-5. Working model and capability areas
+5. Four-phase delivery methodology
 6. Selected credentials
 7. Direct contact conversion
 
@@ -72,6 +72,7 @@ The signature element is a responsive delivery path: Source → Build → Policy
 | Responsive system path | Desktop diagram scaled down | Preserves readability and interaction on mobile |
 | Self-hosted fonts | Google Fonts runtime requests | Faster, more private, and more reliable |
 | Compact operational footer | Oversized closing wordmark | Keeps Ahmed's identity visible without overpowering contact and navigation |
+| Methodology after public labs | Process before proof | Lets inspectable evidence establish credibility before explaining how Ahmed works |
 
 ## Motion Contract
 

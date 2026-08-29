@@ -13,6 +13,12 @@
 - How to verify next time:
 
 ## Entries
+### 2026-08-29 - Verify text centering geometrically inside animated controls
+- Correction from user: The word “Menu” still did not look centered inside the capsule.
+- Root cause: The label relied on intrinsic grid content sizing, so typographic metrics and the animated panel behind it could make the control look optically off-center.
+- Prevention rule: Animated capsule labels should fill the control and use explicit two-axis centering independent of text width.
+- How to verify next time: Compare label and button center coordinates in the browser for both closed and open states, then inspect the screenshot at mobile size.
+
 ### 2026-08-29 - Match reference proportions and motion, not only the visual ingredients
 - Correction from user: The recreated menu was too tall, not smooth, and still felt unlike the reference; related JavaScript motion also needed study across mobile and desktop.
 - Root cause: I matched the colors, rounded panel, and content placement from a single open-state screenshot but did not measure panel height, timing, easing, or the broader motion language.
